@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IPE3 | Seguridad Electrónica y Sistemas Tecnológicos</title>
+    <title>IPE PROYECTOS | Seguridad Electrónica y Sistemas Tecnológicos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -43,12 +43,20 @@
         }
         
         .logo {
-            height: 150px; /* Tamaño aumentado */
-            transition: transform 0.3s;
+            height: 150px;
+            animation: float 6s ease-in-out infinite;
+            transition: all 0.4s;
         }
         
         .logo:hover {
-            transform: scale(1.05);
+            animation: none;
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
         }
         
         /* Hero Banner */
@@ -58,11 +66,85 @@
             background-position: center;
             color: var(--white);
             text-align: center;
-            padding: 120px 20px; /* Más espacio para destacar logo */
-            margin-top: -20px; /* Compensa el header más grande */
+            padding: 120px 20px;
+            margin-top: -20px;
         }
         
-        /* Resto del CSS permanece igual */
+        .hero h1 {
+            animation: slideInDown 0.8s ease-out;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .hero p {
+            animation: slideInUp 0.8s ease-out 0.2s forwards;
+            opacity: 0;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        @keyframes slideInDown {
+            from { transform: translateY(-30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes slideInUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        /* Botones */
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+            transform: translateZ(0);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid var(--primary);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 86, 179, 0.3);
+        }
+        
+        .btn:active {
+            transform: translateY(-1px);
+        }
+        
+        .btn:after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            transform: scale(10, 10);
+            opacity: 0;
+            transition: transform .5s, opacity 1s;
+        }
+        
+        .btn:active:after {
+            transform: scale(0, 0);
+            opacity: 0.3;
+            transition: 0s;
+        }
+        
+        /* Productos */
         .products {
             background-color: var(--primary-light);
             padding: 60px 0;
@@ -82,12 +164,27 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            transition: all 0.4s;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s forwards;
         }
         
         .product-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: 0 15px 30px rgba(0, 86, 179, 0.2);
         }
+        
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .product-card:nth-child(1) { animation-delay: 0.1s; }
+        .product-card:nth-child(2) { animation-delay: 0.2s; }
+        .product-card:nth-child(3) { animation-delay: 0.3s; }
+        .product-card:nth-child(4) { animation-delay: 0.4s; }
+        .product-card:nth-child(5) { animation-delay: 0.5s; }
+        .product-card:nth-child(6) { animation-delay: 0.6s; }
         
         .product-img {
             height: 200px;
@@ -100,6 +197,11 @@
         .product-img i {
             font-size: 60px;
             color: var(--primary);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover .product-img i {
+            transform: scale(1.2) rotate(10deg);
         }
         
         .product-content {
@@ -111,23 +213,7 @@
             margin-top: 0;
         }
         
-        .btn {
-            display: inline-block;
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 10px 20px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: 2px solid var(--primary);
-        }
-        
-        .btn:hover {
-            background-color: transparent;
-            color: var(--primary);
-        }
-        
+        /* Contacto */
         .contact {
             padding: 60px 20px;
             background-color: var(--white);
@@ -151,13 +237,29 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            transition: all 0.3s;
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-3px);
         }
         
         .contact-item i {
             font-size: 24px;
             color: var(--primary);
+            transition: all 0.3s;
         }
         
+        .contact-item:hover i {
+            transform: scale(1.2) rotate(10deg);
+            color: var(--primary-dark);
+        }
+        
+        .contact-item:hover span {
+            font-weight: 600;
+        }
+        
+        /* Footer */
         footer {
             background-color: var(--primary-dark);
             color: var(--white);
@@ -175,13 +277,21 @@
         .social-links a {
             color: var(--white);
             font-size: 24px;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
+            display: inline-block;
         }
         
         .social-links a:hover {
+            transform: translateY(-5px) scale(1.2);
             color: var(--primary-light);
         }
         
+        .social-links a:nth-child(1) { transition-delay: 0.1s; }
+        .social-links a:nth-child(2) { transition-delay: 0.2s; }
+        .social-links a:nth-child(3) { transition-delay: 0.3s; }
+        .social-links a:nth-child(4) { transition-delay: 0.4s; }
+        
+        /* Responsive */
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -196,6 +306,10 @@
             
             .hero {
                 padding: 80px 20px;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -215,12 +329,12 @@
 
     <!-- Hero Banner -->
     <section class="hero">
-        <h1 style="font-size: 2.5rem; margin-bottom: 15px;">Soluciones Integrales en Seguridad Electrónica</h1>
-        <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">Tecnología de vanguardia para proteger lo que más importa</p>
+        <h1>Soluciones Integrales en Seguridad Electrónica</h1>
+        <p>Tecnología de vanguardia para proteger lo que más importa</p>
         <a href="#contacto" class="btn" style="margin-top: 30px; padding: 12px 30px; font-size: 1.1rem;">Contáctanos</a>
     </section>
 
-    <!-- Resto del contenido permanece igual -->
+    <!-- Productos y Servicios -->
     <section class="products">
         <h2 style="text-align: center; color: var(--primary-dark); margin-top: 0; font-size: 2rem;">Nuestros Productos y Servicios</h2>
         
@@ -364,10 +478,9 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer sin logo -->
     <footer>
-        <img src="epe3 transparnete.png" alt="IPE PROYECTOS" style="height: 80px; margin-bottom: 15px;">
-        <p style="font-size: 1.2rem; font-weight: 500;">INTELIGENCIA Y ENERGÍA CONECTADAS</p>
+        <p style="font-size: 1.2rem; font-weight: 500; margin-bottom: 15px;">INTELIGENCIA Y ENERGÍA CONECTADAS</p>
         
         <div class="social-links">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
