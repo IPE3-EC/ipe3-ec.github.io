@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IPE3 | Ingeniería Eléctrica y Electrónica Proyectos Ecuador</title>
+    <link rel="icon" href="favicon (2).ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --primary: #0056b3;       /* Azul corporativo principal */
             --primary-dark: #003d7a;  /* Azul oscuro */
             --primary-light: #e6f0ff; /* Azul claro de fondo */
-            --white: #f8f8f8;         /* Gris claro */
+            --white: #f5f5f5;         /* Gris claro */
             --text: #333333;
             --background: #f0f0f0;    /* Fondo gris claro */
         }
@@ -24,7 +25,7 @@
             line-height: 1.6;
         }
         
-        /* Header con logo animado como humo */
+        /* Header sin animación */
         header {
             background-color: var(--white);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -45,28 +46,12 @@
         
         .logo {
             height: 150px;
-            filter: drop-shadow(0 0 10px rgba(0, 86, 179, 0.4));
-            animation: smoke 4s ease-in-out infinite;
-            transition: all 0.4s;
-            opacity: 1;
+            filter: drop-shadow(0 0 5px rgba(0, 86, 179, 0.3));
+            transition: transform 0.3s;
         }
         
         .logo:hover {
-            animation: smoke-fast 1s ease-in-out infinite;
-            filter: drop-shadow(0 0 15px rgba(0, 86, 179, 0.6));
             transform: scale(1.05);
-        }
-        
-        @keyframes smoke {
-            0% { filter: drop-shadow(0 0 10px rgba(0, 86, 179, 0.4)) blur(0px); opacity: 1; }
-            50% { filter: drop-shadow(0 0 20px rgba(0, 86, 179, 0.7)) blur(1px); opacity: 0.95; }
-            100% { filter: drop-shadow(0 0 10px rgba(0, 86, 179, 0.4)) blur(0px); opacity: 1; }
-        }
-        
-        @keyframes smoke-fast {
-            0% { filter: drop-shadow(0 0 10px rgba(0, 86, 179, 0.6)) blur(0px); }
-            50% { filter: drop-shadow(0 0 25px rgba(0, 86, 179, 0.9)) blur(1px); }
-            100% { filter: drop-shadow(0 0 10px rgba(0, 86, 179, 0.6)) blur(0px); }
         }
         
         /* Hero Banner */
@@ -201,11 +186,10 @@
         
         .product-img {
             height: 200px;
-            background-color: #f5f5f5;
+            background-color: var(--background);
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: var(--background);
         }
         
         .product-img i {
@@ -329,10 +313,10 @@
     </style>
 </head>
 <body>
-    <!-- Header con logo animado como humo -->
+    <!-- Header sin animación -->
     <header>
         <div class="header-container">
-            <img src="https://scontent.fgye4-1.fna.fbcdn.net/v/t39.30808-6/300511825_1022890894444225_1343020111269718168_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=7G2j0tV8eNwQ7kNvgG7m1g3&_nc_ht=scontent.fgye4-1.fna&oh=00_AYD5wqQwQm5Y3GZv3Ql7ZQJm9J9kZv3Ql7ZQJm9J9kZv3Ql7ZQ&oe=6647F8E5" alt="IPE PROYECTOS" class="logo">
+            <img src="epe3 transparnete.png" alt="IPE PROYECTOS" class="logo">
             <div>
                 <a href="tel:+593984016027" class="btn">
                     <i class="fas fa-phone"></i> +593 98 401 6027
