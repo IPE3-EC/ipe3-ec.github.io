@@ -3,88 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IPE3DARK - Facebook</title>
+    <title>Servicios Técnicos Especializados | IPE3DARK</title>
     <style>
+        /* Estilos generales */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #121212;
-            color: #ffffff;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            text-align: center;
-        }
-        .header {
-            margin-bottom: 30px;
-        }
-        .logo {
-            width: 150px;
-            border-radius: 50%;
-            border: 3px solid #3b5998;
-        }
-        h1 {
-            color: #3b5998;
-            margin: 10px 0;
-        }
-        .description {
-            margin: 20px 0;
+            background-color: #f5f5f5;
+            color: #333;
             line-height: 1.6;
         }
-        .btn {
-            display: inline-block;
-            background-color: #3b5998;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        /* Header */
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, #1a237e, #283593);
             color: white;
-            padding: 12px 24px;
+            border-bottom: 5px solid #ff5722;
+        }
+        header img {
+            width: 150px;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+        header h1 {
+            margin: 15px 0;
+            font-size: 2.5em;
+        }
+        /* Servicios */
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 40px 0;
+        }
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 30%;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .service-card h3 {
+            color: #1a237e;
+            border-bottom: 2px solid #ff5722;
+            padding-bottom: 10px;
+        }
+        .service-card .icon {
+            font-size: 40px;
+            color: #ff5722;
+            margin-bottom: 15px;
+        }
+        /* Contacto */
+        .contact {
+            background: #1a237e;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            margin-top: 30px;
+            border-radius: 10px;
+        }
+        .contact a {
+            display: inline-block;
+            background: #ff5722;
+            color: white;
+            padding: 12px 25px;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
-            margin: 10px;
-            transition: background-color 0.3s;
+            margin-top: 15px;
+            transition: background 0.3s;
         }
-        .btn:hover {
-            background-color: #2d4373;
+        .contact a:hover {
+            background: #e64a19;
         }
-        .social-links {
-            margin-top: 30px;
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background: #1a237e;
+            color: white;
         }
-        .footer {
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 1px solid #333;
-            font-size: 14px;
+        /* Responsive */
+        @media (max-width: 768px) {
+            .service-card {
+                width: 100%;
+            }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <!-- Reemplaza con tu logo o imagen de perfil -->
-            <img src="https://via.placeholder.com/150" alt="IPE3DARK Logo" class="logo">
+    <!-- Encabezado -->
+    <header>
+        <div class="container">
+            <img src="https://via.placeholder.com/150" alt="Logo IPE3DARK">
             <h1>IPE3DARK</h1>
-            <p>¡Sígueme en Facebook para más contenido!</p>
+            <p>Servicios Técnicos Especializados en Seguridad, Medicina y Robótica</p>
+        </div>
+    </header>
+
+    <!-- Servicios -->
+    <div class="container">
+        <h2 style="text-align: center; color: #1a237e;">Nuestros Servicios</h2>
+        <div class="services">
+            <!-- Servicio 1: CCTV -->
+            <div class="service-card">
+                <div class="icon"><i class="fas fa-video"></i></div>
+                <h3>Instalación de CCTV</h3>
+                <p>Venta e instalación profesional de sistemas de videovigilancia para hogares y empresas.</p>
+                <ul>
+                    <li>Cámaras HD / 4K</li>
+                    <li>DVR / NVR</li>
+                    <li>Monitoreo remoto</li>
+                </ul>
+            </div>
+            <!-- Servicio 2: Equipos Médicos -->
+            <div class="service-card">
+                <div class="icon"><i class="fas fa-hospital"></i></div>
+                <h3>Mantenimiento de Equipos Médicos</h3>
+                <p>Servicio técnico especializado en equipos oftalmológicos de alta gama.</p>
+                <ul>
+                    <li>Mantenimiento preventivo</li>
+                    <li>Reparación correctiva</li>
+                    <li>Calibración</li>
+                </ul>
+            </div>
+            <!-- Servicio 3: Robótica -->
+            <div class="service-card">
+                <div class="icon"><i class="fas fa-robot"></i></div>
+                <h3>Robótica y Automatización</h3>
+                <p>Soluciones tecnológicas avanzadas en robótica industrial y doméstica.</p>
+                <ul>
+                    <li>Brazos robóticos</li>
+                    <li>Automatización de procesos</li>
+                    <li>IoT (Internet de las Cosas)</li>
+                </ul>
+            </div>
+            <!-- Servicio 4: Instalaciones Eléctricas -->
+            <div class="service-card">
+                <div class="icon"><i class="fas fa-bolt"></i></div>
+                <h3>Instalaciones Eléctricas</h3>
+                <p>Soluciones en electricidad residencial, comercial e industrial.</p>
+                <ul>
+                    <li>Paneles solares</li>
+                    <li>Cableado estructurado</li>
+                    <li>Control de accesos</li>
+                </ul>
+            </div>
+            <!-- Servicio 5: Control de Accesos -->
+            <div class="service-card">
+                <div class="icon"><i class="fas fa-id-card"></i></div>
+                <h3>Control de Accesos</h3>
+                <p>Sistemas de seguridad biométricos y con tarjeta para empresas.</p>
+                <ul>
+                    <li>Lectores de huella</li>
+                    <li>Reconocimiento facial</li>
+                    <li>Software de gestión</li>
+                </ul>
+            </div>
+            <!-- Servicio 6: Soporte Técnico -->
+            <div class="service-card">
+                <div class="icon"><i class="fas fa-tools"></i></div>
+                <h3>Soporte Técnico</h3>
+                <p>Asistencia remota y presencial para equipos electrónicos.</p>
+                <ul>
+                    <li>Diagnóstico rápido</li>
+                    <li>Reparación in situ</li>
+                    <li>Garantía extendida</li>
+                </ul>
+            </div>
         </div>
 
-        <div class="description">
-            <p>Bienvenido/a a la página oficial de IPE3DARK en Facebook. Aquí encontrarás contenido exclusivo, actualizaciones y mucho más.</p>
-            <p>¡No olvides darle "Me gusta" y seguir mi página para estar al tanto de todas las novedades!</p>
-        </div>
-
-        <a href="https://www.facebook.com/ipe3dark/" class="btn" target="_blank">Visitar página de Facebook</a>
-
-        <div class="social-links">
-            <!-- Puedes agregar más redes sociales si es necesario -->
-            <p>También puedes encontrarme en:</p>
-            <a href="#" class="btn">Instagram</a>
-            <a href="#" class="btn">Twitter</a>
-        </div>
-
-        <div class="footer">
-            <p>&copy; 2023 IPE3DARK. Todos los derechos reservados.</p>
+        <!-- Contacto -->
+        <div class="contact">
+            <h2>¿Necesitas asesoría técnica?</h2>
+            <p>Contáctanos para soluciones personalizadas y presupuestos sin compromiso.</p>
+            <a href="https://www.facebook.com/ipe3dark/" target="_blank"><i class="fab fa-facebook"></i> Contáctanos en Facebook</a>
+            <p style="margin-top: 20px;">
+                <i class="fas fa-phone"></i> Teléfono: +51 XXX XXX XXX<br>
+                <i class="fas fa-envelope"></i> Email: contacto@ipe3dark.com
+            </p>
         </div>
     </div>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2023 IPE3DARK - Servicios Técnicos Especializados. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
