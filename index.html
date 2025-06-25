@@ -23,13 +23,14 @@
             line-height: 1.6;
         }
         
-        /* Header */
+        /* Header - Logo más grande */
         header {
             background-color: var(--white);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 100;
+            padding: 10px 0;
         }
         
         .header-container {
@@ -38,11 +39,16 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 0 20px;
         }
         
         .logo {
-            height: 60px;
+            height: 100px; /* Tamaño aumentado */
+            transition: transform 0.3s;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
         }
         
         /* Hero Banner */
@@ -52,10 +58,11 @@
             background-position: center;
             color: var(--white);
             text-align: center;
-            padding: 100px 20px;
+            padding: 120px 20px; /* Más espacio para destacar logo */
+            margin-top: -20px; /* Compensa el header más grande */
         }
         
-        /* Productos/Servicios */
+        /* Resto del CSS permanece igual */
         .products {
             background-color: var(--primary-light);
             padding: 60px 0;
@@ -121,7 +128,6 @@
             color: var(--primary);
         }
         
-        /* Contacto */
         .contact {
             padding: 60px 20px;
             background-color: var(--white);
@@ -152,7 +158,6 @@
             color: var(--primary);
         }
         
-        /* Footer */
         footer {
             background-color: var(--primary-dark);
             color: var(--white);
@@ -181,16 +186,22 @@
             .header-container {
                 flex-direction: column;
                 text-align: center;
+                padding: 15px;
             }
             
             .logo {
+                height: 80px;
                 margin-bottom: 15px;
+            }
+            
+            .hero {
+                padding: 80px 20px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header con logo grande -->
     <header>
         <div class="header-container">
             <img src="epe3 transparnete.png" alt="IPE PROYECTOS" class="logo">
@@ -204,14 +215,14 @@
 
     <!-- Hero Banner -->
     <section class="hero">
-        <h1>Soluciones Integrales en Seguridad Electrónica</h1>
-        <p>Tecnología de vanguardia para proteger lo que más importa</p>
-        <a href="#contacto" class="btn" style="margin-top: 20px;">Contáctanos</a>
+        <h1 style="font-size: 2.5rem; margin-bottom: 15px;">Soluciones Integrales en Seguridad Electrónica</h1>
+        <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">Tecnología de vanguardia para proteger lo que más importa</p>
+        <a href="#contacto" class="btn" style="margin-top: 30px; padding: 12px 30px; font-size: 1.1rem;">Contáctanos</a>
     </section>
 
-    <!-- Productos/Servicios -->
+    <!-- Resto del contenido permanece igual -->
     <section class="products">
-        <h2 style="text-align: center; color: var(--primary-dark); margin-top: 0;">Nuestros Productos y Servicios</h2>
+        <h2 style="text-align: center; color: var(--primary-dark); margin-top: 0; font-size: 2rem;">Nuestros Productos y Servicios</h2>
         
         <div class="product-grid">
             <!-- CCTV -->
@@ -327,26 +338,26 @@
     <!-- Contacto -->
     <section class="contact" id="contacto">
         <div class="contact-container">
-            <h2 style="color: var(--primary-dark);">Contáctanos</h2>
-            <p>Estamos listos para asesorarte con la mejor solución para tus necesidades</p>
+            <h2 style="color: var(--primary-dark); font-size: 2rem;">Contáctanos</h2>
+            <p style="font-size: 1.1rem;">Estamos listos para asesorarte con la mejor solución para tus necesidades</p>
             
             <div class="contact-info">
                 <div class="contact-item">
                     <i class="fas fa-phone"></i>
-                    <span>+593 98 401 6027</span>
+                    <span style="font-size: 1.1rem;">+593 98 401 6027</span>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
-                    <span>ipe3ecuador@gmail.com</span>
+                    <span style="font-size: 1.1rem;">ipe3ecuador@gmail.com</span>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <span>Quito, Ecuador</span>
+                    <span style="font-size: 1.1rem;">Quito, Ecuador</span>
                 </div>
             </div>
             
-            <div style="margin-top: 30px;">
-                <a href="https://www.facebook.com/ipe3dark/" class="btn" target="_blank">
+            <div style="margin-top: 40px;">
+                <a href="https://www.facebook.com/ipe3dark/" class="btn" target="_blank" style="padding: 12px 30px; font-size: 1.1rem;">
                     <i class="fab fa-facebook-f"></i> Visítanos en Facebook
                 </a>
             </div>
@@ -355,8 +366,8 @@
 
     <!-- Footer -->
     <footer>
-        <img src="epe3 transparnete.png" alt="IPE PROYECTOS" style="height: 50px; margin-bottom: 15px;">
-        <p>INTELIGENCIA Y ENERGÍA CONECTADAS</p>
+        <img src="epe3 transparnete.png" alt="IPE PROYECTOS" style="height: 80px; margin-bottom: 15px;">
+        <p style="font-size: 1.2rem; font-weight: 500;">INTELIGENCIA Y ENERGÍA CONECTADAS</p>
         
         <div class="social-links">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
