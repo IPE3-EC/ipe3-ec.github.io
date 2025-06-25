@@ -10,8 +10,9 @@
             --primary: #0056b3;       /* Azul corporativo principal */
             --primary-dark: #003d7a;  /* Azul oscuro */
             --primary-light: #e6f0ff; /* Azul claro de fondo */
-            --white: #ffffff;
+            --white: #f5f5f5;         /* Cambiado a gris claro */
             --text: #333333;
+            --background: #f0f0f0;    /* Fondo gris claro */
         }
         
         body {
@@ -19,11 +20,11 @@
             margin: 0;
             padding: 0;
             color: var(--text);
-            background-color: var(--white);
+            background-color: var(--background);
             line-height: 1.6;
         }
         
-        /* Header - Logo más grande */
+        /* Header con logo animado como humo */
         header {
             background-color: var(--white);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -44,19 +45,23 @@
         
         .logo {
             height: 150px;
-            animation: float 6s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px rgba(0, 86, 179, 0.4));
+            animation: smoke 8s ease-in-out infinite;
             transition: all 0.4s;
+            opacity: 0.9;
         }
         
         .logo:hover {
             animation: none;
-            transform: scale(1.1) rotate(5deg);
+            filter: drop-shadow(0 0 15px rgba(0, 86, 179, 0.6));
+            opacity: 1;
+            transform: scale(1.05);
         }
         
-        @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(2deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
+        @keyframes smoke {
+            0% { filter: drop-shadow(0 0 5px rgba(0, 86, 179, 0.3)) blur(0px); opacity: 0.8; }
+            50% { filter: drop-shadow(0 0 15px rgba(0, 86, 179, 0.5)) blur(1px); opacity: 0.95; }
+            100% { filter: drop-shadow(0 0 5px rgba(0, 86, 179, 0.3)) blur(0px); opacity: 0.8; }
         }
         
         /* Hero Banner */
@@ -74,6 +79,7 @@
             animation: slideInDown 0.8s ease-out;
             font-size: 2.5rem;
             margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
         
         .hero p {
@@ -82,6 +88,7 @@
             font-size: 1.2rem;
             max-width: 800px;
             margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
         
         @keyframes slideInDown {
@@ -146,7 +153,7 @@
         
         /* Productos */
         .products {
-            background-color: var(--primary-light);
+            background-color: var(--white);
             padding: 60px 0;
         }
         
@@ -168,6 +175,7 @@
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.6s forwards;
+            border: 1px solid #e0e0e0;
         }
         
         .product-card:hover {
@@ -192,6 +200,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            background-color: var(--background);
         }
         
         .product-img i {
@@ -300,7 +309,7 @@
             }
             
             .logo {
-                height: 80px;
+                height: 100px;
                 margin-bottom: 15px;
             }
             
@@ -315,13 +324,13 @@
     </style>
 </head>
 <body>
-    <!-- Header con logo grande -->
+    <!-- Header con logo animado como humo -->
     <header>
         <div class="header-container">
             <img src="epe3 transparnete.png" alt="IPE PROYECTOS" class="logo">
             <div>
-                <a href="tel:+593984016027" class="btn">
-                    <i class="fas fa-phone"></i> +593 98 401 6027
+                <a href="tel:+593984016037" class="btn">
+                    <i class="fas fa-phone"></i> +593 98 401 6037
                 </a>
             </div>
         </div>
@@ -458,7 +467,7 @@
             <div class="contact-info">
                 <div class="contact-item">
                     <i class="fas fa-phone"></i>
-                    <span style="font-size: 1.1rem;">+593 98 401 6027</span>
+                    <span style="font-size: 1.1rem;">+593 98 401 6037</span>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
@@ -467,6 +476,10 @@
                 <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
                     <span style="font-size: 1.1rem;">Quito, Ecuador</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <span style="font-size: 1.1rem;">+593 98 401 6037</span>
                 </div>
             </div>
             
@@ -478,14 +491,14 @@
         </div>
     </section>
 
-    <!-- Footer sin logo -->
+    <!-- Footer -->
     <footer>
         <p style="font-size: 1.2rem; font-weight: 500; margin-bottom: 15px;">INTELIGENCIA Y ENERGÍA CONECTADAS</p>
         
         <div class="social-links">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.facebook.com/ipe3dark/" target="_blank"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://wa.me/593984016037" target="_blank"><i class="fab fa-whatsapp"></i></a>
             <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </div>
         
