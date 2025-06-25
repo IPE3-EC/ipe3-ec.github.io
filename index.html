@@ -10,7 +10,7 @@
             --primary: #0056b3;       /* Azul corporativo principal */
             --primary-dark: #003d7a;  /* Azul oscuro */
             --primary-light: #e6f0ff; /* Azul claro de fondo */
-            --white: #f5f5f5;         /* Cambiado a gris claro */
+            --white: #f8f8f8;         /* Gris claro */
             --text: #333333;
             --background: #f0f0f0;    /* Fondo gris claro */
         }
@@ -46,22 +46,27 @@
         .logo {
             height: 150px;
             filter: drop-shadow(0 0 10px rgba(0, 86, 179, 0.4));
-            animation: smoke 8s ease-in-out infinite;
+            animation: smoke 4s ease-in-out infinite;
             transition: all 0.4s;
-            opacity: 0.9;
+            opacity: 1;
         }
         
         .logo:hover {
-            animation: none;
+            animation: smoke-fast 1s ease-in-out infinite;
             filter: drop-shadow(0 0 15px rgba(0, 86, 179, 0.6));
-            opacity: 0;
             transform: scale(1.05);
         }
         
         @keyframes smoke {
-            0% { filter: drop-shadow(0 0 5px rgba(0, 86, 179, 0.3)) blur(0px); opacity: 0.8; }
-            50% { filter: drop-shadow(0 0 15px rgba(0, 86, 179, 0.5)) blur(1px); opacity: 0.95; }
-            100% { filter: drop-shadow(0 0 5px rgba(0, 86, 179, 0.3)) blur(0px); opacity: 0.8; }
+            0% { filter: drop-shadow(0 0 10px rgba(0, 86, 179, 0.4)) blur(0px); opacity: 1; }
+            50% { filter: drop-shadow(0 0 20px rgba(0, 86, 179, 0.7)) blur(1px); opacity: 0.95; }
+            100% { filter: drop-shadow(0 0 10px rgba(0, 86, 179, 0.4)) blur(0px); opacity: 1; }
+        }
+        
+        @keyframes smoke-fast {
+            0% { filter: drop-shadow(0 0 10px rgba(0, 86, 179, 0.6)) blur(0px); }
+            50% { filter: drop-shadow(0 0 25px rgba(0, 86, 179, 0.9)) blur(1px); }
+            100% { filter: drop-shadow(0 0 10px rgba(0, 86, 179, 0.6)) blur(0px); }
         }
         
         /* Hero Banner */
@@ -327,7 +332,7 @@
     <!-- Header con logo animado como humo -->
     <header>
         <div class="header-container">
-            <img src="epe3 transparnete.png" alt="IPE PROYECTOS" class="logo">
+            <img src="https://scontent.fgye4-1.fna.fbcdn.net/v/t39.30808-6/300511825_1022890894444225_1343020111269718168_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=7G2j0tV8eNwQ7kNvgG7m1g3&_nc_ht=scontent.fgye4-1.fna&oh=00_AYD5wqQwQm5Y3GZv3Ql7ZQJm9J9kZv3Ql7ZQJm9J9kZv3Ql7ZQ&oe=6647F8E5" alt="IPE PROYECTOS" class="logo">
             <div>
                 <a href="tel:+593984016027" class="btn">
                     <i class="fas fa-phone"></i> +593 98 401 6027
@@ -467,7 +472,7 @@
             <div class="contact-info">
                 <div class="contact-item">
                     <i class="fas fa-phone"></i>
-                    <span style="font-size: 1.1rem;">+593 98 401 6037</span>
+                    <span style="font-size: 1.1rem;">+593 98 401 6027</span>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
@@ -479,7 +484,7 @@
                 </div>
                 <div class="contact-item">
                     <i class="fab fa-whatsapp"></i>
-                    <span style="font-size: 1.1rem;">+593 98 401 6027</span>
+                    <span style="font-size: 1.1rem;">+593 984 016 027</span>
                 </div>
             </div>
             
