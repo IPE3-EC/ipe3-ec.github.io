@@ -3,378 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IPE3 | Ingeniería Eléctrica y Electrónica Proyectos Ecuador</title>
-
-    <!-- SEO -->
-    <meta name="description" content="IPE3 - Ingeniería Eléctrica y Electrónica en Ecuador. Soluciones en seguridad electrónica, domótica, mantenimiento de equipos médicos y más.">
-    <meta name="author" content="IPE3 - Ingeniería Eléctrica y Electrónica Proyectos Ecuador">
-    <meta name="robots" content="index, follow">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-
-    <!-- Estilos e iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
+    <meta name="description" content="IPE3 - Ingeniería Eléctrica y Electrónica en Ecuador. Soluciones integrales en seguridad electrónica, domótica, soporte técnico y equipos biomédicos.">
+    <title>IPE3 - Ingeniería Eléctrica y Electrónica Ecuador</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary: #0056b3;
-            --primary-dark: #003d7a;
-            --primary-light: #e6f0ff;
-            --white: #f5f5f5;
-            --text: #333333;
-            --background: #f0f0f0;
+            --primary: #004aad;
+            --secondary: #ffb703;
+            --dark: #333;
+            --light: #f9f9f9;
         }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: var(--text);
-            background-color: var(--background);
-            line-height: 1.6;
-        }
-
-        /* Header */
-        header {
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            padding: 10px 0;
-        }
-
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-
-        .logo {
-            height: 120px;
-            filter: drop-shadow(0 0 5px rgba(0, 86, 179, 0.3));
-            transition: transform 0.3s;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        /* Hero */
-        .hero {
-            background: linear-gradient(rgba(0, 86, 179, 0.8), rgba(0, 86, 179, 0.8)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            color: var(--white);
-            text-align: center;
-            padding: 120px 20px;
-            margin-top: -20px;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-        }
-
-        /* Botones */
-        .btn {
-            display: inline-block;
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 10px 20px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 2px solid var(--primary);
-        }
-
-        .btn:hover {
-            background-color: transparent;
-            color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(0, 86, 179, 0.3);
-        }
-
-        /* Productos */
-        .products {
-            background-color: var(--white);
-            padding: 60px 20px;
-        }
-
-        .products h2 {
-            text-align: center;
-            color: var(--primary-dark);
-            font-size: 2rem;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 40px auto 0;
-        }
-
-        .product-card {
-            background-color: var(--white);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            border: 1px solid #e0e0e0;
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0, 86, 179, 0.2);
-        }
-
-        .product-img {
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--background);
-        }
-
-        .product-img i {
-            font-size: 60px;
-            color: var(--primary);
-        }
-
-        .product-content {
-            padding: 20px;
-        }
-
-        .product-title {
-            color: var(--primary-dark);
-            margin-top: 0;
-        }
-
-        /* Acordeón */
-        .accordion {
-            margin-top: 15px;
-            border-top: 1px solid #ddd;
-        }
-
-        details {
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            margin-bottom: 10px;
-            background: var(--primary-light);
-        }
-
-        details summary {
-            cursor: pointer;
-            padding: 10px;
-            font-weight: 600;
-            color: var(--primary-dark);
-        }
-
-        details ul {
-            padding: 10px 20px;
-        }
-
-        /* Contacto */
-        .contact {
-            padding: 60px 20px;
-            background-color: var(--white);
-            text-align: center;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .contact-item i {
-            font-size: 24px;
-            color: var(--primary);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--primary-dark);
-            color: var(--white);
-            padding: 30px 20px;
-            text-align: center;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .social-links a {
-            color: var(--white);
-            font-size: 24px;
-            transition: transform 0.3s ease;
-        }
-
-        .social-links a:hover {
-            transform: translateY(-3px) scale(1.1);
-            color: var(--primary-light);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                text-align: center;
-            }
-            .logo {
-                height: 90px;
-            }
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: var(--dark); background: var(--light); }
+        header { background: var(--primary); color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        header img { height: 50px; }
+        nav a { color: white; margin: 0 1rem; text-decoration: none; font-weight: bold; }
+        nav a:hover { color: var(--secondary); }
+        .hero { background: url('epe3 transparente.png') no-repeat center/contain; height: 300px; display: flex; justify-content: center; align-items: center; color: white; text-align: center; }
+        .hero h1 { background: rgba(0,0,0,0.5); padding: 1rem; border-radius: 8px; }
+        section { padding: 2rem; }
+        h2 { color: var(--primary); margin-bottom: 1rem; }
+        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+        .card { background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+        .accordion { margin-top: 1rem; }
+        details { margin-bottom: 0.8rem; background: #f0f4ff; padding: 0.6rem 1rem; border-radius: 6px; }
+        details summary { cursor: pointer; font-weight: bold; color: var(--primary); }
+        details ul { margin-top: 0.5rem; margin-left: 1rem; }
+        footer { background: var(--dark); color: white; text-align: center; padding: 1.5rem; margin-top: 2rem; }
+        footer a { color: var(--secondary); margin: 0 0.5rem; font-size: 1.2rem; }
+        @media (max-width: 768px) { .hero { height: 200px; font-size: 0.9rem; } }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
-        <div class="header-container">
-            <img src="epe3 transparnete.png" alt="Logotipo IPE3" class="logo">
-            <a href="tel:+593984016027" class="btn">
-                <i class="fas fa-phone"></i> +593 98 401 6027
-            </a>
-        </div>
+        <img src="epe3 transparente.png" alt="Logo IPE3">
+        <nav>
+            <a href="#servicios">Servicios</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
     </header>
 
-    <!-- Hero -->
-    <section class="hero">
-        <h1>Soluciones Integrales en Seguridad Electrónica</h1>
-        <p>Tecnología de vanguardia para proteger lo que más importa</p>
-        <a href="#contacto" class="btn" style="margin-top: 30px;">Contáctanos</a>
-    </section>
+    <div class="hero">
+        <h1>Ingeniería Eléctrica y Electrónica Ecuador - IPE3</h1>
+    </div>
 
-    <!-- Productos -->
-    <section class="products">
-        <h2>Nuestros Productos y Servicios</h2>
-        <div class="product-grid">
-            <!-- Ejemplo: CCTV -->
-            <div class="product-card">
-                <div class="product-img"><i class="fas fa-video"></i></div>
-                <div class="product-content">
-                    <h3 class="product-title">Sistemas de CCTV</h3>
-                    <ul>
-                        <li>Cámaras IP 4K/5MP</li>
-                        <li>DVR/NVR de alta capacidad</li>
-                        <li>Cámaras térmicas</li>
-                        <li>Cámaras bullet y dome</li>
-                        <li>Sistemas inalámbricos</li>
-                    </ul>
-                    <a href="#contacto" class="btn">Más información</a>
-                </div>
+    <section id="servicios">
+        <h2>Servicios</h2>
+        <div class="services">
+            <div class="card">
+                <h3>Seguridad Electrónica</h3>
+                <p>Instalación de cámaras, alarmas y sistemas de control de acceso.</p>
             </div>
-
-            <!-- Mantenimiento Médico -->
-            <div class="product-card">
-                <div class="product-img">
-                    <i class="fas fa-stethoscope"></i>
-                </div>
-                <div class="product-content">
-                    <h3 class="product-title">Mantenimiento de Equipos Médicos</h3>
-                    <p><strong>✅ Certificación de equipos para trámites del ACESS</strong></p>
-                    
-                    <div class="accordion">
-                        <details>
-                            <summary>Ver lista completa de equipos</summary>
-                            <ul>
-                                <li>Electrocardiógrafo (ECG)</li>
-                                <li>Ecógrafo / ultrasonido</li>
-                                <li>Monitor multiparámetro</li>
-                                <li>Espirometría</li>
-                                <li>Audiometría</li>
-                                <li>Refractómetro / Autorefractómetro</li>
-                                <li>Tonometría digital</li>
-                                <li>Oftalmoscopio / Retinógrafo</li>
-                                <li>Glucómetro clínico</li>
-                                <li>Termómetro digital clínico</li>
-                                <li>Oxímetro de pulso</li>
-                                <li>Centrífuga</li>
-                                <li>Microscopio clínico</li>
-                                <li>Espectrofotómetro</li>
-                                <li>Analizador hematológico / bioquímico</li>
-                                <li>Incubadora de laboratorio</li>
-                                <li>Balanza analítica</li>
-                                <li>Refrigerador biomédico</li>
-                                <li>Unidad dental completa</li>
-                                <li>Compresor odontológico</li>
-                                <li>Lámpara de fotocurado</li>
-                                <li>Autoclave dental</li>
-                                <li>Rayos X intraoral</li>
-                                <li>Sensor digital intraoral</li>
-                                <li>Autoclave quirúrgico</li>
-                                <li>Esterilizador de calor seco</li>
-                                <li>Lámpara quirúrgica</li>
-                                <li>Mesa quirúrgica</li>
-                                <li>Electrobisturí</li>
-                                <li>Aspirador quirúrgico</li>
-                                <li>Selladora de bolsas médicas</li>
-                                <li>Lavadora ultrasónica</li>
-                                <li>Destilador de agua médica</li>
-                                <li>Esterilizador UV</li>
-                                <li>Purificador de aire médico</li>
-                                <li>Camilla clínica</li>
-                                <li>Balanza digital con tallímetro</li>
-                                <li>Tensiómetro digital</li>
-                                <li>Nebulizador</li>
-                                <li>Colposcopio</li>
-                                <li>Doppler fetal</li>
-                            </ul>
-                        </details>
-                    </div>
-                    
-                    <a href="#contacto" class="btn">Solicitar servicio</a>
+            <div class="card">
+                <h3>Domótica</h3>
+                <p>Automatización de hogares y oficinas para mayor confort y seguridad.</p>
+            </div>
+            <div class="card">
+                <h3>Soporte Técnico</h3>
+                <p>Mantenimiento preventivo y correctivo de sistemas eléctricos y electrónicos.</p>
+            </div>
+            <div class="card">
+                <h3>Equipos Biomédicos</h3>
+                <p>Venta, instalación y mantenimiento de equipos médicos clasificados por especialidad:</p>
+                <div class="accordion">
+                    <details>
+                        <summary>Cardiología</summary>
+                        <ul>
+                            <li>Electrocardiógrafo (ECG)</li>
+                            <li>Monitor multiparámetro</li>
+                            <li>Desfibrilador</li>
+                            <li>Holter cardíaco</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Neurología</summary>
+                        <ul>
+                            <li>Electroencefalógrafo (EEG)</li>
+                            <li>Electromiógrafo (EMG)</li>
+                            <li>Potenciales evocados</li>
+                            <li>Polisomnógrafo</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Oftalmología / Optometría</summary>
+                        <ul>
+                            <li>Autorefractómetro</li>
+                            <li>Tonómetro</li>
+                            <li>Lámpara de hendidura</li>
+                            <li>Oftalmoscopio</li>
+                            <li>Retinógrafo digital</li>
+                            <li>Lensómetro</li>
+                            <li>Fontoluz</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>ORL / Audiología</summary>
+                        <ul>
+                            <li>Audiometro clínico</li>
+                            <li>Timpanómetro</li>
+                            <li>Endoscopios nasales y laríngeos</li>
+                            <li>Otoscopio</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Medicina General</summary>
+                        <ul>
+                            <li>Glucómetro (en laboratorio)</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Laboratorio Clínico</summary>
+                        <ul>
+                            <li>Centrífuga</li>
+                            <li>Microscopio clínico</li>
+                            <li>Analizador hematológico</li>
+                            <li>Analizador bioquímico</li>
+                            <li>Refrigerador de laboratorio</li>
+                            <li>Cabina de bioseguridad</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Neonatología / Pediatría</summary>
+                        <ul>
+                            <li>Incubadora neonatal</li>
+                            <li>Lámpara de fototerapia</li>
+                            <li>Monitor neonatal</li>
+                            <li>Aspirador de secreciones</li>
+                            <li>Bomba de infusión</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Emergencias y UCI</summary>
+                        <ul>
+                            <li>Monitor multiparámetro</li>
+                            <li>Desfibrilador</li>
+                            <li>Ventilador mecánico</li>
+                            <li>Bombas de infusión</li>
+                            <li>Aspirador de secreciones</li>
+                            <li>Carro de paro</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Neumología</summary>
+                        <ul>
+                            <li>Espirómetro</li>
+                            <li>Capnógrafo</li>
+                            <li>CPAP / BiPAP</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>Traumatología / Rehabilitación</summary>
+                        <ul>
+                            <li>Ultrasonido terapéutico</li>
+                            <li>Electroestimulador (TENS/EMS)</li>
+                            <li>Láser terapéutico</li>
+                        </ul>
+                    </details>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contacto -->
-    <section id="contacto" class="contact">
-        <h2>Contáctanos</h2>
-        <div class="contact-info">
-            <div class="contact-item"><i class="fas fa-phone"></i><span>+593 98 401 6027</span></div>
-            <div class="contact-item"><i class="fas fa-envelope"></i><span>ipeproyectosec@gmail.com</span></div>
-            <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Quito, Ecuador</span></div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 IPE3 - Ingeniería Eléctrica y Electrónica Proyectos Ecuador. Todos los derechos reservados.</p>
-        <div class="social-links">
-            <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <footer id="contacto">
+        <p>&copy; 2025 IPE3 - Ingeniería Eléctrica y Electrónica Ecuador</p>
+        <p>Contacto: <a href="mailto:info@ipe3.com">info@ipe3.com</a></p>
+        <div>
+            <a href="https://facebook.com/ipe3ecuador" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/593984016027" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.linkedin.com/company/ipe3" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
         </div>
     </footer>
 </body>
