@@ -3,85 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Landing IPE3 - Promociones</title>
+  <title>Landing IPE3 - Promociones y Servicios</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f8f8f8;
-      color: #333;
-    }
-    header {
-      text-align: center;
-      padding: 1rem;
-      background: #111;
-    }
-    header img {
-      max-height: 80px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-      padding: 1rem;
-    }
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      display: flex;
-      flex-direction: column;
-    }
-    .card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    .card h3 {
-      margin: 0;
-      padding: 0.5rem 1rem;
-      background: #222;
-      color: #fff;
-      font-size: 1.1rem;
-    }
-    .card p {
-      flex: 1;
-      padding: 1rem;
-      font-size: 0.95rem;
-    }
-    footer {
-      background: #111;
-      color: #fff;
-      text-align: center;
-      padding: 1.5rem 1rem;
-      font-size: 0.9rem;
-    }
-    footer a {
-      color: #00d084;
-      text-decoration: none;
-    }
-    /* Botón flotante WhatsApp */
-    .whatsapp-float {
-      position: fixed;
-      width: 60px;
-      height: 60px;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25d366;
-      color: #fff;
-      border-radius: 50%;
-      text-align: center;
-      font-size: 30px;
-      box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .whatsapp-float:hover {
-      background-color: #1ebd5a;
-    }
+    body { margin: 0; font-family: Arial, sans-serif; background: #f8f8f8; color: #333; }
+    header { text-align: center; padding: 1rem; background: #0b1220; color: #fff }
+    header img { max-height: 80px }
+    .hero { padding: 18px; text-align: center; background: linear-gradient(90deg,#06213a,#073858); color: #fff }
+    .hero h1 { margin: 0 0 8px 0 }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 1rem; padding: 1rem }
+    .card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 6px 18px rgba(0,0,0,0.08); display:flex; flex-direction:column }
+    .card img { width: 100%; height: 170px; object-fit: cover }
+    .card .body { padding: 12px }
+    .card h3 { margin: 0 0 6px 0; font-size: 1.05rem }
+    .card p { margin: 0; color: #444; font-size: 0.95rem }
+    footer { background: #0b1220; color: #fff; text-align:center; padding:1.25rem }
+    footer a { color: #7de3b6; text-decoration: none }
+    .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 20px; right: 20px; background-color: #25d366; color: #fff; border-radius: 50%; display:flex; align-items:center; justify-content:center; font-size:28px; box-shadow: 0 8px 24px rgba(2,10,20,0.3); z-index: 200 }
+    .whatsapp-float:hover { transform: translateY(-3px) }
+    @media (max-width:480px){ .card img{height:140px} }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -90,65 +29,106 @@
     <img src="epe3_transparente.png" alt="IPE3 Logo" />
   </header>
 
+  <section class="hero">
+    <h1>Soluciones integrales en Ingeniería Eléctrica y Electrónica</h1>
+    <p>Especialistas en CCTV, equipos biomédicos, control de accesos, domótica y soporte técnico.</p>
+  </section>
+
   <main class="grid">
-    <div class="card">
-      <img src="spark-plugs.jpg" alt="Bujías" />
-      <h3>Bujías</h3>
-      <p>Repuestos originales de alto rendimiento.</p>
-    </div>
-    <div class="card">
-      <img src="car-rear.jpg" alt="Revisión de Frenos" />
-      <h3>Frenos</h3>
-      <p>Chequeo completo y repuestos garantizados.</p>
-    </div>
-    <div class="card">
-      <img src="brake-disc.jpg" alt="Discos de Freno" />
-      <h3>Discos</h3>
-      <p>Durabilidad y seguridad para tu vehículo.</p>
-    </div>
-    <div class="card">
-      <img src="engine.jpg" alt="Motor" />
-      <h3>Motor</h3>
-      <p>Mantenimiento y repuestos para motores modernos.</p>
-    </div>
-    <div class="card">
-      <img src="mechanic-portrait.jpg" alt="Mecánico" />
-      <h3>Servicio Técnico</h3>
-      <p>Expertos certificados en electrónica y mecánica.</p>
-    </div>
-    <div class="card">
-      <img src="tires-stack.jpg" alt="Llantas" />
-      <h3>Llantas</h3>
-      <p>Gran variedad de marcas y modelos disponibles.</p>
-    </div>
-    <div class="card">
-      <img src="oil-filter.jpg" alt="Filtros" />
-      <h3>Filtros</h3>
-      <p>Filtros de aceite, aire y combustible de calidad.</p>
-    </div>
-    <div class="card">
-      <img src="car-front.jpg" alt="Accesorios" />
-      <h3>Accesorios</h3>
-      <p>Personaliza tu auto con accesorios exclusivos.</p>
-    </div>
-    <div class="card">
-      <img src="placeholder.jpg" alt="Promoción Especial" />
-      <h3>Promoción</h3>
-      <p>No te pierdas nuestras ofertas limitadas.</p>
-    </div>
+    <!-- CCTV -->
+    <article class="card">
+      <img src="assets/cctv.jpg" alt="CCTV - Cámaras de Seguridad" onerror="this.src='car-rear.jpg'">
+      <div class="body">
+        <h3>CCTV y Videovigilancia</h3>
+        <p>Instalación, configuración y monitoreo de cámaras IP, NVR/DVR, análisis de video y soluciones a medida para empresas y hogares.</p>
+      </div>
+    </article>
+
+    <!-- Equipos biomédicos -->
+    <article class="card">
+      <img src="assets/biomedical.jpg" alt="Equipos Biomédicos" onerror="this.src='engine.jpg'">
+      <div class="body">
+        <h3>Equipos Biomédicos</h3>
+        <p>Venta, mantenimiento y calibración de equipos médicos por especialidad: cardiología, oftalmología, laboratorio clínico, neonatología y UCI.</p>
+      </div>
+    </article>
+
+    <!-- Control de accesos -->
+    <article class="card">
+      <img src="assets/access-control.jpg" alt="Control de Accesos" onerror="this.src='mechanic-portrait.jpg'">
+      <div class="body">
+        <h3>Control de Accesos</h3>
+        <p>Sistemas de control con lectores biométricos, tarjetas y códigos, integración con CCTV y gestión de visitantes para empresas.</p>
+      </div>
+    </article>
+
+    <!-- Domótica -->
+    <article class="card">
+      <img src="assets/home-automation.jpg" alt="Domótica" onerror="this.src='car-front.jpg'">
+      <div class="body">
+        <h3>Domótica</h3>
+        <p>Automatización de viviendas y oficinas: iluminación inteligente, control de clima, persianas, escenas y control remoto vía app.</p>
+      </div>
+    </article>
+
+    <!-- Soporte Técnico -->
+    <article class="card">
+      <img src="assets/support.jpg" alt="Soporte Técnico" onerror="this.src='mechanic-portrait.jpg'">
+      <div class="body">
+        <h3>Soporte Técnico</h3>
+        <p>Mantenimiento preventivo y correctivo de sistemas eléctricos y electrónicos, soporte remoto y contratos de servicio.</p>
+      </div>
+    </article>
+
+    <!-- Instalaciones eléctricas -->
+    <article class="card">
+      <img src="assets/electric-install.jpg" alt="Instalaciones Eléctricas" onerror="this.src='engine.jpg'">
+      <div class="body">
+        <h3>Instalaciones Eléctricas</h3>
+        <p>Proyectos eléctricos residenciales e industriales, tableros, cableado estructurado y soluciones normativas.</p>
+      </div>
+    </article>
+
+    <!-- Capacitación y certificación -->
+    <article class="card">
+      <img src="assets/training.jpg" alt="Capacitación" onerror="this.src='placeholder.jpg'">
+      <div class="body">
+        <h3>Capacitación y Certificación</h3>
+        <p>Capacitaciones técnicas para personal, protocolos de seguridad y entrega de certificados para entes reguladores.</p>
+      </div>
+    </article>
+
+    <!-- Servicios para clínicas -->
+    <article class="card">
+      <img src="assets/clinic-services.jpg" alt="Servicios Clínicos" onerror="this.src='placeholder.jpg'">
+      <div class="body">
+        <h3>Servicios para Clínicas y Laboratorios</h3>
+        <p>Asistencia técnica especializada en equipos críticos, programas de mantenimiento y suministros.</p>
+      </div>
+    </article>
+
+    <!-- Promociones / Contacto -->
+    <article class="card">
+      <img src="assets/promo.jpg" alt="Promoción" onerror="this.src='placeholder.jpg'">
+      <div class="body">
+        <h3>Promociones y Cotizaciones</h3>
+        <p>Consulta nuestras promociones y recibe una cotización sin compromiso.</p>
+      </div>
+    </article>
+
   </main>
 
   <footer>
-    <p><strong>IPE3 ECUADOR</strong></p>
-    <p>📍 Quito - Ecuador</p>
-    <p>📧 <a href="mailto:ipe3ecuador@gmail.com">ipe3ecuador@gmail.com</a></p>
-    <p>📞 WhatsApp/Teléfono: <a href="https://wa.me/593984016027" target="_blank">+593 984016027</a></p>
+    <p><strong>IPE3 ECUADOR</strong> — Quito, Ecuador</p>
+    <p>📧 <a href="mailto:ipe3ecuador@gmail.com">ipe3ecuador@gmail.com</a> · 📞 <a href="https://wa.me/593984016027" target="_blank">+593 984016027</a></p>
     <p>&copy; 2025 IPE3. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- Botón flotante WhatsApp -->
-  <a href="https://wa.me/593984016027" class="whatsapp-float" target="_blank">
+  <!-- Botón flotante WhatsApp con mensaje prellenado -->
+  <!-- Mensaje: "Hola, estoy interesado en información sobre sus servicios de CCTV, equipos biomédicos, control de accesos, domótica y soporte técnico. Gracias." -->
+  <a class="whatsapp-float" href="https://wa.me/593984016027?text=Hola%2C%20estoy%20interesado%20en%20informaci%C3%B3n%20sobre%20sus%20servicios%20de%20CCTV%2C%20equipos%20biom%C3%A9dicos%2C%20control%20de%20accesos%2C%20dom%C3%B3tica%20y%20soporte%20t%C3%A9cnico.%20Gracias" target="_blank" aria-label="Contactar por WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
+
 </body>
 </html>
