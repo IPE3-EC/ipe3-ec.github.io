@@ -2,317 +2,296 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>IPE3 — Ingeniería Eléctrica y Electrónica | Seguridad & Proyectos</title>
-  <meta name="description" content="Soluciones integrales en seguridad electrónica: CCTV, alarmas, control de accesos, domótica y proyectos eléctricos. Cotiza hoy.">
-  <link rel="icon" href="/assets/k0_transparente.png">
-  <!-- Open Graph básico -->
-  <meta property="og:title" content="IPE3 - Seguridad Electrónica & Proyectos" />
-  <meta property="og:description" content="Instalaciones, mantenimiento y venta de equipos biomédicos y de seguridad. Cotiza con nosotros." />
-  <meta property="og:image" content="/assets/og-image.jpg" />
-
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>IPE3 | Soluciones en Seguridad Electrónica - Mockup Mejorado</title>
+  <meta name="description" content="IPE3 - Instalaciones y mantenimiento de CCTV, alarmas, control de acceso y domótica. Cotiza hoy.">
+  <link rel="icon" href="/assets/k0-transparente.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#fbfcfd;
-      --muted:#6b7280;
-      --brand:#0b5cff; /* color acento */
-      --accent:#0b8cff;
+      --bg:#f8fafc; /* muy claro */
       --card:#ffffff;
-      --radius:14px;
-      --shadow: 0 6px 20px rgba(12,32,63,0.08);
+      --muted:#6b7280; /* gris claro */
+      --accent:#0ea5a4; /* teal */
+      --accent-2:#0f172a; /* casi negro para textos importantes */
       --glass: rgba(255,255,255,0.6);
-      --maxw:1150px;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --radius:12px;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%; margin:0; background:var(--bg); color:#0f172a; -webkit-font-smoothing:antialiased}
-    a{color:inherit; text-decoration:none}
+    html,body{height:100%;margin:0;background:var(--bg);color:var(--accent-2);-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
 
     /* Container */
-    .wrap{max-width:var(--maxw); margin:0 auto; padding:24px}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
 
-    /* Navbar */
-    header{position:sticky; top:0; backdrop-filter: blur(6px); background: linear-gradient(180deg, rgba(255,255,255,0.70), rgba(255,255,255,0.50)); z-index:1000}
-    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 0}
-    .brand{display:flex; align-items:center; gap:12px}
-    .brand img{width:48px; height:48px; object-fit:contain}
-    .brand h1{font-size:1.05rem; margin:0; letter-spacing:0.2px}
-    nav ul{display:flex; gap:14px; list-style:none; margin:0; padding:0}
-    nav a.btn{padding:10px 14px; border-radius:10px; font-weight:600}
-    .cta{background:linear-gradient(90deg,var(--brand), var(--accent)); color:white; box-shadow: 0 8px 30px rgba(11,140,255,0.18)}
-    .ghost{border:1px solid rgba(11,92,255,0.12); background:transparent}
+    /* Top nav */
+    .nav{position:sticky;top:0;backdrop-filter: blur(6px);background:linear-gradient(180deg, rgba(255,255,255,0.65), rgba(255,255,255,0.45));box-shadow:0 6px 18px rgba(15,23,42,0.06);z-index:50}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:1100px;margin:0 auto;padding:12px 20px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:42px;height:42px;object-fit:contain}
+    .brand h1{font-size:1.05rem;margin:0;font-weight:700}
+    .menu{display:flex;gap:18px;align-items:center}
+    .menu a{font-weight:600;color:var(--muted)}
+    .cta{background:linear-gradient(90deg,var(--accent),#06b6d4);color:white;padding:10px 14px;border-radius:10px;font-weight:700;box-shadow:0 6px 18px rgba(14,165,164,0.18)}
+    .cta:hover{transform:translateY(-2px);transition:all .18s ease}
 
-    /* Mobile nav */
-    .menu-toggle{display:none}
-    @media(max-width:880px){
-      nav ul{display:none}
-      .menu-toggle{display:block; background:transparent; border:0}
-    }
+    /* Mobile menu button */
+    .mobile-btn{display:none;border:0;background:transparent}
 
     /* Hero */
-    .hero{display:grid; grid-template-columns:1fr 420px; gap:28px; align-items:center; padding:36px 0}
-    .hero .card{background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.7)); padding:28px; border-radius:var(--radius); box-shadow:var(--shadow)}
-    .hero h2{font-size:2rem; margin:0 0 12px}
-    .lead{color:var(--muted); line-height:1.5}
-    .kpis{display:flex; gap:10px; margin-top:18px}
-    .kpi{background:var(--card); padding:10px 12px; border-radius:10px; min-width:92px; text-align:center; box-shadow:0 4px 12px rgba(12,32,63,0.05)}
+    .hero{display:grid;grid-template-columns:1fr;gap:24px;align-items:center;padding:36px 0}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.9));border-radius:16px;padding:24px;box-shadow:0 10px 30px rgba(2,6,23,0.06)}
+    .hero h2{font-size:2rem;margin:0 0 8px}
+    .hero p{color:var(--muted);margin:0 0 18px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
 
-    /* Services */
-    .services{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:28px 0}
-    .service{background:var(--card); padding:18px; border-radius:12px; box-shadow:var(--shadow); display:flex; gap:12px; align-items:flex-start}
-    .service h3{margin:0; font-size:1rem}
-    .service p{margin:6px 0 0; color:var(--muted); font-size:0.95rem}
-    .icon{width:48px; height:48px; border-radius:10px; background:linear-gradient(180deg, rgba(11,92,255,0.08), rgba(11,140,255,0.06)); display:flex; align-items:center; justify-content:center; font-weight:700}
+    /* Services grid */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+    .card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:0 8px 20px rgba(2,6,23,0.04);min-height:120px}
+    .card h3{margin:0 0 8px}
+    .card p{margin:0;color:var(--muted);font-size:0.95rem}
 
-    @media(max-width:980px){
-      .hero{grid-template-columns:1fr;}
-      .services{grid-template-columns:repeat(2,1fr)}
-    }
-    @media(max-width:640px){
-      .services{grid-template-columns:1fr}
-    }
+    /* Projects / gallery */
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+    .project{border-radius:10px;overflow:hidden;box-shadow:0 8px 20px rgba(2,6,23,0.04);background:linear-gradient(180deg,#f8fafc,#fff)}
+    .project img{width:100%;height:160px;object-fit:cover;display:block}
+    .project .meta{padding:10px}
 
-    /* Projects */
-    .projects{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
-    .project{border-radius:12px; overflow:hidden; background:var(--card); box-shadow:var(--shadow)}
-    .project img{width:100%; height:170px; object-fit:cover; display:block}
-    .project .pbody{padding:12px}
-
-    @media(max-width:980px){.projects{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:640px){.projects{grid-template-columns:1fr}}
-
-    /* Testimonios */
-    .testimonials{background:linear-gradient(180deg, rgba(11,92,255,0.04), rgba(11,140,255,0.02)); padding:20px; border-radius:12px}
-    .test{display:flex; gap:12px; align-items:center}
-    .avatar{width:56px; height:56px; border-radius:999px; background:#fff; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 6px 18px rgba(12,32,63,0.06)}
+    /* Testimonials */
+    .testimonials{display:flex;gap:12px;margin-top:18px}
+    .testimonial{background:linear-gradient(180deg, rgba(14,165,164,0.03), rgba(15,23,42,0.02));padding:14px;border-radius:12px;flex:1}
+    .testimonial p{margin:0 0 8px;color:var(--muted)}
+    .testimonial small{color:var(--accent-2);font-weight:700}
 
     /* Contact */
-    .contact{display:grid; grid-template-columns:1fr 380px; gap:18px; margin:28px 0}
-    .contact form{background:var(--card); padding:16px; border-radius:12px; box-shadow:var(--shadow)}
-    .field{display:flex; flex-direction:column; gap:6px; margin-bottom:10px}
-    input, textarea{padding:10px; border-radius:8px; border:1px solid #e6e9ee; font-size:0.95rem}
-    button.primary{padding:12px 14px; border-radius:10px; border:0; font-weight:700}
+    .contact{display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:20px}
+    .contact .card{padding:18px}
+    .contact-form label{display:block;font-weight:600;margin-bottom:6px}
+    .contact-form input,.contact-form textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #e6edf3;background:white}
+    .contact-form button{margin-top:10px}
 
     /* Footer */
-    footer{padding:18px 0; border-top:1px solid #eef2ff; margin-top:30px}
-    .footer-grid{display:flex; gap:18px; justify-content:space-between; align-items:center}
+    footer{margin-top:30px;padding:18px 0;color:var(--muted);font-size:0.95rem}
 
-    /* Back to top */
-    .to-top{position:fixed; right:18px; bottom:18px; padding:12px; border-radius:999px; box-shadow:0 8px 22px rgba(12,32,63,0.12); display:none}
+    /* Responsive */
+    @media (max-width:900px){
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .projects{grid-template-columns:repeat(2,1fr)}
+      .contact{grid-template-columns:1fr}
+      .mobile-btn{display:block}
+      .menu{display:none}
+    }
+    @media (max-width:560px){
+      .grid{grid-template-columns:1fr}
+      .projects{grid-template-columns:1fr}
+      .hero h2{font-size:1.5rem}
+    }
 
+    /* small utilities */
+    .muted{color:var(--muted)}
+    .pill{display:inline-block;background:rgba(14,165,164,0.08);padding:6px 10px;border-radius:999px;font-weight:700;color:var(--accent)}
   </style>
 </head>
 <body>
-  <header>
-    <div class="wrap nav">
+  <header class="nav" role="banner">
+    <div class="nav-inner">
       <div class="brand">
-        <img src="/assets/k0_transparente.png" alt="Logo K0 IPE3">
+        <img src="/assets/k0-transparente.png" alt="Logo K0 - IPE3">
         <div>
           <h1>IPE3</h1>
-          <div style="font-size:0.78rem; color:var(--muted)">Ingeniería Eléctrica & Electrónica</div>
+          <div style="font-size:0.8rem;color:var(--muted);margin-top:2px">Seguridad electrónica • Quito</div>
         </div>
       </div>
 
-      <nav>
-        <button class="menu-toggle" aria-label="Abrir menú" onclick="toggleMenu()">☰</button>
-        <ul id="navlist">
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#proyectos">Proyectos</a></li>
-          <li><a href="#testimonios">Testimonios</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-          <li><a class="btn cta" href="#contacto">Solicitar Cotización</a></li>
-        </ul>
+      <nav class="menu" role="navigation" aria-label="Navegación principal">
+        <a href="#servicios">Servicios</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#contacto">Contacto</a>
+        <a class="cta" href="#contacto">Solicita cotización</a>
       </nav>
+
+      <button class="mobile-btn" aria-label="Abrir menú" id="btnMobile">☰</button>
     </div>
   </header>
 
-  <main class="wrap">
+  <main class="container">
     <section class="hero">
-      <div class="card">
-        <h2>Soluciones integrales en seguridad electrónica y proyectos eléctricos</h2>
-        <p class="lead">Diseñamos, instalamos y mantenemos sistemas de CCTV, alarmas, control de acceso, cercos eléctricos y domótica. Atención en Quito y zona metropolitana. Cotiza hoy con respuesta en 24 horas.</p>
-
-        <div class="kpis">
-          <div class="kpi"><strong>+500</strong><div style="font-size:0.85rem;color:var(--muted)">Instalaciones</div></div>
-          <div class="kpi"><strong>2 años</strong><div style="font-size:0.85rem;color:var(--muted)">Garantía mínima</div></div>
-          <div class="kpi"><strong>Soporte</strong><div style="font-size:0.85rem;color:var(--muted)">24/7 (telefonía)</div></div>
-        </div>
-
-        <p style="margin-top:18px"><a class="btn cta" href="#contacto">Solicitar Cotización</a> <a class="btn ghost" href="#proyectos">Ver Proyectos</a></p>
-
-      </div>
-
-      <aside>
-        <div style="background:linear-gradient(180deg,#fff,#f7fbff); padding:18px; border-radius:12px; box-shadow:var(--shadow)">
-          <h3 style="margin:0 0 6px">Contacto rápido</h3>
-          <p style="margin:0 0 10px; color:var(--muted)"><strong>Tel:</strong> +593 98 411 6019<br><strong>Email:</strong> kilometro0ec@gmail.com</p>
-          <div style="display:flex; gap:8px; margin-bottom:10px">
-            <a class="btn cta" href="tel:+593984116019">Llamar</a>
-            <a class="btn ghost" href="mailto:kilometro0ec@gmail.com">Enviar email</a>
+      <div class="hero-card">
+        <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+          <div style="flex:1;min-width:240px">
+            <span class="pill">Instalaciones certificadas</span>
+            <h2>Protegemos tu negocio y hogar con soluciones profesionales en CCTV, alarmas y control de acceso</h2>
+            <p class="muted">Diseño, instalación y mantenimiento. Garantía y soporte técnico. Cotizaciones rápidas y planes adaptados a tu necesidad.</p>
+            <div class="hero-actions">
+              <a class="cta" href="#contacto">Cotizar ahora</a>
+              <a href="#proyectos" style="padding:10px 14px;border-radius:10px;border:1px solid rgba(15,23,42,0.06);font-weight:700">Ver proyectos</a>
+            </div>
           </div>
-          <div style="font-size:0.85rem; color:var(--muted)">Horario: Lun-Sab 08:00 - 18:00</div>
+
+          <div style="width:320px;min-width:220px">
+            <!-- Simple illustrative card -->
+            <div style="border-radius:12px;overflow:hidden;box-shadow:0 12px 36px rgba(2,6,23,0.06);background:linear-gradient(180deg,#ecfeff,#ffffff);padding:12px">
+              <svg width="100%" height="160" viewBox="0 0 900 500" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustración de CCTV">
+                <defs>
+                  <linearGradient id="g1" x1="0" x2="1">
+                    <stop offset="0" stop-color="#06b6d4" stop-opacity="0.9"></stop>
+                    <stop offset="1" stop-color="#0ea5a4" stop-opacity="0.9"></stop>
+                  </linearGradient>
+                </defs>
+                <rect width="900" height="500" fill="url(#g1)"></rect>
+                <g fill="white" transform="translate(80,60)">
+                  <rect x="0" y="0" width="320" height="160" rx="10" fill-opacity="0.14"></rect>
+                  <circle cx="260" cy="50" r="34" fill-opacity="0.18"></circle>
+                </g>
+              </svg>
+            </div>
+          </div>
         </div>
-      </aside>
+      </div>
     </section>
 
     <section id="servicios">
-      <h2 style="margin-bottom:8px">Servicios destacados</h2>
-      <p style="color:var(--muted); margin-top:0">Soluciones llave en mano, desde asesoría hasta mantenimiento.</p>
+      <h2 style="margin-top:6px">Nuestros servicios</h2>
+      <p class="muted">Soluciones para empresas y residencias — diseño, instalación y mantenimiento.</p>
 
-      <div class="services">
-        <article class="service">
-          <div class="icon">📷</div>
-          <div>
-            <h3>CCTV & Video vigilancia</h3>
-            <p>Diseño e instalación de cámaras IP, grabación en la nube y analítica básica (detección de movimiento).</p>
-          </div>
+      <div class="grid" aria-hidden="false">
+        <article class="card" tabindex="0">
+          <h3>CCTV & Video vigilancia</h3>
+          <p>Instalación de cámaras IP/HD, grabación en la nube y monitoreo remoto. Integración con apps móviles.</p>
         </article>
-
-        <article class="service">
-          <div class="icon">🔔</div>
-          <div>
-            <h3>Sistemas de alarma</h3>
-            <p>Alarmas inalámbricas y cableadas, integración con monitoreo y respuesta remota.</p>
-          </div>
+        <article class="card" tabindex="0">
+          <h3>Alarmas y Sensores</h3>
+          <p>Alarmas perimetrales, detectores de movimiento y sensores de apertura con notificaciones inmediatas.</p>
         </article>
-
-        <article class="service">
-          <div class="icon">🔑</div>
-          <div>
-            <h3>Control de acceso</h3>
-            <p>Lectores biométricos, tarjetas RFID, turnstiles y gestión de usuarios con registro.</p>
-          </div>
+        <article class="card" tabindex="0">
+          <h3>Control de Acceso</h3>
+          <p>Lectores biométricos, tarjetas y cerraduras electrónicas. Gestión de usuarios y registros de entradas.</p>
         </article>
-
-        <article class="service">
-          <div class="icon">⚡</div>
-          <div>
-            <h3>Proyectos eléctricos</h3>
-            <p>Proyectos residenciales e industriales, cumplimiento de normas y certificaciones.</p>
-          </div>
+        <article class="card" tabindex="0">
+          <h3>Cercos Eléctricos</h3>
+          <p>Diseño e instalación de cercos eléctricos certificados con prueba y mantenimiento.</p>
         </article>
-
-        <article class="service">
-          <div class="icon">🏥</div>
-          <div>
-            <h3>Equipos biomédicos</h3>
-            <p>Mantenimiento y certificación de equipos biomédicos: ECG, EEG, monitores y más.</p>
-          </div>
+        <article class="card" tabindex="0">
+          <h3>Domótica</h3>
+          <p>Automatización de iluminación, control remoto y escenas para eficiencia energética.</p>
         </article>
-
-        <article class="service">
-          <div class="icon">🏠</div>
-          <div>
-            <h3>Domótica & IoT</h3>
-            <p>Automatización de iluminación, clima y control remoto para edificios inteligentes.</p>
-          </div>
+        <article class="card" tabindex="0">
+          <h3>Mantenimiento & Soporte</h3>
+          <p>Planes de mantenimiento preventivo y soporte técnico prioritario para clientes.</p>
         </article>
       </div>
+
     </section>
 
     <section id="proyectos">
-      <h2 style="margin-bottom:8px">Proyectos recientes</h2>
-      <p style="color:var(--muted); margin-top:0">Galería de instalaciones reales — haz click para ver detalle.</p>
+      <h2 style="margin-top:26px">Proyectos recientes</h2>
+      <p class="muted">Algunos ejemplos de instalaciones — haz clic para ver galería completa.</p>
 
-      <div class="projects">
-        <article class="project">
-          <img src="/assets/project1.jpg" alt="Instalación CCTV edificio comercial" loading="lazy">
-          <div class="pbody"><strong>Edificio Comercial - CCTV</strong><p style="margin:6px 0 0; color:var(--muted)">Sistema de 16 cámaras con grabación redundante y acceso remoto.</p></div>
-        </article>
+      <div class="projects" role="list">
+        <!-- Placeholder images as inline SVG data URIs to avoid external calls -->
+        <figure class="project" role="listitem">
+          <img loading="lazy" alt="Instalación CCTV en local comercial" src="data:image/svg+xml;utf8, %3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='600'%3E%3Crect width='100%25' height='100%25' fill='%23e6fffa'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter,Arial' font-size='28' fill='%23006b5b'%3EProyecto 1 - CCTV%3C/text%3E%3C/svg%3E">
+          <div class="meta">
+            <strong>Centro comercial</strong>
+            <p class="muted">Sistema de 8 cámaras con grabación y acceso remoto.</p>
+          </div>
+        </figure>
 
-        <article class="project">
-          <img src="/assets/project2.jpg" alt="Control de acceso oficina" loading="lazy">
-          <div class="pbody"><strong>Oficina Corporativa - Control de Acceso</strong><p style="margin:6px 0 0; color:var(--muted)">Lectores biométricos y gestión de credenciales en la nube.</p></div>
-        </article>
+        <figure class="project" role="listitem">
+          <img loading="lazy" alt="Control de acceso en edificio" src="data:image/svg+xml;utf8, %3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='600'%3E%3Crect width='100%25' height='100%25' fill='%23eef2ff'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter,Arial' font-size='28' fill='%23006b5b'%3EProyecto 2 - Acceso%3C/text%3E%3C/svg%3E">
+          <div class="meta">
+            <strong>Edificio residencial</strong>
+            <p class="muted">Control biométrico y registro centralizado.</p>
+          </div>
+        </figure>
 
-        <article class="project">
-          <img src="/assets/project3.jpg" alt="Proyecto eléctrico industrial" loading="lazy">
-          <div class="pbody"><strong>Planta Industrial - Proyecto Eléctrico</strong><p style="margin:6px 0 0; color:var(--muted)">Rediseño de tableros y puesta a tierra certificada.</p></div>
-        </article>
+        <figure class="project" role="listitem">
+          <img loading="lazy" alt="Instalación de alarmas" src="data:image/svg+xml;utf8, %3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='600'%3E%3Crect width='100%25' height='100%25' fill='%23fff7ed'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter,Arial' font-size='28' fill='%23006b5b'%3EProyecto 3 - Alarmas%3C/text%3E%3C/svg%3E">
+          <div class="meta">
+            <strong>Local comercial</strong>
+            <p class="muted">Alarmas conectadas a central y notificación móvil.</p>
+          </div>
+        </figure>
       </div>
+
     </section>
 
-    <section id="testimonios" style="margin-top:20px">
-      <h2>Testimonios</h2>
-      <div class="testimonials" style="margin-top:10px">
-        <div class="test">
-          <div class="avatar">👷</div>
-          <div>
-            <strong>María G. — Tienda Retail</strong>
-            <p style="margin:6px 0 0; color:var(--muted)">"Rápidos y profesionales. Instalación en 48h y el sistema funciona perfecto. Recomendados."</p>
-          </div>
-        </div>
+    <section id="testimonios">
+      <h2 style="margin-top:26px">Testimonios</h2>
+      <div class="testimonials">
+        <blockquote class="testimonial" aria-label="Testimonio 1">
+          <p>IPE3 instaló el sistema en nuestra bodega en tiempo récord. Soporte rápido y resultados profesionales.</p>
+          <small>- Alejandro, Gerente</small>
+        </blockquote>
+        <blockquote class="testimonial" aria-label="Testimonio 2">
+          <p>Servicio excelente y atención personalizada. Recomendados para comercios en Quito.</p>
+          <small>- María, Propietaria</small>
+        </blockquote>
       </div>
     </section>
 
     <section id="contacto" class="contact">
-      <div>
-        <h2>Contacto & Cotizaciones</h2>
-        <p style="color:var(--muted); margin-top:0">Déjanos tus datos y te contactamos en 24 horas.</p>
+      <div class="card contact-form">
+        <h2>Contacto</h2>
+        <p class="muted">Solicita cotización o déjanos tu mensaje y te contactamos.</p>
+        <form onsubmit="event.preventDefault();alert('Gracias — formulario simulado. Reemplaza con envío real.');">
+          <label for="name">Nombre</label>
+          <input id="name" name="name" placeholder="Tu nombre" required>
 
-        <form onsubmit="submitForm(event)">
-          <div class="field"><label for="name">Nombre</label><input id="name" required placeholder="Tu nombre"></div>
-          <div class="field"><label for="company">Empresa (opcional)</label><input id="company" placeholder="Nombre de la tienda o empresa"></div>
-          <div class="field"><label for="phone">Teléfono</label><input id="phone" required placeholder="098xxxxxxx"></div>
-          <div class="field"><label for="message">Descripción / Dirección</label><textarea id="message" rows="4" placeholder="Breve descripción del servicio o dirección"></textarea></div>
-          <div style="display:flex; gap:10px"><button class="primary cta" type="submit">Enviar solicitud</button><button type="button" class="ghost" onclick="location.href='tel:+593984116019'">Llamar</button></div>
+          <label for="phone">Teléfono</label>
+          <input id="phone" name="phone" placeholder="0984116019" required>
+
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" rows="4" placeholder="Cuéntanos tu proyecto..."></textarea>
+
+          <button class="cta" type="submit">Enviar consulta</button>
         </form>
       </div>
 
-      <aside>
-        <div style="border-radius:12px; overflow:hidden; box-shadow:var(--shadow)">
-          <!-- Map placeholder: reemplaza el src por la URL del mapa embebido -->
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3" style="border:0; width:100%; height:320px" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación IPE3"></iframe>
+      <aside class="card" aria-label="Datos de contacto y mapa">
+        <h3>Contáctanos</h3>
+        <p class="muted"><strong>Teléfono:</strong> +593 98 411 6019<br><strong>Email:</strong> kilometro0ec@gmail.com</p>
+        <p class="muted"><strong>Dirección:</strong> Quito - Ecuador (inserta tu dirección exacta)</p>
+
+        <div style="margin-top:12px;border-radius:10px;overflow:hidden;box-shadow:0 8px 20px rgba(2,6,23,0.06)">
+          <!-- Placeholder map: replace iframe with Google Maps embed -->
+          <img alt="Mapa placeholder" style="display:block;width:100%" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='300'><rect width='100%25' height='100%25' fill='%23f1f5f9'/><text x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%236b7280' font-family='Inter,Arial' font-size='18'>Mapa embebido aquí</text></svg>">
         </div>
-        <div style="margin-top:8px; font-size:0.92rem; color:var(--muted)">
-          <strong>Dirección:</strong> Quito — Ecuador<br>
-          <strong>Email:</strong> kilometro0ec@gmail.com<br>
-          <strong>Tel:</strong> +593 98 411 6019
-        </div>
+
+        <p style="margin-top:12px" class="muted">Horarios: Lun - Vie 09:00 - 18:00</p>
       </aside>
     </section>
 
     <footer>
-      <div class="wrap footer-grid">
-        <div style="display:flex; gap:12px; align-items:center"><img src="/assets/k0_transparente.png" alt="Logo" style="width:46px"><div>
-          <div style="font-weight:700">IPE3</div>
-          <div style="font-size:0.85rem; color:var(--muted)">Ingeniería Eléctrica & Electrónica</div>
-        </div></div>
-
-        <div style="color:var(--muted); font-size:0.9rem">© <span id="year"></span> IPE3. Todos los derechos reservados.</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>
+          <strong>IPE3</strong> • Ingeniería Eléctrica y Electrónica
+          <div class="muted">kilometro0ec@gmail.com • +593 98 411 6019</div>
+        </div>
+        <div class="muted">© <span id="year"></span> IPE3. Todos los derechos reservados.</div>
       </div>
     </footer>
-
-    <button class="to-top" id="toTop" aria-label="Volver arriba" onclick="scrollToTop()">↑</button>
   </main>
 
   <script>
-    // small helpers
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // year
+    document.getElementById('year').textContent=new Date().getFullYear();
 
-    function toggleMenu(){
-      const nav = document.getElementById('navlist');
-      if(nav.style.display === 'flex') nav.style.display = '';
-      else nav.style.display = 'flex';
-    }
-
-    // back to top visibility
-    const toTop = document.getElementById('toTop');
-    window.addEventListener('scroll', ()=>{
-      if(window.scrollY > 400) toTop.style.display = 'block'; else toTop.style.display = 'none';
+    // mobile menu (simple)
+    const btn = document.getElementById('btnMobile');
+    btn.addEventListener('click', ()=>{
+      const menu = document.querySelector('.menu');
+      if(menu.style.display === 'flex'){menu.style.display='none'}else{menu.style.display='flex';menu.style.flexDirection='column';menu.style.position='absolute';menu.style.right='20px';menu.style.top='70px';menu.style.background='white';menu.style.padding='12px';menu.style.borderRadius='10px';menu.style.boxShadow='0 12px 36px rgba(2,6,23,0.08)'}
     });
-    function scrollToTop(){ window.scrollTo({top:0, behavior:'smooth'}); }
 
-    // fake submit handler (reemplazar con fetch a tu endpoint o mailto)
-    function submitForm(e){
-      e.preventDefault();
-      const name = document.getElementById('name').value;
-      const phone = document.getElementById('phone').value;
-      const message = document.getElementById('message').value;
-      // aquí puedes integrar con Google Forms, Sheets, o tu backend
-      alert('Gracias, ' + name + '. Tu solicitud ha sido enviada. Nos pondremos en contacto al ' + phone + '.');
-      e.target.reset();
-    }
+    // smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'})}
+      })
+    });
   </script>
 </body>
 </html>
