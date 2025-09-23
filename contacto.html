@@ -1,0 +1,58 @@
+
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Contacto — IPE3</title>
+<link rel="icon" href="img/favicon.ico"><link rel="stylesheet" href="css/style.css"></head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <img src="img/logo.png" alt="Logo IPE3">
+      <div>
+        <h1>IPE3</h1>
+        <div style="font-size:0.78rem; color:var(--muted)">Ingeniería Eléctrica & Electrónica</div>
+      </div>
+    </div>
+    <nav>
+      <ul id="navlist">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="proyectos.html">Proyectos</a></li>
+        <li><a href="about.html">Quiénes somos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a class="btn cta" href="contacto.html">Solicitar Cotización</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h2>Contacto & Cotizaciones</h2>
+  <p style="color:var(--muted)">Déjanos tus datos y te contactamos en 24 horas.</p>
+  <form onsubmit="event.preventDefault(); alert('Gracias — tu solicitud fue enviada (simulado).'); this.reset();" style="max-width:720px;background:var(--card);padding:16px;border-radius:12px;box-shadow:var(--shadow)">
+    <div class="field"><label>Nombre</label><input required></div>
+    <div class="field"><label>Empresa (opcional)</label><input></div>
+    <div class="field"><label>Teléfono</label><input required></div>
+    <div class="field"><label>Mensaje</label><textarea rows="4"></textarea></div>
+    <div style="display:flex;gap:10px"><button class="primary cta" type="submit">Enviar solicitud</button><button type="button" onclick="location.href='tel:+593984116019'">Llamar</button></div>
+  </form>
+  <div style="margin-top:18px;color:var(--muted)"><strong>Email:</strong> kilometro0ec@gmail.com<br><strong>Tel:</strong> +593 98 411 6019</div>
+</main>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+    <div style="display:flex;gap:12px;align-items:center">
+      <img src="img/logo.png" alt="Logo" style="width:46px">
+      <div>
+        <div style="font-weight:700">IPE3</div>
+        <div style="font-size:0.85rem;color:var(--muted)">Ingeniería Eléctrica & Electrónica</div>
+      </div>
+    </div>
+    <div style="color:var(--muted);font-size:0.9rem">© 2025 IPE3. Todos los derechos reservados.</div>
+  </div>
+</footer>
+<script>document.getElementById('year') && (document.getElementById('year').textContent = new Date().getFullYear());</script>
+
+</body>
+</html>
