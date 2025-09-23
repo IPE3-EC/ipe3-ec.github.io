@@ -1,178 +1,154 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="IPE3 - Ingeniería Eléctrica y Electrónica en Ecuador. Soluciones integrales en seguridad electrónica, domótica, soporte técnico y equipos biomédicos.">
-    <title>IPE3 - Ingeniería Eléctrica y Electrónica Ecuador</title>
-    <link rel="icon" href="favicon.png" type="image/png">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #004aad;
-            --secondary: #ffb703;
-            --dark: #333;
-            --light: #f9f9f9;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: var(--dark); background: var(--light); }
-        header { background: var(--primary); color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-        header img { height: 50px; }
-        nav a { color: white; margin: 0 1rem; text-decoration: none; font-weight: bold; }
-        nav a:hover { color: var(--secondary); }
-        .hero { background: url('epe3 transparente.png') no-repeat center/contain; height: 300px; display: flex; justify-content: center; align-items: center; color: white; text-align: center; }
-        .hero h1 { background: rgba(0,0,0,0.5); padding: 1rem; border-radius: 8px; }
-        section { padding: 2rem; }
-        h2 { color: var(--primary); margin-bottom: 1rem; }
-        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-        .card { background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
-        .accordion { margin-top: 1rem; }
-        details { margin-bottom: 0.8rem; background: #f0f4ff; padding: 0.6rem 1rem; border-radius: 6px; }
-        details summary { cursor: pointer; font-weight: bold; color: var(--primary); }
-        details ul { margin-top: 0.5rem; margin-left: 1rem; }
-        footer { background: var(--dark); color: white; text-align: center; padding: 1.5rem; margin-top: 2rem; }
-        footer a { color: var(--secondary); margin: 0 0.5rem; font-size: 1.2rem; }
-        @media (max-width: 768px) { .hero { height: 200px; font-size: 0.9rem; } }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landing IPE3 - Promociones</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8f8f8;
+      color: #333;
+    }
+    header {
+      text-align: center;
+      padding: 1rem;
+      background: #111;
+    }
+    header img {
+      max-height: 80px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      padding: 1rem;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .card h3 {
+      margin: 0;
+      padding: 0.5rem 1rem;
+      background: #222;
+      color: #fff;
+      font-size: 1.1rem;
+    }
+    .card p {
+      flex: 1;
+      padding: 1rem;
+      font-size: 0.95rem;
+    }
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: #00d084;
+      text-decoration: none;
+    }
+    /* Botón flotante WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .whatsapp-float:hover {
+      background-color: #1ebd5a;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <img src="epe3 transparente.png" alt="Logo IPE3">
-        <nav>
-            <a href="#servicios">Servicios</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
-    </header>
+  <header>
+    <img src="epe3_transparente.png" alt="IPE3 Logo" />
+  </header>
 
-    <div class="hero">
-        <h1>Ingeniería Eléctrica y Electrónica Ecuador - IPE3</h1>
+  <main class="grid">
+    <div class="card">
+      <img src="spark-plugs.jpg" alt="Bujías" />
+      <h3>Bujías</h3>
+      <p>Repuestos originales de alto rendimiento.</p>
     </div>
+    <div class="card">
+      <img src="car-rear.jpg" alt="Revisión de Frenos" />
+      <h3>Frenos</h3>
+      <p>Chequeo completo y repuestos garantizados.</p>
+    </div>
+    <div class="card">
+      <img src="brake-disc.jpg" alt="Discos de Freno" />
+      <h3>Discos</h3>
+      <p>Durabilidad y seguridad para tu vehículo.</p>
+    </div>
+    <div class="card">
+      <img src="engine.jpg" alt="Motor" />
+      <h3>Motor</h3>
+      <p>Mantenimiento y repuestos para motores modernos.</p>
+    </div>
+    <div class="card">
+      <img src="mechanic-portrait.jpg" alt="Mecánico" />
+      <h3>Servicio Técnico</h3>
+      <p>Expertos certificados en electrónica y mecánica.</p>
+    </div>
+    <div class="card">
+      <img src="tires-stack.jpg" alt="Llantas" />
+      <h3>Llantas</h3>
+      <p>Gran variedad de marcas y modelos disponibles.</p>
+    </div>
+    <div class="card">
+      <img src="oil-filter.jpg" alt="Filtros" />
+      <h3>Filtros</h3>
+      <p>Filtros de aceite, aire y combustible de calidad.</p>
+    </div>
+    <div class="card">
+      <img src="car-front.jpg" alt="Accesorios" />
+      <h3>Accesorios</h3>
+      <p>Personaliza tu auto con accesorios exclusivos.</p>
+    </div>
+    <div class="card">
+      <img src="placeholder.jpg" alt="Promoción Especial" />
+      <h3>Promoción</h3>
+      <p>No te pierdas nuestras ofertas limitadas.</p>
+    </div>
+  </main>
 
-    <section id="servicios">
-        <h2>Servicios</h2>
-        <div class="services">
-            <div class="card">
-                <h3>Seguridad Electrónica</h3>
-                <p>Instalación de cámaras, alarmas y sistemas de control de acceso.</p>
-            </div>
-            <div class="card">
-                <h3>Domótica</h3>
-                <p>Automatización de hogares y oficinas para mayor confort y seguridad.</p>
-            </div>
-            <div class="card">
-                <h3>Soporte Técnico</h3>
-                <p>Mantenimiento preventivo y correctivo de sistemas eléctricos y electrónicos.</p>
-            </div>
-            <div class="card">
-                <h3>Equipos Biomédicos</h3>
-                <p>Venta, instalación y mantenimiento de equipos médicos clasificados por especialidad:</p>
-                <div class="accordion">
-                    <details>
-                        <summary>Cardiología</summary>
-                        <ul>
-                            <li>Electrocardiógrafo (ECG)</li>
-                            <li>Monitor multiparámetro</li>
-                            <li>Desfibrilador</li>
-                            <li>Holter cardíaco</li>
-                        </ul>
-                    </details>
-                    <details>
-                        <summary>Neurología</summary>
-                        <ul>
-                            <li>Electroencefalógrafo (EEG)</li>
-                            <li>Electromiógrafo (EMG)</li>
-                            <li>Potenciales evocados</li>
-                            <li>Polisomnógrafo</li>
-                        </ul>
-                    </details>
-                    <details>
-                        <summary>Oftalmología / Optometría</summary>
-                        <ul>
-                            <li>Autorefractómetro</li>
-                            <li>Tonómetro</li>
-                            <li>Lámpara de hendidura</li>
-                            <li>Oftalmoscopio</li>
-                            <li>Retinógrafo digital</li>
-                            <li>Lensómetro</li>
-                            <li>Fontoluz</li>
-                        </ul>
-                    </details>
-                    <details>
-                        <summary>ORL / Audiología</summary>
-                        <ul>
-                            <li>Audiometro clínico</li>
-                            <li>Timpanómetro</li>
-                            <li>Endoscopios nasales y laríngeos</li>
-                            <li>Otoscopio</li>
-                        </ul>
-                    </details>
-                    <details>
-                        <summary>Medicina General</summary>
-                        <ul>
-                            <li>Glucómetro (en laboratorio)</li>
-                        </ul>
-                    </details>
-                    <details>
-                        <summary>Laboratorio Clínico</summary>
-                        <ul>
-                            <li>Centrífuga</li>
-                            <li>Microscopio clínico</li>
-                            <li>Analizador hematológico</li>
-                            <li>Analizador bioquímico</li>
-                            <li>Refrigerador de laboratorio</li>
-                            <li>Cabina de bioseguridad</li>
-                        </ul>
-                    </details>
-                    <details>
-                        <summary>Neonatología / Pediatría</summary>
-                        <ul>
-                            <li>Incubadora neonatal</li>
-                            <li>Lámpara de fototerapia</li>
-                            <li>Monitor neonatal</li>
-                            <li>Aspirador de secreciones</li>
-                            <li>Bomba de infusión</li>
-                        </ul>
-                    </details>
-                    <details>
-                        <summary>Emergencias y UCI</summary>
-                        <ul>
-                            <li>Monitor multiparámetro</li>
-                            <li>Desfibrilador</li>
-                            <li>Ventilador mecánico</li>
-                            <li>Bombas de infusión</li>
-                            <li>Aspirador de secreciones</li>
-                            <li>Carro de paro</li>
-                        </ul>
-                    </details>
-                    <details>
-                        <summary>Neumología</summary>
-                        <ul>
-                            <li>Espirómetro</li>
-                            <li>Capnógrafo</li>
-                            <li>CPAP / BiPAP</li>
-                        </ul>
-                    </details>
-                    <details>
-                        <summary>Traumatología / Rehabilitación</summary>
-                        <ul>
-                            <li>Ultrasonido terapéutico</li>
-                            <li>Electroestimulador (TENS/EMS)</li>
-                            <li>Láser terapéutico</li>
-                        </ul>
-                    </details>
-                </div>
-            </div>
-        </div>
-    </section>
+  <footer>
+    <p><strong>IPE3 ECUADOR</strong></p>
+    <p>📍 Quito - Ecuador</p>
+    <p>📧 <a href="mailto:ipe3ecuador@gmail.com">ipe3ecuador@gmail.com</a></p>
+    <p>📞 WhatsApp/Teléfono: <a href="https://wa.me/593984016027" target="_blank">+593 984016027</a></p>
+    <p>&copy; 2025 IPE3. Todos los derechos reservados.</p>
+  </footer>
 
-    <footer id="contacto">
-        <p>&copy; 2025 IPE3 - Ingeniería Eléctrica y Electrónica Ecuador</p>
-        <p>Contacto: <a href="mailto:info@ipe3.com">info@ipe3.com</a></p>
-        <div>
-            <a href="https://facebook.com/ipe3ecuador" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="https://wa.me/593984016027" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://www.linkedin.com/company/ipe3" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        </div>
-    </footer>
+  <!-- Botón flotante WhatsApp -->
+  <a href="https://wa.me/593984016027" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 </body>
 </html>
