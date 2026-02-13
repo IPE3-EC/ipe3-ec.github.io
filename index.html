@@ -333,6 +333,25 @@
             </div>
             <div>
                 <h4 class="text-white font-bold mb-8 uppercase tracking-widest text-xs">Contacto</h4>
+               <div class="mt-10 max-w-lg mx-auto glass-panel p-8 rounded-2xl" data-aos="zoom-in">
+    <form action="https://formspree.io/f/tu_id_aqui" method="POST" class="space-y-4">
+        <div>
+            <label class="block text-xs font-bold uppercase tracking-widest text-primary mb-2">Nombre</label>
+            <input type="text" name="name" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:border-primary outline-none transition-all">
+        </div>
+        <div>
+            <label class="block text-xs font-bold uppercase tracking-widest text-primary mb-2">Correo</label>
+            <input type="email" name="_replyto" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:border-primary outline-none transition-all">
+        </div>
+        <div>
+            <label class="block text-xs font-bold uppercase tracking-widest text-primary mb-2">Mensaje</label>
+            <textarea name="message" rows="4" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:border-primary outline-none transition-all"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-primary text-deep-charcoal font-bold py-4 rounded-xl hover:bg-white transition-all">
+            Enviar Mensaje
+        </button>
+    </form>
+</div>
                 <ul class="space-y-6 text-sm">
                     <li class="flex gap-4">
                         <span class="material-icons text-primary text-xl">location_on</span>
