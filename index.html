@@ -1,724 +1,615 @@
 <!DOCTYPE html>
-<html lang="es">
+<html class="dark" lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IPE3® - Ingeniería Eléctrica y Electrónica Proyectos Ecuador</title>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>IPE3® | Inteligencia y Energía Conectadas</title>
 
-  <style>
-    /* ==============================
-       RESET
-    ============================== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#103C91",
+            secondary: "#38B6FF",
+            "background-dark": "#050A18",
+            "card-dark": "rgba(255, 255, 255, 0.03)",
+          },
+          fontFamily: {
+            display: ["Plus Jakarta Sans", "sans-serif"],
+            body: ["Plus Jakarta Sans", "sans-serif"],
+          },
+          borderRadius: {
+            '2xl': "1.5rem",
+            '3xl': "2rem",
+          },
+        },
+      },
+    };
+  </script>
+
+  <style type="text/tailwindcss">
+    :root {
+      --primary: #103C91;
+      --secondary: #38B6FF;
+    }
+
+    html {
       scroll-behavior: smooth;
     }
 
-    body {
-      background: #070a10;
-      color: white;
+    body { 
+      font-family: 'Plus Jakarta Sans', sans-serif; 
+      -webkit-tap-highlight-color: transparent; 
       overflow-x: hidden;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
+    .hero-overlay {
+      background: linear-gradient(to bottom, rgba(16, 60, 145, 0.85) 0%, rgba(5, 10, 24, 0.95) 100%);
     }
 
-    /* ==============================
-       NEON EFFECT
-    ============================== */
-    .neon-text {
-      color: #ffffff;
-      text-shadow:
-        0 0 6px rgba(0, 180, 255, 0.7),
-        0 0 15px rgba(0, 180, 255, 0.8),
-        0 0 30px rgba(0, 100, 255, 0.9);
-    }
-
-    /* ==============================
-       HEADER
-    ============================== */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 9999;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px 18px;
-      background: rgba(0, 0, 0, 0.6);
+    .glass-morphism {
+      background: rgba(255, 255, 255, 0.03);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.4s ease;
     }
 
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      cursor: pointer;
+    .glass-morphism:hover {
+      transform: translateY(-6px) scale(1.03);
+      border: 1px solid rgba(56, 182, 255, 0.35);
+      box-shadow: 0 0 25px rgba(56, 182, 255, 0.12);
     }
 
-    .logo-container img {
-      width: 55px;
-      height: auto;
-      filter: drop-shadow(0px 0px 8px rgba(0, 200, 255, 0.8));
+    .glow-icon {
+      filter: drop-shadow(0 0 8px rgba(56, 182, 255, 0.4));
     }
 
-    .logo-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
+    .text-gradient-cyan {
+      background: linear-gradient(135deg, #38B6FF 0%, #103C91 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .logo-text span:first-child {
-      font-size: 18px;
-      font-weight: 900;
-      letter-spacing: 1px;
+    .btn-gradient {
+      background: linear-gradient(90deg, #38B6FF 0%, #103C91 100%);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.35s ease;
     }
 
-    .logo-text span:last-child {
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      opacity: 0.9;
-    }
-
-    /* ECUADOR Bandera */
-    .ecuador-flag {
-      font-weight: 900;
-      font-size: 12px;
-      margin-left: 5px;
-      letter-spacing: 0.15em;
-    }
-
-    .ecuador-flag .yellow {
-      color: #ffd000;
-      text-shadow: 0 0 6px rgba(255, 208, 0, 0.8);
-    }
-    .ecuador-flag .blue {
-      color: #0077ff;
-      text-shadow: 0 0 6px rgba(0, 119, 255, 0.8);
-    }
-    .ecuador-flag .red {
-      color: #ff0033;
-      text-shadow: 0 0 6px rgba(255, 0, 51, 0.8);
-    }
-
-    /* ==============================
-       MENU BUTTON
-    ============================== */
-    .menu-btn {
-      font-size: 28px;
-      cursor: pointer;
-      user-select: none;
-      padding: 8px 10px;
-      border-radius: 10px;
-      transition: 0.2s;
-    }
-
-    .menu-btn:hover {
-      background: rgba(0, 200, 255, 0.12);
-    }
-
-    /* ==============================
-       SIDEBAR MENU
-    ============================== */
-    .sidebar {
-      position: fixed;
-      top: 0;
-      right: -320px;
-      width: 300px;
-      height: 100vh;
-      background: rgba(10, 15, 30, 0.92);
-      backdrop-filter: blur(16px);
-      border-left: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 80px 20px;
-      transition: 0.35s ease;
-      z-index: 99999;
-    }
-
-    .sidebar.active {
-      right: 0;
-    }
-
-    .sidebar a {
-      display: block;
-      padding: 14px 12px;
-      margin-bottom: 12px;
-      border-radius: 14px;
-      font-size: 16px;
-      font-weight: 800;
-      background: rgba(255, 255, 255, 0.04);
-      transition: 0.2s;
-    }
-
-    .sidebar a:hover {
-      background: rgba(0, 200, 255, 0.14);
-      transform: translateX(-5px);
-    }
-
-    /* overlay para cerrar al tocar afuera */
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.45);
-      backdrop-filter: blur(2px);
+    .btn-gradient::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(56,182,255,0.35) 0%, transparent 70%);
       opacity: 0;
-      pointer-events: none;
-      transition: 0.3s;
-      z-index: 99998;
+      transform: scale(0.6);
+      transition: all 0.6s ease;
     }
 
-    .overlay.active {
+    .btn-gradient:hover::before {
       opacity: 1;
-      pointer-events: all;
+      transform: scale(1);
     }
 
-    /* ==============================
-       HERO VIDEO
-    ============================== */
-    .hero {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
+    .btn-gradient:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 0 25px rgba(56,182,255,0.25), 0 0 50px rgba(16,60,145,0.35);
     }
 
-    .hero video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.35);
-      z-index: 1;
+    .btn-gradient:active {
+      transform: scale(0.97);
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 120px 20px 30px;
-      max-width: 1100px;
-      margin: auto;
+    .btn-outline-premium {
+      transition: all 0.35s ease;
     }
 
-    .hero-content h1 {
-      font-size: 40px;
-      font-weight: 900;
-      line-height: 1.1;
-      text-shadow: 0 0 25px rgba(0, 200, 255, 0.55);
+    .btn-outline-premium:hover {
+      border-color: rgba(56,182,255,0.8);
+      box-shadow: 0 0 20px rgba(56,182,255,0.18);
+      transform: translateY(-4px);
+      background: rgba(56,182,255,0.05);
     }
 
-    .hero-content p {
-      margin-top: 14px;
-      max-width: 650px;
-      font-size: 18px;
-      opacity: 0.9;
-      line-height: 1.6;
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.9s ease;
     }
 
-    .hero-buttons {
-      margin-top: 28px;
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .btn {
-      padding: 14px 22px;
-      border-radius: 14px;
-      font-weight: 800;
-      font-size: 14px;
-      border: none;
-      cursor: pointer;
-      transition: 0.25s;
+    .project-card {
+      transition: all 0.45s ease;
     }
 
-    .btn-primary {
-      background: linear-gradient(90deg, #00d4ff, #0077ff);
-      color: white;
-      box-shadow: 0 0 20px rgba(0, 200, 255, 0.45);
+    .project-card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 0 35px rgba(56,182,255,0.12);
     }
 
-    .btn-primary:hover {
-      transform: scale(1.05);
+    .neon-text {
+      text-shadow: 0 0 10px rgba(56,182,255,0.35), 0 0 30px rgba(16,60,145,0.25);
     }
 
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.06);
-      color: white;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
     }
 
-    .btn-secondary:hover {
-      background: rgba(0, 200, 255, 0.12);
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #38B6FF;
+      border-radius: 10px;
     }
 
-    /* ==============================
-       SECTIONS
-    ============================== */
-    section {
-      padding: 90px 20px;
-      max-width: 1100px;
-      margin: auto;
+    .pulse-soft {
+      animation: pulseSoft 3s infinite;
     }
 
-    section h2 {
-      font-size: 30px;
-      font-weight: 900;
-      margin-bottom: 18px;
-      text-shadow: 0 0 20px rgba(0, 200, 255, 0.35);
+    @keyframes pulseSoft {
+      0% { transform: scale(1); opacity: 0.85; }
+      50% { transform: scale(1.08); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.85; }
     }
 
-    section p {
-      opacity: 0.85;
-      line-height: 1.7;
+    .floating-blur {
+      animation: floatBlur 7s ease-in-out infinite;
     }
 
-    /* ==============================
-       CARDS
-    ============================== */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 20px;
-      margin-top: 35px;
+    @keyframes floatBlur {
+      0% { transform: translateY(0px) translateX(0px); }
+      50% { transform: translateY(-30px) translateX(20px); }
+      100% { transform: translateY(0px) translateX(0px); }
     }
 
-    .card {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      padding: 22px;
-      border-radius: 18px;
-      backdrop-filter: blur(10px);
-      transition: 0.25s;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      border: 1px solid rgba(0, 200, 255, 0.25);
-      box-shadow: 0 0 20px rgba(0, 200, 255, 0.18);
-    }
-
-    .card h3 {
-      font-size: 18px;
-      font-weight: 900;
-      margin-bottom: 10px;
-    }
-
-    /* ==============================
-       PROJECTS
-    ============================== */
-    .project-img {
-      width: 100%;
-      height: 170px;
-      border-radius: 14px;
-      object-fit: cover;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      margin-bottom: 12px;
-      background: rgba(0,0,0,0.3);
-    }
-
-    /* ==============================
-       CONTACT FORM
-    ============================== */
-    form {
-      margin-top: 25px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 16px;
-      border-radius: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.04);
-      color: white;
-      outline: none;
-      font-size: 15px;
-    }
-
-    textarea {
-      min-height: 140px;
-      resize: none;
-    }
-
-    /* ==============================
-       FOOTER WITH PARTICLES
-    ============================== */
-    footer {
-      position: relative;
-      padding: 80px 20px 30px;
-      background: rgba(0, 0, 0, 0.85);
-      overflow: hidden;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    #particles-footer {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-    }
-
-    .footer-content {
-      position: relative;
-      z-index: 2;
-      max-width: 1100px;
-      margin: auto;
-      text-align: center;
-    }
-
-    .footer-logo {
-      width: 220px; /* DOBLE MÁS GRANDE */
-      height: auto;
-      margin-bottom: 14px;
-      filter: drop-shadow(0px 0px 20px rgba(0, 200, 255, 0.7));
-    }
-
-    .footer-links {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 25px;
-      font-weight: 800;
-      opacity: 0.9;
-    }
-
-    .footer-links a:hover {
-      color: #00d4ff;
-    }
-
-    .footer-location {
-      margin-top: 22px;
-      font-size: 13px;
-      opacity: 0.85;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-    }
-
-    .copyright {
-      margin-top: 18px;
-      font-size: 12px;
-      opacity: 0.65;
-      letter-spacing: 0.1em;
-    }
-
-    /* ==============================
-       WHATSAPP FLOAT BUTTON
-    ============================== */
-    .whatsapp {
-      position: fixed;
-      bottom: 18px;
-      right: 18px;
-      width: 65px;
-      height: 65px;
-      border-radius: 50%;
-      background: #25d366;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 99999;
-      box-shadow: 0 0 25px rgba(37, 211, 102, 0.5);
-      transition: 0.2s;
-    }
-
-    .whatsapp:hover {
-      transform: scale(1.1);
-    }
-
-    .whatsapp img {
-      width: 38px;
-      height: 38px;
-    }
-
-    /* ==============================
-       RESPONSIVE FIX MOBILE
-    ============================== */
-    @media(max-width: 700px){
-      .hero-content h1 {
-        font-size: 30px;
+    /* PARTICULAS SOLO FOOTER */
+    @keyframes floatParticle {
+      0% {
+        transform: translateY(0px);
+        opacity: 0.2;
       }
-
-      .logo-text span:first-child {
-        font-size: 15px;
+      50% {
+        opacity: 0.8;
       }
-
-      .logo-container img {
-        width: 48px;
-      }
-
-      .ecuador-flag {
-        font-size: 13px; /* MÁS GRANDE EN CELULAR */
-      }
-
-      .sidebar {
-        width: 280px;
-      }
-
-      .footer-logo {
-        width: 260px; /* aún más grande en móvil */
+      100% {
+        transform: translateY(-250px);
+        opacity: 0;
       }
     }
   </style>
+
 </head>
 
-<body>
+<body class="bg-background-dark text-slate-100 min-h-screen">
 
-  <!-- OVERLAY -->
-  <div class="overlay" id="overlay"></div>
+<!-- HEADER -->
+<header class="fixed top-0 z-50 w-full bg-background-dark/80 backdrop-blur-md border-b border-white/5">
+  <div class="px-5 h-20 flex items-center justify-between">
 
-  <!-- HEADER -->
-  <header>
-    <!-- LOGO CLICK SUBE AL INICIO -->
-    <div class="logo-container" onclick="window.location.href='#inicio'">
-      <img src="SIN%20FONDO.png" alt="Logo IPE3" />
-      <div class="logo-text">
-        <span class="neon-text">IPE3®</span>
-        <span>
-          Ingeniería Eléctrica y Electrónica Proyectos
-          <span class="ecuador-flag">
-            <span class="yellow">EC</span><span class="blue">UA</span><span class="red">DOR</span>
+    <!-- LOGO -->
+    <a href="#inicio" class="flex items-center space-x-3 cursor-pointer">
+      <div class="w-12 h-12">
+        <img src="static/SIN FONDO.png" alt="Logo IPE3" class="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(56,182,255,0.5)]">
+      </div>
+
+      <div class="flex flex-col">
+        <span class="font-extrabold text-lg tracking-tight leading-none neon-text">IPE3®</span>
+        <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-secondary">
+          Ingeniería Eléctrica y Electrónica Proyectos 
+          <span class="font-extrabold">
+            <span class="text-yellow-400">EC</span><span class="text-blue-500">UA</span><span class="text-red-500">DOR</span>
           </span>
         </span>
       </div>
-    </div>
+    </a>
 
-    <!-- MENU BUTTON -->
-    <div class="menu-btn" id="menuBtn">☰</div>
-  </header>
+    <!-- BOTON MENU -->
+    <button id="menuBtn" class="w-10 h-10 flex items-center justify-center text-white hover:text-secondary transition">
+      <span class="material-symbols-outlined text-3xl">menu</span>
+    </button>
 
-  <!-- SIDEBAR -->
-  <nav class="sidebar" id="sidebar">
-    <a href="#inicio">Inicio</a>
-    <a href="#servicios">Servicios</a>
-    <a href="#proyectos">Proyectos</a>
-    <a href="#contacto">Contacto</a>
-    <a href="pdf/portafolio.pdf" target="_blank">📄 Portafolio PDF</a>
-  </nav>
+  </div>
+</header>
 
-  <!-- HERO -->
-  <div class="hero" id="inicio">
-    <video autoplay muted loop playsinline>
-      <source src="static/video.mp4" type="video/mp4">
-    </video>
+<!-- MENU OVERLAY -->
+<div id="menuOverlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden"></div>
 
-    <div class="hero-content">
-      <h1 class="neon-text">Soluciones Eléctricas, Electrónicas y Seguridad Inteligente</h1>
-      <p>
-        En IPE3® desarrollamos proyectos de ingeniería profesional en Ecuador:
-        CCTV, redes, automatización, control de accesos, energía y soluciones industriales.
-      </p>
+<!-- MENU PANEL -->
+<div id="menuPanel"
+  class="fixed top-0 right-0 w-72 h-full bg-background-dark border-l border-white/10 z-50 transform translate-x-full transition-transform duration-300">
 
-      <div class="hero-buttons">
-        <button class="btn btn-primary" onclick="window.location.href='pdf/portafolio.pdf'">
-          Ver Portafolio PDF
-        </button>
-
-        <button class="btn btn-secondary" onclick="window.location.href='#contacto'">
-          Contáctanos
-        </button>
-      </div>
-    </div>
+  <div class="p-6 flex items-center justify-between border-b border-white/10">
+    <span class="font-bold text-lg neon-text">MENÚ</span>
+    <button id="closeMenuBtn" class="text-white hover:text-secondary transition">
+      <span class="material-symbols-outlined text-3xl">close</span>
+    </button>
   </div>
 
-  <!-- SERVICIOS -->
-  <section id="servicios">
-    <h2>Servicios de Ingeniería</h2>
-    <p>Servicios premium en instalaciones, mantenimiento, redes, automatización y seguridad electrónica.</p>
+  <nav class="p-6 flex flex-col space-y-6 text-sm font-bold uppercase tracking-widest text-slate-300">
+    <a class="hover:text-secondary transition menuLink" href="#inicio">Inicio</a>
+    <a class="hover:text-secondary transition menuLink" href="#services">Servicios</a>
+    <a class="hover:text-secondary transition menuLink" href="#projects">Proyectos</a>
+    <a class="hover:text-secondary transition menuLink" href="#contact">Contacto</a>
+  </nav>
 
-    <div class="grid">
-      <div class="card">
-        <h3>📡 Redes y Cableado Estructurado</h3>
-        <p>Instalación profesional de redes LAN, fibra óptica, racks y cableado estructurado.</p>
+</div>
+
+<main>
+
+  <!-- HERO -->
+  <section id="inicio" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img alt="Fondo Ingeniería" class="w-full h-full object-cover"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqllJk83VeN_YdbdmtTI_MBnRkM-gS8l1b4h2Smzm_aTsj8r1dEBncwO7ih9BzeJylX5ep-n6BHKQ8EZS2zsGdAhcrj5_PQ68ATAhZpCrXiEuNeNCjStBNoF698UWI2BvPqHYTuQ803qDoHLaLt_LLhCKv2k9JGnOFa0fDsgfc120TvBkM60ZWZ3sM-mkyp6Q1v_2cJ-xeeU5hIflQxeWu71RSM041L8vUj7d_Wg7brq8Iu8UyhtQqc4B_3cfcw00qtqd4UPnpShA"/>
+      <div class="absolute inset-0 hero-overlay"></div>
+    </div>
+
+    <div class="relative z-10 px-6 w-full fade-up">
+      <div class="inline-flex items-center space-x-2 bg-secondary/10 border border-secondary/20 px-4 py-2 rounded-full mb-6">
+        <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+        <span class="text-[10px] font-bold uppercase tracking-widest text-secondary">Líderes en Tecnología Industrial</span>
       </div>
 
-      <div class="card">
-        <h3>📷 CCTV y Seguridad Electrónica</h3>
-        <p>Sistemas Hikvision, Dahua, Centurion, monitoreo remoto y analítica inteligente.</p>
+      <h1 class="text-4xl font-extrabold leading-[1.1] mb-4 tracking-tight neon-text">
+        IPE3®
+      </h1>
+
+      <h2 class="text-xl font-bold text-secondary mb-6 tracking-wide">
+        INTELIGENCIA Y ENERGÍA CONECTADAS
+      </h2>
+
+      <p class="text-slate-400 text-base mb-10 max-w-sm leading-relaxed">
+        Transformamos la infraestructura tecnológica de Ecuador con soluciones avanzadas en ingeniería eléctrica, electrónica y automatización.
+      </p>
+
+      <div class="flex flex-col space-y-4">
+        <a class="btn-gradient text-white font-bold py-4 px-8 rounded-2xl flex items-center justify-center space-x-2 shadow-lg shadow-primary/20"
+          href="#contact">
+          <span>Iniciar Proyecto</span>
+          <span class="material-symbols-outlined text-lg">bolt</span>
+        </a>
+
+        <a class="bg-white/5 border border-white/10 text-white font-semibold py-4 px-8 rounded-2xl flex items-center justify-center btn-outline-premium"
+          href="#services">
+          Nuestros Servicios
+        </a>
+      </div>
+    </div>
+
+    <div class="absolute -bottom-24 -right-24 w-64 h-64 bg-secondary/20 rounded-full blur-[100px] floating-blur"></div>
+  </section>
+
+  <!-- STATS -->
+  <section class="py-12 px-6 -mt-16 relative z-20 fade-up">
+    <div class="grid grid-cols-2 gap-4">
+
+      <div class="glass-morphism p-6 rounded-3xl text-center">
+        <span class="block text-3xl font-extrabold text-gradient-cyan mb-1 counter" data-target="120">0</span>
+        <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Servicios Realizados</span>
       </div>
 
-      <div class="card">
-        <h3>⚡ Instalaciones Eléctricas</h3>
-        <p>Tableros, canalización, iluminación, protección, puesta a tierra y certificación.</p>
+      <div class="glass-morphism p-6 rounded-3xl text-center">
+        <span class="block text-3xl font-extrabold text-gradient-cyan mb-1 counter" data-target="15">0</span>
+        <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Hospitales Aliados</span>
       </div>
 
-      <div class="card">
-        <h3>🔧 Automatización y Control</h3>
-        <p>Soluciones industriales, domótica, control de accesos, sensores y sistemas inteligentes.</p>
+      <div class="glass-morphism p-6 rounded-3xl text-center">
+        <span class="block text-3xl font-extrabold text-gradient-cyan mb-1">100%</span>
+        <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Garantía Técnica</span>
+      </div>
+
+      <div class="glass-morphism p-6 rounded-3xl text-center">
+        <span class="block text-3xl font-extrabold text-gradient-cyan mb-1">24/7</span>
+        <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Soporte Crítico</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="py-20 px-6 bg-background-dark fade-up" id="services">
+    <div class="mb-12">
+      <span class="text-secondary font-bold text-xs uppercase tracking-[0.3em] block mb-2">Especialidades</span>
+      <h2 class="text-3xl font-extrabold tracking-tight neon-text">Servicios de Ingeniería</h2>
+    </div>
+
+    <div class="space-y-6">
+
+      <div class="bg-card-dark border border-white/5 p-8 rounded-3xl group glass-morphism">
+        <div class="w-14 h-14 rounded-2xl bg-secondary/5 flex items-center justify-center mb-6 glow-icon border border-secondary/20">
+          <span class="material-symbols-outlined text-secondary text-3xl font-light">biotech</span>
+        </div>
+        <h3 class="text-xl font-bold mb-3">Mantenimiento Médico</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          Especialistas en equipos oftalmológicos y biomédicos. Certificación técnica para alta precisión clínica.
+        </p>
+      </div>
+
+      <div class="bg-card-dark border border-white/5 p-8 rounded-3xl glass-morphism">
+        <div class="w-14 h-14 rounded-2xl bg-secondary/5 flex items-center justify-center mb-6 glow-icon border border-secondary/20">
+          <span class="material-symbols-outlined text-secondary text-3xl font-light">electrical_services</span>
+        </div>
+        <h3 class="text-xl font-bold mb-3">Instalaciones Eléctricas</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          Diseño y ejecución de sistemas eléctricos industriales, tableros de transferencia y estudios de carga.
+        </p>
+      </div>
+
+      <div class="bg-card-dark border border-white/5 p-8 rounded-3xl glass-morphism">
+        <div class="w-14 h-14 rounded-2xl bg-secondary/5 flex items-center justify-center mb-6 glow-icon border border-secondary/20">
+          <span class="material-symbols-outlined text-secondary text-3xl font-light">videocam</span>
+        </div>
+        <h3 class="text-xl font-bold mb-3">Seguridad Electrónica</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          Sistemas CCTV IP, control de acceso biométrico y monitoreo remoto centralizado.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="py-20 px-6 bg-slate-900/30 fade-up" id="projects">
+    <div class="mb-12">
+      <span class="text-secondary font-bold text-xs uppercase tracking-[0.3em] block mb-2">Portafolio</span>
+      <h2 class="text-3xl font-extrabold tracking-tight neon-text">Proyectos Recientes</h2>
+    </div>
+
+    <div class="grid gap-6">
+
+      <div class="group relative overflow-hidden rounded-3xl aspect-[4/3] bg-slate-800 project-card">
+        <img alt="Proyecto 1"
+          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          src="projects/proyecto1.jpg"
+          onerror="this.src='https://via.placeholder.com/800x600?text=Proyecto+IPE3';"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent p-6 flex flex-col justify-end">
+          <span class="text-[10px] font-bold text-secondary uppercase tracking-widest mb-1">Médico</span>
+          <h4 class="text-lg font-bold">Clínica Santa Lucía</h4>
+        </div>
+      </div>
+
+      <div class="group relative overflow-hidden rounded-3xl aspect-[4/3] bg-slate-800 project-card">
+        <img alt="Proyecto 2"
+          class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          src="projects/proyecto2.jpg"
+          onerror="this.src='https://via.placeholder.com/800x600?text=Proyecto+IPE3';"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent p-6 flex flex-col justify-end">
+          <span class="text-[10px] font-bold text-secondary uppercase tracking-widest mb-1">Eléctrico</span>
+          <h4 class="text-lg font-bold">Subestación Industrial</h4>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mt-8">
+      <a href="pdf/portafolio.pdf" target="_blank"
+        class="w-full block text-center py-4 border border-secondary text-secondary font-bold rounded-2xl transition-all hover:bg-secondary hover:text-primary hover:shadow-lg hover:shadow-secondary/20 hover:-translate-y-1">
+        Ver Portafolio PDF
+      </a>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section class="py-20 px-6 overflow-hidden fade-up">
+    <div class="mb-12 text-center">
+      <h2 class="text-2xl font-bold tracking-tight neon-text">Confianza en el Sector</h2>
+    </div>
+
+    <div class="space-y-6">
+      <div class="bg-card-dark p-6 rounded-3xl border border-white/5 italic text-slate-400 relative glass-morphism">
+        <span class="material-symbols-outlined text-secondary/30 absolute top-4 right-6 text-5xl">format_quote</span>
+
+        <p class="text-sm leading-relaxed mb-6">
+          "El mantenimiento de nuestros equipos fue impecable. Profesionalismo y precisión total."
+        </p>
+
+        <div class="flex items-center space-x-4 not-italic">
+          <div class="w-10 h-10 rounded-full bg-slate-700"></div>
+          <div>
+            <p class="text-sm font-bold text-white">Ing. Roberto Méndez</p>
+            <p class="text-[10px] text-secondary font-bold uppercase tracking-wider">Director Técnico - Hospital Central</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- PROYECTOS -->
-  <section id="proyectos">
-    <h2>Proyectos Recientes</h2>
-    <p>Algunos de nuestros trabajos más destacados.</p>
-
-    <div class="grid">
-      <div class="card">
-        <img src="static/uploads/projects/proyecto1.jpg" class="project-img" alt="Proyecto 1">
-        <h3>Proyecto CCTV Empresarial</h3>
-        <p>Instalación profesional de cámaras con grabación inteligente y acceso remoto.</p>
-      </div>
-
-      <div class="card">
-        <img src="static/uploads/projects/proyecto2.jpg" class="project-img" alt="Proyecto 2">
-        <h3>Instalación Eléctrica Industrial</h3>
-        <p>Montaje de tableros y distribución eléctrica con normativas de seguridad.</p>
-      </div>
+  <!-- CONTACT -->
+  <section class="py-20 px-6 bg-slate-950 fade-up" id="contact">
+    <div class="mb-10">
+      <h2 class="text-3xl font-extrabold tracking-tight mb-4 neon-text">Contáctanos</h2>
+      <p class="text-slate-400 text-sm">Déjanos tu mensaje y nos pondremos en contacto en menos de 24 horas.</p>
     </div>
-  </section>
 
-  <!-- CONTACTO -->
-  <section id="contacto">
-    <h2>Contáctanos</h2>
-    <p>Déjanos tu mensaje y un asesor técnico te responderá.</p>
+    <form class="space-y-4">
+      <div>
+        <input class="w-full bg-white/5 border-white/10 rounded-2xl py-4 px-6 focus:ring-secondary focus:border-secondary text-white placeholder:text-slate-500"
+          placeholder="Nombre completo" type="text"/>
+      </div>
 
-    <form onsubmit="sendWhatsApp(event)">
-      <input type="email" id="email" placeholder="Correo electrónico" required />
-      <textarea id="mensaje" placeholder="¿Cómo podemos ayudarte?" required></textarea>
-      <button class="btn btn-primary" type="submit">Enviar mensaje</button>
+      <div>
+        <input class="w-full bg-white/5 border-white/10 rounded-2xl py-4 px-6 focus:ring-secondary focus:border-secondary text-white placeholder:text-slate-500"
+          placeholder="Correo electrónico" type="email"/>
+      </div>
+
+      <div>
+        <textarea class="w-full bg-white/5 border-white/10 rounded-2xl py-4 px-6 focus:ring-secondary focus:border-secondary text-white placeholder:text-slate-500"
+          placeholder="¿Cómo podemos ayudarte?" rows="4"></textarea>
+      </div>
+
+      <button class="w-full btn-gradient py-5 rounded-2xl font-bold text-white shadow-xl shadow-secondary/10 flex items-center justify-center space-x-2"
+        type="submit">
+        <span>Enviar Mensaje</span>
+        <span class="material-symbols-outlined text-xl">send</span>
+      </button>
     </form>
   </section>
 
-  <!-- FOOTER PARTICLES SOLO AQUÍ -->
-  <footer>
-    <div id="particles-footer"></div>
+</main>
 
-    <div class="footer-content">
-      <img src="SIN%20FONDO.png" alt="Logo IPE3" class="footer-logo">
+<!-- FOOTER -->
+<footer class="relative bg-background-dark py-12 px-6 border-t border-white/5 overflow-hidden">
 
-      <h2 class="neon-text">IPE3®</h2>
+  <!-- PARTICULAS SOLO FOOTER -->
+  <div id="footerParticles" class="absolute inset-0 pointer-events-none overflow-hidden"></div>
 
-      <div class="footer-links">
-        <a href="#inicio">INICIO</a>
-        <a href="#servicios">SERVICIOS</a>
-        <a href="#proyectos">PROYECTOS</a>
-        <a href="#contacto">CONTACTO</a>
-      </div>
+  <div class="relative z-10 flex flex-col items-center">
 
-      <div class="footer-location">
-        <span style="color:#ffd000;">■</span>
-        <span style="color:#0077ff;">■</span>
-        <span style="color:#ff0033;">■</span>
-        QUITO, ECUADOR
-      </div>
+    <!-- LOGO FOOTER (DOBLE TAMAÑO) -->
+    <a href="#inicio" class="flex flex-col items-center space-y-4 mb-8">
+      <img src="static/SIN FONDO.png" alt="Logo IPE3" class="w-32 h-32 object-contain drop-shadow-[0_0_25px_rgba(56,182,255,0.65)]">
+      <span class="font-bold tracking-tight neon-text text-xl">IPE3®</span>
+    </a>
 
-      <div class="copyright">
-        © 2016 IPE3®. TODOS LOS DERECHOS RESERVADOS
-      </div>
+    <nav class="flex flex-wrap justify-center gap-6 mb-10 text-xs font-bold uppercase tracking-widest text-slate-500">
+      <a class="hover:text-secondary transition" href="#inicio">Inicio</a>
+      <a class="hover:text-secondary transition" href="#services">Servicios</a>
+      <a class="hover:text-secondary transition" href="#projects">Proyectos</a>
+      <a class="hover:text-secondary transition" href="#contact">Contacto</a>
+    </nav>
+
+    <div class="flex items-center space-x-2 mb-6">
+      <div class="w-6 h-3 bg-yellow-400 rounded-sm"></div>
+      <div class="w-6 h-3 bg-blue-600 rounded-sm"></div>
+      <div class="w-6 h-3 bg-red-600 rounded-sm"></div>
+      <span class="text-[10px] font-bold text-slate-500 uppercase ml-2">Quito, Ecuador</span>
     </div>
-  </footer>
 
-  <!-- WHATSAPP FLOAT -->
-  <a class="whatsapp" href="https://wa.me/593984016027" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-  </a>
+    <p class="text-[10px] text-slate-600 font-bold uppercase tracking-[0.2em] text-center">
+      © 2016 IPE3®. TODOS LOS DERECHOS RESERVADOS
+    </p>
 
-  <!-- PARTICLES SCRIPT SOLO FOOTER -->
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  </div>
+</footer>
 
-  <script>
-    /* ==============================
-       MENU HAMBURGUESA FUNCIONAL
-    ============================== */
-    const menuBtn = document.getElementById("menuBtn");
-    const sidebar = document.getElementById("sidebar");
-    const overlay = document.getElementById("overlay");
+<!-- WHATSAPP -->
+<a class="fixed bottom-6 right-6 w-16 h-16 bg-[#25D366] text-white rounded-full shadow-2xl shadow-[#25D366]/30 flex items-center justify-center z-[100] transition-transform hover:scale-110 active:scale-95"
+  href="https://wa.me/593984016027" target="_blank">
+  <svg class="w-9 h-9" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.628 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
+  </svg>
+</a>
 
-    menuBtn.addEventListener("click", () => {
-      sidebar.classList.toggle("active");
-      overlay.classList.toggle("active");
+<!-- SCRIPT: ANIMACIONES -->
+<script>
+  // ANIMACION FADE UP
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add("show");
+      }
     });
+  }, { threshold: 0.15 });
 
-    overlay.addEventListener("click", () => {
-      sidebar.classList.remove("active");
-      overlay.classList.remove("active");
-    });
+  document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
 
-    document.querySelectorAll(".sidebar a").forEach(link => {
-      link.addEventListener("click", () => {
-        sidebar.classList.remove("active");
-        overlay.classList.remove("active");
-      });
-    });
+  // CONTADORES ANIMADOS
+  function animateCounters(){
+    const counters = document.querySelectorAll(".counter");
 
-    /* ==============================
-       WHATSAPP FORM
-    ============================== */
-    function sendWhatsApp(e){
-      e.preventDefault();
-      const email = document.getElementById("email").value;
-      const mensaje = document.getElementById("mensaje").value;
+    counters.forEach(counter => {
+      const target = +counter.getAttribute("data-target");
+      let count = 0;
 
-      const text = `Hola IPE3®, mi correo es: ${email}%0A%0AMensaje:%0A${mensaje}`;
-      window.open(`https://wa.me/593984016027?text=${text}`, "_blank");
-    }
+      const update = () => {
+        const increment = Math.ceil(target / 70);
+        count += increment;
 
-    /* ==============================
-       PARTICLES SOLO FOOTER
-    ============================== */
-    tsParticles.load("particles-footer", {
-      background: {
-        color: "transparent"
-      },
-      fpsLimit: 60,
-      particles: {
-        number: {
-          value: 60,
-          density: {
-            enable: true,
-            area: 900
-          }
-        },
-        color: {
-          value: ["#00d4ff", "#0077ff", "#ffffff"]
-        },
-        shape: {
-          type: "circle"
-        },
-        opacity: {
-          value: 0.4
-        },
-        size: {
-          value: { min: 1, max: 4 }
-        },
-        move: {
-          enable: true,
-          speed: 1.2,
-          direction: "none",
-          random: true,
-          straight: false,
-          outModes: {
-            default: "out"
-          }
-        },
-        links: {
-          enable: true,
-          distance: 120,
-          color: "#00d4ff",
-          opacity: 0.15,
-          width: 1
+        if(count >= target){
+          counter.innerText = "+" + target;
+        } else {
+          counter.innerText = "+" + count;
+          requestAnimationFrame(update);
         }
-      },
-      detectRetina: true
+      };
+
+      update();
     });
-  </script>
+  }
+
+  const statsSection = document.querySelector(".counter")?.parentElement?.parentElement;
+  if(statsSection){
+    const statsObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          animateCounters();
+          statsObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.4 });
+
+    statsObserver.observe(statsSection);
+  }
+
+  // MENU HAMBURGUESA
+  const menuBtn = document.getElementById("menuBtn");
+  const closeMenuBtn = document.getElementById("closeMenuBtn");
+  const menuPanel = document.getElementById("menuPanel");
+  const menuOverlay = document.getElementById("menuOverlay");
+  const menuLinks = document.querySelectorAll(".menuLink");
+
+  function openMenu() {
+    menuPanel.classList.remove("translate-x-full");
+    menuOverlay.classList.remove("hidden");
+  }
+
+  function closeMenu() {
+    menuPanel.classList.add("translate-x-full");
+    menuOverlay.classList.add("hidden");
+  }
+
+  menuBtn.addEventListener("click", openMenu);
+  closeMenuBtn.addEventListener("click", closeMenu);
+
+  menuOverlay.addEventListener("click", closeMenu);
+
+  menuLinks.forEach(link => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  // PARTICULAS SOLO FOOTER
+  const footerParticles = document.getElementById("footerParticles");
+
+  function createParticle() {
+    const particle = document.createElement("div");
+    particle.className = "absolute rounded-full opacity-70";
+
+    const size = Math.random() * 6 + 2;
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+
+    particle.style.left = `${Math.random() * 100}%`;
+    particle.style.bottom = `-10px`;
+
+    const colors = ["#38B6FF", "#103C91", "#ffffff"];
+    particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+    const duration = Math.random() * 5 + 4;
+    particle.style.animation = `floatParticle ${duration}s linear forwards`;
+
+    footerParticles.appendChild(particle);
+
+    setTimeout(() => {
+      particle.remove();
+    }, duration * 1000);
+  }
+
+  setInterval(createParticle, 250);
+</script>
 
 </body>
 </html>
