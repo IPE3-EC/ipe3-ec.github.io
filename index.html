@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IPE3 — Ingeniería Eléctrica & Electrónica Ecuador</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IPE3 — Ingeniería Eléctrica y Electrónica Ecuador</title>
 
   <style>
     *{
       margin:0;
       padding:0;
       box-sizing:border-box;
-      font-family: 'Segoe UI', Arial, sans-serif;
+      font-family: "Segoe UI", Arial, sans-serif;
     }
 
     html{
@@ -18,121 +18,160 @@
     }
 
     body{
-      background: #0b0f16;
-      color:#fff;
+      background:#05070c;
+      color:white;
       overflow-x:hidden;
     }
 
-    a{text-decoration:none;}
+    a{
+      text-decoration:none;
+    }
 
-    /* ===== HEADER ===== */
+    /* =================== HEADER =================== */
     header{
-      position: fixed;
+      position:fixed;
       top:0;
+      left:0;
       width:100%;
-      z-index:999;
+      padding:16px 70px;
       display:flex;
       justify-content:space-between;
       align-items:center;
-      padding: 14px 70px;
-      background: rgba(0,0,0,0.45);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      z-index:999;
+      background:rgba(0,0,0,0.55);
+      backdrop-filter: blur(14px);
+      border-bottom:1px solid rgba(255,255,255,0.07);
+      transition:0.3s;
+    }
+
+    header.scrolled{
+      padding:12px 70px;
+      background:rgba(0,0,0,0.8);
     }
 
     .logo{
       display:flex;
       align-items:center;
       gap:12px;
-      font-weight:800;
       font-size:20px;
-      color:#1e90ff;
+      font-weight:900;
       letter-spacing:1px;
+      color:#2ea8ff;
     }
 
     .logo img{
-      width:45px;
-      height:45px;
+      width:46px;
+      height:46px;
       border-radius:50%;
-      border:2px solid rgba(30,144,255,0.6);
-      padding:3px;
+      border:2px solid rgba(46,168,255,0.8);
+      padding:4px;
+      background:rgba(255,255,255,0.02);
     }
 
     nav ul{
-      list-style:none;
       display:flex;
-      gap:30px;
+      list-style:none;
+      gap:28px;
     }
 
     nav ul li a{
-      color:#fff;
-      font-size:15px;
-      font-weight:600;
+      color:white;
+      font-size:14px;
+      font-weight:700;
       transition:0.3s;
+      opacity:0.9;
     }
 
     nav ul li a:hover{
-      color:#1e90ff;
+      color:#2ea8ff;
+      opacity:1;
     }
 
-    .btn-header{
-      background:#1e90ff;
+    .btn-top{
+      background:linear-gradient(90deg,#2ea8ff,#005dff);
       padding:10px 18px;
-      border-radius:8px;
-      color:#fff;
-      font-weight:bold;
+      border-radius:10px;
+      font-weight:900;
+      color:white;
+      box-shadow:0px 0px 35px rgba(46,168,255,0.25);
       transition:0.3s;
-      box-shadow: 0 0 25px rgba(30,144,255,0.25);
     }
 
-    .btn-header:hover{
-      background:#0b6bd8;
-      transform: translateY(-2px);
+    .btn-top:hover{
+      transform:translateY(-2px);
+      box-shadow:0px 0px 45px rgba(46,168,255,0.45);
     }
 
-    /* ===== HERO ===== */
+    /* =================== HERO =================== */
     .hero{
       height:100vh;
       display:flex;
       align-items:center;
-      justify-content:center;
-      padding: 0 70px;
+      padding:0 70px;
       position:relative;
-      background: url("https://images.unsplash.com/photo-1581090700227-4c4f50d1f90f?auto=format&fit=crop&w=1600&q=80") no-repeat center center/cover;
+      background:url("https://images.unsplash.com/photo-1581090700227-4c4f50d1f90f?auto=format&fit=crop&w=1800&q=80") no-repeat center/cover;
     }
 
-    .hero::after{
+    .hero::before{
       content:"";
       position:absolute;
       top:0; left:0;
       width:100%; height:100%;
-      background: linear-gradient(to right, rgba(0,0,0,0.85), rgba(0,0,0,0.5));
+      background:linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.4));
+      z-index:1;
+    }
+
+    /* Efecto partículas */
+    .particles{
+      position:absolute;
+      width:100%;
+      height:100%;
+      top:0;
+      left:0;
+      z-index:2;
+      overflow:hidden;
+    }
+
+    .particles span{
+      position:absolute;
+      width:6px;
+      height:6px;
+      border-radius:50%;
+      background:rgba(46,168,255,0.8);
+      animation: float 8s infinite linear;
+      opacity:0.6;
+    }
+
+    @keyframes float{
+      0%{ transform:translateY(100vh) scale(0.3); opacity:0; }
+      20%{ opacity:0.8; }
+      100%{ transform:translateY(-20vh) scale(1.2); opacity:0; }
     }
 
     .hero-content{
       position:relative;
-      z-index:2;
-      max-width:700px;
-      text-align:left;
-      animation: fadeIn 1.2s ease;
+      z-index:3;
+      max-width:750px;
+      animation: fadeIn 1.3s ease;
     }
 
     .hero-content h1{
-      font-size:55px;
-      font-weight:900;
-      line-height:1.1;
-      margin-bottom:20px;
+      font-size:60px;
+      font-weight:1000;
+      line-height:1.05;
+      margin-bottom:18px;
     }
 
     .hero-content h1 span{
-      color:#1e90ff;
+      color:#2ea8ff;
     }
 
     .hero-content p{
       font-size:18px;
-      color:#d0d0d0;
-      margin-bottom:30px;
-      max-width:600px;
+      color:#d6d6d6;
+      max-width:650px;
+      margin-bottom:28px;
+      line-height:1.7;
     }
 
     .hero-buttons{
@@ -142,214 +181,319 @@
     }
 
     .btn-main{
-      background:#1e90ff;
-      padding:13px 26px;
-      border-radius:10px;
-      font-weight:bold;
-      color:#fff;
+      background:linear-gradient(90deg,#2ea8ff,#005dff);
+      padding:14px 28px;
+      border-radius:12px;
+      font-weight:900;
+      color:white;
       transition:0.3s;
-      box-shadow: 0 0 30px rgba(30,144,255,0.25);
+      box-shadow:0px 0px 40px rgba(46,168,255,0.25);
     }
 
     .btn-main:hover{
-      background:#0b6bd8;
-      transform: translateY(-3px);
+      transform:translateY(-3px);
+      box-shadow:0px 0px 50px rgba(46,168,255,0.5);
     }
 
     .btn-outline{
       border:1px solid rgba(255,255,255,0.3);
-      padding:13px 26px;
-      border-radius:10px;
-      font-weight:bold;
-      color:#fff;
+      padding:14px 28px;
+      border-radius:12px;
+      font-weight:900;
+      color:white;
       transition:0.3s;
     }
 
     .btn-outline:hover{
-      border-color:#1e90ff;
-      color:#1e90ff;
-      transform: translateY(-3px);
+      border-color:#2ea8ff;
+      color:#2ea8ff;
+      transform:translateY(-3px);
     }
 
-    /* ===== SECTIONS ===== */
+    /* =================== SECTIONS =================== */
     section{
-      padding:90px 70px;
+      padding:95px 70px;
     }
 
     .title{
       text-align:center;
-      font-size:34px;
-      font-weight:900;
+      font-size:38px;
+      font-weight:1000;
       margin-bottom:12px;
     }
 
     .subtitle{
       text-align:center;
-      color:#bbb;
       max-width:900px;
-      margin: 0 auto 55px auto;
+      margin:0 auto 55px auto;
+      color:#b9b9b9;
       font-size:16px;
+      line-height:1.7;
     }
 
-    /* ===== ABOUT ===== */
+    /* =================== ABOUT =================== */
     .about{
-      background:#0f131c;
-      border-top:1px solid rgba(255,255,255,0.05);
-      border-bottom:1px solid rgba(255,255,255,0.05);
+      background:linear-gradient(180deg,#0b0f18,#05070c);
+      border-top:1px solid rgba(255,255,255,0.06);
+      border-bottom:1px solid rgba(255,255,255,0.06);
     }
 
     .about-box{
-      max-width:900px;
+      max-width:950px;
       margin:auto;
-      padding:40px;
-      background: rgba(255,255,255,0.03);
+      padding:45px;
       border-radius:18px;
-      border:1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(10px);
-      box-shadow: 0px 0px 40px rgba(0,0,0,0.5);
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.09);
+      backdrop-filter: blur(12px);
+      box-shadow:0px 0px 60px rgba(0,0,0,0.6);
       text-align:center;
     }
 
     .about-box p{
-      color:#ddd;
       font-size:17px;
-      line-height:1.8;
+      color:#ddd;
+      line-height:1.9;
     }
 
-    /* ===== SERVICES ===== */
+    /* =================== STATS =================== */
+    .stats{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap:20px;
+      margin-top:40px;
+    }
+
+    .stat-card{
+      padding:25px;
+      border-radius:16px;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.09);
+      text-align:center;
+      transition:0.3s;
+    }
+
+    .stat-card:hover{
+      transform:translateY(-6px);
+      border:1px solid rgba(46,168,255,0.6);
+    }
+
+    .stat-card h2{
+      font-size:34px;
+      color:#2ea8ff;
+      font-weight:1000;
+    }
+
+    .stat-card p{
+      color:#ccc;
+      margin-top:6px;
+      font-weight:700;
+    }
+
+    /* =================== SERVICES =================== */
     .services-grid{
       display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
       gap:25px;
     }
 
     .service-card{
-      background: rgba(255,255,255,0.03);
+      padding:30px;
+      border-radius:18px;
+      background:rgba(255,255,255,0.03);
       border:1px solid rgba(255,255,255,0.08);
-      border-radius:16px;
+      box-shadow:0px 0px 30px rgba(0,0,0,0.55);
+      transition:0.35s;
+      position:relative;
       overflow:hidden;
-      transition:0.3s;
-      box-shadow: 0px 0px 25px rgba(0,0,0,0.5);
     }
 
     .service-card:hover{
-      transform: translateY(-10px);
-      border:1px solid rgba(30,144,255,0.6);
+      transform:translateY(-10px) scale(1.02);
+      border:1px solid rgba(46,168,255,0.6);
     }
 
-    .service-card img{
-      width:100%;
-      height:190px;
-      object-fit:cover;
-      filter: brightness(0.9);
+    .service-card::after{
+      content:"";
+      position:absolute;
+      top:-50%;
+      left:-50%;
+      width:200%;
+      height:200%;
+      background:radial-gradient(circle, rgba(46,168,255,0.18), transparent 60%);
+      opacity:0;
+      transition:0.35s;
     }
 
-    .service-card .content{
-      padding:20px;
+    .service-card:hover::after{
+      opacity:1;
     }
 
     .service-card h4{
       font-size:18px;
       margin-bottom:10px;
-      color:#1e90ff;
-      font-weight:800;
+      font-weight:1000;
+      color:#2ea8ff;
+      position:relative;
+      z-index:2;
     }
 
     .service-card p{
       font-size:14px;
       color:#ccc;
+      line-height:1.7;
+      position:relative;
+      z-index:2;
+    }
+
+    .service-icon{
+      font-size:34px;
+      margin-bottom:15px;
+      position:relative;
+      z-index:2;
+    }
+
+    /* =================== PROJECTS =================== */
+    .projects{
+      background:linear-gradient(180deg,#05070c,#0b0f18);
+      border-top:1px solid rgba(255,255,255,0.06);
+      border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+
+    .projects-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap:25px;
+    }
+
+    .project-card{
+      border-radius:18px;
+      overflow:hidden;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.08);
+      transition:0.35s;
+    }
+
+    .project-card:hover{
+      transform:translateY(-10px);
+      border:1px solid rgba(46,168,255,0.6);
+    }
+
+    .project-card img{
+      width:100%;
+      height:200px;
+      object-fit:cover;
+      filter:brightness(0.85);
+    }
+
+    .project-card .content{
+      padding:20px;
+    }
+
+    .project-card h4{
+      color:#2ea8ff;
+      font-weight:1000;
+      margin-bottom:8px;
+    }
+
+    .project-card p{
+      color:#ccc;
+      font-size:14px;
       line-height:1.6;
     }
 
-    /* ===== CLIENTS ===== */
-    .clients{
-      background:#0f131c;
-    }
-
-    .clients-grid{
+    /* =================== TESTIMONIALS =================== */
+    .testimonials-grid{
       display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap:20px;
-      text-align:center;
     }
 
-    .client-card{
-      padding:18px;
-      border-radius:14px;
-      background: rgba(255,255,255,0.03);
+    .testimonial-card{
+      padding:25px;
+      border-radius:18px;
+      background:rgba(255,255,255,0.03);
       border:1px solid rgba(255,255,255,0.08);
-      color:#ddd;
-      font-weight:700;
       transition:0.3s;
     }
 
-    .client-card:hover{
-      transform: translateY(-5px);
-      border:1px solid rgba(30,144,255,0.6);
-      color:#1e90ff;
+    .testimonial-card:hover{
+      transform:translateY(-6px);
+      border:1px solid rgba(46,168,255,0.6);
     }
 
-    /* ===== CONTACT ===== */
-    .contact{
+    .testimonial-card p{
+      color:#ddd;
+      font-size:15px;
+      line-height:1.7;
+      margin-bottom:15px;
+    }
+
+    .testimonial-card h5{
+      color:#2ea8ff;
+      font-weight:1000;
+    }
+
+    /* =================== CONTACT =================== */
+    .contact-box{
+      max-width:950px;
+      margin:auto;
+      padding:45px;
+      border-radius:18px;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      box-shadow:0px 0px 50px rgba(0,0,0,0.6);
       text-align:center;
     }
 
-    .contact-box{
-      max-width:900px;
-      margin:auto;
-      padding:40px;
-      background: rgba(255,255,255,0.03);
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(10px);
-      box-shadow: 0px 0px 40px rgba(0,0,0,0.5);
-    }
-
     .contact-box p{
-      font-size:16px;
-      margin:10px 0;
+      margin:8px 0;
       color:#ddd;
+      font-size:16px;
+      font-weight:700;
     }
 
     form{
       margin-top:25px;
       display:flex;
       flex-direction:column;
-      gap:15px;
+      gap:14px;
     }
 
     input, textarea{
       padding:14px;
-      border-radius:10px;
-      border:1px solid rgba(255,255,255,0.08);
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.09);
+      background:#05070c;
+      color:white;
       outline:none;
-      background:#0b0f16;
-      color:#fff;
       font-size:15px;
     }
 
     textarea{
+      height:140px;
       resize:none;
-      height:130px;
     }
 
     button{
-      padding:14px;
-      border-radius:10px;
+      padding:15px;
+      border-radius:12px;
       border:none;
-      background:#1e90ff;
-      color:#fff;
-      font-weight:900;
+      background:linear-gradient(90deg,#2ea8ff,#005dff);
+      color:white;
+      font-weight:1000;
       cursor:pointer;
       transition:0.3s;
+      box-shadow:0px 0px 40px rgba(46,168,255,0.25);
     }
 
     button:hover{
-      background:#0b6bd8;
-      transform: translateY(-3px);
+      transform:translateY(-3px);
+      box-shadow:0px 0px 50px rgba(46,168,255,0.5);
     }
 
-    /* ===== WHATSAPP ===== */
+    /* =================== WHATSAPP =================== */
     .whatsapp{
       position:fixed;
       bottom:25px;
@@ -358,12 +502,12 @@
       color:white;
       padding:14px 18px;
       border-radius:50px;
-      font-weight:bold;
+      font-weight:900;
       display:flex;
       align-items:center;
       gap:10px;
       box-shadow:0px 0px 30px rgba(0,0,0,0.6);
-      z-index:2000;
+      z-index:9999;
       transition:0.3s;
     }
 
@@ -371,28 +515,32 @@
       transform:scale(1.08);
     }
 
-    /* ===== FOOTER ===== */
+    /* =================== FOOTER =================== */
     footer{
       text-align:center;
       padding:20px;
-      background:#06080c;
+      background:#020308;
       border-top:1px solid rgba(255,255,255,0.08);
       color:#888;
       font-size:14px;
     }
 
-    /* ===== ANIMATION ===== */
+    /* =================== ANIMATIONS =================== */
     @keyframes fadeIn{
-      from{opacity:0; transform:translateY(30px);}
+      from{opacity:0; transform:translateY(35px);}
       to{opacity:1; transform:translateY(0);}
     }
 
-    /* ===== RESPONSIVE ===== */
-    @media(max-width: 900px){
+    /* =================== RESPONSIVE =================== */
+    @media(max-width: 950px){
       header{
         padding:15px 20px;
         flex-direction:column;
         gap:12px;
+      }
+
+      header.scrolled{
+        padding:15px 20px;
       }
 
       .hero{
@@ -405,7 +553,7 @@
       }
 
       .hero-content h1{
-        font-size:40px;
+        font-size:42px;
       }
 
       section{
@@ -418,7 +566,7 @@
 <body>
 
   <!-- HEADER -->
-  <header>
+  <header id="header">
     <div class="logo">
       <img src="SIN FONDO.png" alt="IPE3 Logo">
       IPE3
@@ -429,21 +577,36 @@
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#nosotros">Nosotros</a></li>
         <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#clientes">Proyectos</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#testimonios">Opiniones</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
 
-    <a class="btn-header" href="#contacto">Cotizar Ahora</a>
+    <a class="btn-top" href="#contacto">Cotizar Ahora</a>
   </header>
 
   <!-- HERO -->
   <section class="hero" id="inicio">
+
+    <div class="particles">
+      <span style="left:10%; animation-delay:0s;"></span>
+      <span style="left:20%; animation-delay:2s;"></span>
+      <span style="left:30%; animation-delay:4s;"></span>
+      <span style="left:40%; animation-delay:1s;"></span>
+      <span style="left:50%; animation-delay:3s;"></span>
+      <span style="left:60%; animation-delay:5s;"></span>
+      <span style="left:70%; animation-delay:2s;"></span>
+      <span style="left:80%; animation-delay:4s;"></span>
+      <span style="left:90%; animation-delay:1s;"></span>
+    </div>
+
     <div class="hero-content">
-      <h1>Ingeniería <span>Eléctrica</span> & <span>Electrónica</span></h1>
+      <h1>Ingeniería <span>Eléctrica</span> y <span>Electrónica</span></h1>
       <p>
-        Instalación profesional, mantenimiento técnico y seguridad electrónica.
-        En IPE3 garantizamos calidad, eficiencia y tecnología conectada.
+        En IPE3 brindamos soluciones profesionales en seguridad electrónica,
+        proyectos eléctricos y mantenimiento técnico. 
+        <b>Inteligencia y Energía Conectadas.</b>
       </p>
 
       <div class="hero-buttons">
@@ -456,96 +619,165 @@
   <!-- ABOUT -->
   <section class="about" id="nosotros">
     <h2 class="title">Sobre Nosotros</h2>
-    <p class="subtitle">Tecnología, seguridad e innovación en cada proyecto.</p>
+    <p class="subtitle">
+      Somos especialistas en tecnología, energía y seguridad electrónica para hogares, empresas e instituciones.
+    </p>
 
     <div class="about-box">
       <p>
-        En <b>IPE3 — Ingeniería Eléctrica y Electrónica Ecuador</b> brindamos soluciones profesionales en:
-        <b>seguridad electrónica</b>, <b>proyectos eléctricos</b>, <b>mantenimiento preventivo</b>,
-        <b>instalación de sistemas de CCTV</b>, <b>control de acceso</b> y soporte especializado en equipos técnicos.
-        <br><br>
-        Nuestro compromiso es entregar trabajos de alta calidad con estándares técnicos y atención personalizada.
+        En <b>IPE3 — Ingeniería Eléctrica y Electrónica Ecuador</b> trabajamos con estándares técnicos y profesionales,
+        garantizando instalaciones seguras, confiables y eficientes.  
+        Nos especializamos en CCTV, control de acceso, tableros eléctricos, mantenimiento preventivo,
+        proyectos eléctricos y soluciones inteligentes de seguridad electrónica.
       </p>
+
+      <div class="stats">
+        <div class="stat-card">
+          <h2>+120</h2>
+          <p>Servicios Realizados</p>
+        </div>
+
+        <div class="stat-card">
+          <h2>+50</h2>
+          <p>Clientes Satisfechos</p>
+        </div>
+
+        <div class="stat-card">
+          <h2>24/7</h2>
+          <p>Soporte Técnico</p>
+        </div>
+
+        <div class="stat-card">
+          <h2>100%</h2>
+          <p>Calidad Garantizada</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- SERVICES -->
   <section id="servicios">
-    <h2 class="title">Nuestros Servicios</h2>
-    <p class="subtitle">Soluciones completas para hogares, empresas e instituciones.</p>
+    <h2 class="title">Servicios Profesionales</h2>
+    <p class="subtitle">
+      Soluciones completas en seguridad electrónica, instalaciones eléctricas y soporte técnico especializado.
+    </p>
 
     <div class="services-grid">
 
       <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1581092787764-8d7b0cbbd61f?auto=format&fit=crop&w=800&q=80" alt="CCTV">
-        <div class="content">
-          <h4>Sistemas de CCTV</h4>
-          <p>Instalación de cámaras IP y analógicas con monitoreo y configuración profesional.</p>
-        </div>
+        <div class="service-icon">📷</div>
+        <h4>Sistemas de CCTV</h4>
+        <p>Instalación de cámaras IP/HD, grabación, monitoreo remoto, configuración y mantenimiento.</p>
       </div>
 
       <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1581092334804-7a1dbf7c6c2d?auto=format&fit=crop&w=800&q=80" alt="Acceso">
-        <div class="content">
-          <h4>Control de Acceso</h4>
-          <p>Biométricos, RFID, chapas magnéticas, automatización y control de personal.</p>
-        </div>
+        <div class="service-icon">🔐</div>
+        <h4>Control de Acceso</h4>
+        <p>Sistemas biométricos, tarjetas RFID, chapas magnéticas y automatización de accesos.</p>
       </div>
 
       <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1581091012184-5c1b76fbcf4f?auto=format&fit=crop&w=800&q=80" alt="Mantenimiento">
-        <div class="content">
-          <h4>Mantenimiento Preventivo</h4>
-          <p>Diagnóstico y mantenimiento para equipos eléctricos, electrónicos y sistemas críticos.</p>
-        </div>
+        <div class="service-icon">⚡</div>
+        <h4>Proyectos Eléctricos</h4>
+        <p>Instalaciones eléctricas, tableros, canalización, puesta a tierra, iluminación y diseño técnico.</p>
       </div>
 
       <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1581091012026-1c8b0c6cfbe0?auto=format&fit=crop&w=800&q=80" alt="Biomédicos">
-        <div class="content">
-          <h4>Equipos Biomédicos</h4>
-          <p>Mantenimiento especializado para equipos biomédicos y soporte técnico profesional.</p>
-        </div>
+        <div class="service-icon">🛠️</div>
+        <h4>Mantenimiento Preventivo</h4>
+        <p>Revisión técnica, diagnóstico y mantenimiento para asegurar eficiencia y vida útil de equipos.</p>
       </div>
 
       <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1581092224831-9a9a14f8b0e2?auto=format&fit=crop&w=800&q=80" alt="Proyectos">
-        <div class="content">
-          <h4>Proyectos Eléctricos</h4>
-          <p>Diseño, instalación y mantenimiento de tableros eléctricos, iluminación y redes.</p>
-        </div>
+        <div class="service-icon">🏥</div>
+        <h4>Equipos Biomédicos</h4>
+        <p>Mantenimiento especializado, soporte técnico y calibración básica en equipos médicos.</p>
       </div>
 
       <div class="service-card">
-        <img src="https://images.unsplash.com/photo-1581091215361-1e8c7e5abf4a?auto=format&fit=crop&w=800&q=80" alt="Seguridad">
+        <div class="service-icon">🚨</div>
+        <h4>Seguridad Electrónica</h4>
+        <p>Alarmas, sensores, cercos eléctricos, automatización, control remoto y protección total.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects" id="proyectos">
+    <h2 class="title">Proyectos Realizados</h2>
+    <p class="subtitle">
+      Algunos trabajos y soluciones implementadas con calidad profesional.
+    </p>
+
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=1000&q=80" alt="">
         <div class="content">
-          <h4>Seguridad Electrónica</h4>
-          <p>Alarmas, sensores, cercos eléctricos y sistemas inteligentes de protección.</p>
+          <h4>Instalación de Tableros</h4>
+          <p>Diseño y montaje de tableros eléctricos industriales y residenciales con protecciones completas.</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1000&q=80" alt="">
+        <div class="content">
+          <h4>Sistema CCTV Empresarial</h4>
+          <p>Implementación de cámaras IP con monitoreo remoto, grabación 24/7 y seguridad total.</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=80" alt="">
+        <div class="content">
+          <h4>Mantenimiento Biomédico</h4>
+          <p>Revisión y mantenimiento preventivo de equipos médicos para clínicas y laboratorios.</p>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- CLIENTS -->
-  <section class="clients" id="clientes">
-    <h2 class="title">Clientes y Proyectos</h2>
-    <p class="subtitle">Experiencia comprobada en soluciones técnicas y seguridad.</p>
+  <!-- TESTIMONIALS -->
+  <section id="testimonios">
+    <h2 class="title">Opiniones de Clientes</h2>
+    <p class="subtitle">
+      La confianza se gana con resultados.
+    </p>
 
-    <div class="clients-grid">
-      <div class="client-card">Instituciones Educativas</div>
-      <div class="client-card">Empresas Privadas</div>
-      <div class="client-card">Laboratorios Clínicos</div>
-      <div class="client-card">Centros Médicos</div>
-      <div class="client-card">Proyectos Residenciales</div>
-      <div class="client-card">Seguridad Industrial</div>
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card">
+        <p>
+          “Excelente servicio, instalación rápida y todo quedó funcionando perfecto. Muy recomendados.”
+        </p>
+        <h5>Cliente Empresarial</h5>
+      </div>
+
+      <div class="testimonial-card">
+        <p>
+          “Me instalaron cámaras y alarma en mi casa. Trabajo profesional y atención inmediata.”
+        </p>
+        <h5>Cliente Residencial</h5>
+      </div>
+
+      <div class="testimonial-card">
+        <p>
+          “Buen mantenimiento técnico y asesoría completa. Se nota que tienen experiencia.”
+        </p>
+        <h5>Centro Médico</h5>
+      </div>
+
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section class="contact" id="contacto">
+  <section id="contacto">
     <h2 class="title">Contáctanos</h2>
-    <p class="subtitle">Cotiza con nosotros rápido y sin compromiso.</p>
+    <p class="subtitle">
+      Cotiza sin compromiso. Te respondemos rápido.
+    </p>
 
     <div class="contact-box">
       <p>📧 Email: <b>ipe3ecuador@gmail.com</b></p>
@@ -556,12 +788,12 @@
         <input type="text" id="nombre" placeholder="Tu Nombre" required>
         <input type="text" id="telefono" placeholder="Tu Teléfono" required>
         <textarea id="mensaje" placeholder="Escribe tu mensaje..." required></textarea>
-        <button type="submit">Enviar por WhatsApp</button>
+        <button type="submit">Enviar Mensaje por WhatsApp</button>
       </form>
     </div>
   </section>
 
-  <!-- WHATSAPP FLOAT -->
+  <!-- WHATSAPP -->
   <a class="whatsapp" target="_blank"
      href="https://wa.me/593984016027?text=Hola%20IPE3,%20quiero%20una%20cotizaci%C3%B3n%20por%20favor.">
      💬 WhatsApp
@@ -573,8 +805,20 @@
   </footer>
 
   <script>
+    // Año automático
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    // Header scroll effect
+    window.addEventListener("scroll", function(){
+      let header = document.getElementById("header");
+      if(window.scrollY > 50){
+        header.classList.add("scrolled");
+      }else{
+        header.classList.remove("scrolled");
+      }
+    });
+
+    // Formulario WhatsApp
     document.getElementById("formContacto").addEventListener("submit", function(e){
       e.preventDefault();
 
