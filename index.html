@@ -21,12 +21,10 @@
                         "accent-blue": "#0072ff",
                         "deep-charcoal": "#0a0c10",
                         "slate-dark": "#1a1f2e",
-                        "safety-yellow": "#facc15",
                     },
                     fontFamily: { "display": ["Space Grotesk"] },
                     animation: {
-                        'marquee': 'marquee 25s linear infinite',
-                        'spin-slow': 'spin 8s linear infinite',
+                        'marquee': 'marquee 30s linear infinite',
                     },
                     keyframes: {
                         marquee: {
@@ -42,143 +40,139 @@
     <style type="text/tailwindcss">
         body { font-family: 'Space Grotesk', sans-serif; @apply bg-deep-charcoal text-slate-200 overflow-x-hidden; }
         
+        .header-scrolled { @apply py-3 bg-deep-charcoal/95 border-primary/20 shadow-2xl; }
+        .glass-panel { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .circuit-pattern { background-image: radial-gradient(var(--tw-colors-primary) 0.5px, transparent 0.5px); background-size: 32px 32px; opacity: 0.05; }
+        
         /* Preloader */
-        #loader {
-            @apply fixed inset-0 z-[100] bg-deep-charcoal flex items-center justify-center transition-opacity duration-700;
-        }
-
-        .dark-gradient-bg {
-            background: radial-gradient(circle at top right, #1a2333, #0a0c10 70%);
-        }
-
-        .circuit-pattern {
-            background-image: radial-gradient(var(--tw-colors-primary) 0.5px, transparent 0.5px);
-            background-size: 32px 32px;
-            opacity: 0.08;
-        }
-
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .header-scrolled {
-            @apply py-3 bg-deep-charcoal/95 border-primary/20 shadow-2xl;
-        }
+        #loader { @apply fixed inset-0 z-[100] bg-deep-charcoal flex items-center justify-center transition-opacity duration-500; }
     </style>
 </head>
 
 <body>
 
 <div id="loader">
-    <div class="relative">
-        <div class="w-20 h-20 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
-        <div class="absolute inset-0 flex items-center justify-center font-bold text-primary text-xs">IPE3</div>
-    </div>
+    <div class="w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
 </div>
 
 <header id="main-header" class="fixed top-0 w-full z-50 bg-transparent border-b border-white/0 transition-all duration-500" data-aos="fade-down">
-    <nav class="container mx-auto px-6 py-5 flex items-center justify-between transition-all duration-500">
+    <nav class="container mx-auto px-6 py-5 flex items-center justify-between transition-all">
         <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-gradient-to-br from-primary to-accent-blue flex items-center justify-center rounded-lg shadow-lg shadow-primary/20 shrink-0">
+            <div class="w-10 h-10 bg-gradient-to-br from-primary to-accent-blue rounded-lg flex items-center justify-center shadow-lg shadow-primary/20">
                 <span class="text-deep-charcoal font-black text-xl">I3</span>
             </div>
             <div class="flex flex-col">
-                <span class="text-xl font-bold tracking-tight text-white leading-tight">IPE3 <span class="text-primary font-light">Engineering</span></span>
-                <span class="text-[10px] uppercase tracking-widest text-slate-400 font-bold leading-none">by CORPORACIÓN 360</span>
+                <span class="text-xl font-bold text-white leading-tight">IPE3 <span class="text-primary font-light">Engineering</span></span>
+                <span class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Corporación 360</span>
             </div>
         </div>
-        <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
-            <a class="hover:text-primary transition-colors" href="#">Inicio</a>
-            <a class="hover:text-primary transition-colors" href="#servicios">Servicios</a>
-            <a class="hover:text-primary transition-colors" href="#proyectos">Proyectos</a>
-            <a class="hover:text-primary transition-colors" href="#contacto">Contacto</a>
+        <div class="hidden md:flex space-x-8 text-sm font-medium">
+            <a href="#" class="hover:text-primary transition-colors">Inicio</a>
+            <a href="#servicios" class="hover:text-primary transition-colors">Servicios</a>
+            <a href="#proyectos" class="hover:text-primary transition-colors">Proyectos</a>
+            <a href="#contacto" class="hover:text-primary transition-colors">Contacto</a>
         </div>
-        <a class="hidden lg:block bg-primary text-deep-charcoal px-6 py-2 rounded-lg font-bold hover:bg-white hover:scale-105 transition-all" href="#contacto">
-            Cotizar
-        </a>
+        <a href="#contacto" class="hidden lg:block bg-primary text-deep-charcoal px-6 py-2 rounded-lg font-bold hover:bg-white transition-all">Cotizar</a>
     </nav>
 </header>
 
 <section class="relative h-screen flex items-center overflow-hidden">
-    <div class="absolute inset-0 z-0 scale-110" data-aos="zoom-out" data-aos-duration="3000">
-        <img alt="Control Room" class="w-full h-full object-cover opacity-60" src="https://images.unsplash.com/photo-1581092334651-ddf26d9a1930?auto=format&fit=crop&q=80"/>
-        <div class="absolute inset-0 bg-gradient-to-r from-deep-charcoal via-deep-charcoal/80 to-transparent"></div>
+    <div class="absolute inset-0 z-0" data-aos="zoom-out" data-aos-duration="3000">
+        <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a1930?auto=format&fit=crop&q=80" class="w-full h-full object-cover opacity-40">
+        <div class="absolute inset-0 bg-gradient-to-r from-deep-charcoal via-transparent to-transparent"></div>
     </div>
-    
     <div class="container mx-auto px-6 relative z-10">
-        <div class="max-w-3xl" data-aos="fade-right" data-aos-delay="500">
-            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6">
-                Ingeniería Eléctrica <span class="text-primary">Especializada</span>
+        <div class="max-w-3xl" data-aos="fade-right" data-aos-delay="400">
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                Ingeniería Eléctrica <br><span class="text-primary">de Alta Precisión</span>
             </h1>
-            <p class="text-xl text-slate-400 mb-10">Soluciones de vanguardia en automatización y mantenimiento industrial.</p>
+            <p class="text-xl text-slate-400 mb-8">Líderes en automatización industrial y mantenimiento especializado en Ecuador.</p>
             <div class="flex gap-4">
-                <button class="bg-primary text-deep-charcoal px-8 py-4 rounded-xl font-bold hover:bg-white transition-all">Explorar</button>
+                <a href="#servicios" class="bg-primary text-deep-charcoal px-8 py-4 rounded-xl font-bold hover:scale-105 transition-transform">Nuestros Servicios</a>
             </div>
         </div>
     </div>
 </section>
 
-<section class="py-24 relative dark-gradient-bg" id="servicios">
+<div class="py-12 bg-black/50 border-y border-white/5 overflow-hidden">
+    <div class="flex gap-16 animate-marquee whitespace-nowrap">
+        <div class="flex gap-16 items-center shrink-0 text-2xl font-bold text-white/20 uppercase tracking-widest">
+            <span>Schneider</span> <span>Siemens</span> <span>Hikvision</span> <span>ABB</span> <span>Rockwell</span>
+        </div>
+        <div class="flex gap-16 items-center shrink-0 text-2xl font-bold text-white/20 uppercase tracking-widest">
+            <span>Schneider</span> <span>Siemens</span> <span>Hikvision</span> <span>ABB</span> <span>Rockwell</span>
+        </div>
+    </div>
+</div>
+
+<section id="servicios" class="py-24 relative overflow-hidden">
     <div class="circuit-pattern absolute inset-0"></div>
     <div class="container mx-auto px-6 relative">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl font-bold text-white mb-4">Soluciones Integrales</h2>
+            <div class="w-20 h-1 bg-primary mx-auto"></div>
+        </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="group glass-panel p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+            <div class="group glass-panel p-8 rounded-2xl transition-all hover:-translate-y-2 hover:border-primary/50" data-aos="fade-up" data-aos-delay="100">
                 <span class="material-icons text-primary text-4xl mb-4">bolt</span>
-                <h3 class="text-xl font-bold text-white mb-2">Electricidad</h3>
-                <p class="text-slate-400 text-sm">Infraestructura de alta potencia y diseño normativo.</p>
+                <h3 class="text-xl font-bold text-white mb-2">Instalaciones</h3>
+                <p class="text-slate-400 text-sm">Montajes industriales y redes de baja/media tensión.</p>
             </div>
-            <div class="group glass-panel p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
-                <span class="material-icons text-primary text-4xl mb-4">settings_remote</span>
-                <h3 class="text-xl font-bold text-white mb-2">Domótica</h3>
-                <p class="text-slate-400 text-sm">Control inteligente y eficiencia energética avanzada.</p>
+            <div class="group glass-panel p-8 rounded-2xl transition-all hover:-translate-y-2 hover:border-primary/50" data-aos="fade-up" data-aos-delay="200">
+                <span class="material-icons text-primary text-4xl mb-4">smart_toy</span>
+                <h3 class="text-xl font-bold text-white mb-2">Automatización</h3>
+                <p class="text-slate-400 text-sm">Control de procesos mediante PLC y sistemas SCADA.</p>
             </div>
-            <div class="group glass-panel p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
-                <span class="material-icons text-primary text-4xl mb-4">security</span>
+            <div class="group glass-panel p-8 rounded-2xl transition-all hover:-translate-y-2 hover:border-primary/50" data-aos="fade-up" data-aos-delay="300">
+                <span class="material-icons text-primary text-4xl mb-4">videocam</span>
                 <h3 class="text-xl font-bold text-white mb-2">Seguridad</h3>
-                <p class="text-slate-400 text-sm">Sistemas CCTV y control de acceso biométrico.</p>
+                <p class="text-slate-400 text-sm">CCTV analítico y control de accesos centralizado.</p>
             </div>
-            <div class="group glass-panel p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="400">
-                <span class="material-icons text-primary text-4xl mb-4">medical_information</span>
-                <h3 class="text-xl font-bold text-white mb-2">Mantenimiento</h3>
-                <p class="text-slate-400 text-sm">Soporte técnico para equipamiento hospitalario.</p>
+            <div class="group glass-panel p-8 rounded-2xl transition-all hover:-translate-y-2 hover:border-primary/50" data-aos="fade-up" data-aos-delay="400">
+                <span class="material-icons text-primary text-4xl mb-4">health_and_safety</span>
+                <h3 class="text-xl font-bold text-white mb-2">Soporte Médico</h3>
+                <p class="text-slate-400 text-sm">Mantenimiento preventivo de equipos hospitalarios.</p>
             </div>
         </div>
     </div>
 </section>
 
-<footer class="bg-black py-20 border-t border-white/5" id="contacto" data-aos="fade-up">
-    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
+<footer id="contacto" class="bg-black pt-20 pb-10 border-t border-white/10" data-aos="fade-up">
+    <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div>
-            <h3 class="text-3xl font-bold text-white mb-4">Contáctanos</h3>
-            <p class="mb-6">Estamos listos para potenciar tu infraestructura.</p>
-            <div class="flex items-center gap-3 text-primary font-bold">
-                <span class="material-icons">phone</span> 0984016027
+            <h3 class="text-4xl font-bold text-white mb-6">¿Iniciamos tu proyecto?</h3>
+            <p class="text-slate-400 text-lg mb-8">Contáctanos para asesoría técnica personalizada en Quito y todo el país.</p>
+            <div class="space-y-4 font-bold text-primary">
+                <div class="flex items-center gap-3"><span class="material-icons">phone</span> 0984016027</div>
+                <div class="flex items-center gap-3"><span class="material-icons">email</span> ipe3ecuador@gmail.com</div>
             </div>
         </div>
-        <div class="glass-panel p-6 rounded-2xl" data-aos="zoom-in">
+        <div class="glass-panel p-8 rounded-3xl" data-aos="flip-right">
             <form class="space-y-4">
-                <input type="text" placeholder="Nombre" class="w-full bg-white/5 border border-white/10 p-3 rounded-lg">
-                <button class="w-full bg-primary text-deep-charcoal font-bold p-3 rounded-lg hover:bg-white transition-all">Enviar</button>
+                <input type="text" placeholder="Nombre" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-primary transition-all">
+                <textarea placeholder="Descripción del requerimiento" rows="4" class="w-full bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-primary transition-all"></textarea>
+                <button class="w-full bg-primary text-deep-charcoal font-bold py-4 rounded-xl hover:bg-white transition-all">Enviar Mensaje</button>
             </form>
         </div>
+    </div>
+    <div class="container mx-auto px-6 mt-20 pt-8 border-t border-white/5 text-center text-slate-600 text-sm">
+        &copy; 2026 IPE3 Engineering by CORPORACIÓN 360. Todos los derechos reservados.
     </div>
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-    // Quitar preloader al cargar
+    // 1. Quitar Preloader
     window.addEventListener('load', () => {
         const loader = document.getElementById('loader');
         loader.style.opacity = '0';
-        setTimeout(() => loader.style.display = 'none', 700);
+        setTimeout(() => loader.style.display = 'none', 500);
     });
 
-    // Iniciar AOS
+    // 2. Inicializar AOS (Animaciones)
     AOS.init({ duration: 1000, once: true });
 
-    // Header Scroll
+    // 3. Scroll del Header
     const header = document.getElementById('main-header');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) header.classList.add('header-scrolled');
