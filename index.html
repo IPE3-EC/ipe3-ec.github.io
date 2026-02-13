@@ -1,4 +1,4 @@
-  <!-- INICIO HEADER -->
+<!-- INICIO HEADER -->
 <header class="fixed top-0 w-full z-50 bg-deep-charcoal/80 backdrop-blur-lg border-b border-white/5" data-aos="fade-down">
 <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
     <div class="flex items-center gap-3">
@@ -30,8 +30,100 @@
     </a>
 </nav>
 </header>
-  <!-- FIN HEADER -->
-  <!-- INICIO FOOTER -->
+<!-- FIN HEADER -->
+<!-- INICIO BODY -->
+<body class="bg-deep-charcoal text-slate-200 font-sans scroll-smooth">
+
+<!-- Hero / Inicio -->
+<section id="inicio" class="h-screen flex flex-col justify-center items-center text-center px-6 bg-[url('hero-bg.jpg')] bg-cover bg-center relative">
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="relative z-10 max-w-3xl">
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6" data-aos="fade-up">Bienvenido a <span class="text-primary">IPE³® Engineering</span></h1>
+        <p class="text-lg md:text-2xl text-slate-300 mb-8" data-aos="fade-up" data-aos-delay="100">
+            Inteligencia y Energía Conectadas. Soluciones de ingeniería eléctrica y electrónica de alta precisión.
+        </p>
+        <a href="#contacto" class="inline-block bg-primary text-deep-charcoal px-8 py-3 rounded-xl font-bold hover:bg-white hover:scale-105 transition-all shadow-lg shadow-primary/20" data-aos="fade-up" data-aos-delay="200">
+            Solicitar Cotización
+        </a>
+    </div>
+</section>
+
+<!-- Servicios -->
+<section id="servicios" class="py-20 container mx-auto px-6" data-aos="fade-up">
+    <h2 class="text-3xl font-bold text-white text-center mb-12">Nuestros Servicios</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white/5 p-6 rounded-xl hover:scale-105 transition-transform">
+            <h3 class="text-xl font-bold mb-4 text-white">Automatización Industrial</h3>
+            <p class="text-slate-300 text-sm">Implementamos sistemas inteligentes que optimizan procesos y maximizan eficiencia.</p>
+        </div>
+        <div class="bg-white/5 p-6 rounded-xl hover:scale-105 transition-transform">
+            <h3 class="text-xl font-bold mb-4 text-white">Cableado Inteligente</h3>
+            <p class="text-slate-300 text-sm">Soluciones de cableado estructurado y redes con estándares de alta confiabilidad.</p>
+        </div>
+        <div class="bg-white/5 p-6 rounded-xl hover:scale-105 transition-transform">
+            <h3 class="text-xl font-bold mb-4 text-white">Seguridad & UPS</h3>
+            <p class="text-slate-300 text-sm">Sistemas de energía ininterrumpida y protección avanzada contra incendios y fallos.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Proyectos -->
+<section id="proyectos" class="py-20 container mx-auto px-6" data-aos="fade-up">
+    <h2 class="text-3xl font-bold text-white text-center mb-12">Proyectos Destacados</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white/5 rounded-xl overflow-hidden hover:scale-105 transition-transform">
+            <img src="proyecto1.jpg" alt="Proyecto 1" class="w-full h-48 object-cover"/>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-white mb-2">Proyecto Industrial A</h3>
+                <p class="text-slate-300 text-sm">Implementación de automatización en planta eléctrica con monitoreo remoto.</p>
+            </div>
+        </div>
+        <div class="bg-white/5 rounded-xl overflow-hidden hover:scale-105 transition-transform">
+            <img src="proyecto2.jpg" alt="Proyecto 2" class="w-full h-48 object-cover"/>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-white mb-2">Proyecto de Energía B</h3>
+                <p class="text-slate-300 text-sm">Instalación de UPS y sistemas de respaldo en centros de datos estratégicos.</p>
+            </div>
+        </div>
+        <div class="bg-white/5 rounded-xl overflow-hidden hover:scale-105 transition-transform">
+            <img src="proyecto3.jpg" alt="Proyecto 3" class="w-full h-48 object-cover"/>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-white mb-2">Proyecto de Seguridad C</h3>
+                <p class="text-slate-300 text-sm">Sistemas de seguridad contra incendios y vigilancia electrónica integral.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Nosotros -->
+<section id="nosotros" class="py-20 bg-white/5 container mx-auto px-6 rounded-xl" data-aos="fade-up">
+    <h2 class="text-3xl font-bold text-white text-center mb-12">Nuestra Historia</h2>
+    <p class="text-slate-300 text-lg leading-relaxed max-w-4xl mx-auto text-center">
+        Desde 2016, IPE³® Engineering ha liderado el desarrollo de soluciones eléctricas y electrónicas en Ecuador. 
+        Combinamos ingeniería de precisión, innovación tecnológica y compromiso con la seguridad para ofrecer resultados excepcionales.
+    </p>
+</section>
+
+<!-- Contacto -->
+<section id="contacto" class="py-20 container mx-auto px-6" data-aos="fade-up">
+    <h2 class="text-3xl font-bold text-white text-center mb-12">Contacto</h2>
+    <form class="max-w-2xl mx-auto bg-white/5 p-8 rounded-xl shadow-lg" action="#" method="POST">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <input type="text" name="nombre" placeholder="Nombre" class="p-3 rounded-lg bg-white/10 text-white border border-white/20 focus:border-primary focus:outline-none"/>
+            <input type="email" name="email" placeholder="Correo" class="p-3 rounded-lg bg-white/10 text-white border border-white/20 focus:border-primary focus:outline-none"/>
+        </div>
+        <input type="text" name="asunto" placeholder="Asunto" class="w-full p-3 rounded-lg bg-white/10 text-white border border-white/20 focus:border-primary focus:outline-none mb-6"/>
+        <textarea name="mensaje" placeholder="Mensaje" rows="6" class="w-full p-3 rounded-lg bg-white/10 text-white border border-white/20 focus:border-primary focus:outline-none mb-6"></textarea>
+        <button type="submit" class="w-full bg-primary text-deep-charcoal px-6 py-3 rounded-xl font-bold hover:bg-white hover:scale-105 transition-all shadow-lg shadow-primary/20">
+            Enviar Mensaje
+        </button>
+    </form>
+</section>
+
+</body>
+
+<!-- FIN BODY -->
+<!-- INICIO FOOTER -->
 <footer class="constellation-bg text-slate-400 py-20 relative" id="contacto" data-aos="fade-up">
 <div class="absolute inset-0 pointer-events-none overflow-hidden opacity-30">
     <!-- Estrellas y líneas del fondo -->
@@ -134,5 +226,4 @@
     </div>
 </div>
 </footer>
-
-    <!-- FIN FOOTER -->
+<!-- FIN FOOTER -->
