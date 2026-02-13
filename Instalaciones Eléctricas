@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Estudios Eléctricos y de Carga | IE PROYECTOS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0db9f2",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#101e22",
+                        "surface-dark": "#1a2b30",
+                        "accent-dark": "#163a45"
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .glass-card {
+            background: rgba(26, 43, 48, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(13, 185, 242, 0.1);
+        }
+        .gradient-border {
+            border-image: linear-gradient(to right, #0db9f2, transparent) 1;
+        }
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(16, 30, 34, 0.6) 0%, rgba(16, 30, 34, 1) 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display">
+<!-- iOS Status Bar Spacer -->
+<div class="h-12 w-full bg-background-dark sticky top-0 z-50">
+<div class="flex justify-between items-center px-6 h-full">
+<span class="text-sm font-semibold">9:41</span>
+<div class="flex gap-1.5 items-center">
+<span class="material-icons text-xs">signal_cellular_alt</span>
+<span class="material-icons text-xs">wifi</span>
+<span class="material-icons text-xs">battery_full</span>
+</div>
+</div>
+</div>
+<!-- Header -->
+<header class="sticky top-12 z-40 bg-background-dark/80 backdrop-blur-md border-b border-white/5 px-4 py-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+<span class="text-white font-bold text-lg">IE</span>
+</div>
+<span class="font-bold tracking-tight text-lg uppercase">Proyectos</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-surface-dark text-primary">
+<span class="material-icons">menu</span>
+</button>
+</div>
+</header>
+<main class="pb-32">
+<!-- Hero Section -->
+<section class="relative h-[420px] w-full overflow-hidden">
+<img alt="Panel Eléctrico Industrial" class="absolute inset-0 w-full h-full object-cover" data-alt="Professional electrical industrial panel with digital overlays" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNNWXJ-CVwD4WsmRPdSxPSLi221tDxnWUq5fRrG1aJ62Zc_lZtnAuyPdaxIcYX-Z8CHh9hfhqcXtEOYlYFUdFn5qbFXzPnfdPYenfOYek2tM5VuSc1-AqRT1XYGGU6SEHbXnOZ2Xda5hbH4aV3GbfS1827WtTTELvKEFIR8VZwkLQszJuw0Cmb6SJ8XWsN5CVqBKYD-CaRHwJGFT-ndm9ahWq7f5QCutUi8otC4b6MoJAwfesFrqTQnJ4hkWDSomuxfVMTqjmmjNk"/>
+<div class="absolute inset-0 hero-overlay flex flex-col justify-end p-6">
+<div class="mb-4 inline-flex items-center gap-2 bg-primary/20 text-primary border border-primary/30 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider w-fit">
+<span class="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+                    Ecuador Industrial
+                </div>
+<h1 class="text-3xl font-bold leading-tight mb-3">
+                    Optimización y Seguridad: <span class="text-primary">Estudios Eléctricos y de Carga</span>
+</h1>
+<p class="text-slate-400 text-sm leading-relaxed">
+                    Garantizamos la eficiencia energética y el cumplimiento normativo de sus instalaciones con tecnología de vanguardia.
+                </p>
+</div>
+</section>
+<!-- Core Services Grid -->
+<section class="px-6 py-10">
+<div class="flex items-center gap-3 mb-6">
+<div class="h-8 w-1 bg-primary rounded-full"></div>
+<h2 class="text-xl font-bold uppercase tracking-wide">Servicios Especializados</h2>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<!-- Card 1 -->
+<div class="glass-card p-4 rounded-xl flex flex-col gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-icons">bolt</span>
+</div>
+<h3 class="font-semibold text-sm leading-snug">Análisis de Calidad de Energía</h3>
+</div>
+<!-- Card 2 -->
+<div class="glass-card p-4 rounded-xl flex flex-col gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-icons">account_tree</span>
+</div>
+<h3 class="font-semibold text-sm leading-snug">Estudios de Flujo de Carga</h3>
+</div>
+<!-- Card 3 -->
+<div class="glass-card p-4 rounded-xl flex flex-col gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-icons">verified_user</span>
+</div>
+<h3 class="font-semibold text-sm leading-snug">Coordinación de Protecciones</h3>
+</div>
+<!-- Card 4 -->
+<div class="glass-card p-4 rounded-xl flex flex-col gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-icons">thermostat</span>
+</div>
+<h3 class="font-semibold text-sm leading-snug">Termografía Infrarroja</h3>
+</div>
+</div>
+</section>
+<!-- Benefits Section -->
+<section class="bg-surface-dark/40 py-10 px-6">
+<h2 class="text-xl font-bold mb-8 text-center uppercase tracking-widest text-slate-400">Beneficios Clave</h2>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="bg-primary/20 p-3 rounded-full">
+<span class="material-icons text-primary">savings</span>
+</div>
+<div>
+<h4 class="font-bold text-lg">Ahorro de Costos</h4>
+<p class="text-sm text-slate-400">Reducción de penalizaciones y optimización del consumo energético.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-primary/20 p-3 rounded-full">
+<span class="material-icons text-primary">health_and_safety</span>
+</div>
+<div>
+<h4 class="font-bold text-lg">Seguridad Operativa</h4>
+<p class="text-sm text-slate-400">Mitigación de riesgos eléctricos para personal y maquinaria.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-primary/20 p-3 rounded-full">
+<span class="material-icons text-primary">report_problem</span>
+</div>
+<div>
+<h4 class="font-bold text-lg">Prevención de Fallas</h4>
+<p class="text-sm text-slate-400">Detección temprana de anomalías antes de paros costosos.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Equipment & Software -->
+<section class="px-6 py-10">
+<div class="mb-6">
+<h2 class="text-xl font-bold mb-2">Tecnología de Precisión</h2>
+<p class="text-xs text-slate-500 uppercase font-medium">Equipamiento y Software Certificado</p>
+</div>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-3 py-1.5 bg-accent-dark border border-primary/20 rounded-full text-xs font-semibold text-primary">FLUKE</span>
+<span class="px-3 py-1.5 bg-accent-dark border border-primary/20 rounded-full text-xs font-semibold text-primary">CHAUVIN ARNOUX</span>
+<span class="px-3 py-1.5 bg-accent-dark border border-primary/20 rounded-full text-xs font-semibold text-primary">ETAP SOFTWARE</span>
+<span class="px-3 py-1.5 bg-accent-dark border border-primary/20 rounded-full text-xs font-semibold text-primary">SKM SYSTEMS</span>
+</div>
+<div class="bg-background-dark border border-white/5 rounded-xl p-4 overflow-hidden relative">
+<div class="flex items-center justify-between relative z-10">
+<div>
+<p class="text-sm font-medium">Cumplimiento Normativo</p>
+<p class="text-[10px] text-slate-500">IEEE • NFPA • NEC • ARCONEL</p>
+</div>
+<span class="material-icons text-primary opacity-50 text-4xl">gavel</span>
+</div>
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-primary/5 rounded-full blur-2xl"></div>
+</div>
+</section>
+<!-- Final Map/Context Placeholder -->
+<section class="px-6 py-4">
+<div class="rounded-xl overflow-hidden grayscale opacity-50 h-32 border border-white/5 relative">
+<img alt="Mapa de Ecuador" class="w-full h-full object-cover" data-alt="Monochrome map of Ecuador showing industrial regions" data-location="Ecuador" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBwyEcFUFxW_QVF2huRtuMoez4hzTt7mLm-qyd12VuyOVZpxb9rDnIT3iC3MNHyW5oikzckkrCQ5yCGp55aKsb0-qRaRRimK4Cr2673DhCSHqyC9UNCu5BHhrTNZwm0W30mJeeaABdJIuFU3wPXQSuT06h9TbR_wYT5oDvF5wE_At0RpQP6L4w-zPIEwS6wElcHirmcdrIx0iY0sjvUO7IJotY9Ntw8DdjuzKSFNTNxQohtVQy4lUNQeVMe8VGGGviiWzsZAZbMf0"/>
+<div class="absolute inset-0 bg-background-dark/40 flex items-center justify-center">
+<p class="text-xs font-bold uppercase tracking-widest text-white shadow-lg">Cobertura a nivel nacional</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom CTA Bar -->
+<div class="fixed bottom-0 left-0 right-0 p-6 bg-background-dark/90 backdrop-blur-xl border-t border-white/5 z-50">
+<button class="w-full bg-gradient-to-r from-primary to-cyan-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
+<span class="material-icons text-xl">contact_support</span>
+            CONSULTAR CON UN ESPECIALISTA
+        </button>
+</div>
+</body></html>
