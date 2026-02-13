@@ -3,14 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IPE3 — Ingeniería Eléctrica & Electrónica</title>
+  <title>IPE3 — Ingeniería Eléctrica & Electrónica Ecuador</title>
+
   <style>
     /* ======= RESET ======= */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Arial', sans-serif;
+      font-family: Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -19,23 +24,30 @@
       line-height: 1.6;
     }
 
-    a { text-decoration: none; }
+    a {
+      text-decoration: none;
+    }
 
+    /* HEADER */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 60px;
-      position: absolute;
+      padding: 18px 60px;
+      position: fixed;
       top: 0;
       width: 100%;
       z-index: 1000;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
     header h1 {
-      font-size: 20px;
+      font-size: 22px;
       letter-spacing: 1px;
       font-weight: bold;
+      color: #1e90ff;
     }
 
     nav ul {
@@ -47,7 +59,8 @@
     nav ul li a {
       color: #fff;
       font-size: 15px;
-      transition: color 0.3s;
+      transition: 0.3s;
+      font-weight: 600;
     }
 
     nav ul li a:hover {
@@ -56,7 +69,7 @@
 
     /* HERO */
     .hero {
-      background: url('https://images.unsplash.com/photo-1581090700227-4c4f50d1f90f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      background: url('https://images.unsplash.com/photo-1581090700227-4c4f50d1f90f?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
       height: 100vh;
       display: flex;
       align-items: center;
@@ -69,46 +82,87 @@
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.7);
+      background: rgba(0,0,0,0.75);
     }
 
     .hero-content {
       position: relative;
       z-index: 1;
-      max-width: 600px;
+      max-width: 650px;
+      animation: fadeIn 1.2s ease;
     }
 
     .hero-content h2 {
-      font-size: 45px;
+      font-size: 50px;
       font-weight: bold;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
+      line-height: 1.2;
+    }
+
+    .hero-content p {
+      font-size: 17px;
+      color: #ccc;
+      margin-bottom: 25px;
     }
 
     .hero-content a {
       display: inline-block;
-      padding: 12px 25px;
+      padding: 12px 28px;
       background: #1e90ff;
-      border-radius: 5px;
+      border-radius: 8px;
       font-weight: bold;
       color: #fff;
-      transition: background 0.3s;
+      transition: 0.3s;
+      box-shadow: 0px 0px 20px rgba(30,144,255,0.25);
     }
 
     .hero-content a:hover {
       background: #0a6ad8;
+      transform: translateY(-2px);
     }
 
-    /* SERVICES */
-    .services {
-      padding: 80px 60px;
+    /* SECTIONS */
+    section {
+      padding: 90px 60px;
+    }
+
+    .title {
+      font-size: 30px;
+      margin-bottom: 15px;
       text-align: center;
     }
 
-    .services h3 {
-      font-size: 28px;
+    .subtitle {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      color: #bbb;
+      font-size: 16px;
       margin-bottom: 40px;
     }
 
+    /* ABOUT */
+    .about {
+      background: #0f131a;
+    }
+
+    .about-box {
+      max-width: 900px;
+      margin: auto;
+      background: #14181f;
+      padding: 35px;
+      border-radius: 12px;
+      box-shadow: 0px 0px 30px rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .about-box p {
+      font-size: 16px;
+      color: #ccc;
+      text-align: center;
+    }
+
+    /* SERVICES */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -117,19 +171,22 @@
 
     .service-card {
       background: #14181f;
-      border-radius: 10px;
+      border-radius: 12px;
       overflow: hidden;
       text-align: left;
-      transition: transform 0.3s ease;
+      transition: 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.05);
+      box-shadow: 0px 0px 25px rgba(0,0,0,0.4);
     }
 
     .service-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
+      border: 1px solid rgba(30,144,255,0.5);
     }
 
     .service-card img {
       width: 100%;
-      height: 200px;
+      height: 190px;
       object-fit: cover;
     }
 
@@ -140,6 +197,7 @@
     .service-card h4 {
       font-size: 18px;
       margin-bottom: 10px;
+      color: #1e90ff;
     }
 
     .service-card p {
@@ -149,97 +207,223 @@
 
     /* CONTACT */
     .contact {
-      padding: 60px;
       background: #0f131a;
       text-align: center;
     }
 
-    .contact h3 {
-      font-size: 24px;
-      margin-bottom: 20px;
+    .contact-box {
+      max-width: 750px;
+      margin: auto;
+      background: #14181f;
+      padding: 35px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.05);
+      box-shadow: 0px 0px 25px rgba(0,0,0,0.4);
     }
 
-    .contact p {
+    .contact-box p {
+      margin: 10px 0;
       font-size: 16px;
-      margin: 8px 0;
+      color: #ddd;
     }
 
+    /* FORM */
+    form {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      background: #0c0f14;
+      color: white;
+      font-size: 15px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    textarea {
+      resize: none;
+      height: 120px;
+    }
+
+    button {
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      background: #1e90ff;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #0a6ad8;
+      transform: translateY(-2px);
+    }
+
+    /* WHATSAPP FLOAT */
+    .whatsapp {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #25d366;
+      color: white;
+      padding: 14px 18px;
+      border-radius: 50px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0px 0px 25px rgba(0,0,0,0.4);
+      z-index: 2000;
+      transition: 0.3s;
+    }
+
+    .whatsapp:hover {
+      transform: scale(1.05);
+    }
+
+    /* FOOTER */
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 18px;
       background: #0c0f14;
       color: #777;
       font-size: 14px;
       border-top: 1px solid #222;
     }
+
+    /* ANIMATION */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* RESPONSIVE */
+    @media(max-width: 768px) {
+      header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .hero {
+        padding: 0 20px;
+        text-align: center;
+      }
+
+      .hero-content h2 {
+        font-size: 35px;
+      }
+
+      section {
+        padding: 70px 20px;
+      }
+    }
   </style>
 </head>
+
 <body>
+
   <!-- HEADER -->
   <header>
     <h1>IPE3</h1>
     <nav>
       <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Nosotros</a></li>
-        <li><a href="#">Servicios</a></li>
-        <li><a href="#">Contacto</a></li>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" id="inicio">
     <div class="hero-content">
-      <h2>Ingeniería Eléctrica y Electrónica <br> Seguridad & Proyectos</h2>
-      <a href="#contacto">Contáctanos</a>
+      <h2>Ingeniería Eléctrica y Electrónica<br>Seguridad & Proyectos</h2>
+      <p>
+        Soluciones profesionales en seguridad electrónica, proyectos eléctricos, mantenimiento técnico y sistemas especializados.
+      </p>
+      <a href="#contacto">Solicitar Cotización</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="nosotros">
+    <h3 class="title">Sobre Nosotros</h3>
+    <p class="subtitle">
+      Somos una empresa comprometida con la tecnología, la innovación y la seguridad.
+    </p>
+
+    <div class="about-box">
+      <p>
+        En <b>IPE3 — Ingeniería Eléctrica y Electrónica Ecuador</b> brindamos servicios profesionales de
+        instalación, mantenimiento y soporte técnico en seguridad electrónica, sistemas eléctricos y electrónicos.
+        Nuestro objetivo es garantizar calidad, confiabilidad y cumplimiento técnico en cada proyecto.
+      </p>
     </div>
   </section>
 
   <!-- SERVICES -->
-  <section class="services" id="servicios">
-    <h3>Nuestros Servicios</h3>
+  <section id="servicios">
+    <h3 class="title">Nuestros Servicios</h3>
+    <p class="subtitle">
+      Servicios especializados para hogares, empresas, instituciones educativas y proyectos industriales.
+    </p>
+
     <div class="services-grid">
       <div class="service-card">
         <img src="https://images.unsplash.com/photo-1581092787764-8d7b0cbbd61f?auto=format&fit=crop&w=800&q=80" alt="CCTV">
         <div class="content">
           <h4>Sistemas de CCTV</h4>
-          <p>Instalación y mantenimiento de cámaras de seguridad.</p>
+          <p>Instalación, configuración y mantenimiento de cámaras de seguridad IP y analógicas.</p>
         </div>
       </div>
+
       <div class="service-card">
         <img src="https://images.unsplash.com/photo-1581092334804-7a1dbf7c6c2d?auto=format&fit=crop&w=800&q=80" alt="Control de acceso">
         <div class="content">
           <h4>Control de Acceso</h4>
-          <p>Soluciones para ingreso seguro y controlado a sus instalaciones.</p>
+          <p>Biométricos, tarjetas RFID, chapas eléctricas y automatización de accesos.</p>
         </div>
       </div>
+
       <div class="service-card">
         <img src="https://images.unsplash.com/photo-1581091012184-5c1b76fbcf4f?auto=format&fit=crop&w=800&q=80" alt="Mantenimiento preventivo">
         <div class="content">
           <h4>Mantenimiento Preventivo</h4>
-          <p>Inspecciones regulares para asegurar la confiabilidad de los equipos.</p>
+          <p>Inspección, diagnóstico y mantenimiento para garantizar la vida útil de equipos y sistemas.</p>
         </div>
       </div>
+
       <div class="service-card">
         <img src="https://images.unsplash.com/photo-1581091012026-1c8b0c6cfbe0?auto=format&fit=crop&w=800&q=80" alt="Equipos biomédicos">
         <div class="content">
-          <h4>Mantenimiento de Equipos Biomédicos</h4>
-          <p>Servicio integral de mantenimiento y soporte para dispositivos médicos.</p>
+          <h4>Equipos Biomédicos</h4>
+          <p>Soporte técnico y mantenimiento especializado en equipos biomédicos y de laboratorio.</p>
         </div>
       </div>
+
       <div class="service-card">
         <img src="https://images.unsplash.com/photo-1581092224831-9a9a14f8b0e2?auto=format&fit=crop&w=800&q=80" alt="Proyectos eléctricos">
         <div class="content">
-          <h4>Proyectos Eléctricos y Electrónicos</h4>
-          <p>Diseño e implementación de proyectos técnicos especializados.</p>
+          <h4>Proyectos Eléctricos</h4>
+          <p>Diseño e implementación de instalaciones eléctricas, tableros, iluminación y canalización.</p>
         </div>
       </div>
+
       <div class="service-card">
         <img src="https://images.unsplash.com/photo-1581091215361-1e8c7e5abf4a?auto=format&fit=crop&w=800&q=80" alt="Seguridad electrónica">
         <div class="content">
           <h4>Seguridad Electrónica</h4>
-          <p>Soluciones de protección electrónica para hogares y empresas.</p>
+          <p>Alarmas, sensores, automatización, cercos eléctricos y soluciones integrales.</p>
         </div>
       </div>
     </div>
@@ -247,14 +431,52 @@
 
   <!-- CONTACT -->
   <section class="contact" id="contacto">
-    <h3>Contacto</h3>
-    <p>📧 Email: ipe3ecuador@gmail.com</p>
-    <p>📱 Teléfono: +593 98 401 6027</p>
+    <h3 class="title">Contacto</h3>
+    <p class="subtitle">Solicita tu cotización rápida y gratuita.</p>
+
+    <div class="contact-box">
+      <p>📧 Email: <b>ipe3ecuador@gmail.com</b></p>
+      <p>📱 Teléfono: <b>+593 98 401 6027</b></p>
+      <p>📍 Ecuador</p>
+
+      <form id="formContacto">
+        <input type="text" id="nombre" placeholder="Tu Nombre" required>
+        <input type="text" id="telefono" placeholder="Tu Teléfono" required>
+        <textarea id="mensaje" placeholder="Escribe tu mensaje..." required></textarea>
+        <button type="submit">Enviar Mensaje</button>
+      </form>
+    </div>
   </section>
+
+  <!-- WHATSAPP FLOAT -->
+  <a class="whatsapp" target="_blank"
+     href="https://wa.me/593984016027?text=Hola%20IPE3,%20quiero%20una%20cotizaci%C3%B3n%20por%20favor.">
+     💬 WhatsApp
+  </a>
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2023 IPE3 — Ingeniería Eléctrica y Electrónica. Todos los derechos reservados.</p>
+    <p>© <span id="year"></span> IPE3 — Ingeniería Eléctrica y Electrónica Ecuador. Todos los derechos reservados.</p>
   </footer>
+
+  <script>
+    // Año automático
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Enviar formulario a WhatsApp
+    document.getElementById("formContacto").addEventListener("submit", function(e){
+      e.preventDefault();
+
+      let nombre = document.getElementById("nombre").value;
+      let telefono = document.getElementById("telefono").value;
+      let mensaje = document.getElementById("mensaje").value;
+
+      let texto = `Hola IPE3, mi nombre es ${nombre}.%0ATeléfono: ${telefono}%0AMensaje: ${mensaje}`;
+      let url = `https://wa.me/593984016027?text=${texto}`;
+
+      window.open(url, "_blank");
+    });
+  </script>
+
 </body>
 </html>
