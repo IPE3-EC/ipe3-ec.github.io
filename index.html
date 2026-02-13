@@ -1,695 +1,277 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IPE3® — Ingeniería Eléctrica y Electrónica Ecuador</title>
-
-  <style>
-    /* ===================== RESET ===================== */
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family: Arial, sans-serif;
-    }
-
-    body{
-      background:#070a10;
-      color:white;
-      overflow-x:hidden;
-    }
-
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
-
-    /* ===================== PARTICLES CANVAS ===================== */
-    canvas#particles{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      z-index:1;
-      pointer-events:none;
-    }
-
-    /* ===================== VIDEO BACKGROUND ===================== */
-    .video-bg{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      overflow:hidden;
-      z-index:0;
-    }
-
-    .video-bg video{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      filter:brightness(0.35) contrast(1.2);
-    }
-
-    /* ===================== HEADER ===================== */
-    header{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      padding:15px 60px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      z-index:100;
-      background:rgba(0,0,0,0.45);
-      backdrop-filter:blur(12px);
-      border-bottom:1px solid rgba(46,168,255,0.15);
-    }
-
-    .logo{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      font-size:22px;
-      font-weight:900;
-      letter-spacing:1px;
-      color:#2ea8ff;
-      text-shadow:0px 0px 12px rgba(46,168,255,0.6);
-      animation:textGlow 2s infinite alternate;
-    }
-
-    @keyframes textGlow{
-      0%{
-        text-shadow:0px 0px 10px rgba(46,168,255,0.4);
-      }
-      100%{
-        text-shadow:0px 0px 25px rgba(46,168,255,0.85);
-      }
-    }
-
-    .logo img{
-      width:70px;
-      height:70px;
-      border-radius:50%;
-      border:2px solid rgba(46,168,255,0.85);
-      padding:5px;
-      box-shadow:0px 0px 35px rgba(46,168,255,0.45);
-      animation:neonPulse 2.2s infinite alternate;
-      transition:0.3s ease;
-      background:rgba(0,0,0,0.2);
-    }
-
-    @keyframes neonPulse{
-      0%{
-        box-shadow:
-          0px 0px 12px rgba(46,168,255,0.35),
-          0px 0px 25px rgba(46,168,255,0.35),
-          0px 0px 45px rgba(46,168,255,0.20);
-        transform:scale(1);
-      }
-      100%{
-        box-shadow:
-          0px 0px 20px rgba(46,168,255,0.70),
-          0px 0px 60px rgba(46,168,255,0.55),
-          0px 0px 100px rgba(46,168,255,0.35);
-        transform:scale(1.05);
-      }
-    }
-
-    .logo img:hover{
-      transform:scale(1.12) rotate(4deg);
-      box-shadow:
-        0px 0px 30px rgba(46,168,255,0.85),
-        0px 0px 80px rgba(46,168,255,0.75),
-        0px 0px 140px rgba(46,168,255,0.45);
-    }
-
-    nav ul{
-      list-style:none;
-      display:flex;
-      gap:28px;
-      font-weight:bold;
-    }
-
-    nav ul li a{
-      color:white;
-      transition:0.3s;
-      font-size:15px;
-      opacity:0.9;
-    }
-
-    nav ul li a:hover{
-      color:#2ea8ff;
-      text-shadow:0px 0px 12px rgba(46,168,255,0.6);
-      opacity:1;
-    }
-
-    /* ===================== HERO ===================== */
-    .hero{
-      position:relative;
-      z-index:2;
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      padding:0 60px;
-    }
-
-    .hero-content{
-      max-width:720px;
-    }
-
-    .hero h1{
-      font-size:55px;
-      line-height:1.1;
-      font-weight:1000;
-      text-shadow:0px 0px 25px rgba(0,0,0,0.8);
-      margin-bottom:20px;
-    }
-
-    .hero p{
-      font-size:18px;
-      color:#d5e9ff;
-      margin-bottom:25px;
-      opacity:0.95;
-    }
-
-    .hero-buttons{
-      display:flex;
-      gap:15px;
-      flex-wrap:wrap;
-    }
-
-    .btn{
-      padding:14px 26px;
-      border-radius:8px;
-      font-weight:900;
-      cursor:pointer;
-      transition:0.3s;
-      display:inline-block;
-    }
-
-    .btn-primary{
-      background:linear-gradient(90deg,#2ea8ff,#005eff);
-      color:white;
-      box-shadow:0px 0px 35px rgba(46,168,255,0.25);
-    }
-
-    .btn-primary:hover{
-      transform:translateY(-3px);
-      box-shadow:0px 0px 50px rgba(46,168,255,0.6);
-    }
-
-    .btn-secondary{
-      border:1px solid rgba(46,168,255,0.6);
-      color:#bfe7ff;
-      background:rgba(0,0,0,0.3);
-    }
-
-    .btn-secondary:hover{
-      transform:translateY(-3px);
-      box-shadow:0px 0px 40px rgba(46,168,255,0.35);
-    }
-
-    /* ===================== SECTIONS ===================== */
-    section{
-      position:relative;
-      z-index:2;
-      padding:90px 60px;
-    }
-
-    .section-title{
-      text-align:center;
-      font-size:34px;
-      margin-bottom:18px;
-      font-weight:1000;
-      color:#ffffff;
-      text-shadow:0px 0px 25px rgba(46,168,255,0.25);
-    }
-
-    .section-subtitle{
-      text-align:center;
-      max-width:800px;
-      margin:0 auto 50px auto;
-      color:#cce7ff;
-      opacity:0.9;
-      font-size:16px;
-    }
-
-    /* ===================== SERVICES ===================== */
-    .services-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-      gap:25px;
-    }
-
-    .service-card{
-      background:rgba(20,25,35,0.85);
-      border:1px solid rgba(46,168,255,0.15);
-      border-radius:16px;
-      overflow:hidden;
-      box-shadow:0px 0px 40px rgba(0,0,0,0.45);
-      transition:0.3s;
-    }
-
-    .service-card:hover{
-      transform:translateY(-6px);
-      box-shadow:0px 0px 60px rgba(46,168,255,0.25);
-      border-color:rgba(46,168,255,0.4);
-    }
-
-    .service-card img{
-      width:100%;
-      height:200px;
-      object-fit:cover;
-      filter:brightness(0.9) contrast(1.1);
-    }
-
-    .service-card .content{
-      padding:22px;
-    }
-
-    .service-card h3{
-      font-size:18px;
-      margin-bottom:10px;
-      color:#ffffff;
-    }
-
-    .service-card p{
-      color:#c6d7e9;
-      font-size:14px;
-      line-height:1.6;
-    }
-
-    /* ===================== PORTFOLIO ===================== */
-    .portfolio-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-      gap:22px;
-      margin-top:40px;
-    }
-
-    .project-card{
-      background:rgba(18,20,30,0.88);
-      border-radius:16px;
-      overflow:hidden;
-      border:1px solid rgba(46,168,255,0.15);
-      transition:0.3s;
-    }
-
-    .project-card:hover{
-      transform:translateY(-6px);
-      border-color:rgba(46,168,255,0.4);
-      box-shadow:0px 0px 55px rgba(46,168,255,0.18);
-    }
-
-    .project-card img{
-      width:100%;
-      height:200px;
-      object-fit:cover;
-      display:block;
-    }
-
-    .project-card .content{
-      padding:18px;
-    }
-
-    .project-card h4{
-      font-size:16px;
-      margin-bottom:8px;
-    }
-
-    .project-card p{
-      font-size:13px;
-      color:#c9d9ff;
-      opacity:0.9;
-    }
-
-    /* ===================== BRANDS ===================== */
-    .brands{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:35px;
-      margin-top:40px;
-      align-items:center;
-    }
-
-    .brands img{
-      width:140px;
-      filter:brightness(1.2);
-      opacity:0.9;
-      transition:0.3s;
-    }
-
-    .brands img:hover{
-      transform:scale(1.12);
-      opacity:1;
-      filter:drop-shadow(0px 0px 18px rgba(46,168,255,0.6));
-    }
-
-    /* ===================== CONTACT ===================== */
-    .contact-box{
-      max-width:850px;
-      margin:auto;
-      background:rgba(18,22,32,0.85);
-      padding:35px;
-      border-radius:18px;
-      border:1px solid rgba(46,168,255,0.18);
-      box-shadow:0px 0px 50px rgba(0,0,0,0.5);
-      text-align:center;
-    }
-
-    .contact-box p{
-      font-size:16px;
-      margin:10px 0;
-      color:#d3ecff;
-    }
-
-    .contact-box strong{
-      color:#2ea8ff;
-    }
-
-    /* ===================== WHATSAPP FLOAT ===================== */
-    .whatsapp-float{
-      position:fixed;
-      bottom:20px;
-      right:20px;
-      z-index:999;
-      background:linear-gradient(90deg,#00ff88,#00c96b);
-      color:black;
-      padding:14px 18px;
-      border-radius:50px;
-      font-weight:1000;
-      box-shadow:0px 0px 30px rgba(0,255,136,0.35);
-      transition:0.3s;
-    }
-
-    .whatsapp-float:hover{
-      transform:scale(1.08);
-      box-shadow:0px 0px 50px rgba(0,255,136,0.6);
-    }
-
-    /* ===================== FOOTER ===================== */
-    footer{
-      padding:25px;
-      text-align:center;
-      background:rgba(0,0,0,0.65);
-      border-top:1px solid rgba(46,168,255,0.12);
-      z-index:5;
-      position:relative;
-      color:#7fb7e6;
-      font-size:14px;
-    }
-
-    /* ===================== RESPONSIVE ===================== */
-    @media(max-width:900px){
-      header{
-        padding:15px 20px;
-      }
-      .hero{
-        padding:0 20px;
-        text-align:center;
-        justify-content:center;
-      }
-      .hero h1{
-        font-size:40px;
-      }
-      nav ul{
-        display:none;
-      }
-      section{
-        padding:70px 20px;
-      }
-    }
-
-  </style>
-</head>
-
-<body>
-
-  <!-- VIDEO BACKGROUND -->
-  <div class="video-bg">
-    <video autoplay muted loop playsinline>
-      <source src="static/video.mp4" type="video/mp4">
-    </video>
-  </div>
-
-  <!-- PARTICLES -->
-  <canvas id="particles"></canvas>
-
-  <!-- HEADER -->
-  <header>
-    <div class="logo">
-      <img src="static/sin_fondo.png" alt="IPE3 Logo">
-      IPE3<sup style="font-size:12px;">®</sup>
-    </div>
-
-    <nav>
-      <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#portafolio">Portafolio</a></li>
-        <li><a href="#marcas">Marcas</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero" id="inicio">
-    <div class="hero-content">
-      <h1>Ingeniería Eléctrica y Electrónica<br>Seguridad & Proyectos</h1>
-      <p>
-        Soluciones profesionales en sistemas eléctricos, electrónicos y seguridad tecnológica.
-        Instalación, mantenimiento y proyectos técnicos certificados.
-      </p>
-
-      <div class="hero-buttons">
-        <a class="btn btn-primary" href="#contacto">📞 Contáctanos</a>
-        <a class="btn btn-secondary" href="static/uploads/pdf/portafolio.pdf" target="_blank">📄 Portafolio PDF</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="servicios">
-    <h2 class="section-title">Nuestros Servicios</h2>
-    <p class="section-subtitle">
-      Tecnología, calidad y experiencia para proteger y potenciar tu empresa, hogar e industria.
-    </p>
-
-    <div class="services-grid">
-      <div class="service-card">
-        <img src="static/uploads/projects/proyecto1.jpg" alt="CCTV">
-        <div class="content">
-          <h3>Sistemas CCTV</h3>
-          <p>Instalación y mantenimiento de cámaras IP, DVR, NVR y monitoreo profesional.</p>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <img src="static/uploads/projects/proyecto2.jpg" alt="Control de acceso">
-        <div class="content">
-          <h3>Control de Acceso</h3>
-          <p>Sistemas biométricos, tarjetas RFID, cerraduras inteligentes y automatización.</p>
-        </div>
-      </div>
-
-      <div class="service-card">
-       <img src="static/uploads/projects/proyecto1.jpg" alt="Proyecto 1">
-        <div class="content">
-          <h3>Proyectos Eléctricos</h3>
-          <p>Diseño, instalación y mantenimiento de tableros eléctricos industriales y residenciales.</p>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <img src="static/uploads/projects/proyecto2.jpg" alt="Proyecto 2">
-        <div class="content">
-          <h3>Seguridad Electrónica</h3>
-          <p>Alarmas, sensores, cercos eléctricos y soluciones integrales de protección.</p>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <img src="static/uploads/projects/proyecto1.jpg" alt="Mantenimiento preventivo">
-        <div class="content">
-          <h3>Mantenimiento Preventivo</h3>
-          <p>Revisión profesional y mantenimiento certificado para evitar fallas y pérdidas.</p>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <img src="static/uploads/projects/proyecto2.jpg" alt="Equipos biomédicos">
-        <div class="content">
-          <h3>Equipos Biomédicos</h3>
-          <p>Mantenimiento, soporte técnico y revisión profesional de equipos médicos.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PORTFOLIO -->
-  <section id="portafolio">
-    <h2 class="section-title">Portafolio de Proyectos</h2>
-    <p class="section-subtitle">
-      Algunos trabajos realizados por IPE3® con calidad profesional.
-    </p>
-
-    <div class="portfolio-grid">
-      <div class="project-card">
-        <img src="static/uploads/projects/proyecto1.jpg" alt="Proyecto 1">
-        <div class="content">
-          <h4>Instalación CCTV Profesional</h4>
-          <p>Implementación completa con grabación y monitoreo.</p>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <img src="static/uploads/projects/proyecto2.jpg" alt="Proyecto 2">
-        <div class="content">
-          <h4>Tableros y Automatización</h4>
-          <p>Diseño y montaje eléctrico industrial.</p>
-        </div>
-      </div>
-    </div>
-
-    <div style="text-align:center; margin-top:40px;">
-      <a class="btn btn-primary" href="static/uploads/pdf/portafolio.pdf" target="_blank">
-        📄 Descargar Portafolio Completo PDF
-      </a>
-    </div>
-  </section>
-
-  <!-- BRANDS -->
-  <section id="marcas">
-    <h2 class="section-title">Marcas que Trabajamos</h2>
-    <p class="section-subtitle">
-      Equipos certificados y marcas reconocidas a nivel mundial.
-    </p>
-
-    <div class="brands">
-      <img src="static/brands/dahua.png" alt="Dahua">
-      <img src="static/brands/tplink.png" alt="TP-Link">
-      <img src="static/brands/schneider.png" alt="Schneider">
-      <img src="static/brands/centurion.png" alt="Centurion">
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contacto">
-    <h2 class="section-title">Contacto</h2>
-    <p class="section-subtitle">
-      Escríbenos y cotiza tu proyecto con asesoría profesional.
-    </p>
-
-    <div class="contact-box">
-      <p><strong>📧 Email:</strong> ipe3ecuador@gmail.com</p>
-      <p><strong>📱 Teléfono / WhatsApp:</strong> +593 98 401 6027</p>
-      <p><strong>📍 Ecuador</strong></p>
-    </div>
-  </section>
-
-  <!-- WHATSAPP -->
-  <a class="whatsapp-float" href="https://wa.me/593984016027" target="_blank">
-    💬 WhatsApp
-  </a>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2016 IPE3® — TODOS LOS DERECHOS RESERVADOS.</p>
-  </footer>
-
-  <!-- ===================== PARTICLES SCRIPT ===================== -->
-  <script>
-    const canvas = document.getElementById("particles");
-    const ctx = canvas.getContext("2d");
-
-    let particlesArray = [];
-    let w, h;
-
-    function resizeCanvas(){
-      w = canvas.width = window.innerWidth;
-      h = canvas.height = window.innerHeight;
-    }
-
-    window.addEventListener("resize", resizeCanvas);
-    resizeCanvas();
-
-    class Particle{
-      constructor(){
-        this.x = Math.random() * w;
-        this.y = Math.random() * h;
-        this.size = Math.random() * 2.2 + 0.5;
-        this.speedX = (Math.random() - 0.5) * 0.6;
-        this.speedY = (Math.random() - 0.5) * 0.6;
-        this.opacity = Math.random() * 0.8 + 0.2;
-      }
-
-      update(){
-        this.x += this.speedX;
-        this.y += this.speedY;
-
-        if(this.x > w) this.x = 0;
-        if(this.x < 0) this.x = w;
-        if(this.y > h) this.y = 0;
-        if(this.y < 0) this.y = h;
-      }
-
-      draw(){
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(46,168,255," + this.opacity + ")";
-        ctx.fill();
-      }
-    }
-
-    function initParticles(){
-      particlesArray = [];
-      const numberOfParticles = Math.floor((w * h) / 12000);
-      for(let i=0; i<numberOfParticles; i++){
-        particlesArray.push(new Particle());
-      }
-    }
-
-    function connectParticles(){
-      for(let a=0; a<particlesArray.length; a++){
-        for(let b=a; b<particlesArray.length; b++){
-          const dx = particlesArray[a].x - particlesArray[b].x;
-          const dy = particlesArray[a].y - particlesArray[b].y;
-          const distance = Math.sqrt(dx*dx + dy*dy);
-
-          if(distance < 120){
-            ctx.strokeStyle = "rgba(46,168,255,0.08)";
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-            ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-            ctx.stroke();
-          }
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IE PROYECTOS | Inteligencia y Energía Conectadas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#103C91",
+                        secondary: "#38B6FF",
+                        "background-dark": "#050A18",
+                        "card-dark": "rgba(255, 255, 255, 0.03)",
+                    },
+                    fontFamily: {
+                        display: ["Plus Jakarta Sans", "sans-serif"],
+                        body: ["Plus Jakarta Sans", "sans-serif"],
+                    },
+                    borderRadius: {
+                        '2xl': "1.5rem",
+                        '3xl': "2rem",
+                    },
+                },
+            },
+        };
+    </script>
+<style type="text/tailwindcss">
+        :root {
+            --primary: #103C91;
+            --secondary: #38B6FF;
         }
-      }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            -webkit-tap-highlight-color: transparent; 
+        }
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(16, 60, 145, 0.85) 0%, rgba(5, 10, 24, 0.95) 100%);
+        }
+        .glass-morphism {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glow-icon {
+            filter: drop-shadow(0 0 8px rgba(56, 182, 255, 0.4));
+        }
+        .text-gradient-cyan {
+            background: linear-gradient(135deg, #38B6FF 0%, #103C91 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .btn-gradient {
+            background: linear-gradient(90deg, #38B6FF 0%, #103C91 100%);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #38B6FF;
+            border-radius: 10px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
     }
+  </style>
+  </head>
+<body class="bg-background-dark text-slate-100 min-h-screen">
+<header class="fixed top-0 z-50 w-full bg-background-dark/80 backdrop-blur-md border-b border-white/5">
+<div class="px-5 h-20 flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div class="relative w-9 h-9">
+<svg class="w-full h-full" fill="none" viewBox="0 0 100 100">
+<path d="M50 10C35 10 25 20 25 35C25 45 30 52 35 58V75H45V62C40 58 37 53 37 45C37 35 43 28 50 28V10Z" fill="var(--primary)"></path>
+<path d="M50 10V28C57 28 63 35 63 45C63 53 60 58 55 62V75H65V58C70 52 75 45 75 35C75 20 65 10 50 10Z" fill="var(--secondary)"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<span class="font-bold text-lg tracking-tight leading-none">IE PROYECTOS</span>
+<span class="text-[7px] font-bold uppercase tracking-[0.2em] text-secondary">Inteligencia y Energía</span>
+</div>
+</div>
+<button class="w-10 h-10 flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+</header>
+<main>
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Modern Substation" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqllJk83VeN_YdbdmtTI_MBnRkM-gS8l1b4h2Smzm_aTsj8r1dEBncwO7ih9BzeJylX5ep-n6BHKQ8EZS2zsGdAhcrj5_PQ68ATAhZpCrXiEuNeNCjStBNoF698UWI2BvPqHYTuQ803qDoHLaLt_LLhCKv2k9JGnOFa0fDsgfc120TvBkM60ZWZ3sM-mkyp6Q1v_2cJ-xeeU5hIflQxeWu71RSM041L8vUj7d_Wg7brq8Iu8UyhtQqc4B_3cfcw00qtqd4UPnpShA"/>
+<div class="absolute inset-0 hero-overlay"></div>
+</div>
+<div class="relative z-10 px-6 w-full">
+<div class="inline-flex items-center space-x-2 bg-secondary/10 border border-secondary/20 px-4 py-2 rounded-full mb-6">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-secondary">Líderes en Tecnología Industrial</span>
+</div>
+<h1 class="text-4xl font-extrabold leading-[1.1] mb-4 tracking-tight">
+                    IE PROYECTOS
+                </h1>
+<h2 class="text-xl font-bold text-secondary mb-6 tracking-wide">
+                    INTELIGENCIA Y ENERGÍA CONECTADAS
+                </h2>
+<p class="text-slate-400 text-base mb-10 max-w-sm leading-relaxed">
+                    Transformamos la infraestructura tecnológica de Ecuador con soluciones avanzadas en ingeniería electrónica y automatización.
+                </p>
+<div class="flex flex-col space-y-4">
+<a class="btn-gradient text-white font-bold py-4 px-8 rounded-2xl flex items-center justify-center space-x-2 shadow-lg shadow-primary/20" href="#contact">
+<span>Iniciar Proyecto</span>
+<span class="material-symbols-outlined text-lg">bolt</span>
+</a>
+<a class="bg-white/5 border border-white/10 text-white font-semibold py-4 px-8 rounded-2xl flex items-center justify-center" href="#services">
+                        Nuestros Servicios
+                    </a>
+</div>
+</div>
+<div class="absolute -bottom-24 -right-24 w-64 h-64 bg-secondary/20 rounded-full blur-[100px]"></div>
+</section>
+<section class="py-12 px-6 -mt-16 relative z-20">
+<div class="grid grid-cols-2 gap-4">
+<div class="glass-morphism p-6 rounded-3xl text-center">
+<span class="block text-3xl font-extrabold text-gradient-cyan mb-1">+120</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Servicios Realizados</span>
+</div>
+<div class="glass-morphism p-6 rounded-3xl text-center">
+<span class="block text-3xl font-extrabold text-gradient-cyan mb-1">+15</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Hospitals Aliados</span>
+</div>
+<div class="glass-morphism p-6 rounded-3xl text-center">
+<span class="block text-3xl font-extrabold text-gradient-cyan mb-1">100%</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Garantía Técnica</span>
+</div>
+<div class="glass-morphism p-6 rounded-3xl text-center">
+<span class="block text-3xl font-extrabold text-gradient-cyan mb-1">24/7</span>
+<span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Soporte Crítico</span>
+</div>
+</div>
+</section>
+<section class="py-20 px-6 bg-background-dark" id="services">
+<div class="mb-12">
+<span class="text-secondary font-bold text-xs uppercase tracking-[0.3em] block mb-2">Especialidades</span>
+<h2 class="text-3xl font-extrabold tracking-tight">Servicios de Ingeniería</h2>
+</div>
+<div class="space-y-6">
+<div class="bg-card-dark border border-white/5 p-8 rounded-3xl group">
+<div class="w-14 h-14 rounded-2xl bg-secondary/5 flex items-center justify-center mb-6 glow-icon border border-secondary/20">
+<span class="material-symbols-outlined text-secondary text-3xl font-light">biotech</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Mantenimiento Médico</h3>
+<p class="text-slate-400 text-sm leading-relaxed">Especialistas en equipos oftalmológicos y biomédicos. Certificación técnica para alta precisión clínica.</p>
+</div>
+<div class="bg-card-dark border border-white/5 p-8 rounded-3xl">
+<div class="w-14 h-14 rounded-2xl bg-secondary/5 flex items-center justify-center mb-6 glow-icon border border-secondary/20">
+<span class="material-symbols-outlined text-secondary text-3xl font-light">electrical_services</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Instalaciones Eléctricas</h3>
+<p class="text-slate-400 text-sm leading-relaxed">Diseño y ejecución de sistemas eléctricos industriales, tableros de transferencia y estudios de carga.</p>
+</div>
+<div class="bg-card-dark border border-white/5 p-8 rounded-3xl">
+<div class="w-14 h-14 rounded-2xl bg-secondary/5 flex items-center justify-center mb-6 glow-icon border border-secondary/20">
+<span class="material-symbols-outlined text-secondary text-3xl font-light">videocam</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Seguridad Electrónica</h3>
+<p class="text-slate-400 text-sm leading-relaxed">Sistemas CCTV IP de última generación, control de acceso biométrico y monitoreo remoto centralizado.</p>
+</div>
+</div>
+</section>
+<section class="py-20 px-6 bg-slate-900/30" id="projects">
+<div class="mb-12 flex justify-between items-end">
+<div>
+<span class="text-secondary font-bold text-xs uppercase tracking-[0.3em] block mb-2">Portafolio</span>
+<h2 class="text-3xl font-extrabold tracking-tight">Proyectos Recientes</h2>
+</div>
+</div>
+<div class="grid gap-6">
+<div class="group relative overflow-hidden rounded-3xl aspect-[4/3] bg-slate-800">
+<img alt="Ophthalmology project" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDIp5Q__HEPXsFn8NWyro5Z66dPqiZ8RRgXDRfRV6Ovz-AH-Qf0o30JyezUDRptkCgItKZaH_snwIsOEsfMIXKyyTvwEjphOuvlubbc4-5Ozn6Hi70jpl5cyNUu_K8BpTUEkGR-E7V4gPOdnXc-hEwumOm-a3CwSpORfKc5Eol2tWtjzfnTkbkMKJY_j-1HPcxE-fXFO5ltRCk5w14JsapFhqoSS6qXbC0KqueY29ssAlD_dHsh2tvbUJCO30D_szrf-hgSr5qR4A"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent p-6 flex flex-col justify-end">
+<span class="text-[10px] font-bold text-secondary uppercase tracking-widest mb-1">Médico</span>
+<h4 class="text-lg font-bold">Clínica Santa Lucía</h4>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-3xl aspect-[4/3] bg-slate-800">
+<img alt="Electrical project" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl3nOU8QM2bI0KqIL8779i5h3f3Abi3K7eZXd3iJLbYcSK_AZTT_u3DaV0T8DJv2QcQpQWXL15broBO78vng00KaomLIYMY2Mq3pErpZtfLWCw6dSGWRJamEoNi4er-VEuiljY6CZyBDdFEmEg8_zYKjEllILzIE6ZzQx1H4VfGBNFULzGqwAeanfhehbPVXVT8Tfx-KeZV54DyCbr-UlJ3DfDDAe7S2CwTm6lprZf-zol5cmR_nJGR1jYAxUIxf0beVsA-DTPoac"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent p-6 flex flex-col justify-end">
+<span class="text-[10px] font-bold text-secondary uppercase tracking-widest mb-1">Eléctrico</span>
+<h4 class="text-lg font-bold">Subestación Industrial Norte</h4>
+</div>
+</div>
+</div>
+<div class="mt-8">
+<button class="w-full py-4 border border-secondary text-secondary font-bold rounded-2xl transition-all hover:bg-secondary hover:text-primary">
+                    Ver más proyectos
+                </button>
+</div>
+</section>
+<section class="py-20 px-6 overflow-hidden">
+<div class="mb-12 text-center">
+<h2 class="text-2xl font-bold tracking-tight">Confianza en el Sector</h2>
+</div>
+<div class="space-y-6">
+<div class="bg-card-dark p-6 rounded-3xl border border-white/5 italic text-slate-400 relative">
+<span class="material-symbols-outlined text-secondary/30 absolute top-4 right-6 text-5xl">format_quote</span>
+<p class="text-sm leading-relaxed mb-6">"La precisión en el mantenimiento de nuestros equipos oftalmológicos ha sido impecable. IE PROYECTOS es nuestro aliado estratégico."</p>
+<div class="flex items-center space-x-4 not-italic">
+<div class="w-10 h-10 rounded-full bg-slate-700"></div>
+<div>
+<p class="text-sm font-bold text-white">Ing. Roberto Méndez</p>
+<p class="text-[10px] text-secondary font-bold uppercase tracking-wider">Director Técnico - Hospital Central</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 px-6 bg-slate-950" id="contact">
+<div class="mb-10">
+<h2 class="text-3xl font-extrabold tracking-tight mb-4">Contáctanos</h2>
+<p class="text-slate-400 text-sm">Déjanos tu mensaje y nos pondremos en contacto en menos de 24 horas.</p>
+</div>
+<form class="space-y-4">
+<div>
+<input class="w-full bg-white/5 border-white/10 rounded-2xl py-4 px-6 focus:ring-secondary focus:border-secondary text-white placeholder:text-slate-500" placeholder="Nombre completo" type="text"/>
+</div>
+<div>
+<input class="w-full bg-white/5 border-white/10 rounded-2xl py-4 px-6 focus:ring-secondary focus:border-secondary text-white placeholder:text-slate-500" placeholder="Correo electrónico" type="email"/>
+</div>
+<div>
+<textarea class="w-full bg-white/5 border-white/10 rounded-2xl py-4 px-6 focus:ring-secondary focus:border-secondary text-white placeholder:text-slate-500" placeholder="¿Cómo podemos ayudarte?" rows="4"></textarea>
+</div>
+<button class="w-full btn-gradient py-5 rounded-2xl font-bold text-white shadow-xl shadow-secondary/10 flex items-center justify-center space-x-2" type="submit">
+<span>Enviar Mensaje</span>
+<span class="material-symbols-outlined text-xl">send</span>
+</button>
+</form>
+</section>
+</main>
+<footer class="bg-background-dark py-12 px-6 border-t border-white/5">
+<div class="flex flex-col items-center">
+<div class="flex items-center space-x-3 mb-8">
+<div class="w-8 h-8">
+<svg class="w-full h-full" fill="none" viewBox="0 0 100 100">
+<path d="M50 10C35 10 25 20 25 35C25 45 30 52 35 58V75H45V62C40 58 37 53 37 45C37 35 43 28 50 28V10Z" fill="var(--primary)"></path>
+<path d="M50 10V28C57 28 63 35 63 45C63 53 60 58 55 62V75H65V58C70 52 75 45 75 35C75 20 65 10 50 10Z" fill="var(--secondary)"></path>
+</svg>
+</div>
+<span class="font-bold tracking-tight">IE PROYECTOS</span>
+</div>
+<nav class="flex flex-wrap justify-center gap-6 mb-10 text-xs font-bold uppercase tracking-widest text-slate-500">
+<a class="hover:text-secondary" href="#">Inicio</a>
+<a class="hover:text-secondary" href="#services">Servicios</a>
+<a class="hover:text-secondary" href="#projects">Proyectos</a>
+<a class="hover:text-secondary" href="#contact">Contacto</a>
+</nav>
+<div class="flex items-center space-x-2 mb-6">
+<div class="w-6 h-3 bg-yellow-400 rounded-sm"></div>
+<div class="w-6 h-3 bg-blue-600 rounded-sm"></div>
+<div class="w-6 h-3 bg-red-600 rounded-sm"></div>
+<span class="text-[10px] font-bold text-slate-500 uppercase ml-2">Quito, Ecuador</span>
+</div>
+<p class="text-[10px] text-slate-600 font-bold uppercase tracking-[0.2em]">© 2024 IE PROYECTOS</p>
+</div>
+</footer>
+<a class="fixed bottom-6 right-6 w-16 h-16 bg-[#25D366] text-white rounded-full shadow-2xl shadow-[#25D366]/30 flex items-center justify-center z-[100] transition-transform hover:scale-110 active:scale-95" href="https://wa.me/593999999999" target="_blank">
+<svg class="w-9 h-9" fill="currentColor" viewBox="0 0 24 24">
+<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.628 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
+</svg>
+</a>
 
-    function animateParticles(){
-      ctx.clearRect(0, 0, w, h);
-
-      for(let i=0; i<particlesArray.length; i++){
-        particlesArray[i].update();
-        particlesArray[i].draw();
-      }
-
-      connectParticles();
-      requestAnimationFrame(animateParticles);
-    }
-
-    initParticles();
-    animateParticles();
-  </script>
-
-</body>
-</html>
+</body></html>
