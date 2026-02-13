@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Servicios — IPE3</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    body{
+      background:#05070c;
+      color:white;
+    }
+
+    header{
+      padding:18px 70px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:rgba(0,0,0,0.85);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      position:sticky;
+      top:0;
+      z-index:999;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:20px;
+      font-weight:1000;
+      color:#2ea8ff;
+    }
+
+    .logo img{
+      width:46px;
+      height:46px;
+      border-radius:50%;
+      border:2px solid rgba(46,168,255,0.85);
+      padding:4px;
+    }
+
+    a{
+      text-decoration:none;
+      color:white;
+      font-weight:900;
+    }
+
+    .btn-back{
+      padding:10px 18px;
+      border-radius:12px;
+      background:linear-gradient(90deg,#2ea8ff,#005dff);
+      box-shadow:0px 0px 35px rgba(46,168,255,0.3);
+      transition:0.3s;
+    }
+
+    .btn-back:hover{
+      transform:translateY(-2px);
+      box-shadow:0px 0px 55px rgba(46,168,255,0.55);
+    }
+
+    section{
+      padding:80px 70px;
+    }
+
+    h1{
+      font-size:48px;
+      font-weight:1000;
+      text-align:center;
+      margin-bottom:15px;
+      color:#2ea8ff;
+      text-shadow:0px 0px 25px rgba(46,168,255,0.4);
+    }
+
+    p{
+      text-align:center;
+      max-width:900px;
+      margin:0 auto 50px auto;
+      color:#ccc;
+      line-height:1.7;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(290px,1fr));
+      gap:22px;
+      max-width:1100px;
+      margin:auto;
+    }
+
+    .card{
+      padding:30px;
+      border-radius:18px;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:0px 0px 40px rgba(0,0,0,0.6);
+      transition:0.35s;
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      border:1px solid rgba(46,168,255,0.55);
+      box-shadow:0px 0px 55px rgba(46,168,255,0.2);
+    }
+
+    .card h3{
+      font-size:18px;
+      font-weight:1000;
+      margin-bottom:10px;
+      color:#2ea8ff;
+    }
+
+    .card ul{
+      padding-left:18px;
+      color:#ddd;
+      line-height:1.8;
+      font-size:14px;
+    }
+
+    footer{
+      text-align:center;
+      padding:20px;
+      background:#020308;
+      border-top:1px solid rgba(255,255,255,0.08);
+      color:#888;
+      font-size:14px;
+    }
+
+    @media(max-width: 900px){
+      header{ padding:15px 20px; }
+      section{ padding:70px 20px; }
+      h1{ font-size:36px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="SIN FONDO.png" alt="Logo IPE3">
+      IPE3 Servicios
+    </div>
+
+    <a class="btn-back" href="index.html">⬅ Volver al Inicio</a>
+  </header>
+
+  <section>
+    <h1>Servicios Profesionales</h1>
+    <p>
+      En IPE3 ofrecemos soluciones completas en ingeniería eléctrica, electrónica y seguridad.
+      Cada servicio incluye asesoría técnica, instalación profesional y garantía.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>📷 Sistemas de Videovigilancia (CCTV)</h3>
+        <ul>
+          <li>Instalación de cámaras IP / HD</li>
+          <li>DVR / NVR profesional</li>
+          <li>Monitoreo remoto desde celular</li>
+          <li>Mantenimiento preventivo y correctivo</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>🔐 Control de Acceso</h3>
+        <ul>
+          <li>Biométricos (huella/rostro)</li>
+          <li>Tarjetas RFID</li>
+          <li>Chapas magnéticas</li>
+          <li>Automatización de puertas</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>🚨 Alarmas y Seguridad Electrónica</h3>
+        <ul>
+          <li>Alarmas residenciales y comerciales</li>
+          <li>Sensores de movimiento</li>
+          <li>Sirenas y botones de pánico</li>
+          <li>Notificaciones en tiempo real</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>⚡ Instalaciones Eléctricas</h3>
+        <ul>
+          <li>Tableros eléctricos</li>
+          <li>Canalización y cableado</li>
+          <li>Protecciones y breakers</li>
+          <li>Puesta a tierra y pararrayos</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>💡 Iluminación y Energía</h3>
+        <ul>
+          <li>Iluminación LED</li>
+          <li>Automatización de iluminación</li>
+          <li>Sensores de presencia</li>
+          <li>Optimización de consumo energético</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>🛠️ Mantenimiento Técnico Especializado</h3>
+        <ul>
+          <li>Preventivo y correctivo</li>
+          <li>Diagnóstico de fallas</li>
+          <li>Informes técnicos</li>
+          <li>Garantía y soporte</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 IPE3 — Ingeniería Eléctrica y Electrónica Ecuador.</p>
+  </footer>
+
+</body>
+</html>
