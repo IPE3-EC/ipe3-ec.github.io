@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>IE PROYECTOS | Inteligencia y Energía Conectadas</title>
+  <title>IPE3® | Inteligencia y Energía Conectadas</title>
 
   <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
 
@@ -38,6 +38,10 @@
     :root {
       --primary: #103C91;
       --secondary: #38B6FF;
+    }
+
+    html{
+      scroll-behavior:smooth;
     }
 
     body { 
@@ -81,7 +85,6 @@
       transition: all 0.35s ease;
     }
 
-    /* EFECTO PREMIUM BOTÓN */
     .btn-gradient::before {
       content: "";
       position: absolute;
@@ -109,7 +112,6 @@
       transform: scale(0.97);
     }
 
-    /* BOTÓN SECUNDARIO */
     .btn-outline-premium {
       transition: all 0.35s ease;
     }
@@ -121,7 +123,6 @@
       background: rgba(56,182,255,0.05);
     }
 
-    /* ANIMACIONES DE ENTRADA */
     .fade-up {
       opacity: 0;
       transform: translateY(40px);
@@ -133,7 +134,6 @@
       transform: translateY(0);
     }
 
-    /* PROYECTOS */
     .project-card {
       transition: all 0.45s ease;
     }
@@ -143,12 +143,10 @@
       box-shadow: 0 0 35px rgba(56,182,255,0.12);
     }
 
-    /* EFECTO NEON TEXTO */
     .neon-text {
       text-shadow: 0 0 10px rgba(56,182,255,0.35), 0 0 30px rgba(16,60,145,0.25);
     }
 
-    /* SCROLLBAR */
     .custom-scrollbar::-webkit-scrollbar {
       width: 4px;
     }
@@ -158,7 +156,6 @@
       border-radius: 10px;
     }
 
-    /* ANIMACIÓN DE PULSO SUAVE */
     .pulse-soft {
       animation: pulseSoft 3s infinite;
     }
@@ -169,7 +166,6 @@
       100% { transform: scale(1); opacity: 0.85; }
     }
 
-    /* FLOATING BLUR */
     .floating-blur {
       animation: floatBlur 7s ease-in-out infinite;
     }
@@ -179,6 +175,40 @@
       50% { transform: translateY(-30px) translateX(20px); }
       100% { transform: translateY(0px) translateX(0px); }
     }
+
+    /* LOGO NEON */
+    .logo-neon img{
+      filter: drop-shadow(0 0 12px rgba(56,182,255,0.55)) drop-shadow(0 0 30px rgba(16,60,145,0.35));
+      transition: all 0.35s ease;
+    }
+
+    .logo-neon:hover img{
+      transform: scale(1.08);
+      filter: drop-shadow(0 0 20px rgba(56,182,255,0.75)) drop-shadow(0 0 45px rgba(16,60,145,0.55));
+    }
+
+    /* MENU DESPLEGABLE */
+    .mobile-menu{
+      display: none;
+    }
+
+    .mobile-menu.active{
+      display: block;
+      animation: fadeMenu 0.25s ease;
+    }
+
+    @keyframes fadeMenu{
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* PARTICULAS */
+    #particles {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
   </style>
 
 </head>
@@ -186,25 +216,33 @@
 <body class="bg-background-dark text-slate-100 min-h-screen">
 
 <header class="fixed top-0 z-50 w-full bg-background-dark/80 backdrop-blur-md border-b border-white/5">
-  <div class="px-5 h-20 flex items-center justify-between">
+  <div class="px-5 h-20 flex items-center justify-between relative">
 
-    <div class="flex items-center space-x-3">
-      <div class="relative w-9 h-9">
-        <svg class="w-full h-full" fill="none" viewBox="0 0 100 100">
-          <path d="M50 10C35 10 25 20 25 35C25 45 30 52 35 58V75H45V62C40 58 37 53 37 45C37 35 43 28 50 28V10Z" fill="var(--primary)"></path>
-          <path d="M50 10V28C57 28 63 35 63 45C63 53 60 58 55 62V75H65V58C70 52 75 45 75 35C75 20 65 10 50 10Z" fill="var(--secondary)"></path>
-        </svg>
-      </div>
-
+    <!-- LOGO IPE3 -->
+    <a href="#inicio" class="flex items-center space-x-3 logo-neon">
+      <img src="static/SIN FONDO.png" alt="IPE3® Logo" class="w-14 h-14 object-contain"/>
       <div class="flex flex-col">
-        <span class="font-bold text-lg tracking-tight leading-none neon-text">IE PROYECTOS</span>
-        <span class="text-[7px] font-bold uppercase tracking-[0.2em] text-secondary">Inteligencia y Energía</span>
+        <span class="font-extrabold text-lg tracking-tight leading-none neon-text">IPE3®</span>
+        <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-secondary">
+          Ingeniería Eléctrica y Electrónica
+        </span>
       </div>
-    </div>
+    </a>
 
-    <button class="w-10 h-10 flex items-center justify-center text-white hover:text-secondary transition">
+    <!-- BOTON MENU -->
+    <button id="menuBtn" class="w-10 h-10 flex items-center justify-center text-white hover:text-secondary transition">
       <span class="material-symbols-outlined text-3xl">menu</span>
     </button>
+
+    <!-- MENU DESPLEGABLE -->
+    <div id="mobileMenu" class="mobile-menu absolute top-20 right-5 w-56 rounded-3xl glass-morphism p-5">
+      <nav class="flex flex-col space-y-4 font-bold text-sm uppercase tracking-widest text-slate-200">
+        <a class="hover:text-secondary transition" href="#inicio">Inicio</a>
+        <a class="hover:text-secondary transition" href="#services">Servicios</a>
+        <a class="hover:text-secondary transition" href="#projects">Proyectos</a>
+        <a class="hover:text-secondary transition" href="#contact">Contacto</a>
+      </nav>
+    </div>
 
   </div>
 </header>
@@ -212,7 +250,11 @@
 <main>
 
   <!-- HERO -->
-  <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+  <section id="inicio" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+
+    <!-- PARTICULAS -->
+    <canvas id="particles"></canvas>
+
     <div class="absolute inset-0 z-0">
       <img alt="Modern Substation" class="w-full h-full object-cover" 
         src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqllJk83VeN_YdbdmtTI_MBnRkM-gS8l1b4h2Smzm_aTsj8r1dEBncwO7ih9BzeJylX5ep-n6BHKQ8EZS2zsGdAhcrj5_PQ68ATAhZpCrXiEuNeNCjStBNoF698UWI2BvPqHYTuQ803qDoHLaLt_LLhCKv2k9JGnOFa0fDsgfc120TvBkM60ZWZ3sM-mkyp6Q1v_2cJ-xeeU5hIflQxeWu71RSM041L8vUj7d_Wg7brq8Iu8UyhtQqc4B_3cfcw00qtqd4UPnpShA"/>
@@ -226,7 +268,7 @@
       </div>
 
       <h1 class="text-4xl font-extrabold leading-[1.1] mb-4 tracking-tight neon-text">
-        IE PROYECTOS
+        IPE3®
       </h1>
 
       <h2 class="text-xl font-bold text-secondary mb-6 tracking-wide">
@@ -234,7 +276,7 @@
       </h2>
 
       <p class="text-slate-400 text-base mb-10 max-w-sm leading-relaxed">
-        Transformamos la infraestructura tecnológica de Ecuador con soluciones avanzadas en ingeniería electrónica y automatización.
+        Ingeniería Eléctrica y Electrónica Proyectos Ecuador. Diseñamos e implementamos soluciones tecnológicas avanzadas para industrias, clínicas y empresas.
       </p>
 
       <div class="flex flex-col space-y-4">
@@ -265,7 +307,7 @@
 
       <div class="glass-morphism p-6 rounded-3xl text-center">
         <span class="block text-3xl font-extrabold text-gradient-cyan mb-1 counter" data-target="15">0</span>
-        <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Hospitals Aliados</span>
+        <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Hospitales Aliados</span>
       </div>
 
       <div class="glass-morphism p-6 rounded-3xl text-center">
@@ -316,7 +358,7 @@
         </div>
         <h3 class="text-xl font-bold mb-3">Seguridad Electrónica</h3>
         <p class="text-slate-400 text-sm leading-relaxed">
-          Sistemas CCTV IP de última generación, control de acceso biométrico y monitoreo remoto centralizado.
+          CCTV IP, control de acceso biométrico, alarmas, cercos eléctricos y monitoreo remoto centralizado.
         </p>
       </div>
 
@@ -335,9 +377,9 @@
     <div class="grid gap-6">
 
       <div class="group relative overflow-hidden rounded-3xl aspect-[4/3] bg-slate-800 project-card">
-        <img alt="Ophthalmology project"
+        <img alt="Proyecto 1"
           class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDIp5Q__HEPXsFn8NWyro5Z66dPqiZ8RRgXDRfRV6Ovz-AH-Qf0o30JyezUDRptkCgItKZaH_snwIsOEsfMIXKyyTvwEjphOuvlubbc4-5Ozn6Hi70jpl5cyNUu_K8BpTUEkGR-E7V4gPOdnXc-hEwumOm-a3CwSpORfKc5Eol2tWtjzfnTkbkMKJY_j-1HPcxE-fXFO5ltRCk5w14JsapFhqoSS6qXbC0KqueY29ssAlD_dHsh2tvbUJCO30D_szrf-hgSr5qR4A"/>
+          src="static/uploads/projects/proyecto1.jpg"/>
         <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent p-6 flex flex-col justify-end">
           <span class="text-[10px] font-bold text-secondary uppercase tracking-widest mb-1">Médico</span>
           <h4 class="text-lg font-bold">Clínica Santa Lucía</h4>
@@ -345,21 +387,22 @@
       </div>
 
       <div class="group relative overflow-hidden rounded-3xl aspect-[4/3] bg-slate-800 project-card">
-        <img alt="Electrical project"
+        <img alt="Proyecto 2"
           class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl3nOU8QM2bI0KqIL8779i5h3f3Abi3K7eZXd3iJLbYcSK_AZTT_u3DaV0T8DJv2QcQpQWXL15broBO78vng00KaomLIYMY2Mq3pErpZtfLWCw6dSGWRJamEoNi4er-VEuiljY6CZyBDdFEmEg8_zYKjEllILzIE6ZzQx1H4VfGBNFULzGqwAeanfhehbPVXVT8Tfx-KeZV54DyCbr-UlJ3DfDDAe7S2CwTm6lprZf-zol5cmR_nJGR1jYAxUIxf0beVsA-DTPoac"/>
+          src="static/uploads/projects/proyecto2.jpg"/>
         <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent p-6 flex flex-col justify-end">
           <span class="text-[10px] font-bold text-secondary uppercase tracking-widest mb-1">Eléctrico</span>
-          <h4 class="text-lg font-bold">Subestación Industrial Norte</h4>
+          <h4 class="text-lg font-bold">Subestación Industrial</h4>
         </div>
       </div>
 
     </div>
 
     <div class="mt-8">
-      <button class="w-full py-4 border border-secondary text-secondary font-bold rounded-2xl transition-all hover:bg-secondary hover:text-primary hover:shadow-lg hover:shadow-secondary/20 hover:-translate-y-1">
-        Ver más proyectos
-      </button>
+      <a href="static/uploads/pdf/portafolio.pdf" target="_blank"
+        class="w-full block text-center py-4 border border-secondary text-secondary font-bold rounded-2xl transition-all hover:bg-secondary hover:text-primary hover:shadow-lg hover:shadow-secondary/20 hover:-translate-y-1">
+        Ver Portafolio PDF
+      </a>
     </div>
   </section>
 
@@ -374,7 +417,7 @@
         <span class="material-symbols-outlined text-secondary/30 absolute top-4 right-6 text-5xl">format_quote</span>
 
         <p class="text-sm leading-relaxed mb-6">
-          "La precisión en el mantenimiento de nuestros equipos oftalmológicos ha sido impecable. IE PROYECTOS es nuestro aliado estratégico."
+          "La precisión en el mantenimiento de nuestros equipos oftalmológicos ha sido impecable. IPE3® es nuestro aliado estratégico."
         </p>
 
         <div class="flex items-center space-x-4 not-italic">
@@ -425,18 +468,13 @@
 <footer class="bg-background-dark py-12 px-6 border-t border-white/5">
   <div class="flex flex-col items-center">
 
-    <div class="flex items-center space-x-3 mb-8">
-      <div class="w-8 h-8">
-        <svg class="w-full h-full" fill="none" viewBox="0 0 100 100">
-          <path d="M50 10C35 10 25 20 25 35C25 45 30 52 35 58V75H45V62C40 58 37 53 37 45C37 35 43 28 50 28V10Z" fill="var(--primary)"></path>
-          <path d="M50 10V28C57 28 63 35 63 45C63 53 60 58 55 62V75H65V58C70 52 75 45 75 35C75 20 65 10 50 10Z" fill="var(--secondary)"></path>
-        </svg>
-      </div>
-      <span class="font-bold tracking-tight neon-text">IE PROYECTOS</span>
-    </div>
+    <a href="#inicio" class="flex items-center space-x-3 mb-8 logo-neon">
+      <img src="static/SIN FONDO.png" alt="IPE3® Logo" class="w-12 h-12 object-contain"/>
+      <span class="font-bold tracking-tight neon-text">IPE3®</span>
+    </a>
 
     <nav class="flex flex-wrap justify-center gap-6 mb-10 text-xs font-bold uppercase tracking-widest text-slate-500">
-      <a class="hover:text-secondary transition" href="#">Inicio</a>
+      <a class="hover:text-secondary transition" href="#inicio">Inicio</a>
       <a class="hover:text-secondary transition" href="#services">Servicios</a>
       <a class="hover:text-secondary transition" href="#projects">Proyectos</a>
       <a class="hover:text-secondary transition" href="#contact">Contacto</a>
@@ -464,8 +502,22 @@
   </svg>
 </a>
 
-<!-- SCRIPT: ANIMACIONES -->
+<!-- SCRIPT -->
 <script>
+  // MENU HAMBURGUESA
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("active");
+  });
+
+  document.querySelectorAll("#mobileMenu a").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.remove("active");
+    });
+  });
+
   // ANIMACION FADE UP
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -476,7 +528,6 @@
   }, { threshold: 0.15 });
 
   document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
-
 
   // CONTADORES ANIMADOS
   function animateCounters(){
@@ -502,7 +553,6 @@
     });
   }
 
-  // Ejecutar contadores solo cuando se vea la sección
   const statsSection = document.querySelector(".counter")?.parentElement?.parentElement;
   if(statsSection){
     const statsObserver = new IntersectionObserver(entries => {
@@ -516,8 +566,61 @@
 
     statsObserver.observe(statsSection);
   }
+
+  // PARTICULAS ESTRELLAS
+  const canvas = document.getElementById("particles");
+  const ctx = canvas.getContext("2d");
+
+  let particles = [];
+
+  function resizeCanvas(){
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  window.addEventListener("resize", resizeCanvas);
+  resizeCanvas();
+
+  function createParticles(){
+    particles = [];
+    const count = 70;
+
+    for(let i=0; i<count; i++){
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 2 + 0.6,
+        speedX: (Math.random() - 0.5) * 0.4,
+        speedY: (Math.random() - 0.5) * 0.4,
+        alpha: Math.random() * 0.7 + 0.2
+      });
+    }
+  }
+
+  function animateParticles(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    particles.forEach(p => {
+      p.x += p.speedX;
+      p.y += p.speedY;
+
+      if(p.x < 0) p.x = canvas.width;
+      if(p.x > canvas.width) p.x = 0;
+      if(p.y < 0) p.y = canvas.height;
+      if(p.y > canvas.height) p.y = 0;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(56,182,255,${p.alpha})`;
+      ctx.fill();
+    });
+
+    requestAnimationFrame(animateParticles);
+  }
+
+  createParticles();
+  animateParticles();
 </script>
 
 </body>
 </html>
-
