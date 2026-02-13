@@ -34,193 +34,154 @@
     };
   </script>
 
-  <style>
-    /* Usamos CSS estándar para evitar que el navegador se trabe procesando Tailwind */
-    body { 
-      font-family: 'Plus Jakarta Sans', sans-serif; 
-      background-color: #050A18;
-      overflow-x: hidden;
+  <style type="text/tailwindcss">
+    @layer base {
+      body { @apply bg-background-dark text-slate-100; font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
     }
-
     .hero-overlay { background: linear-gradient(to bottom, rgba(16, 60, 145, 0.70) 0%, rgba(5, 10, 24, 0.95) 100%); }
-    
-    .glass-morphism {
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      transition: all 0.4s ease;
-    }
-
-    .glass-morphism:hover {
-      transform: translateY(-6px) scale(1.03);
-      border: 1px solid rgba(56, 182, 255, 0.35);
-      box-shadow: 0 0 25px rgba(56, 182, 255, 0.12);
-    }
-
-    .text-gradient-cyan {
-      background: linear-gradient(135deg, #38B6FF 0%, #103C91 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .btn-gradient {
-      background: linear-gradient(90deg, #38B6FF 0%, #103C91 100%);
-      transition: all 0.35s ease;
-    }
-
-    .btn-gradient:hover { transform: translateY(-4px); box-shadow: 0 0 25px rgba(56,182,255,0.3); }
-
+    .glass-morphism { @apply backdrop-blur-[14px] border border-white/10; background: rgba(255, 255, 255, 0.03); transition: all 0.4s ease; }
+    .glass-morphism:hover { transform: translateY(-6px); @apply border-secondary/40; box-shadow: 0 0 25px rgba(56, 182, 255, 0.12); }
+    .text-gradient-cyan { background: linear-gradient(135deg, #38B6FF 0%, #103C91 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .btn-gradient { background: linear-gradient(90deg, #38B6FF 0%, #103C91 100%); transition: all 0.35s ease; }
+    .btn-gradient:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 0 25px rgba(56,182,255,0.3); }
     .fade-up { opacity: 0; transform: translateY(40px); transition: all 0.9s ease; }
     .fade-up.show { opacity: 1; transform: translateY(0); }
-
-    .neon-text { text-shadow: 0 0 10px rgba(56,182,255,0.35); }
-    
-    .logo-neon {
-      filter: drop-shadow(0 0 10px rgba(56,182,255,0.40));
-      transition: 0.4s ease;
-    }
-
-    .ecuador-bandera .amarillo { color: #FFD000; }
-    .ecuador-bandera .azul { color: #0077FF; }
-    .ecuador-bandera .rojo { color: #FF0033; }
-
-    #mobileMenu { transform: translateX(100%); transition: 0.35s ease; position: fixed; top: 0; right: 0; height: 100%; z-index: 60; }
+    .neon-text { text-shadow: 0 0 10px rgba(56,182,255,0.3); }
+    .logo-neon { filter: drop-shadow(0 0 10px rgba(56,182,255,0.4)); transition: 0.4s ease; }
+    .video-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; filter: brightness(0.5); }
+    #mobileMenu { transform: translateX(100%); transition: 0.35s ease; }
     #mobileMenu.active { transform: translateX(0%); }
-    
-    #menuOverlay {
-      position: fixed; inset: 0; background: rgba(0,0,0,0.65); opacity: 0; 
-      pointer-events: none; transition: 0.3s ease; z-index: 40;
-    }
-    #menuOverlay.active { opacity: 1; pointer-events: auto; }
-
-    .video-bg {
-      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-      z-index: 0; filter: brightness(0.55);
-    }
-
     .particle { position: absolute; border-radius: 9999px; animation: floatParticle linear infinite; }
-    @keyframes floatParticle {
-      0% { transform: translateY(0px); opacity: 0.2; }
-      100% { transform: translateY(-140px); opacity: 0.0; }
-    }
+    @keyframes floatParticle { 0% { transform: translateY(0); opacity: 0; } 50% { opacity: 0.5; } 100% { transform: translateY(-100px); opacity: 0; } }
   </style>
 </head>
 
-<body class="text-slate-100 min-h-screen">
+<body>
 
-<div id="menuOverlay"></div>
+<div id="menuOverlay" class="fixed inset-0 bg-black/60 opacity-0 pointer-events-none transition-opacity z-40"></div>
 
 <header class="fixed top-0 z-50 w-full bg-background-dark/80 backdrop-blur-md border-b border-white/5">
   <div class="px-5 h-20 flex items-center justify-between">
-    <a href="#inicio" class="flex items-center space-x-3 cursor-pointer">
-      <img src="SIN%20FONDO.png" alt="Logo IPE3" class="w-12 h-12 object-contain logo-neon">
+    <a href="#inicio" class="flex items-center space-x-3">
+      <img src="SIN%20FONDO.png" alt="Logo" class="w-12 h-12 object-contain logo-neon">
       <div class="flex flex-col leading-none">
-        <span class="font-extrabold text-lg tracking-tight neon-text">IPE3®</span>
-        <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-secondary">
-          Ingeniería Eléctrica y Electrónica Proyectos
-          <span class="ecuador-bandera ml-1">
-            <span class="amarillo">EC</span><span class="azul">UA</span><span class="rojo">DOR</span>
-          </span>
-        </span>
+        <span class="font-extrabold text-lg neon-text">IPE3®</span>
+        <span class="text-[9px] font-bold uppercase tracking-widest text-secondary">Ecuador</span>
       </div>
     </a>
-    <button id="menuBtn" class="text-white hover:text-secondary transition"><span class="material-symbols-outlined text-3xl">menu</span></button>
+    <button id="menuBtn" class="text-white"><span class="material-symbols-outlined text-3xl">menu</span></button>
   </div>
 </header>
 
-<div id="mobileMenu" class="w-72 bg-background-dark border-l border-white/10 p-6 flex flex-col gap-6">
+<div id="mobileMenu" class="fixed top-0 right-0 w-72 h-full bg-background-dark border-l border-white/10 z-[60] p-6 flex flex-col gap-6">
   <div class="flex justify-between items-center">
-    <span class="font-black text-secondary tracking-widest">MENÚ</span>
+    <span class="text-secondary font-bold">MENÚ</span>
     <button id="closeMenu" class="text-white"><span class="material-symbols-outlined text-3xl">close</span></button>
   </div>
-  <nav class="flex flex-col gap-4 font-bold text-lg">
+  <nav class="flex flex-col gap-5 font-bold text-lg">
     <a href="#inicio">Inicio</a>
     <a href="#services">Servicios</a>
     <a href="#projects">Proyectos</a>
     <a href="#brands">Marcas</a>
-    <a href="#testimonios">Testimonios</a>
     <a href="#contact">Contacto</a>
   </nav>
-  <div class="mt-auto">
-    <a href="static/pdf/portafolio.pdf" target="_blank" class="btn-gradient w-full py-4 rounded-2xl font-bold text-white flex justify-center items-center gap-2">
-      Portafolio PDF <span class="material-symbols-outlined">picture_as_pdf</span>
-    </a>
-  </div>
 </div>
 
 <main>
   <section id="inicio" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
-    <video class="video-bg" autoplay muted loop playsinline preload="auto">
-      <source src="static/video.mp4" type="video/mp4">
-    </video>
+    <video class="video-bg" autoplay muted loop playsinline><source src="static/video.mp4" type="video/mp4"></video>
     <div class="absolute inset-0 hero-overlay z-[1]"></div>
     <div class="relative z-10 px-6 w-full fade-up">
-      <div class="inline-flex items-center space-x-2 bg-secondary/10 border border-secondary/20 px-4 py-2 rounded-full mb-6">
-        <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
-        <span class="text-[10px] font-bold uppercase tracking-widest text-secondary">Soluciones Profesionales</span>
-      </div>
-      <h1 class="text-5xl font-extrabold mb-4 neon-text">IPE3®</h1>
-      <h2 class="text-xl font-bold text-secondary mb-6 tracking-wide uppercase">Inteligencia y Energía Conectadas</h2>
-      <p class="text-slate-300 mb-10 max-w-sm">Transformamos infraestructura tecnológica con soluciones avanzadas en Ecuador.</p>
-      <div class="flex flex-col space-y-4">
-        <a href="#contact" class="btn-gradient text-white font-bold py-4 px-8 rounded-2xl text-center">Iniciar Proyecto</a>
-        <a href="#services" class="bg-white/5 border border-white/10 text-white font-semibold py-4 px-8 rounded-2xl text-center">Nuestros Servicios</a>
+      <h1 class="text-4xl font-black mb-4 neon-text">IPE3®</h1>
+      <h2 class="text-xl font-bold text-secondary mb-6 uppercase tracking-wider">Inteligencia y Energía Conectadas</h2>
+      <p class="text-slate-300 mb-10 max-w-sm">Ingeniería Eléctrica y Electrónica Proyectos Ecuador. Transformamos infraestructura tecnológica.</p>
+      <div class="flex flex-col gap-4">
+        <a href="#contact" class="btn-gradient text-white font-bold py-4 px-8 rounded-2xl flex items-center justify-center gap-2">
+          <span>Iniciar Proyecto</span> <span class="material-symbols-outlined">bolt</span>
+        </a>
+        <a href="#services" class="bg-white/5 border border-white/10 py-4 px-8 rounded-2xl text-center font-bold">Nuestros Servicios</a>
       </div>
     </div>
   </section>
 
   <section id="services" class="py-20 px-6 fade-up">
-    <div class="mb-12">
-      <span class="text-secondary font-bold text-xs uppercase tracking-[0.3em] block mb-2">Especialidades</span>
-      <h2 class="text-3xl font-extrabold neon-text">Servicios de Ingeniería</h2>
+    <h2 class="text-3xl font-bold mb-10 neon-text">Servicios de Ingeniería</h2>
+    <div class="grid gap-6">
+      <div class="glass-morphism p-8 rounded-3xl">
+        <span class="material-symbols-outlined text-secondary text-4xl mb-4">biotech</span>
+        <h3 class="text-xl font-bold mb-2">Mantenimiento Médico</h3>
+        <p class="text-slate-400 text-sm">Especialistas en equipos oftalmológicos y biomédicos.</p>
+      </div>
+      <div class="glass-morphism p-8 rounded-3xl">
+        <span class="material-symbols-outlined text-secondary text-4xl mb-4">electrical_services</span>
+        <h3 class="text-xl font-bold mb-2">Instalaciones Eléctricas</h3>
+        <p class="text-slate-400 text-sm">Sistemas industriales, tableros y estudios de carga.</p>
+      </div>
+      <div class="glass-morphism p-8 rounded-3xl">
+        <span class="material-symbols-outlined text-secondary text-4xl mb-4">videocam</span>
+        <h3 class="text-xl font-bold mb-2">Seguridad Electrónica</h3>
+        <p class="text-slate-400 text-sm">CCTV IP, control de acceso y monitoreo centralizado.</p>
+      </div>
     </div>
-    <div class="space-y-6">
-      <a href="mantenimiento-medico.html" class="block">
-        <div class="glass-morphism p-8 rounded-3xl">
-          <span class="material-symbols-outlined text-secondary text-4xl mb-4">biotech</span>
-          <h3 class="text-xl font-bold mb-3">Mantenimiento Médico</h3>
-          <p class="text-slate-400 text-sm">Especialistas en equipos oftalmológicos y biomédicos.</p>
+  </section>
+
+  <section id="projects" class="py-20 px-6 bg-slate-900/30 fade-up">
+    <h2 class="text-3xl font-bold mb-10 neon-text">Proyectos Recientes</h2>
+    <div class="grid gap-6">
+      <div class="rounded-3xl overflow-hidden aspect-video bg-slate-800 relative">
+        <img src="static/uploads/projects/proyecto1.jpg" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800'">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 p-6 flex flex-col justify-end">
+          <h4 class="font-bold">Infraestructura Industrial</h4>
         </div>
-      </a>
-      <a href="instalaciones-electricas.html" class="block">
-        <div class="glass-morphism p-8 rounded-3xl">
-          <span class="material-symbols-outlined text-secondary text-4xl mb-4">electrical_services</span>
-          <h3 class="text-xl font-bold mb-3">Instalaciones Eléctricas</h3>
-          <p class="text-slate-400 text-sm">Diseño de sistemas industriales y tableros de transferencia.</p>
-        </div>
-      </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="brands" class="py-20 px-6 fade-up text-center">
+    <h2 class="text-2xl font-bold mb-10 text-secondary">Aliados Tecnológicos</h2>
+    <div class="grid grid-cols-2 gap-8 opacity-60">
+      <span class="font-bold text-xl">DAHUA</span>
+      <span class="font-bold text-xl">TP-LINK</span>
+      <span class="font-bold text-xl">SCHNEIDER</span>
+      <span class="font-bold text-xl">CENTURION</span>
+    </div>
+  </section>
+
+  <section class="py-20 px-6 fade-up">
+    <h2 class="text-2xl font-bold mb-8 neon-text">Testimonios</h2>
+    <div class="glass-morphism p-6 rounded-3xl italic text-slate-400">
+      <p class="mb-4">"La precisión en el mantenimiento de nuestros equipos ha sido impecable. IPE3 es un aliado estratégico."</p>
+      <p class="text-white font-bold not-italic">- Ing. Roberto Méndez</p>
     </div>
   </section>
 </main>
 
-<footer class="relative bg-background-dark py-14 px-6 border-t border-white/5 text-center">
+<footer class="py-20 px-6 border-t border-white/5 text-center relative overflow-hidden">
   <div id="footerParticles" class="absolute inset-0 pointer-events-none"></div>
-  <img src="SIN%20FONDO.png" alt="Logo" class="w-20 mx-auto mb-6 logo-neon">
-  <p class="text-[11px] text-slate-500 font-bold tracking-[0.25em]">© 2016-2026 IPE3®. TODOS LOS DERECHOS RESERVADOS</p>
+  <img src="SIN%20FONDO.png" class="w-20 mx-auto mb-6 logo-neon">
+  <p class="text-[10px] text-slate-500 tracking-[0.3em]">© 2016-2026 IPE3® ECUADOR</p>
 </footer>
 
 <script>
-  // Control de Menú
-  const menuBtn = document.getElementById("menuBtn"), mobileMenu = document.getElementById("mobileMenu"), 
-        overlay = document.getElementById("menuOverlay"), closeMenu = document.getElementById("closeMenu");
-
-  const toggleMenu = () => { mobileMenu.classList.toggle("active"); overlay.classList.toggle("active"); };
-  [menuBtn, closeMenu, overlay].forEach(btn => btn.addEventListener("click", toggleMenu));
+  // Script de Menú
+  const mBtn = document.getElementById("menuBtn"), mMenu = document.getElementById("mobileMenu"), 
+        mOver = document.getElementById("menuOverlay"), cMenu = document.getElementById("closeMenu");
+  const toggle = () => { mMenu.classList.toggle("active"); mOver.classList.toggle("opacity-100"); mOver.classList.toggle("pointer-events-auto"); };
+  [mBtn, cMenu, mOver].forEach(el => el.onclick = toggle);
 
   // Animación Scroll
   const obs = new IntersectionObserver(ents => ents.forEach(e => e.isIntersecting && e.target.classList.add("show")), {threshold: 0.1});
   document.querySelectorAll(".fade-up").forEach(el => obs.observe(el));
 
-  // Partículas Footer
-  const fP = document.getElementById("footerParticles");
+  // Partículas
   setInterval(() => {
     const p = document.createElement("div"); p.className = "particle";
-    const size = Math.random() * 5 + 2; p.style.width = p.style.height = size + "px";
-    p.style.left = Math.random() * 100 + "%"; p.style.bottom = "0"; p.style.background = "#38B6FF";
-    p.style.animationDuration = (Math.random() * 4 + 3) + "s"; fP.appendChild(p);
-    setTimeout(() => p.remove(), 5000);
-  }, 300);
+    p.style.width = p.style.height = (Math.random()*4+2)+"px";
+    p.style.left = Math.random()*100+"%"; p.style.bottom = "0"; p.style.background = "#38B6FF";
+    p.style.animationDuration = (Math.random()*3+2)+"s";
+    document.getElementById("footerParticles").appendChild(p);
+    setTimeout(() => p.remove(), 4000);
+  }, 400);
 </script>
 
 </body>
