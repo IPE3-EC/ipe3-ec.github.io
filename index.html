@@ -1,201 +1,193 @@
 <!DOCTYPE html>
-<html class="dark" lang="es">
+<html lang="es">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>IPE3 Engineering by CORPORACIÓN 360 | Ingeniería Eléctrica y Electrónica</title>
+    <meta charset="UTF-8">
+    <title>Darwin | Desarrollo Web Profesional</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- Google Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-<script id="tailwind-config">
-tailwind.config = {
-darkMode: "class",
-theme: {
-extend: {
-colors: {
-"primary": "#00d2ff",
-"accent-blue": "#0072ff",
-"deep-charcoal": "#0a0c10",
-"slate-dark": "#1a1f2e",
-"safety-yellow": "#facc15",
-},
-fontFamily: {
-"display": ["Space Grotesk"]
-},
-borderRadius: {
-"DEFAULT": "0.25rem",
-"lg": "0.5rem",
-"xl": "0.75rem",
-"full": "9999px"
-},
-animation: {
-'marquee': 'marquee 25s linear infinite',
-'fadeIn': 'fadeIn 1.2s ease-out forwards',
-'fadeUp': 'fadeUp 1.2s ease-out forwards',
-'fadeDown': 'fadeDown 1.2s ease-out forwards',
-'zoomIn': 'zoomIn 1s ease-out forwards',
-'float': 'float 4s ease-in-out infinite',
-'glowPulse': 'glowPulse 2.5s ease-in-out infinite',
-'twinkle': 'twinkle 3s ease-in-out infinite'
-},
-keyframes: {
-marquee: {
-'0%': { transform: 'translateX(0%)' },
-'100%': { transform: 'translateX(-50%)' },
-},
-fadeIn: {
-'0%': { opacity: '0' },
-'100%': { opacity: '1' }
-},
-fadeUp: {
-'0%': { opacity: '0', transform: 'translateY(40px)' },
-'100%': { opacity: '1', transform: 'translateY(0)' }
-},
-fadeDown: {
-'0%': { opacity: '0', transform: 'translateY(-40px)' },
-'100%': { opacity: '1', transform: 'translateY(0)' }
-},
-zoomIn: {
-'0%': { opacity: '0', transform: 'scale(0.9)' },
-'100%': { opacity: '1', transform: 'scale(1)' }
-},
-float: {
-'0%,100%': { transform: 'translateY(0)' },
-'50%': { transform: 'translateY(-8px)' }
-},
-glowPulse: {
-'0%,100%': { boxShadow: '0 0 10px rgba(0,210,255,0.4)' },
-'50%': { boxShadow: '0 0 25px rgba(0,210,255,0.9)' }
-},
-twinkle: {
-'0%,100%': { opacity: '0.3' },
-'50%': { opacity: '1' }
-}
-}
-},
-},
-}
-</script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#00D2FF",
+                        secondary: "#3A7BD5",
+                        darkbg: "#0f172a"
+                    },
+                    animation: {
+                        marquee: "marquee 25s linear infinite",
+                        fadeIn: "fadeIn 1.2s ease-out forwards",
+                        fadeUp: "fadeUp 1.2s ease-out forwards",
+                        fadeDown: "fadeDown 1.2s ease-out forwards",
+                        zoomIn: "zoomIn 1s ease-out forwards",
+                        float: "float 4s ease-in-out infinite",
+                        glowPulse: "glowPulse 2.5s ease-in-out infinite",
+                        twinkle: "twinkle 3s ease-in-out infinite"
+                    },
+                    keyframes: {
+                        marquee: {
+                            "0%": { transform: "translateX(0%)" },
+                            "100%": { transform: "translateX(-50%)" }
+                        },
+                        fadeIn: {
+                            "0%": { opacity: "0" },
+                            "100%": { opacity: "1" }
+                        },
+                        fadeUp: {
+                            "0%": { opacity: "0", transform: "translateY(40px)" },
+                            "100%": { opacity: "1", transform: "translateY(0)" }
+                        },
+                        fadeDown: {
+                            "0%": { opacity: "0", transform: "translateY(-40px)" },
+                            "100%": { opacity: "1", transform: "translateY(0)" }
+                        },
+                        zoomIn: {
+                            "0%": { opacity: "0", transform: "scale(0.9)" },
+                            "100%": { opacity: "1", transform: "scale(1)" }
+                        },
+                        float: {
+                            "0%,100%": { transform: "translateY(0)" },
+                            "50%": { transform: "translateY(-8px)" }
+                        },
+                        glowPulse: {
+                            "0%,100%": { boxShadow: "0 0 10px rgba(0,210,255,0.4)" },
+                            "50%": { boxShadow: "0 0 25px rgba(0,210,255,0.9)" }
+                        },
+                        twinkle: {
+                            "0%,100%": { opacity: "0.3" },
+                            "50%": { opacity: "1" }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
-<style type="text/tailwindcss">
-body { font-family: 'Space Grotesk', sans-serif; }
-html { scroll-behavior: smooth; }
+    <style>
+        body {
+            background: radial-gradient(circle at top left, #1e293b, #0f172a);
+        }
 
-.dark-gradient-bg {
-background: radial-gradient(circle at top right, #1a2333, #0a0c10 70%);
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-.circuit-pattern {
-background-image: radial-gradient(var(--tw-colors-primary) 0.5px, transparent 0.5px);
-background-size: 32px 32px;
-opacity: 0.08;
-}
+        .glass {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
 
-.constellation-bg {
-background: radial-gradient(circle at 50% 50%, #111827, #030712);
-position: relative;
-overflow: hidden;
-}
-
-.star {
-position: absolute;
-background: white;
-border-radius: 50%;
-opacity: 0.5;
-animation: twinkle 3s ease-in-out infinite;
-}
-
-.constellation-line {
-position: absolute;
-background: rgba(0, 210, 255, 0.1);
-height: 1px;
-transform-origin: left center;
-}
-
-.glass-panel {
-background: rgba(255, 255, 255, 0.03);
-backdrop-filter: blur(12px);
-border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.marquee-container {
-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-}
-</style>
-
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+        }
+    </style>
 </head>
 
-<body class="bg-deep-charcoal text-slate-200 selection:bg-primary/30 animate-fadeIn">
+<body class="text-white font-sans">
 
-<header class="fixed top-0 w-full z-50 bg-deep-charcoal/80 backdrop-blur-lg border-b border-white/5 animate-fadeDown">
-<nav class="container mx-auto px-6 py-4 flex items-center justify-between">
-
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 bg-gradient-to-br from-primary to-accent-blue flex items-center justify-center rounded-lg shadow-lg shadow-primary/20 shrink-0 animate-float">
-<span class="text-deep-charcoal font-black text-xl">I3</span>
-</div>
-<div class="flex flex-col">
-<span class="text-xl font-bold tracking-tight text-white leading-tight">IPE3 <span class="text-primary font-light">Engineering</span></span>
-<span class="text-[10px] uppercase tracking-widest text-slate-400 font-bold leading-none">by CORPORACIÓN 360</span>
-</div>
-</div>
-
-<div class="hidden lg:block">
-<a class="bg-primary text-deep-charcoal px-6 py-2 rounded-lg font-bold hover:bg-white hover:scale-105 transition-all shadow-lg shadow-primary/10 animate-glowPulse">
-Solicitar Cotización
-</a>
-</div>
-
-</nav>
+<!-- HEADER -->
+<header class="fixed top-0 w-full z-50 bg-black/40 backdrop-blur-lg border-b border-white/5 animate-fadeDown">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+        <h1 class="text-xl font-bold text-primary">Darwin Dev</h1>
+        <nav class="space-x-6 hidden md:block">
+            <a href="#servicios" class="hover:text-primary transition">Servicios</a>
+            <a href="#proyectos" class="hover:text-primary transition">Proyectos</a>
+            <a href="#contacto" class="hover:text-primary transition">Contacto</a>
+        </nav>
+    </div>
 </header>
 
-<section class="relative h-screen flex items-center overflow-hidden">
-<div class="absolute inset-0 z-0">
-<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8KtHLz4DO3g6p-zgz0gkhtrNljW8mkFrt1VNEGFPqyoFM9kURKHKeNasaLPVB3Nogsr2O1OP4FSxtZpr8B2ozgF1if27JGVnA0D9wEVvb02vAZIYG5W5yKTunnbGHuuMqBBcV-SGlLQGshT5Pa46--9Yxgs-QOX31mq5QcPtKqrAStp9Nn0Wd1yovBEAPAslY_t2wwo03BLcT0EF-VLLzB5eLtAITV3xddNenq5sjHR1DemmYZggPw5T7dWcoryCF9hDu3FhfmU4"/>
-<div class="absolute inset-0 bg-gradient-to-r from-deep-charcoal via-deep-charcoal/80 to-transparent"></div>
-</div>
+<!-- HERO -->
+<section class="min-h-screen flex items-center justify-center px-6">
+    <div class="max-w-3xl text-center animate-fadeUp">
+        <h2 class="text-5xl font-extrabold mb-6">
+            Desarrollo Web <span class="text-primary">Moderno</span>
+        </h2>
+        <p class="text-gray-300 mb-8">
+            Creamos páginas web rápidas, modernas y optimizadas para convertir visitantes en clientes.
+        </p>
 
-<div class="container mx-auto px-6 relative z-10">
-<div class="max-w-3xl animate-fadeUp">
+        <button class="bg-primary text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-white transition-all shadow-xl shadow-primary/20 animate-glowPulse hover:scale-105 duration-500">
+            Solicitar Cotización
+        </button>
 
-<h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-Ingeniería Eléctrica con 
-<span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent-blue">
-Precisión Digital
-</span>
-</h1>
-
-<button class="bg-primary text-deep-charcoal px-8 py-4 rounded-xl font-bold text-lg hover:bg-white transition-all shadow-xl shadow-primary/20 animate-glowPulse hover:scale-105 duration-500">
-Explorar Proyectos
-</button>
-
-</div>
-</div>
-
-<div class="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-50 animate-float">
-<span class="material-icons text-primary text-3xl">keyboard_double_arrow_down</span>
-</div>
-
+        <div class="mt-10 animate-float">
+            <span class="material-icons text-primary text-4xl">
+                keyboard_arrow_down
+            </span>
+        </div>
+    </div>
 </section>
 
-<footer class="constellation-bg text-slate-400 py-20 relative">
+<!-- SERVICIOS -->
+<section id="servicios" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto text-center mb-16">
+        <h3 class="text-4xl font-bold mb-4">Servicios</h3>
+        <p class="text-gray-400">Soluciones digitales profesionales</p>
+    </div>
 
-<div class="absolute inset-0 pointer-events-none overflow-hidden opacity-30">
-<div class="star w-1 h-1 top-[10%] left-[15%]"></div>
-<div class="star w-1 h-1 top-[60%] left-[30%]"></div>
-<div class="star w-1 h-1 top-[80%] left-[10%]"></div>
-</div>
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div class="glass p-8 rounded-2xl transition-all duration-500 hover:-translate-y-2 hover:border-primary border border-transparent animate-fadeUp">
+            <h4 class="text-xl font-bold mb-4 text-primary">Landing Pages</h4>
+            <p class="text-gray-300">Diseños optimizados para conversión.</p>
+        </div>
 
-<div class="container mx-auto px-6 relative z-10 text-center">
-<p class="text-xs uppercase tracking-widest text-slate-500">
-© 2016 IPE3 Engineering by CORPORACIÓN 360
-</p>
-</div>
+        <div class="glass p-8 rounded-2xl transition-all duration-500 hover:-translate-y-2 hover:border-primary border border-transparent animate-fadeUp">
+            <h4 class="text-xl font-bold mb-4 text-primary">Tiendas Online</h4>
+            <p class="text-gray-300">E-commerce modernos y escalables.</p>
+        </div>
 
+        <div class="glass p-8 rounded-2xl transition-all duration-500 hover:-translate-y-2 hover:border-primary border border-transparent animate-fadeUp">
+            <h4 class="text-xl font-bold mb-4 text-primary">Automatización</h4>
+            <p class="text-gray-300">Optimización de procesos digitales.</p>
+        </div>
+    </div>
+</section>
+
+<!-- PROYECTOS -->
+<section id="proyectos" class="py-24 px-6 bg-black/30">
+    <div class="max-w-6xl mx-auto text-center mb-16">
+        <h3 class="text-4xl font-bold mb-4">Proyectos</h3>
+        <p class="text-gray-400">Algunos trabajos recientes</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div class="relative rounded-2xl overflow-hidden glass p-6 animate-zoomIn">
+            <h4 class="text-xl font-bold text-primary mb-2">Proyecto 1</h4>
+            <p class="text-gray-300">Sitio corporativo moderno.</p>
+        </div>
+
+        <div class="relative rounded-2xl overflow-hidden glass p-6 animate-zoomIn">
+            <h4 class="text-xl font-bold text-primary mb-2">Proyecto 2</h4>
+            <p class="text-gray-300">Tienda online completa.</p>
+        </div>
+
+        <div class="relative rounded-2xl overflow-hidden glass p-6 animate-zoomIn">
+            <h4 class="text-xl font-bold text-primary mb-2">Proyecto 3</h4>
+            <p class="text-gray-300">Landing page de alto impacto.</p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contacto" class="relative py-16 text-center">
+    <h3 class="text-2xl font-bold mb-4">Contacto</h3>
+    <p class="text-gray-400 mb-6">darwin@email.com</p>
+    <p class="text-gray-500 text-sm">© 2026 Darwin Dev</p>
+
+    <!-- estrellas -->
+    <div class="star w-1 h-1 top-[20%] left-[15%] animate-twinkle"></div>
+    <div class="star w-1 h-1 top-[40%] left-[70%] animate-twinkle"></div>
+    <div class="star w-1 h-1 top-[80%] left-[30%] animate-twinkle"></div>
 </footer>
 
 </body>
