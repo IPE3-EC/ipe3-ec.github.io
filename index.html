@@ -13,9 +13,7 @@
       font-family: "Segoe UI", Arial, sans-serif;
     }
 
-    html{
-      scroll-behavior:smooth;
-    }
+    html{ scroll-behavior:smooth; }
 
     body{
       background:#05070c;
@@ -25,7 +23,7 @@
 
     a{ text-decoration:none; }
 
-    /* =================== HEADER =================== */
+    /* ============= HEADER ============= */
     header{
       position:fixed;
       top:0;
@@ -37,8 +35,8 @@
       align-items:center;
       z-index:999;
       background:rgba(0,0,0,0.55);
-      backdrop-filter: blur(14px);
-      border-bottom:1px solid rgba(255,255,255,0.07);
+      backdrop-filter: blur(16px);
+      border-bottom:1px solid rgba(255,255,255,0.08);
       transition:0.3s;
     }
 
@@ -52,30 +50,32 @@
       align-items:center;
       gap:12px;
       font-size:20px;
-      font-weight:900;
+      font-weight:1000;
       letter-spacing:1px;
       color:#2ea8ff;
+      text-shadow: 0px 0px 15px rgba(46,168,255,0.4);
     }
 
     .logo img{
-      width:46px;
-      height:46px;
+      width:48px;
+      height:48px;
       border-radius:50%;
-      border:2px solid rgba(46,168,255,0.8);
+      border:2px solid rgba(46,168,255,0.85);
       padding:4px;
       background:rgba(255,255,255,0.02);
+      box-shadow: 0px 0px 25px rgba(46,168,255,0.3);
     }
 
     nav ul{
       display:flex;
       list-style:none;
-      gap:28px;
+      gap:24px;
     }
 
     nav ul li a{
       color:white;
       font-size:14px;
-      font-weight:700;
+      font-weight:800;
       transition:0.3s;
       opacity:0.9;
     }
@@ -88,8 +88,8 @@
     .btn-top{
       background:linear-gradient(90deg,#2ea8ff,#005dff);
       padding:10px 18px;
-      border-radius:10px;
-      font-weight:900;
+      border-radius:12px;
+      font-weight:1000;
       color:white;
       box-shadow:0px 0px 35px rgba(46,168,255,0.25);
       transition:0.3s;
@@ -97,10 +97,10 @@
 
     .btn-top:hover{
       transform:translateY(-2px);
-      box-shadow:0px 0px 45px rgba(46,168,255,0.45);
+      box-shadow:0px 0px 55px rgba(46,168,255,0.55);
     }
 
-    /* =================== HERO VIDEO =================== */
+    /* ============= HERO VIDEO ============= */
     .hero{
       height:100vh;
       display:flex;
@@ -118,10 +118,9 @@
       height:100%;
       object-fit:cover;
       z-index:1;
-      filter:brightness(0.55);
+      filter:brightness(0.50);
     }
 
-    /* Overlay oscuro */
     .hero::before{
       content:"";
       position:absolute;
@@ -129,11 +128,10 @@
       left:0;
       width:100%;
       height:100%;
-      background:linear-gradient(to right, rgba(0,0,0,0.88), rgba(0,0,0,0.25));
+      background:linear-gradient(to right, rgba(0,0,0,0.92), rgba(0,0,0,0.35));
       z-index:2;
     }
 
-    /* ESTRELLAS */
     #stars{
       position:absolute;
       top:0;
@@ -147,19 +145,21 @@
     .hero-content{
       position:relative;
       z-index:4;
-      max-width:750px;
+      max-width:760px;
       animation: fadeIn 1.3s ease;
     }
 
     .hero-content h1{
-      font-size:60px;
+      font-size:62px;
       font-weight:1000;
       line-height:1.05;
       margin-bottom:18px;
+      text-shadow: 0px 0px 20px rgba(0,0,0,0.8);
     }
 
     .hero-content h1 span{
       color:#2ea8ff;
+      text-shadow: 0px 0px 20px rgba(46,168,255,0.6);
     }
 
     .hero-content p{
@@ -179,8 +179,8 @@
     .btn-main{
       background:linear-gradient(90deg,#2ea8ff,#005dff);
       padding:14px 28px;
-      border-radius:12px;
-      font-weight:900;
+      border-radius:14px;
+      font-weight:1000;
       color:white;
       transition:0.3s;
       box-shadow:0px 0px 40px rgba(46,168,255,0.25);
@@ -188,14 +188,14 @@
 
     .btn-main:hover{
       transform:translateY(-3px);
-      box-shadow:0px 0px 50px rgba(46,168,255,0.5);
+      box-shadow:0px 0px 60px rgba(46,168,255,0.6);
     }
 
     .btn-outline{
-      border:1px solid rgba(255,255,255,0.3);
+      border:1px solid rgba(255,255,255,0.35);
       padding:14px 28px;
-      border-radius:12px;
-      font-weight:900;
+      border-radius:14px;
+      font-weight:1000;
       color:white;
       transition:0.3s;
     }
@@ -204,30 +204,30 @@
       border-color:#2ea8ff;
       color:#2ea8ff;
       transform:translateY(-3px);
+      box-shadow:0px 0px 25px rgba(46,168,255,0.2);
     }
 
-    /* =================== SECTIONS =================== */
-    section{
-      padding:95px 70px;
-    }
+    /* ============= SECTION GLOBAL ============= */
+    section{ padding:95px 70px; }
 
     .title{
       text-align:center;
-      font-size:38px;
+      font-size:40px;
       font-weight:1000;
       margin-bottom:12px;
+      text-shadow:0px 0px 25px rgba(46,168,255,0.15);
     }
 
     .subtitle{
       text-align:center;
-      max-width:900px;
+      max-width:950px;
       margin:0 auto 55px auto;
       color:#b9b9b9;
       font-size:16px;
       line-height:1.7;
     }
 
-    /* =================== ABOUT =================== */
+    /* ============= ABOUT ============= */
     .about{
       background:linear-gradient(180deg,#0b0f18,#05070c);
       border-top:1px solid rgba(255,255,255,0.06);
@@ -241,7 +241,7 @@
       border-radius:18px;
       background:rgba(255,255,255,0.03);
       border:1px solid rgba(255,255,255,0.09);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(14px);
       box-shadow:0px 0px 60px rgba(0,0,0,0.6);
       text-align:center;
     }
@@ -252,7 +252,43 @@
       line-height:1.9;
     }
 
-    /* =================== SERVICES =================== */
+    /* ============= COUNTERS ============= */
+    .stats-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+      gap:22px;
+      margin-top:45px;
+    }
+
+    .stat-card{
+      padding:28px;
+      border-radius:18px;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.09);
+      text-align:center;
+      box-shadow:0px 0px 40px rgba(0,0,0,0.55);
+      transition:0.35s;
+    }
+
+    .stat-card:hover{
+      transform:translateY(-8px);
+      border:1px solid rgba(46,168,255,0.5);
+    }
+
+    .stat-number{
+      font-size:44px;
+      font-weight:1000;
+      color:#2ea8ff;
+      text-shadow:0px 0px 20px rgba(46,168,255,0.5);
+    }
+
+    .stat-text{
+      margin-top:6px;
+      font-weight:800;
+      color:#ddd;
+    }
+
+    /* ============= SERVICES GRID ============= */
     .services-grid{
       display:grid;
       grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
@@ -271,6 +307,7 @@
     .service-card:hover{
       transform:translateY(-10px) scale(1.02);
       border:1px solid rgba(46,168,255,0.6);
+      box-shadow:0px 0px 55px rgba(46,168,255,0.18);
     }
 
     .service-card h4{
@@ -291,7 +328,7 @@
       margin-bottom:15px;
     }
 
-    /* =================== SLIDER PROYECTOS =================== */
+    /* ============= SLIDER PROYECTOS ============= */
     .slider{
       max-width:1100px;
       margin:auto;
@@ -325,7 +362,91 @@
       100%{ transform:translateX(-300%); }
     }
 
-    /* =================== PORTAFOLIO PDF =================== */
+    /* ============= TESTIMONIOS ============= */
+    .testimonials{
+      background:linear-gradient(180deg,#05070c,#0b0f18);
+      border-top:1px solid rgba(255,255,255,0.06);
+      border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+
+    .testimonial-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+      gap:22px;
+      max-width:1100px;
+      margin:auto;
+    }
+
+    .testimonial-card{
+      padding:28px;
+      border-radius:18px;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.09);
+      box-shadow:0px 0px 40px rgba(0,0,0,0.55);
+      transition:0.35s;
+    }
+
+    .testimonial-card:hover{
+      transform:translateY(-8px);
+      border:1px solid rgba(46,168,255,0.5);
+    }
+
+    .testimonial-card p{
+      font-size:14px;
+      line-height:1.8;
+      color:#ddd;
+      margin-bottom:15px;
+    }
+
+    .testimonial-name{
+      font-weight:1000;
+      color:#2ea8ff;
+    }
+
+    .testimonial-role{
+      font-size:13px;
+      color:#aaa;
+    }
+
+    /* ============= MARCAS ============= */
+    .brands{
+      text-align:center;
+    }
+
+    .brands-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));
+      gap:20px;
+      max-width:1100px;
+      margin:auto;
+      margin-top:40px;
+    }
+
+    .brand-card{
+      padding:22px;
+      border-radius:16px;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.08);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      transition:0.35s;
+    }
+
+    .brand-card:hover{
+      transform:translateY(-6px);
+      border:1px solid rgba(46,168,255,0.5);
+      box-shadow:0px 0px 35px rgba(46,168,255,0.18);
+    }
+
+    .brand-card img{
+      max-width:120px;
+      max-height:60px;
+      filter:brightness(0.95);
+      opacity:0.9;
+    }
+
+    /* ============= PORTAFOLIO PDF ============= */
     .portfolio-box{
       max-width:950px;
       margin:auto;
@@ -355,7 +476,7 @@
     .btn-pdf{
       display:inline-block;
       padding:14px 28px;
-      border-radius:12px;
+      border-radius:14px;
       background:linear-gradient(90deg,#ffb300,#ff6a00);
       font-weight:1000;
       color:white;
@@ -365,10 +486,10 @@
 
     .btn-pdf:hover{
       transform:translateY(-3px);
-      box-shadow:0px 0px 45px rgba(255,140,0,0.5);
+      box-shadow:0px 0px 55px rgba(255,140,0,0.55);
     }
 
-    /* =================== MAPA =================== */
+    /* ============= MAPA ============= */
     .map-box{
       max-width:1100px;
       margin:auto;
@@ -384,7 +505,7 @@
       border:0;
     }
 
-    /* =================== CONTACT =================== */
+    /* ============= CONTACT ============= */
     .contact-box{
       max-width:950px;
       margin:auto;
@@ -428,7 +549,7 @@
 
     button{
       padding:15px;
-      border-radius:12px;
+      border-radius:14px;
       border:none;
       background:linear-gradient(90deg,#2ea8ff,#005dff);
       color:white;
@@ -440,10 +561,10 @@
 
     button:hover{
       transform:translateY(-3px);
-      box-shadow:0px 0px 50px rgba(46,168,255,0.5);
+      box-shadow:0px 0px 65px rgba(46,168,255,0.55);
     }
 
-    /* =================== WHATSAPP =================== */
+    /* ============= WHATSAPP ============= */
     .whatsapp{
       position:fixed;
       bottom:25px;
@@ -452,7 +573,7 @@
       color:white;
       padding:14px 18px;
       border-radius:50px;
-      font-weight:900;
+      font-weight:1000;
       display:flex;
       align-items:center;
       gap:10px;
@@ -465,7 +586,7 @@
       transform:scale(1.08);
     }
 
-    /* =================== FOOTER =================== */
+    /* ============= FOOTER ============= */
     footer{
       text-align:center;
       padding:20px;
@@ -475,7 +596,7 @@
       font-size:14px;
     }
 
-    /* =================== ANIMATION =================== */
+    /* ============= ANIMATIONS ============= */
     @keyframes fadeIn{
       from{opacity:0; transform:translateY(35px);}
       to{opacity:1; transform:translateY(0);}
@@ -528,9 +649,12 @@
         <li><a href="#nosotros">Nosotros</a></li>
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#testimonios">Testimonios</a></li>
+        <li><a href="#marcas">Marcas</a></li>
         <li><a href="#portafolio">Portafolio</a></li>
         <li><a href="#ubicacion">Ubicación</a></li>
         <li><a href="#contacto">Contacto</a></li>
+        <li><a href="services.html">Ver Servicios</a></li>
       </ul>
     </nav>
 
@@ -541,7 +665,6 @@
   <section class="hero" id="inicio">
     <video autoplay muted loop playsinline>
       <source src="video.mp4" type="video/mp4">
-      Tu navegador no soporta video.
     </video>
 
     <!-- ESTRELLAS -->
@@ -556,7 +679,7 @@
 
       <div class="hero-buttons">
         <a class="btn-main" href="#contacto">Solicitar Cotización</a>
-        <a class="btn-outline" href="#proyectos">Ver Proyectos</a>
+        <a class="btn-outline" href="services.html">Servicios Detallados</a>
       </div>
     </div>
   </section>
@@ -574,6 +697,28 @@
         instalaciones eléctricas, sistemas de CCTV, control de acceso y mantenimiento técnico especializado.
         Nuestro objetivo es garantizar seguridad, eficiencia y calidad en cada proyecto.
       </p>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number" data-target="250">0</div>
+          <div class="stat-text">Proyectos Realizados</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-number" data-target="180">0</div>
+          <div class="stat-text">Clientes Satisfechos</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-number" data-target="12">0</div>
+          <div class="stat-text">Años de Experiencia</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-number" data-target="24">0</div>
+          <div class="stat-text">Soporte 24/7</div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -623,7 +768,7 @@
     </div>
   </section>
 
-  <!-- PROYECTOS SLIDER -->
+  <!-- PROYECTOS -->
   <section id="proyectos">
     <h2 class="title">Proyectos Realizados</h2>
     <p class="subtitle">
@@ -637,6 +782,60 @@
         <img src="proyecto3.jpg" alt="Proyecto 3">
         <img src="proyecto4.jpg" alt="Proyecto 4">
       </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section class="testimonials" id="testimonios">
+    <h2 class="title">Testimonios de Clientes</h2>
+    <p class="subtitle">
+      Opiniones reales de quienes confiaron en nuestros servicios.
+    </p>
+
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <p>
+          ⭐⭐⭐⭐⭐ <br><br>
+          Excelente trabajo, instalaron cámaras y alarma en mi negocio.
+          Muy profesionales y recomendados.
+        </p>
+        <div class="testimonial-name">Carlos M.</div>
+        <div class="testimonial-role">Cliente Empresarial</div>
+      </div>
+
+      <div class="testimonial-card">
+        <p>
+          ⭐⭐⭐⭐⭐ <br><br>
+          Trabajo impecable en el tablero eléctrico y la iluminación.
+          Cumplieron rápido y con garantía.
+        </p>
+        <div class="testimonial-name">María P.</div>
+        <div class="testimonial-role">Cliente Residencial</div>
+      </div>
+
+      <div class="testimonial-card">
+        <p>
+          ⭐⭐⭐⭐⭐ <br><br>
+          Muy buena asesoría y soporte técnico. Instalación de control de acceso excelente.
+        </p>
+        <div class="testimonial-name">Ing. Jonathan R.</div>
+        <div class="testimonial-role">Administrador de Proyecto</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARCAS -->
+  <section class="brands" id="marcas">
+    <h2 class="title">Trabajamos con Marcas Líderes</h2>
+    <p class="subtitle">
+      Equipos originales y tecnología garantizada.
+    </p>
+
+    <div class="brands-grid">
+      <div class="brand-card"><img src="marca1.png" alt="Hikvision"></div>
+      <div class="brand-card"><img src="marca2.png" alt="Dahua"></div>
+      <div class="brand-card"><img src="marca3.png" alt="TP-Link"></div>
+      <div class="brand-card"><img src="marca4.png" alt="Schneider"></div>
     </div>
   </section>
 
@@ -660,7 +859,7 @@
     </div>
   </section>
 
-  <!-- UBICACION MAPA -->
+  <!-- UBICACION -->
   <section id="ubicacion">
     <h2 class="title">Ubicación</h2>
     <p class="subtitle">
@@ -732,7 +931,7 @@
       window.open(url, "_blank");
     });
 
-    /* ================== ESTRELLAS ANIMADAS ================== */
+    /* ================== ESTRELLAS ================== */
     const canvas = document.getElementById("stars");
     const ctx = canvas.getContext("2d");
 
@@ -781,6 +980,41 @@
 
     createStars();
     drawStars();
+
+    /* ================== CONTADORES ANIMADOS ================== */
+    const counters = document.querySelectorAll(".stat-number");
+    let started = false;
+
+    function startCounters(){
+      counters.forEach(counter=>{
+        const target = +counter.getAttribute("data-target");
+        let count = 0;
+
+        const increment = target / 100;
+
+        const update = ()=>{
+          count += increment;
+          if(count < target){
+            counter.textContent = Math.floor(count);
+            requestAnimationFrame(update);
+          }else{
+            counter.textContent = target;
+          }
+        };
+        update();
+      });
+    }
+
+    window.addEventListener("scroll", ()=>{
+      const section = document.querySelector(".stats-grid");
+      const position = section.getBoundingClientRect().top;
+      const screen = window.innerHeight;
+
+      if(position < screen && !started){
+        started = true;
+        startCounters();
+      }
+    });
   </script>
 
 </body>
