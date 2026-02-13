@@ -1,208 +1,246 @@
 <!DOCTYPE html>
 <html lang="es" class="dark">
 <head>
-    <!-- ========================================= -->
-    <!-- HEAD: Configuración general del documento -->
-    <!-- ========================================= -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IPE3 Engineering | Ingeniería Eléctrica en Ecuador</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Tailwind CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+<!-- ================= SEO PROFESIONAL ================= -->
+<title>IPE3 Engineering | Ingeniería Eléctrica y Electrónica en Ecuador</title>
+<meta name="description" content="IPE3 Engineering by Corporación 360 Ecuador. Especialistas en ingeniería eléctrica, automatización industrial, seguridad electrónica y mantenimiento técnico.">
+<meta name="keywords" content="ingeniería eléctrica Ecuador, automatización industrial Quito, seguridad electrónica, domótica Ecuador">
+<meta name="author" content="IPE3 Engineering">
+<meta property="og:title" content="IPE3 Engineering Ecuador">
+<meta property="og:description" content="Soluciones eléctricas y electrónicas de precisión digital.">
+<meta property="og:type" content="website">
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
 
-    <script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    fontFamily: {
-                        display: ["Space Grotesk"]
-                    },
-                    colors: {
-                        primary: "#00d2ff",
-                        accent: "#0072ff",
-                        deep: "#0a0c10"
-                    },
-                    animation: {
-                        fadeIn: "fadeIn 1.2s ease-out forwards",
-                        float: "float 4s ease-in-out infinite",
-                        slideUp: "slideUp 1s ease-out forwards"
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            "0%": { opacity: 0, transform: "translateY(20px)" },
-                            "100%": { opacity: 1, transform: "translateY(0)" }
-                        },
-                        float: {
-                            "0%,100%": { transform: "translateY(0px)" },
-                            "50%": { transform: "translateY(-8px)" }
-                        },
-                        slideUp: {
-                            "0%": { opacity: 0, transform: "translateY(40px)" },
-                            "100%": { opacity: 1, transform: "translateY(0)" }
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+<!-- Fuente -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            font-family: 'Space Grotesk', sans-serif;
-        }
+<script>
+tailwind.config = {
+darkMode: "class",
+theme: {
+extend: {
+fontFamily: { display: ["Space Grotesk"] },
+colors: { primary:"#00d2ff", accent:"#0072ff", deep:"#0a0c10" },
+animation:{
+fadeIn:"fadeIn 1s ease forwards",
+float:"float 4s ease-in-out infinite"
+},
+keyframes:{
+fadeIn:{ "0%":{opacity:0,transform:"translateY(30px)"},
+"100%":{opacity:1,transform:"translateY(0)"} },
+float:{ "0%,100%":{transform:"translateY(0)"},
+"50%":{transform:"translateY(-10px)"} }
+}
+}
+}
+}
+</script>
 
-        /* Estrellas animadas del footer */
-        .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            animation: twinkle 3s infinite ease-in-out;
-        }
+<style>
+body{font-family:'Space Grotesk',sans-serif;overflow-x:hidden;background:#0a0c10;color:white}
 
-        @keyframes twinkle {
-            0%,100% { opacity: 0.2; }
-            50% { opacity: 1; }
-        }
-    </style>
+/* PRELOADER */
+#preloader{
+position:fixed;inset:0;background:#0a0c10;
+display:flex;justify-content:center;align-items:center;
+z-index:9999;transition:opacity .6s ease;
+}
+.loader{
+border:4px solid rgba(255,255,255,0.1);
+border-top:4px solid #00d2ff;
+border-radius:50%;width:60px;height:60px;
+animation:spin 1s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* CURSOR GLOW */
+.cursor{
+position:fixed;width:20px;height:20px;
+border-radius:50%;
+background:rgba(0,210,255,0.6);
+pointer-events:none;
+mix-blend-mode:screen;
+transform:translate(-50%,-50%);
+z-index:999;
+filter:blur(8px);
+}
+
+/* PARTICULAS */
+canvas{
+position:fixed;inset:0;z-index:-1;
+}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(40px);transition:1s}
+.reveal.active{opacity:1;transform:translateY(0)}
+</style>
 </head>
 
-<body class="bg-deep text-white selection:bg-primary/40">
+<body>
 
-<!-- ========================================= -->
-<!-- HEADER: Barra superior fija -->
-<!-- ========================================= -->
-<header class="fixed w-full top-0 z-50 bg-deep/80 backdrop-blur-lg border-b border-white/10">
-    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+<!-- ================= PRELOADER ================= -->
+<div id="preloader"><div class="loader"></div></div>
 
-        <!-- LOGO Y MARCA -->
-        <div class="flex items-center gap-4 animate-fadeIn">
-            <img src="SIN FONDO.png"
-                 alt="IPE3 Logo"
-                 class="w-16 md:w-20 hover:scale-110 transition duration-500 animate-float drop-shadow-[0_0_15px_rgba(0,210,255,0.6)]">
+<!-- Cursor Glow -->
+<div class="cursor" id="cursor"></div>
 
-            <div class="flex flex-col">
-                <span class="text-2xl font-bold">
-                    IPE3 <span class="text-primary font-light">Engineering</span>
-                </span>
+<!-- Fondo Partículas -->
+<canvas id="particles"></canvas>
 
-                <!-- ECUADOR con colores bandera -->
-                <span class="text-xs uppercase tracking-widest text-gray-400">
-                    by CORPORACIÓN 360 
-                    <span>
-                        <span class="text-yellow-400">E</span>
-                        <span class="text-blue-500">C</span>
-                        <span class="text-red-500">UADOR</span>
-                    </span>
-                </span>
-            </div>
-        </div>
+<!-- ================= HEADER ================= -->
+<header class="fixed w-full top-0 z-50 bg-deep/70 backdrop-blur-lg border-b border-white/10">
+<nav class="container mx-auto px-6 py-4 flex justify-between items-center">
 
-        <!-- MENÚ -->
-        <div class="hidden md:flex gap-8 text-sm">
-            <a href="#" class="hover:text-primary transition">Inicio</a>
-            <a href="#servicios" class="hover:text-primary transition">Servicios</a>
-            <a href="#contacto" class="hover:text-primary transition">Contacto</a>
-        </div>
+<div class="flex items-center gap-4">
+<img src="SIN FONDO.png" class="w-20 md:w-24 animate-float drop-shadow-[0_0_20px_rgba(0,210,255,.7)]">
 
-        <!-- BOTÓN -->
-        <a href="#contacto" 
-           class="hidden lg:block bg-primary text-black px-6 py-2 rounded-lg font-bold 
-                  hover:scale-105 hover:shadow-[0_0_25px_rgba(0,210,255,0.9)] transition">
-            Cotizar
-        </a>
-    </nav>
+<div>
+<div class="text-2xl font-bold">
+IPE3 <span class="text-primary font-light">Engineering</span>
+</div>
+<div class="text-xs uppercase tracking-widest text-gray-400">
+by CORPORACIÓN 360
+<span>
+<span class="text-yellow-400">E</span>
+<span class="text-blue-500">C</span>
+<span class="text-red-500">UADOR</span>
+</span>
+</div>
+</div>
+</div>
+
+<div class="hidden md:flex gap-8 text-sm">
+<a href="#servicios" class="hover:text-primary transition">Servicios</a>
+<a href="#contacto" class="hover:text-primary transition">Contacto</a>
+</div>
+
+<a href="https://wa.me/593984016027" target="_blank"
+class="hidden lg:block bg-primary text-black px-6 py-2 rounded-lg font-bold
+hover:scale-105 hover:shadow-[0_0_25px_rgba(0,210,255,0.9)] transition">
+WhatsApp
+</a>
+
+</nav>
 </header>
 
+<!-- ================= HERO ================= -->
+<section class="h-screen flex items-center justify-center text-center px-6 reveal">
+<div>
+<h1 class="text-5xl md:text-7xl font-bold mb-6">
+Ingeniería Eléctrica con
+<span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+Precisión Digital
+</span>
+</h1>
 
-<!-- ========================================= -->
-<!-- HERO: Sección principal -->
-<!-- ========================================= -->
-<section class="h-screen flex items-center justify-center text-center px-6 animate-slideUp">
-    <div>
-        <h1 class="text-5xl md:text-7xl font-bold mb-6">
-            Ingeniería Eléctrica con 
-            <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Precisión Digital
-            </span>
-        </h1>
+<p class="text-gray-400 max-w-xl mx-auto mb-8">
+Soluciones industriales avanzadas en Ecuador.
+</p>
 
-        <p class="text-gray-400 max-w-xl mx-auto mb-8">
-            Soluciones integrales en automatización, seguridad electrónica y mantenimiento industrial en Ecuador.
-        </p>
-
-        <button class="bg-primary text-black px-8 py-4 rounded-xl font-bold text-lg 
-                       hover:bg-white hover:scale-105 transition 
-                       shadow-xl shadow-primary/30 
-                       hover:shadow-[0_0_25px_rgba(0,210,255,0.9)]">
-            Explorar Proyectos
-        </button>
-    </div>
+<a href="#servicios"
+class="bg-primary text-black px-8 py-4 rounded-xl font-bold text-lg
+hover:scale-105 hover:shadow-[0_0_25px_rgba(0,210,255,.9)] transition">
+Explorar Servicios
+</a>
+</div>
 </section>
 
+<!-- ================= SERVICIOS ================= -->
+<section id="servicios" class="py-24 text-center">
+<h2 class="text-4xl font-bold mb-12 reveal">Nuestras Especialidades</h2>
 
-<!-- ========================================= -->
-<!-- SERVICIOS -->
-<!-- ========================================= -->
-<section id="servicios" class="py-24 bg-black text-center">
-    <h2 class="text-4xl font-bold mb-12 animate-fadeIn">Nuestras Especialidades</h2>
+<div class="grid md:grid-cols-3 gap-8 container mx-auto px-6">
+<div class="p-8 bg-white/5 rounded-2xl hover:-translate-y-3 transition reveal">
+<h3 class="text-xl font-bold mb-4">Proyectos Eléctricos</h3>
+<p class="text-gray-400">Infraestructura de alta potencia certificada.</p>
+</div>
 
-    <div class="grid md:grid-cols-3 gap-8 container mx-auto px-6">
+<div class="p-8 bg-white/5 rounded-2xl hover:-translate-y-3 transition reveal">
+<h3 class="text-xl font-bold mb-4">Domótica Avanzada</h3>
+<p class="text-gray-400">Control inteligente y eficiencia energética.</p>
+</div>
 
-        <div class="p-8 bg-white/5 rounded-2xl hover:-translate-y-3 
-                    hover:shadow-[0_0_20px_rgba(0,210,255,0.3)] 
-                    transition duration-500 animate-fadeIn">
-            <h3 class="text-xl font-bold mb-4">Proyectos Eléctricos</h3>
-            <p class="text-gray-400">Infraestructura de alta potencia certificada.</p>
-        </div>
-
-        <div class="p-8 bg-white/5 rounded-2xl hover:-translate-y-3 
-                    hover:shadow-[0_0_20px_rgba(0,210,255,0.3)] 
-                    transition duration-500 animate-fadeIn">
-            <h3 class="text-xl font-bold mb-4">Domótica Avanzada</h3>
-            <p class="text-gray-400">Control inteligente y eficiencia energética.</p>
-        </div>
-
-        <div class="p-8 bg-white/5 rounded-2xl hover:-translate-y-3 
-                    hover:shadow-[0_0_20px_rgba(0,210,255,0.3)] 
-                    transition duration-500 animate-fadeIn">
-            <h3 class="text-xl font-bold mb-4">Seguridad Electrónica</h3>
-            <p class="text-gray-400">CCTV, biometría y sistemas contra incendios.</p>
-        </div>
-
-    </div>
+<div class="p-8 bg-white/5 rounded-2xl hover:-translate-y-3 transition reveal">
+<h3 class="text-xl font-bold mb-4">Seguridad Electrónica</h3>
+<p class="text-gray-400">CCTV, biometría y biometría industrial.</p>
+</div>
+</div>
 </section>
 
-
-<!-- ========================================= -->
-<!-- FOOTER -->
-<!-- ========================================= -->
-<footer id="contacto" class="relative py-20 bg-deep text-center">
-
-    <!-- Estrellas -->
-    <div class="absolute inset-0 pointer-events-none">
-        <div class="star w-1 h-1 top-[20%] left-[30%]"></div>
-        <div class="star w-1 h-1 top-[40%] left-[70%]"></div>
-        <div class="star w-1 h-1 top-[60%] left-[50%]"></div>
-    </div>
-
-    <div class="relative z-10">
-        <h3 class="text-2xl font-bold mb-4">IPE3 Engineering</h3>
-        <p class="text-gray-400 mb-4">
-            Cusubamba y Tendales, Quito - Ecuador
-        </p>
-        <p class="text-gray-400 mb-2">Tel: 0984016027</p>
-        <p class="text-primary font-bold">ipe3ecuador@gmail.com</p>
-
-        <div class="mt-8 text-xs text-gray-500">
-            © 2016 - 2026 IPE3 Engineering by CORPORACIÓN 360 Ecuador
-        </div>
-    </div>
+<!-- ================= FOOTER ================= -->
+<footer id="contacto" class="py-20 text-center bg-black">
+<h3 class="text-2xl font-bold mb-4">IPE3 Engineering</h3>
+<p class="text-gray-400">Quito - Ecuador</p>
+<p class="text-primary font-bold">ipe3ecuador@gmail.com</p>
+<div class="mt-8 text-xs text-gray-500">
+© 2016 - 2026 IPE3 Engineering by CORPORACIÓN 360 Ecuador
+</div>
 </footer>
+
+<!-- ================= WHATSAPP FLOAT ================= -->
+<a href="https://wa.me/593984016027" target="_blank"
+class="fixed bottom-6 right-6 bg-green-500 p-4 rounded-full shadow-lg hover:scale-110 transition z-50">
+<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" width="28" height="28">
+<path d="M20.52 3.48A11.78 11.78 0 0 0 12.01 0C5.38 0 .01 5.37.01 12c0 2.12.55 4.2 1.6 6.04L0 24l6.12-1.59A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.2-3.48-8.52z"/>
+</svg>
+</a>
+
+<!-- ================= SCRIPTS ================= -->
+<script>
+// PRELOADER
+window.addEventListener("load",()=>{
+document.getElementById("preloader").style.opacity="0";
+setTimeout(()=>{document.getElementById("preloader").style.display="none"},600);
+});
+
+// CURSOR
+const cursor=document.getElementById("cursor");
+document.addEventListener("mousemove",(e)=>{
+cursor.style.left=e.clientX+"px";
+cursor.style.top=e.clientY+"px";
+});
+
+// SCROLL REVEAL
+const reveals=document.querySelectorAll(".reveal");
+window.addEventListener("scroll",()=>{
+reveals.forEach(r=>{
+if(r.getBoundingClientRect().top<window.innerHeight-100){
+r.classList.add("active");
+}
+});
+});
+
+// PARTICLES
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+let particles=[];
+for(let i=0;i<80;i++){
+particles.push({x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+d:Math.random()*1});
+}
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle="rgba(0,210,255,0.3)";
+particles.forEach(p=>{
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fill();
+p.y+=p.d;
+if(p.y>canvas.height)p.y=0;
+});
+requestAnimationFrame(draw);
+}
+draw();
+</script>
 
 </body>
 </html>
