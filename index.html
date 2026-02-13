@@ -46,7 +46,7 @@
 
     header.scrolled{
       padding:12px 70px;
-      background:rgba(0,0,0,0.8);
+      background:rgba(0,0,0,0.85);
     }
 
     .logo{
@@ -102,55 +102,41 @@
       box-shadow:0px 0px 45px rgba(46,168,255,0.45);
     }
 
-    /* =================== HERO =================== */
+    /* =================== HERO VIDEO =================== */
     .hero{
       height:100vh;
       display:flex;
       align-items:center;
       padding:0 70px;
       position:relative;
-      background:url("https://images.unsplash.com/photo-1581090700227-4c4f50d1f90f?auto=format&fit=crop&w=1800&q=80") no-repeat center/cover;
+      overflow:hidden;
+    }
+
+    .hero video{
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      z-index:1;
+      filter:brightness(0.55);
     }
 
     .hero::before{
       content:"";
       position:absolute;
-      top:0; left:0;
-      width:100%; height:100%;
-      background:linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.4));
-      z-index:1;
-    }
-
-    /* Efecto partículas */
-    .particles{
-      position:absolute;
-      width:100%;
-      height:100%;
       top:0;
       left:0;
+      width:100%;
+      height:100%;
+      background:linear-gradient(to right, rgba(0,0,0,0.85), rgba(0,0,0,0.3));
       z-index:2;
-      overflow:hidden;
-    }
-
-    .particles span{
-      position:absolute;
-      width:6px;
-      height:6px;
-      border-radius:50%;
-      background:rgba(46,168,255,0.8);
-      animation: float 8s infinite linear;
-      opacity:0.6;
-    }
-
-    @keyframes float{
-      0%{ transform:translateY(100vh) scale(0.3); opacity:0; }
-      20%{ opacity:0.8; }
-      100%{ transform:translateY(-20vh) scale(1.2); opacity:0; }
     }
 
     .hero-content{
       position:relative;
-      z-index:3;
+      z-index:4;
       max-width:750px;
       animation: fadeIn 1.3s ease;
     }
@@ -313,125 +299,65 @@
       border:1px solid rgba(46,168,255,0.6);
     }
 
-    .service-card::after{
-      content:"";
-      position:absolute;
-      top:-50%;
-      left:-50%;
-      width:200%;
-      height:200%;
-      background:radial-gradient(circle, rgba(46,168,255,0.18), transparent 60%);
-      opacity:0;
-      transition:0.35s;
-    }
-
-    .service-card:hover::after{
-      opacity:1;
-    }
-
     .service-card h4{
       font-size:18px;
       margin-bottom:10px;
       font-weight:1000;
       color:#2ea8ff;
-      position:relative;
-      z-index:2;
     }
 
     .service-card p{
       font-size:14px;
       color:#ccc;
       line-height:1.7;
-      position:relative;
-      z-index:2;
     }
 
     .service-icon{
       font-size:34px;
       margin-bottom:15px;
-      position:relative;
-      z-index:2;
     }
 
-    /* =================== PROJECTS =================== */
-    .projects{
-      background:linear-gradient(180deg,#05070c,#0b0f18);
-      border-top:1px solid rgba(255,255,255,0.06);
-      border-bottom:1px solid rgba(255,255,255,0.06);
-    }
-
-    .projects-grid{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap:25px;
-    }
-
-    .project-card{
+    /* =================== PORTAFOLIO PDF =================== */
+    .portfolio-box{
+      max-width:950px;
+      margin:auto;
+      padding:45px;
       border-radius:18px;
-      overflow:hidden;
       background:rgba(255,255,255,0.03);
-      border:1px solid rgba(255,255,255,0.08);
-      transition:0.35s;
+      border:1px solid rgba(255,255,255,0.09);
+      backdrop-filter: blur(12px);
+      box-shadow:0px 0px 60px rgba(0,0,0,0.6);
+      text-align:center;
     }
 
-    .project-card:hover{
-      transform:translateY(-10px);
-      border:1px solid rgba(46,168,255,0.6);
-    }
-
-    .project-card img{
-      width:100%;
-      height:200px;
-      object-fit:cover;
-      filter:brightness(0.85);
-    }
-
-    .project-card .content{
-      padding:20px;
-    }
-
-    .project-card h4{
-      color:#2ea8ff;
+    .portfolio-box h3{
+      font-size:24px;
+      margin-bottom:10px;
       font-weight:1000;
-      margin-bottom:8px;
+      color:#2ea8ff;
     }
 
-    .project-card p{
-      color:#ccc;
-      font-size:14px;
-      line-height:1.6;
+    .portfolio-box p{
+      font-size:16px;
+      color:#ddd;
+      line-height:1.8;
+      margin-bottom:20px;
     }
 
-    /* =================== TESTIMONIALS =================== */
-    .testimonials-grid{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap:20px;
-    }
-
-    .testimonial-card{
-      padding:25px;
-      border-radius:18px;
-      background:rgba(255,255,255,0.03);
-      border:1px solid rgba(255,255,255,0.08);
+    .btn-pdf{
+      display:inline-block;
+      padding:14px 28px;
+      border-radius:12px;
+      background:linear-gradient(90deg,#ffb300,#ff6a00);
+      font-weight:1000;
+      color:white;
+      box-shadow:0px 0px 35px rgba(255,140,0,0.3);
       transition:0.3s;
     }
 
-    .testimonial-card:hover{
-      transform:translateY(-6px);
-      border:1px solid rgba(46,168,255,0.6);
-    }
-
-    .testimonial-card p{
-      color:#ddd;
-      font-size:15px;
-      line-height:1.7;
-      margin-bottom:15px;
-    }
-
-    .testimonial-card h5{
-      color:#2ea8ff;
-      font-weight:1000;
+    .btn-pdf:hover{
+      transform:translateY(-3px);
+      box-shadow:0px 0px 45px rgba(255,140,0,0.5);
     }
 
     /* =================== CONTACT =================== */
@@ -577,8 +503,7 @@
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#nosotros">Nosotros</a></li>
         <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#proyectos">Proyectos</a></li>
-        <li><a href="#testimonios">Opiniones</a></li>
+        <li><a href="#portafolio">Portafolio</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
@@ -586,26 +511,17 @@
     <a class="btn-top" href="#contacto">Cotizar Ahora</a>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO VIDEO -->
   <section class="hero" id="inicio">
-
-    <div class="particles">
-      <span style="left:10%; animation-delay:0s;"></span>
-      <span style="left:20%; animation-delay:2s;"></span>
-      <span style="left:30%; animation-delay:4s;"></span>
-      <span style="left:40%; animation-delay:1s;"></span>
-      <span style="left:50%; animation-delay:3s;"></span>
-      <span style="left:60%; animation-delay:5s;"></span>
-      <span style="left:70%; animation-delay:2s;"></span>
-      <span style="left:80%; animation-delay:4s;"></span>
-      <span style="left:90%; animation-delay:1s;"></span>
-    </div>
+    <video autoplay muted loop playsinline>
+      <source src="video.mp4" type="video/mp4">
+      Tu navegador no soporta video.
+    </video>
 
     <div class="hero-content">
       <h1>Ingeniería <span>Eléctrica</span> y <span>Electrónica</span></h1>
       <p>
-        En IPE3 brindamos soluciones profesionales en seguridad electrónica,
-        proyectos eléctricos y mantenimiento técnico. 
+        Soluciones profesionales en seguridad electrónica, proyectos eléctricos y mantenimiento técnico.
         <b>Inteligencia y Energía Conectadas.</b>
       </p>
 
@@ -620,15 +536,14 @@
   <section class="about" id="nosotros">
     <h2 class="title">Sobre Nosotros</h2>
     <p class="subtitle">
-      Somos especialistas en tecnología, energía y seguridad electrónica para hogares, empresas e instituciones.
+      Tecnología, energía y seguridad con estándares profesionales.
     </p>
 
     <div class="about-box">
       <p>
-        En <b>IPE3 — Ingeniería Eléctrica y Electrónica Ecuador</b> trabajamos con estándares técnicos y profesionales,
-        garantizando instalaciones seguras, confiables y eficientes.  
-        Nos especializamos en CCTV, control de acceso, tableros eléctricos, mantenimiento preventivo,
-        proyectos eléctricos y soluciones inteligentes de seguridad electrónica.
+        En <b>IPE3 — Ingeniería Eléctrica y Electrónica Ecuador</b> brindamos soluciones confiables en
+        instalaciones eléctricas, sistemas de CCTV, control de acceso y mantenimiento técnico especializado.
+        Nuestro objetivo es garantizar seguridad, eficiencia y calidad en cada proyecto.
       </p>
 
       <div class="stats">
@@ -691,84 +606,35 @@
       <div class="service-card">
         <div class="service-icon">🏥</div>
         <h4>Equipos Biomédicos</h4>
-        <p>Mantenimiento especializado, soporte técnico y calibración básica en equipos médicos.</p>
+        <p>Mantenimiento especializado y soporte técnico para equipos médicos y clínicos.</p>
       </div>
 
       <div class="service-card">
         <div class="service-icon">🚨</div>
         <h4>Seguridad Electrónica</h4>
-        <p>Alarmas, sensores, cercos eléctricos, automatización, control remoto y protección total.</p>
+        <p>Alarmas, sensores, cercos eléctricos, automatización y protección total.</p>
       </div>
 
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section class="projects" id="proyectos">
-    <h2 class="title">Proyectos Realizados</h2>
+  <!-- PORTAFOLIO PDF -->
+  <section id="portafolio">
+    <h2 class="title">Portafolio Profesional</h2>
     <p class="subtitle">
-      Algunos trabajos y soluciones implementadas con calidad profesional.
+      Descarga nuestro portafolio con información completa de servicios, proyectos y experiencia.
     </p>
 
-    <div class="projects-grid">
+    <div class="portfolio-box">
+      <h3>📄 Portafolio IPE3</h3>
+      <p>
+        Conoce nuestros proyectos, instalaciones y soluciones implementadas en Ecuador.  
+        Nuestro portafolio incluye trabajos en CCTV, electricidad, control de acceso y mantenimiento técnico.
+      </p>
 
-      <div class="project-card">
-        <img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=1000&q=80" alt="">
-        <div class="content">
-          <h4>Instalación de Tableros</h4>
-          <p>Diseño y montaje de tableros eléctricos industriales y residenciales con protecciones completas.</p>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1000&q=80" alt="">
-        <div class="content">
-          <h4>Sistema CCTV Empresarial</h4>
-          <p>Implementación de cámaras IP con monitoreo remoto, grabación 24/7 y seguridad total.</p>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=80" alt="">
-        <div class="content">
-          <h4>Mantenimiento Biomédico</h4>
-          <p>Revisión y mantenimiento preventivo de equipos médicos para clínicas y laboratorios.</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section id="testimonios">
-    <h2 class="title">Opiniones de Clientes</h2>
-    <p class="subtitle">
-      La confianza se gana con resultados.
-    </p>
-
-    <div class="testimonials-grid">
-
-      <div class="testimonial-card">
-        <p>
-          “Excelente servicio, instalación rápida y todo quedó funcionando perfecto. Muy recomendados.”
-        </p>
-        <h5>Cliente Empresarial</h5>
-      </div>
-
-      <div class="testimonial-card">
-        <p>
-          “Me instalaron cámaras y alarma en mi casa. Trabajo profesional y atención inmediata.”
-        </p>
-        <h5>Cliente Residencial</h5>
-      </div>
-
-      <div class="testimonial-card">
-        <p>
-          “Buen mantenimiento técnico y asesoría completa. Se nota que tienen experiencia.”
-        </p>
-        <h5>Centro Médico</h5>
-      </div>
-
+      <a class="btn-pdf" href="portafolio.pdf" download>
+        Descargar Portafolio PDF
+      </a>
     </div>
   </section>
 
@@ -776,7 +642,7 @@
   <section id="contacto">
     <h2 class="title">Contáctanos</h2>
     <p class="subtitle">
-      Cotiza sin compromiso. Te respondemos rápido.
+      Cotiza sin compromiso. Respuesta rápida y profesional.
     </p>
 
     <div class="contact-box">
