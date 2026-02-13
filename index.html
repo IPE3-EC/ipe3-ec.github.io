@@ -1,249 +1,150 @@
 <!DOCTYPE html>
-<html class="dark" lang="es"><head>
+<html class="dark" lang="es">
+<head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>IPE3 Engineering by CORPORACIÓN 360 | Ingeniería Eléctrica y Electrónica</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-
-<!-- AOS ANIMACIONES -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-<!-- CANVAS STARS -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <style>
-    .star {
-        position: absolute;
-        border-radius: 50%;
-        background: white;
-        opacity: 0.7;
-    }
-    .line {
-        position: absolute;
-        background: rgba(255,255,255,0.1);
-        transform-origin: left center;
-        height: 1px;
-    }
-</style>
-
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#00d2ff",
-                        "accent-blue": "#0072ff",
-                        "deep-charcoal": "#0a0c10",
-                        "slate-dark": "#1a1f2e",
-                        "safety-yellow": "#facc15",
-                    },
-                    fontFamily: {
-                        "display": ["Space Grotesk"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    animation: {
-                        'marquee': 'marquee 25s linear infinite',
-                    },
-                    keyframes: {
-                        marquee: {
-                            '0%': { transform: 'translateX(0%)' },
-                            '100%': { transform: 'translateX(-50%)' },
-                        }
-                    }
-                },
-            },
-        }
-</script>
-<style type="text/tailwindcss">
-        body { font-family: 'Space Grotesk', sans-serif; }
-        .dark-gradient-bg {
-            background: radial-gradient(circle at top right, #1a2333, #0a0c10 70%);
-        }
-        .circuit-pattern {
-            background-image: radial-gradient(var(--tw-colors-primary) 0.5px, transparent 0.5px);
-            background-size: 32px 32px;
-            opacity: 0.08;
-        }
-        .constellation-bg {
-            background: radial-gradient(circle at 50% 50%, #111827, #030712);
-            position: relative;
-            overflow: hidden;
-        }
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .marquee-container {
-            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-        }
-        /* Botón flotante WhatsApp */
-        .whatsapp-button {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            background: #25D366;
-            color: white;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 28px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            z-index: 1000;
-            cursor: pointer;
-        }
+body { font-family: 'Space Grotesk', sans-serif; background-color:#0a0c10; color:#e2e8f0; margin:0; }
+#dynamic-text { display:inline-block; transition: opacity 0.5s ease; }
+.whatsapp-btn { position: fixed; bottom: 20px; right: 20px; background-color:#25D366; color:white; border-radius:50%; width:60px; height:60px; display:flex; align-items:center; justify-content:center; font-size:2rem; z-index:1000; box-shadow:0 4px 12px rgba(0,0,0,0.3); cursor:pointer; transition: transform 0.2s; }
+.whatsapp-btn:hover { transform: scale(1.1); }
+.constellation-bg { position: relative; width: 100%; height: 300px; background:#0a0c10; overflow:hidden; }
+.star { position: absolute; background: white; border-radius:50%; opacity:0.7; }
+.constellation-line { position:absolute; background: rgba(0,210,255,0.2); height:1px; transform-origin:left center; }
+header { position: fixed; top:0; width:100%; z-index:50; background: rgba(10,12,16,0.85); backdrop-filter: blur(10px); border-bottom:1px solid rgba(255,255,255,0.05); }
+nav { display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; }
+nav a { color:#e2e8f0; text-decoration:none; margin-left:1rem; font-weight:500; transition:0.3s; }
+nav a:hover { color:#00d2ff; }
+.logo-container { display:flex; align-items:center; cursor:pointer; }
+.logo-container span { font-weight:bold; font-size:2rem; color:#00d2ff; }
+.by-text { font-size:0.7rem; color:#facc15; margin-left:0.5rem; font-weight:bold; }
+.section-hero { height:100vh; display:flex; align-items:center; justify-content:center; text-align:left; padding:0 2rem; background-image:url('https://lh3.googleusercontent.com/aida-public/AB6AXuB8KtHLz4DO3g6p-zgz0gkhtrNljW8mkFrt1VNEGFPqyoFM9kURKHKeNasaLPVB3Nogsr2O1OP4FSxtZpr8B2ozgF1if27JGVnA0D9wEVvb02vAZIYG5W5yKTunnbGHuuMqBBc-SGlLQGshT5Pa46--9Yxgs-QOX31mq5QcPtKqrAStp9Nn0Wd1yovBEAPAslY_t2wwo03BLcT0EF-VLLzB5eLtAITV3xddNenq5sjHR1DemmYZggPw5T7dWcoryCF9hDu3FhfmU4'); background-size:cover; background-position:center; }
+.section-hero h1 { font-size:4rem; max-width:800px; margin-bottom:1rem; }
+.section-hero p { font-size:1.2rem; max-width:600px; margin-bottom:2rem; }
+.button-primary { background:#00d2ff; color:#0a0c10; padding:1rem 2rem; border-radius:1rem; font-weight:bold; cursor:pointer; transition:0.3s; margin-right:1rem; }
+.button-primary:hover { background:#ffffff; }
+.button-secondary { background:rgba(255,255,255,0.05); color:#e2e8f0; padding:1rem 2rem; border-radius:1rem; font-weight:bold; cursor:pointer; transition:0.3s; }
+.button-secondary:hover { background:rgba(255,255,255,0.1); }
 </style>
 </head>
-<body class="bg-deep-charcoal text-slate-200 selection:bg-primary/30">
+<body>
 
-<header class="fixed top-0 w-full z-50 bg-deep-charcoal/80 backdrop-blur-lg border-b border-white/5" data-aos="fade-down">
-<nav class="container mx-auto px-6 py-4 flex items-center justify-between">
-<div class="flex items-center gap-3 cursor-pointer" id="logoRefresh">
-<div class="w-10 h-10 bg-gradient-to-br from-primary to-accent-blue flex items-center justify-center rounded-lg shadow-lg shadow-primary/20 shrink-0">
-<span class="text-deep-charcoal font-black text-xl">I3</span>
+<header>
+<nav>
+<div class="logo-container" id="logo-refresh">
+  <span>I3</span>
+  <span class="by-text">by CORPORACIÓN 360</span>
 </div>
-<div class="flex flex-col">
-<span class="text-xl font-bold tracking-tight text-white leading-tight">IPE3 <span class="text-primary font-light">Engineering</span></span>
-<span class="text-[10px] uppercase tracking-widest text-slate-400 font-bold leading-none">by CORPORACIÓN 360</span>
+<div>
+  <a href="#">Inicio</a>
+  <a href="#servicios">Servicios</a>
+  <a href="#proyectos">Proyectos</a>
+  <a href="#nosotros">Nosotros</a>
+  <a href="#contacto">Contacto</a>
 </div>
-</div>
-<div class="hidden md:flex items-center space-x-8">
-<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#">Inicio</a>
-<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#servicios">Servicios</a>
-<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#proyectos">Proyectos</a>
-<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#nosotros">Nosotros</a>
-<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#contacto">Contacto</a>
-</div>
-<a class="hidden lg:block bg-primary text-deep-charcoal px-6 py-2 rounded-lg font-bold hover:bg-white hover:scale-105 transition-all shadow-lg shadow-primary/10" href="#contacto">
-                Solicitar Cotización
-</a>
 </nav>
 </header>
 
-<section class="relative h-screen flex items-center overflow-hidden">
-<div class="absolute inset-0 z-0">
-<img alt="Control Room" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8KtHLz4DO3g6p-zgz0gkhtrNljW8mkFrt1VNEGFPqyoFM9kURKHKeNasaLPVB3Nogsr2O1OP4FSxtZpr8B2ozgF1if27JGVnA0D9wEVvb02vAZIYG5W5yKTunnbGHuuMqBBcV-SGlLQGshT5Pa46--9Yxgs-QOX31mq5QcPtKqrAStp9Nn0Wd1yovBEAPAslY_t2wwo03BLcT0EF-VLLzB5eLtAITV3xddNenq5sjHR1DemmYZggPw5T7dWcoryCF9hDu3FhfmU4"/>
-<div class="absolute inset-0 bg-gradient-to-r from-deep-charcoal via-deep-charcoal/80 to-transparent"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-deep-charcoal to-transparent"></div>
+<section class="section-hero">
+<div>
+<span id="dynamic-text">Expertos en Quito, Ecuador</span>
+<h1>Ingeniería Eléctrica con <span style="background: linear-gradient(to right,#00d2ff,#0072ff); -webkit-background-clip:text; color:transparent;">Precisión Digital</span></h1>
+<p>Soluciones integrales de automatización, seguridad y mantenimiento industrial. Respaldados por IPE3 Engineering by CORPORACIÓN 360.</p>
+<div>
+<button class="button-primary" id="explorar-proyectos">Explorar Proyectos</button>
+<button class="button-secondary" id="nuestros-servicios">Nuestros Servicios</button>
 </div>
-<div class="container mx-auto px-6 relative z-10">
-<div class="max-w-3xl" data-aos="fade-right">
-<span class="inline-block px-4 py-1.5 bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-widest uppercase rounded-full mb-6" id="dynamicText" data-aos="zoom-in">Expertos en Quito, Ecuador</span>
-<h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" data-aos="fade-up" data-aos-delay="150">
-                    Ingeniería Eléctrica con <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent-blue">Precisión Digital</span>
-</h1>
-<p class="text-xl text-slate-400 mb-10 max-w-2xl" data-aos="fade-up" data-aos-delay="250">
-                    Soluciones integrales de automatización, seguridad y mantenimiento industrial. Respaldados por IPE3 Engineering by CORPORACIÓN 360.
-</p>
-<div class="flex flex-col sm:flex-row gap-4" data-aos="fade-up" data-aos-delay="350">
-<button class="bg-primary text-deep-charcoal px-8 py-4 rounded-xl font-bold text-lg hover:bg-white transition-all shadow-xl shadow-primary/20" onclick="location.href='#proyectos'">
-                        Explorar Proyectos
-</button>
-<button class="bg-white/5 backdrop-blur-md border border-white/10 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all" onclick="location.href='#servicios'">
-                        Nuestros Servicios
-</button>
-</div>
-</div>
-</div>
-<div class="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-50" data-aos="fade-up" data-aos-delay="600">
-<span class="material-icons text-primary text-3xl">keyboard_double_arrow_down</span>
 </div>
 </section>
 
-<!-- BOTON FLOTANTE WHATSAPP -->
-<div class="whatsapp-button" onclick="window.open('https://wa.me/593984016027','_blank')">
-    <span class="material-icons">whatsapp</span>
-</div>
+<!-- WhatsApp Flotante -->
+<div class="whatsapp-btn" onclick="window.open('https://wa.me/593984016027','_blank')">💬</div>
 
-<!-- Secciones previas y proyectos (igual que tu código anterior) -->
+<!-- Secciones existentes (Servicios, Proyectos, etc.) -->
+<!-- ...copia aquí tu contenido actual sin cambios... -->
 
-<!-- FORMULARIO DE CONTACTO -->
-<section class="py-24 bg-slate-900" id="contacto">
-<div class="container mx-auto px-6" data-aos="fade-up">
-<h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Contacto Directo</h2>
-<p class="text-slate-400 mb-8">Envía tu mensaje y nos pondremos en contacto contigo.</p>
-<form class="grid grid-cols-1 md:grid-cols-2 gap-6" action="https://formspree.io/f/yourformid" method="POST">
-<input class="p-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-400" type="text" name="name" placeholder="Nombre" required/>
-<input class="p-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-400" type="email" name="email" placeholder="Correo Electrónico" required/>
-<textarea class="p-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-slate-400 md:col-span-2" name="message" placeholder="Mensaje" required></textarea>
-<button type="submit" class="md:col-span-2 bg-primary text-deep-charcoal px-8 py-4 rounded-xl font-bold text-lg hover:bg-white transition-all shadow-xl shadow-primary/20">Enviar Mensaje</button>
-</form>
-</div>
-</section>
+<!-- Footer con estrellas conectadas -->
+<footer class="constellation-bg" id="footer">
+</footer>
 
-<!-- SCRIPT DINAMICO Y AOS -->
 <script>
-    AOS.init({duration: 1200, once: true});
+// Texto dinámico
+const textos = ["Líder en Ecuador", "A la vanguardia de la tecnología", "Soluciones de precisión", "Expertos en automatización"];
+let index = 0;
+const dynamicText = document.getElementById("dynamic-text");
+setInterval(() => {
+  index = (index + 1) % textos.length;
+  dynamicText.style.opacity = 0;
+  setTimeout(() => {
+    dynamicText.textContent = textos[index];
+    dynamicText.style.opacity = 1;
+  }, 500);
+}, 4000);
 
-    // Texto dinámico
-    const phrases = [
-        "Líder en Ecuador",
-        "A la vanguardia de la tecnología",
-        "Soluciones inteligentes",
-        "Excelencia en Ingeniería",
-        "Innovación y Precisión"
-    ];
-    const dynamicText = document.getElementById('dynamicText');
-    dynamicText.textContent = phrases[Math.floor(Math.random() * phrases.length)];
+// Refrescar página al hacer clic en logo
+document.getElementById("logo-refresh").addEventListener("click", () => { location.reload(); });
 
-    // Logo clicable refresco
-    document.getElementById('logoRefresh').addEventListener('click', ()=>{
-        location.reload();
-    });
+// Scroll al hacer clic en botones
+document.getElementById("explorar-proyectos").addEventListener("click", () => { location.href="#proyectos"; });
+document.getElementById("nuestros-servicios").addEventListener("click", () => { location.href="#servicios"; });
 
-    // Footer stars canvas
-    const footer = document.getElementById('contacto');
-    const canvas = document.createElement('canvas');
-    canvas.style.position = 'absolute';
-    canvas.style.top='0';
-    canvas.style.left='0';
-    canvas.style.width='100%';
-    canvas.style.height='100%';
-    canvas.style.pointerEvents='none';
-    footer.appendChild(canvas);
-    const ctx = canvas.getContext('2d');
-    let stars=[], lines=[], w=canvas.width=footer.offsetWidth,h=canvas.height=footer.offsetHeight;
-    for(let i=0;i<50;i++){
-        stars.push({x:Math.random()*w,y:Math.random()*h,r:1+Math.random()*2,dx:(Math.random()-0.5)*0.5,dy:(Math.random()-0.5)*0.5});
+// Estrellas y líneas en footer
+const footer = document.getElementById("footer");
+const stars = [];
+const starCount = 30;
+
+// Crear estrellas
+for(let i=0;i<starCount;i++){
+  const star = document.createElement("div");
+  star.className="star";
+  star.style.width = star.style.height = `${Math.random()*2+1}px`;
+  star.style.top = `${Math.random()*100}%`;
+  star.style.left = `${Math.random()*100}%`;
+  footer.appendChild(star);
+  stars.push(star);
+}
+
+// Conectar estrellas
+function connectStars(){
+  const lines = footer.querySelectorAll(".constellation-line");
+  lines.forEach(line=>line.remove());
+  for(let i=0;i<stars.length;i++){
+    for(let j=i+1;j<stars.length;j++){
+      const starA = stars[i].getBoundingClientRect();
+      const starB = stars[j].getBoundingClientRect();
+      const dx = starB.left - starA.left;
+      const dy = starB.top - starA.top;
+      const distance = Math.sqrt(dx*dx + dy*dy);
+      if(distance<150){
+        const line = document.createElement("div");
+        line.className="constellation-line";
+        line.style.width = `${distance}px`;
+        line.style.top = `${starA.top}px`;
+        line.style.left = `${starA.left}px`;
+        const angle = Math.atan2(dy, dx)*180/Math.PI;
+        line.style.transform = `rotate(${angle}deg)`;
+        footer.appendChild(line);
+      }
     }
-    function animate(){
-        ctx.clearRect(0,0,w,h);
-        for(let s of stars){
-            s.x+=s.dx; s.y+=s.dy;
-            if(s.x<0||s.x>w)s.dx*=-1;
-            if(s.y<0||s.y>h)s.dy*=-1;
-            ctx.beginPath();
-            ctx.arc(s.x,s.y,s.r,0,2*Math.PI);
-            ctx.fillStyle='white';
-            ctx.fill();
-        }
-        for(let i=0;i<stars.length;i++){
-            for(let j=i+1;j<stars.length;j++){
-                const dx=stars[i].x-stars[j].x;
-                const dy=stars[i].y-stars[j].y;
-                const dist=Math.sqrt(dx*dx+dy*dy);
-                if(dist<100){
-                    ctx.beginPath();
-                    ctx.moveTo(stars[i].x,stars[i].y);
-                    ctx.lineTo(stars[j].x,stars[j].y);
-                    ctx.strokeStyle='rgba(255,255,255,'+(1-dist/100)*0.2+')';
-                    ctx.stroke();
-                }
-            }
-        }
-        requestAnimationFrame(animate);
-    }
-    animate();
+  }
+}
+
+// Animación periódica
+setInterval(()=>{
+  stars.forEach(star=>{
+    star.style.top = `${Math.random()*100}%`;
+    star.style.left = `${Math.random()*100}%`;
+  });
+  connectStars();
+},4000);
+
+connectStars();
 </script>
-</body></html>
+
+</body>
+</html>
