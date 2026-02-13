@@ -1,20 +1,826 @@
-/mi_proyecto
-  /static
-     video.mp4
-     SIN FONDO.png
-     /brands
-        dahua.png
-        tplink.png
-        schneider.png
-        centurion.png
-     /uploads
-        /projects
-           proyecto1.jpg
-           proyecto2.jpg
-        /pdf
-           portafolio.pdf
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IPE3® — Ingeniería Eléctrica & Electrónica Ecuador</title>
 
-  /templates
-     index.html
+  <style>
+    /* ===== RESET ===== */
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
 
-  app.py
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#05070c;
+      color:#fff;
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    /* ===== VIDEO BACKGROUND ===== */
+    .video-bg{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      z-index:-5;
+      filter: brightness(0.35) contrast(1.15);
+    }
+
+    /* ===== OVERLAY ===== */
+    .overlay{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background: radial-gradient(circle at top, rgba(46,168,255,0.22), rgba(0,0,0,0.94));
+      z-index:-4;
+    }
+
+    /* ===== STARS ANIMATION ===== */
+    #stars{
+      position:fixed;
+      width:100%;
+      height:100%;
+      top:0;
+      left:0;
+      z-index:-3;
+      background:transparent;
+      overflow:hidden;
+    }
+
+    .star{
+      position:absolute;
+      width:2px;
+      height:2px;
+      background:white;
+      border-radius:50%;
+      opacity:0.8;
+      animation: twinkle 2.5s infinite alternate;
+    }
+
+    @keyframes twinkle{
+      from{ opacity:0.2; transform:scale(1); }
+      to{ opacity:1; transform:scale(1.8); }
+    }
+
+    /* ===== HEADER ===== */
+    header{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      padding:15px 50px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      z-index:999;
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(14px);
+      border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+
+    /* ===== LOGO NEON ===== */
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:22px;
+      font-weight:1000;
+      letter-spacing:1px;
+      color:#2ea8ff;
+      text-shadow:
+        0px 0px 10px rgba(46,168,255,0.55),
+        0px 0px 25px rgba(46,168,255,0.35);
+      animation: textGlow 2s infinite alternate;
+    }
+
+    @keyframes textGlow{
+      0%{
+        text-shadow:
+          0px 0px 8px rgba(46,168,255,0.35),
+          0px 0px 18px rgba(46,168,255,0.25);
+      }
+      100%{
+        text-shadow:
+          0px 0px 16px rgba(46,168,255,0.75),
+          0px 0px 40px rgba(46,168,255,0.55);
+      }
+    }
+
+    .logo img{
+      width:62px;
+      height:62px;
+      border-radius:50%;
+      border:2px solid rgba(46,168,255,0.85);
+      padding:6px;
+      box-shadow:0px 0px 30px rgba(46,168,255,0.45);
+      animation: neonPulse 2.2s infinite alternate;
+      transition:0.3s ease;
+    }
+
+    @keyframes neonPulse{
+      0%{
+        box-shadow: 
+          0px 0px 10px rgba(46,168,255,0.3),
+          0px 0px 25px rgba(46,168,255,0.4),
+          0px 0px 45px rgba(46,168,255,0.25);
+        transform: scale(1);
+      }
+      100%{
+        box-shadow:
+          0px 0px 20px rgba(46,168,255,0.7),
+          0px 0px 55px rgba(46,168,255,0.55),
+          0px 0px 95px rgba(46,168,255,0.35);
+        transform: scale(1.05);
+      }
+    }
+
+    .logo img:hover{
+      transform: scale(1.14) rotate(4deg);
+      box-shadow:
+        0px 0px 35px rgba(46,168,255,0.85),
+        0px 0px 80px rgba(46,168,255,0.75),
+        0px 0px 130px rgba(46,168,255,0.45);
+    }
+
+    nav ul{
+      list-style:none;
+      display:flex;
+      gap:25px;
+    }
+
+    nav ul li a{
+      color:#fff;
+      font-size:14px;
+      font-weight:bold;
+      transition:0.3s;
+      opacity:0.85;
+    }
+
+    nav ul li a:hover{
+      color:#2ea8ff;
+      opacity:1;
+      text-shadow:0px 0px 12px rgba(46,168,255,0.8);
+    }
+
+    /* ===== HERO ===== */
+    .hero{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:0 20px;
+    }
+
+    .hero-content{
+      max-width:950px;
+      z-index:5;
+    }
+
+    .hero-content h1{
+      font-size:55px;
+      font-weight:1000;
+      text-transform:uppercase;
+      letter-spacing:2px;
+      margin-bottom:15px;
+      text-shadow:0px 0px 25px rgba(46,168,255,0.4);
+    }
+
+    .hero-content p{
+      font-size:18px;
+      color:#d0d0d0;
+      margin-bottom:25px;
+      line-height:1.8;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 28px;
+      background: linear-gradient(90deg,#2ea8ff,#006dff);
+      border-radius:12px;
+      font-weight:bold;
+      font-size:15px;
+      color:white;
+      transition:0.3s ease;
+      box-shadow:0px 0px 25px rgba(46,168,255,0.25);
+    }
+
+    .btn:hover{
+      transform:scale(1.08);
+      box-shadow:0px 0px 45px rgba(46,168,255,0.55);
+    }
+
+    /* ===== SECTION BASE ===== */
+    section{
+      padding:90px 60px;
+    }
+
+    .title{
+      font-size:34px;
+      margin-bottom:12px;
+      text-align:center;
+      text-shadow:0px 0px 20px rgba(46,168,255,0.3);
+    }
+
+    .subtitle{
+      text-align:center;
+      max-width:850px;
+      margin:auto;
+      font-size:16px;
+      color:#cfcfcf;
+      margin-bottom:45px;
+      line-height:1.8;
+    }
+
+    .glass{
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 18px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0px 0px 40px rgba(0,0,0,0.6);
+    }
+
+    /* ===== ABOUT ===== */
+    .about-box{
+      padding:35px;
+      max-width:950px;
+      margin:auto;
+      text-align:center;
+    }
+
+    .about-box p{
+      font-size:16px;
+      color:#d8d8d8;
+      line-height:1.9;
+    }
+
+    /* ===== COUNTERS ===== */
+    .stats{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap:20px;
+      margin-top:40px;
+    }
+
+    .stat{
+      padding:25px;
+      text-align:center;
+      border-radius:18px;
+      transition:0.3s;
+    }
+
+    .stat:hover{
+      transform:translateY(-6px);
+      border:1px solid rgba(46,168,255,0.25);
+      box-shadow:0px 0px 45px rgba(46,168,255,0.18);
+    }
+
+    .stat h3{
+      font-size:45px;
+      color:#2ea8ff;
+      text-shadow:0px 0px 20px rgba(46,168,255,0.6);
+    }
+
+    .stat p{
+      margin-top:8px;
+      font-size:13px;
+      color:#ccc;
+      letter-spacing:1px;
+    }
+
+    /* ===== SERVICES ===== */
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(270px, 1fr));
+      gap:25px;
+    }
+
+    .service-card{
+      padding:25px;
+      border-radius:18px;
+      transition:0.3s ease;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .service-card:hover{
+      transform:translateY(-8px);
+      box-shadow:0px 0px 45px rgba(46,168,255,0.25);
+      border:1px solid rgba(46,168,255,0.35);
+    }
+
+    .service-card h4{
+      font-size:18px;
+      margin-bottom:10px;
+      color:#2ea8ff;
+      text-shadow:0px 0px 18px rgba(46,168,255,0.25);
+    }
+
+    .service-card p{
+      font-size:14px;
+      color:#ccc;
+      line-height:1.7;
+    }
+
+    /* ===== PORTFOLIO ===== */
+    .portfolio-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+      gap:20px;
+    }
+
+    .portfolio-card{
+      border-radius:18px;
+      overflow:hidden;
+      position:relative;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .portfolio-card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      transition:0.4s;
+      display:block;
+    }
+
+    .portfolio-card:hover img{
+      transform:scale(1.1);
+      filter: brightness(0.9);
+    }
+
+    .portfolio-card .overlay-text{
+      position:absolute;
+      bottom:0;
+      width:100%;
+      padding:12px;
+      background:rgba(0,0,0,0.65);
+      font-size:14px;
+      font-weight:bold;
+      text-align:center;
+      color:#2ea8ff;
+      text-shadow:0px 0px 12px rgba(46,168,255,0.5);
+    }
+
+    .pdf-box{
+      text-align:center;
+      margin-top:35px;
+    }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+      gap:20px;
+    }
+
+    .testimonial{
+      padding:25px;
+      border-radius:18px;
+      transition:0.3s;
+    }
+
+    .testimonial:hover{
+      transform:translateY(-6px);
+      border:1px solid rgba(46,168,255,0.25);
+      box-shadow:0px 0px 35px rgba(46,168,255,0.15);
+    }
+
+    .testimonial p{
+      color:#ddd;
+      font-size:14px;
+      line-height:1.7;
+      margin-bottom:15px;
+    }
+
+    .testimonial h4{
+      color:#2ea8ff;
+      font-size:15px;
+    }
+
+    /* ===== BRANDS ===== */
+    .brands-slider{
+      padding:25px;
+      overflow:hidden;
+      border-radius:18px;
+      max-width:950px;
+      margin:auto;
+    }
+
+    .brands-track{
+      display:flex;
+      gap:60px;
+      animation: scrollBrands 14s linear infinite;
+      align-items:center;
+    }
+
+    .brands-track img{
+      height:55px;
+      filter: brightness(1.2);
+      opacity:0.9;
+      transition:0.3s;
+    }
+
+    .brands-track img:hover{
+      opacity:1;
+      transform:scale(1.12);
+      filter: drop-shadow(0px 0px 15px rgba(46,168,255,0.8));
+    }
+
+    @keyframes scrollBrands{
+      from{ transform:translateX(0); }
+      to{ transform:translateX(-50%); }
+    }
+
+    /* ===== CONTACT ===== */
+    .contact-box{
+      max-width:850px;
+      margin:auto;
+      padding:35px;
+      border-radius:18px;
+      text-align:center;
+    }
+
+    .contact-box p{
+      margin:10px 0;
+      font-size:16px;
+      color:#ddd;
+    }
+
+    /* ===== WHATSAPP FLOAT ===== */
+    .whatsapp{
+      position:fixed;
+      bottom:25px;
+      right:25px;
+      background:#25d366;
+      color:white;
+      width:62px;
+      height:62px;
+      border-radius:50%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-size:30px;
+      box-shadow:0px 0px 25px rgba(0,0,0,0.5);
+      z-index:999;
+      transition:0.3s;
+    }
+
+    .whatsapp:hover{
+      transform:scale(1.1);
+      box-shadow:0px 0px 35px rgba(37,211,102,0.7);
+    }
+
+    /* ===== REVEAL ANIMATION ===== */
+    .reveal{
+      opacity:0;
+      transform:translateY(40px);
+      transition:1s ease;
+    }
+
+    .reveal.active{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* ===== FOOTER ===== */
+    footer{
+      padding:20px;
+      text-align:center;
+      background:rgba(0,0,0,0.55);
+      border-top:1px solid rgba(255,255,255,0.06);
+      font-size:14px;
+      color:#aaa;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media(max-width:900px){
+      header{
+        padding:15px 20px;
+      }
+
+      nav ul{
+        gap:15px;
+      }
+
+      .hero-content h1{
+        font-size:38px;
+      }
+
+      section{
+        padding:70px 20px;
+      }
+    }
+
+    @media(max-width:650px){
+      nav ul{
+        display:none;
+      }
+
+      .hero-content h1{
+        font-size:32px;
+      }
+
+      .hero-content p{
+        font-size:15px;
+      }
+
+      .logo{
+        font-size:18px;
+      }
+
+      .logo img{
+        width:52px;
+        height:52px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- VIDEO BACKGROUND -->
+  <video class="video-bg" autoplay muted loop playsinline>
+    <source src="static/video.mp4" type="video/mp4">
+  </video>
+
+  <div class="overlay"></div>
+
+  <!-- STARS -->
+  <div id="stars"></div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <img src="static/SIN FONDO.png" alt="IPE3 Logo">
+      IPE3<sup style="font-size:12px; color:#2ea8ff;">®</sup>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#portafolio">Portafolio</a></li>
+        <li><a href="#testimonios">Testimonios</a></li>
+        <li><a href="#marcas">Marcas</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-content reveal">
+      <h1>Ingeniería Eléctrica y Electrónica Ecuador</h1>
+      <p>
+        Soluciones profesionales en <b>Seguridad Electrónica</b>, <b>CCTV</b>, <b>Control de Acceso</b>,
+        <b>Proyectos Eléctricos</b> y <b>Mantenimiento Técnico</b>.
+        Tecnología, calidad y seguridad para tu empresa y hogar.
+      </p>
+      <a href="#contacto" class="btn">📩 Contáctanos</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="reveal" id="nosotros">
+    <h2 class="title">Sobre Nosotros</h2>
+    <p class="subtitle">
+      En IPE3® trabajamos con profesionalismo, tecnología y compromiso para garantizar instalaciones seguras,
+      modernas y eficientes.
+    </p>
+
+    <div class="about-box glass">
+      <p>
+        Somos una empresa ecuatoriana especializada en ingeniería eléctrica y electrónica,
+        con experiencia en proyectos de seguridad electrónica, automatización y mantenimiento técnico.
+        Nuestro objetivo es entregar soluciones confiables y duraderas con marcas de alto nivel,
+        ofreciendo soporte profesional y garantía.
+      </p>
+
+      <div class="stats">
+        <div class="stat glass">
+          <h3 id="contador1">0</h3>
+          <p>PROYECTOS REALIZADOS</p>
+        </div>
+
+        <div class="stat glass">
+          <h3 id="contador2">0</h3>
+          <p>CLIENTES SATISFECHOS</p>
+        </div>
+
+        <div class="stat glass">
+          <h3 id="contador3">0</h3>
+          <p>AÑOS DE EXPERIENCIA</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="reveal" id="servicios">
+    <h2 class="title">Nuestros Servicios</h2>
+    <p class="subtitle">
+      Servicios técnicos especializados para hogares, empresas e instituciones.
+    </p>
+
+    <div class="services-grid">
+      <div class="service-card glass">
+        <h4>📹 CCTV y Videovigilancia</h4>
+        <p>Instalación profesional de cámaras Dahua, configuración remota, grabación y monitoreo 24/7.</p>
+      </div>
+
+      <div class="service-card glass">
+        <h4>🚪 Control de Acceso</h4>
+        <p>Sistemas biométricos, tarjetas, lectores, chapas magnéticas y control de ingreso empresarial.</p>
+      </div>
+
+      <div class="service-card glass">
+        <h4>⚡ Proyectos Eléctricos</h4>
+        <p>Diseño e instalación de redes eléctricas, tableros generales, protecciones y balanceo de cargas.</p>
+      </div>
+
+      <div class="service-card glass">
+        <h4>🛠 Mantenimiento Preventivo</h4>
+        <p>Inspección, limpieza y pruebas técnicas para equipos eléctricos y electrónicos.</p>
+      </div>
+
+      <div class="service-card glass">
+        <h4>🏥 Equipos Biomédicos</h4>
+        <p>Mantenimiento y soporte técnico para equipos médicos, laboratorio clínico y optometría.</p>
+      </div>
+
+      <div class="service-card glass">
+        <h4>🔒 Seguridad Electrónica</h4>
+        <p>Alarmas, sensores, cercos eléctricos, automatización de portones Centurion y protección avanzada.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section class="reveal" id="portafolio">
+    <h2 class="title">Portafolio de Proyectos</h2>
+    <p class="subtitle">
+      Algunos de nuestros trabajos realizados y proyectos instalados con estándares profesionales.
+    </p>
+
+    <div class="portfolio-grid">
+      <div class="portfolio-card glass">
+        <img src="static/uploads/projects/proyecto1.jpg" alt="Proyecto 1">
+        <div class="overlay-text">Instalación CCTV Profesional</div>
+      </div>
+
+      <div class="portfolio-card glass">
+        <img src="static/uploads/projects/proyecto2.jpg" alt="Proyecto 2">
+        <div class="overlay-text">Tablero General Eléctrico</div>
+      </div>
+    </div>
+
+    <div class="pdf-box">
+      <a class="btn" href="static/uploads/pdf/portafolio.pdf" target="_blank">
+        📄 Descargar Portafolio PDF
+      </a>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="reveal" id="testimonios">
+    <h2 class="title">Testimonios</h2>
+    <p class="subtitle">Clientes satisfechos con nuestro trabajo profesional.</p>
+
+    <div class="testimonials">
+      <div class="testimonial glass">
+        <p>"Excelente servicio, instalación profesional y rápida. 100% recomendado."</p>
+        <h4>— Cliente Empresarial</h4>
+      </div>
+
+      <div class="testimonial glass">
+        <p>"Trabajo limpio y bien hecho, cámaras funcionando perfecto y con acceso remoto."</p>
+        <h4>— Cliente Residencial</h4>
+      </div>
+
+      <div class="testimonial glass">
+        <p>"Muy buena atención y asesoría, cumplen con lo ofrecido. Servicio de primera."</p>
+        <h4>— Cliente Institucional</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS -->
+  <section class="reveal" id="marcas">
+    <h2 class="title">Marcas con las que Trabajamos</h2>
+    <p class="subtitle">
+      Tecnología original y marcas líderes en seguridad y energía.
+    </p>
+
+    <div class="brands-slider glass">
+      <div class="brands-track">
+        <img src="static/brands/dahua.png" alt="Dahua">
+        <img src="static/brands/tplink.png" alt="TP-Link">
+        <img src="static/brands/schneider.png" alt="Schneider Electric">
+        <img src="static/brands/centurion.png" alt="Centurion Systems">
+
+        <!-- duplicado para efecto infinito -->
+        <img src="static/brands/dahua.png" alt="Dahua">
+        <img src="static/brands/tplink.png" alt="TP-Link">
+        <img src="static/brands/schneider.png" alt="Schneider Electric">
+        <img src="static/brands/centurion.png" alt="Centurion Systems">
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="reveal" id="contacto">
+    <h2 class="title">Contacto</h2>
+    <p class="subtitle">
+      Escríbenos y cotiza tu proyecto. Atención inmediata.
+    </p>
+
+    <div class="contact-box glass">
+      <p>📧 Email: <b>ipe3ecuador@gmail.com</b></p>
+      <p>📱 Teléfono: <b>+593 98 401 6027</b></p>
+      <p>📍 Ecuador - Quito</p>
+
+      <br>
+      <a class="btn" href="https://wa.me/593984016027" target="_blank">💬 WhatsApp Directo</a>
+    </div>
+  </section>
+
+  <!-- WHATSAPP FLOAT -->
+  <a class="whatsapp" href="https://wa.me/593984016027" target="_blank">💬</a>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2016 IPE3® — TODOS LOS DERECHOS RESERVADOS.</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    /* ===== STARS ===== */
+    const starsContainer = document.getElementById("stars");
+    for(let i=0; i<140; i++){
+      const star = document.createElement("div");
+      star.classList.add("star");
+      star.style.top = Math.random() * 100 + "%";
+      star.style.left = Math.random() * 100 + "%";
+      star.style.animationDuration = (Math.random() * 2 + 1) + "s";
+      starsContainer.appendChild(star);
+    }
+
+    /* ===== REVEAL SCROLL ===== */
+    function reveal(){
+      let reveals = document.querySelectorAll(".reveal");
+      for(let i=0; i<reveals.length; i++){
+        let windowHeight = window.innerHeight;
+        let elementTop = reveals[i].getBoundingClientRect().top;
+        let elementVisible = 120;
+        if(elementTop < windowHeight - elementVisible){
+          reveals[i].classList.add("active");
+        }
+      }
+    }
+    window.addEventListener("scroll", reveal);
+    reveal();
+
+    /* ===== COUNTER ANIMATION ===== */
+    function animateCounter(id, target){
+      let counter = document.getElementById(id);
+      let count = 0;
+      let speed = target / 120;
+
+      let interval = setInterval(()=>{
+        count += speed;
+        if(count >= target){
+          counter.innerText = target + "+";
+          clearInterval(interval);
+        } else {
+          counter.innerText = Math.floor(count);
+        }
+      }, 20);
+    }
+
+    animateCounter("contador1", 180);
+    animateCounter("contador2", 120);
+    animateCounter("contador3", 10);
+  </script>
+
+</body>
+</html>
