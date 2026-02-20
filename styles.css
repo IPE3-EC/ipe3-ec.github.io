@@ -54,28 +54,66 @@ header {
 }
 
 /* ============================= */
-/* HERO SECTION */
+/* HERO PROFESIONAL IMPACTANTE */
 /* ============================= */
 
 .hero {
-    padding: 120px 40px;
+    position: relative;
+    padding: 140px 40px;
     text-align: center;
     color: white;
-    background: linear-gradient(rgba(13,27,42,0.85), rgba(13,27,42,0.85)),
-                url("static/img/hero-bg.jpg");
+    background: linear-gradient(
+        rgba(10, 20, 40, 0.85),
+        rgba(10, 20, 40, 0.85)
+    ),
+    url("static/img/hero-bg.jpg");
     background-size: cover;
     background-position: center;
+    overflow: hidden;
 }
 
 .hero h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
+    font-size: 54px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    animation: fadeUp 1s ease forwards;
 }
 
 .hero p {
     font-size: 20px;
-    max-width: 800px;
+    max-width: 850px;
     margin: auto;
+    opacity: 0.9;
+    animation: fadeUp 1.4s ease forwards;
+}
+
+/* Botón hero */
+.hero .btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 14px 30px;
+    font-size: 16px;
+    background: linear-gradient(90deg, #00b4d8, #0077b6);
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+.hero .btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 180, 216, 0.4);
+}
+
+/* Animación */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* ============================= */
