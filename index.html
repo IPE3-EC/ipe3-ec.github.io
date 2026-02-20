@@ -1,89 +1,148 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IPE3 Engineering</title>
 
-<link rel="stylesheet" href="styles.css">
-<link rel="icon" href="static/img/ipe3-logo.png">
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+body {
+    background-color: #0f172a;
+}
+
+.glass {
+    backdrop-filter: blur(14px);
+    background: rgba(255,255,255,0.05);
+}
+
+.fade-in {
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 25px rgba(0,255,200,0.4);
+    transition: 0.3s;
+}
+</style>
 </head>
 
-<body>
+<body class="text-white">
 
-<header class="navbar">
-    <div class="nav-container">
-        <div class="logo">
-            <img src="static/img/ipe3-logo.png" alt="IPE3">
-            <span>IPE3 Engineering</span>
-        </div>
+<!-- ================= HEADER ================= -->
+<header class="fixed top-0 w-full bg-black/60 backdrop-blur-lg z-50 border-b border-white/10">
+<div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
-        <nav>
-            <a href="#">Inicio</a>
-            <a href="#">Servicios</a>
-            <a href="#">Proyectos</a>
-            <a href="#">Nosotros</a>
-            <a href="#">Contacto</a>
-        </nav>
-
-        <a href="#" class="btn-nav">Solicitar Cotización</a>
+<a href="/" onclick="location.reload()" class="flex items-center gap-3">
+    <img src="static/img/ipe3-logo.png" alt="IPE3 Logo" class="h-12 w-auto object-contain">
+    <div class="flex flex-col">
+        <span class="text-xl font-bold tracking-tight text-white leading-tight">
+            IPE3 <span class="text-teal-400 font-light">Engineering</span>
+        </span>
+        <span class="text-[10px] uppercase tracking-widest text-slate-400 font-bold leading-none">
+            by CORPORACIÓN 360
+        </span>
     </div>
+</a>
+
+<nav class="hidden md:flex gap-8 text-sm font-semibold">
+<a href="#inicio" class="hover:text-teal-400 transition">Inicio</a>
+<a href="#servicios" class="hover:text-teal-400 transition">Servicios</a>
+<a href="#contacto" class="hover:text-teal-400 transition">Contacto</a>
+</nav>
+
+</div>
 </header>
 
-<section class="hero">
-    <div class="hero-overlay"></div>
-
-    <div class="hero-content">
-        <span class="badge">EXPERTOS EN QUITO, ECUADOR</span>
-
-        <h1>
-            Ingeniería Eléctrica<br>
-            con <span class="highlight">Precisión Digital</span>
-        </h1>
-
-        <p>
-            Soluciones integrales de automatización, seguridad y mantenimiento industrial.
-            Respaldados por IPE3 Engineering by CORPORACIÓN 360.
-        </p>
-
-        <div class="hero-buttons">
-            <a href="#" class="btn-primary">Explorar Proyectos</a>
-            <a href="#" class="btn-secondary">Nuestros Servicios</a>
-        </div>
-    </div>
+<!-- ================= HERO ================= -->
+<section id="inicio" class="min-h-screen flex items-center justify-center text-center px-6 fade-in">
+<div>
+<h1 class="text-4xl md:text-6xl font-extrabold mb-6">
+Ingeniería Eléctrica y Electrónica
+</h1>
+<p class="text-slate-400 max-w-2xl mx-auto mb-8">
+Soluciones profesionales en instalaciones eléctricas, automatización y seguridad electrónica.
+</p>
+<a href="#contacto" class="px-8 py-4 bg-teal-400 text-black font-bold rounded-xl hover-glow transition">
+Solicitar Cotización
+</a>
+</div>
 </section>
 
-<section class="especialidades">
-    <h2>Nuestras Especialidades</h2>
+<!-- ================= SERVICIOS ================= -->
+<section id="servicios" class="py-20 px-6 bg-slate-900">
+<div class="max-w-7xl mx-auto">
+<h2 class="text-3xl font-bold text-center mb-12">Nuestros Servicios</h2>
 
-    <div class="cards">
-        <div class="card">
-            <h3>Proyectos Eléctricos</h3>
-            <p>Infraestructura eléctrica industrial bajo normativa internacional.</p>
-        </div>
+<div class="grid md:grid-cols-3 gap-8">
 
-        <div class="card">
-            <h3>Domótica Avanzada</h3>
-            <p>Sistemas inteligentes para eficiencia energética total.</p>
-        </div>
+<div class="p-8 rounded-3xl glass border border-white/10 hover-glow transition">
+<h3 class="text-xl font-bold mb-4">Instalaciones Eléctricas</h3>
+<p class="text-slate-400">Residenciales, comerciales e industriales.</p>
+</div>
 
-        <div class="card">
-            <h3>Seguridad Electrónica</h3>
-            <p>CCTV analítico y control biométrico de alta tecnología.</p>
-        </div>
+<div class="p-8 rounded-3xl glass border border-white/10 hover-glow transition">
+<h3 class="text-xl font-bold mb-4">Automatización</h3>
+<p class="text-slate-400">Control industrial y sistemas inteligentes.</p>
+</div>
 
-        <div class="card">
-            <h3>Mantenimiento Médico</h3>
-            <p>Soporte técnico certificado hospitalario especializado.</p>
-        </div>
-    </div>
+<div class="p-8 rounded-3xl glass border border-white/10 hover-glow transition">
+<h3 class="text-xl font-bold mb-4">Seguridad Electrónica</h3>
+<p class="text-slate-400">Cámaras, alarmas y monitoreo profesional.</p>
+</div>
+
+</div>
+</div>
 </section>
 
-<footer class="footer">
-    <div class="footer-content">
-        © 2026 IPE3 Engineering | Todos los derechos reservados
-    </div>
+<!-- ================= CONTACTO ================= -->
+<section id="contacto" class="py-20 px-6 text-center">
+<h2 class="text-3xl font-bold mb-6">Contáctanos</h2>
+<p class="text-slate-400 mb-8">Estamos listos para tu próximo proyecto.</p>
+
+<a href="https://wa.me/593984016027" target="_blank"
+class="px-8 py-4 bg-green-500 text-black font-bold rounded-xl hover-glow transition">
+WhatsApp 0984016027
+</a>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-black border-t border-white/10 py-10 mt-20">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+
+<div class="flex items-center gap-4">
+<img src="static/img/ipe3-logo.png" alt="IPE3 Logo" class="h-10 w-auto object-contain">
+<div>
+<p class="font-bold">IPE3 Engineering</p>
+<p class="text-slate-400 text-sm">© 2026 Todos los derechos reservados</p>
+</div>
+</div>
+
+<div class="text-slate-400 text-sm">
+Desarrollado por CORPORACIÓN 360
+</div>
+
+</div>
 </footer>
+
+<!-- ================= SCRIPT ================= -->
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+e.preventDefault();
+document.querySelector(this.getAttribute('href')).scrollIntoView({
+behavior: 'smooth'
+});
+});
+});
+</script>
 
 </body>
 </html>
