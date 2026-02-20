@@ -163,25 +163,90 @@ Soluciones integrales de automatización, seguridad y mantenimiento industrial.
 </section>
 
 <!-- FOOTER CON CONSTELACIONES -->
-<footer id="contacto" class="constellation-bg text-slate-400 py-20 relative">
-
-<div class="absolute inset-0 pointer-events-none overflow-hidden opacity-30">
-<div class="star w-1 h-1 top-[10%] left-[15%]"></div>
-<div class="star w-1 h-1 top-[50%] left-[70%]"></div>
-<div class="constellation-line w-[400px] rotate-[25deg] top-[20%] left-[20%]"></div>
-</div>
-
-<div class="container mx-auto px-6 relative z-10 text-center">
-<img src="./static/img/ipe3-logo.png" class="w-14 mx-auto mb-6" alt="">
-<p class="mb-4">Cusubamba y Tendales, Quito - Ecuador</p>
-<p class="mb-4">Teléfono: 0984016027</p>
-<p class="font-bold text-white">ipe3ecuador@gmail.com</p>
-<p class="mt-8 text-xs text-slate-600">© 2016 IPE3 Engineering by CORPORACIÓN 360</p>
-</div>
 </footer>
 
-<!-- JS -->
-<script src="./script.js" defer></script>
+    <!-- Contenido Footer -->
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            <!-- Logo y descripción -->
+            <div>
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 bg-primary flex items-center justify-center rounded-lg">
+                        <span class="text-deep-charcoal font-bold text-lg">I3</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xl font-bold tracking-tight text-white leading-tight">IPE3 <span class="text-primary font-light">Engineering</span></span>
+                        <span class="text-[9px] uppercase tracking-wider text-slate-400 font-bold leading-none">by CORPORACIÓN 360</span>
+                    </div>
+                </div>
+                <p class="text-sm leading-relaxed mb-8 text-slate-400">
+                    Líderes en ingeniería eléctrica y electrónica en el Ecuador. Desarrollamos soluciones de alta tecnología con precisión milimétrica y seguridad garantizada.
+                </p>
+                <div class="flex gap-4">
+                    <a class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-primary hover:text-deep-charcoal transition-all border border-white/10" href="#"><span class="material-icons text-sm">facebook</span></a>
+                    <a class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-primary hover:text-deep-charcoal transition-all border border-white/10" href="#"><span class="material-icons text-sm">camera_alt</span></a>
+                    <a class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-primary hover:text-deep-charcoal transition-all border border-white/10" href="#"><span class="material-icons text-sm">alternate_email</span></a>
+                </div>
+            </div>
+
+            <!-- Empresa -->
+            <div>
+                <h4 class="text-white font-bold mb-8 uppercase tracking-widest text-xs">Empresa</h4>
+                <ul class="space-y-4 text-sm">
+                    <li><a class="hover:text-primary transition-colors" href="#">Inicio</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Especialidades</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Portafolio Proyectos</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Nuestra Historia</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Oportunidades</a></li>
+                </ul>
+            </div>
+
+            <!-- Soluciones -->
+            <div>
+                <h4 class="text-white font-bold mb-8 uppercase tracking-widest text-xs">Soluciones</h4>
+                <ul class="space-y-4 text-sm">
+                    <li><a class="hover:text-primary transition-colors" href="#">Automatización Industrial</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Cableado Inteligente</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Seguridad Contra Incendios</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Sistemas UPS & Energía</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Mantenimiento Predictivo</a></li>
+                </ul>
+            </div>
+
+            <!-- Contacto -->
+            <div>
+                <h4 class="text-white font-bold mb-8 uppercase tracking-widest text-xs">Contacto</h4>
+                <ul class="space-y-6 text-sm">
+                    <li class="flex gap-4">
+                        <span class="material-icons text-primary text-xl">location_on</span>
+                        <span class="text-slate-300">Dirección: Cusubamba y Tendales, Quito, Ecuador</span>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="material-icons text-primary text-xl">phone</span>
+                        <span class="text-slate-300">Teléfono: 0984016027</span>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="material-icons text-primary text-xl">email</span>
+                        <span class="text-slate-300 font-bold">Correo: ipe3ecuador@gmail.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Créditos y enlaces legales -->
+        <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-widest font-bold text-slate-500">
+            <p>© 2016 IPE3 Engineering by CORPORACIÓN 360</p>
+            <div class="flex gap-8">
+                <a class="hover:text-primary transition-colors" href="#">Privacidad</a>
+                <a class="hover:text-primary transition-colors" href="#">Términos</a>
+                <a class="hover:text-primary transition-colors" href="#">Sitemap</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- JS Propio -->
+<script src="./scripts.js" defer></script>
 
 </body>
 </html>
