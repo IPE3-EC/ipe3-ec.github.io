@@ -41,36 +41,42 @@
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 selection:bg-primary selection:text-background-dark">
-<!-- Navigation -->
+<!-- Header -->
 <header class="sticky top-0 z-50 w-full border-b border-primary/10 bg-background-dark/80 backdrop-blur-md">
-<div class="max-w-7xl mx-auto px-6 lg:px-12 flex h-20 items-center justify-between">
-<div class="flex items-center gap-3">
-<div class="text-primary">
-<svg class="w-8 h-8" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"></path>
-</svg>
-</div>
-<div>
-<h1 class="text-xl font-bold tracking-tight text-slate-100">IPE3 <span class="text-primary font-light">Engineering</span></h1>
-<p class="text-[10px] uppercase tracking-widest text-primary/60 leading-none">by CORPORACIÓN 360</p>
-</div>
-</div>
-<nav class="hidden md:flex items-center gap-10">
-<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#">Servicios</a>
-<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#">Equipos</a>
-<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#">Certificaciones</a>
-<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#">Quito HQ</a>
-</nav>
-<div class="flex items-center gap-4">
-<button class="hidden lg:flex items-center gap-2 bg-primary/10 border border-primary/30 text-primary px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary hover:text-background-dark transition-all">
-<span class="material-symbols-outlined text-sm">emergency</span>
-                    Soporte 24/7
-                </button>
-<button class="bg-primary text-background-dark px-6 py-2 rounded-lg text-sm font-bold hover:brightness-110 transition-all">
-                    Solicitar Soporte
-                </button>
-</div>
-</div>
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 flex h-20 items-center justify-between">
+    <!-- Logo -->
+    <div class="flex items-center gap-3">
+      <div class="w-12 h-12">
+        <img src="static/img/ipe3-logo.png" alt="Logo IPE3" class="w-full h-full object-contain">
+      </div>
+      <div>
+        <h1 class="text-xl font-bold tracking-tight text-slate-100">IPE3 <span class="text-primary font-light">Engineering</span></h1>
+        <p class="text-[10px] uppercase tracking-widest text-primary/60 leading-none">by CORPORACIÓN 360</p>
+      </div>
+    </div>
+
+    <!-- Navegación -->
+    <nav class="hidden md:flex items-center gap-10">
+      <a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#">Servicios</a>
+      <a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#">Equipos</a>
+      <a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#">Certificaciones</a>
+      <a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#">Quito HQ</a>
+    </nav>
+
+    <!-- Botones -->
+    <div class="flex items-center gap-4">
+      <!-- Botón Soporte 24/7 -->
+      <button onclick="window.open('https://wa.me/593984016027','_blank')" class="hidden lg:flex items-center gap-2 bg-primary/10 border border-primary/30 text-primary px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary hover:text-background-dark transition-all">
+        <span class="material-symbols-outlined text-sm">emergency</span>
+        Soporte 24/7
+      </button>
+
+      <!-- Botón Solicitar Soporte -->
+      <button onclick="window.open('https://wa.me/593984016027?text=Hola,%20necesito%20soporte%20inmediato','_blank')" class="bg-primary text-background-dark px-6 py-2 rounded-lg text-sm font-bold hover:brightness-110 transition-all">
+        Solicitar Soporte
+      </button>
+    </div>
+  </div>
 </header>
 <main>
 <!-- Hero Section -->
