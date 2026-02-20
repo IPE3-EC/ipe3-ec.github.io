@@ -1,31 +1,35 @@
 <!DOCTYPE html>
-<html lang="es">
+<html class="dark" lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IPE3 Engineering | Ingeniería Eléctrica Industrial en Ecuador</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>IPE3 Engineering by CORPORACIÓN 360 | Ingeniería Eléctrica y Electrónica</title>
 
-<!-- SEO PROFESIONAL -->
-<meta name="description" content="Ingeniería eléctrica industrial, automatización, domótica y seguridad electrónica en Ecuador. Proyectos para hospitales, industrias y edificios inteligentes.">
-<meta property="og:title" content="IPE3 Engineering | Precisión Eléctrica Industrial">
-<meta property="og:description" content="Soluciones avanzadas en automatización y energía crítica.">
+<!-- SEO -->
+<meta name="description" content="Empresa líder en ingeniería eléctrica, automatización industrial y seguridad electrónica en Quito, Ecuador. Proyectos eléctricos de alta precisión.">
+<meta property="og:title" content="IPE3 Engineering | Ingeniería Eléctrica en Ecuador">
+<meta property="og:description" content="Soluciones avanzadas en automatización, domótica y seguridad electrónica.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
-
-<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 
 <script>
 tailwind.config = {
+darkMode: "class",
 theme: {
 extend: {
 colors: {
 primary: "#00d2ff",
 accent: "#0072ff",
-darkbg: "#0a0c10"
+darkbg: "#0a0c10",
+card: "#1a1f2e",
+whatsapp: "#25D366",
+},
+fontFamily: {
+display: ["Space Grotesk"]
 }
 }
 }
@@ -33,161 +37,166 @@ darkbg: "#0a0c10"
 </script>
 
 <style>
-body {font-family:'Space Grotesk',sans-serif;background:#0a0c10;color:#e5e7eb;}
-.glass {background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);}
-.fade-up {opacity:0;transform:translateY(40px);transition:.8s ease;}
-.fade-up.show {opacity:1;transform:translateY(0);}
+body {font-family:'Space Grotesk',sans-serif;background:#0a0c10;color:#e2e8f0;}
+.reveal{opacity:0;transform:translateY(40px);transition:all .8s ease;}
+.reveal.active{opacity:1;transform:translateY(0);}
 </style>
 </head>
 
-<body class="overflow-x-hidden">
+<body>
 
 <!-- NAV -->
-<header class="fixed w-full z-50 bg-black/60 backdrop-blur border-b border-white/10">
+<header class="fixed w-full z-50 bg-black/70 backdrop-blur border-b border-white/10">
 <div class="container mx-auto px-6 py-4 flex justify-between items-center">
 <div class="flex items-center gap-3">
 <div class="w-10 h-10 bg-gradient-to-br from-primary to-accent flex items-center justify-center rounded-lg">
-<span class="text-black font-bold">I3</span>
+<span class="font-bold text-black">I3</span>
 </div>
-<span class="text-white font-bold text-lg md:text-xl">
-IPE3 <span class="text-primary font-light">Engineering</span>
-</span>
+<span class="text-white font-bold text-xl">IPE3 <span class="text-primary font-light">Engineering</span></span>
 </div>
 
-<a href="#contacto" class="hidden md:block bg-primary text-black px-6 py-2 rounded-lg font-semibold hover:bg-white transition">
+<a href="#contacto" class="bg-primary text-black px-6 py-2 rounded-lg font-bold hover:bg-white transition">
 Solicitar Cotización
 </a>
 </div>
 </header>
 
 <!-- HERO -->
-<section class="relative min-h-screen flex items-center justify-center text-center px-6">
-<img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
-class="absolute inset-0 w-full h-full object-cover opacity-30">
+<section class="relative h-screen flex items-center">
+<img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" 
+class="absolute w-full h-full object-cover opacity-40"/>
+<div class="container mx-auto px-6 relative z-10">
+<div class="max-w-3xl reveal">
 
-<div class="relative z-10 max-w-4xl fade-up">
-<h1 class="text-4xl md:text-6xl font-bold text-white leading-tight">
-Ingeniería Eléctrica Industrial  
-<span class="text-primary">de Alta Precisión</span>
+<span class="text-primary uppercase text-sm tracking-widest">Líderes en Quito, Ecuador</span>
+
+<h1 class="text-6xl font-bold text-white mt-4 mb-6">
+Ingeniería Eléctrica con 
+<span class="text-primary">Precisión Digital</span>
 </h1>
 
-<p class="mt-6 text-lg md:text-xl text-gray-300">
-Proyectos eléctricos para hospitales, industrias y edificios inteligentes en Ecuador.
+<p class="text-lg text-slate-300 mb-8">
+Soluciones integrales de automatización, seguridad y mantenimiento industrial.
 </p>
 
-<div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+<div class="flex gap-4">
 <a href="#proyectos" class="bg-primary text-black px-8 py-4 rounded-xl font-bold hover:bg-white transition">
 Ver Casos de Éxito
 </a>
+
 <a href="#servicios" class="border border-white/30 px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition">
 Nuestros Servicios
 </a>
 </div>
 
-<div class="flex flex-wrap justify-center gap-10 mt-12 text-sm text-gray-400">
-<div><span class="text-primary text-3xl font-bold">+150</span><br>Proyectos</div>
-<div><span class="text-primary text-3xl font-bold">8+</span><br>Años</div>
-<div><span class="text-primary text-3xl font-bold">24/7</span><br>Soporte</div>
+<!-- MÉTRICAS -->
+<div class="flex gap-10 mt-10 text-slate-400 text-sm">
+<div><span class="text-primary text-2xl font-bold">+150</span><br/>Proyectos</div>
+<div><span class="text-primary text-2xl font-bold">8+</span><br/>Años</div>
+<div><span class="text-primary text-2xl font-bold">24/7</span><br/>Soporte</div>
+</div>
+
 </div>
 </div>
 </section>
 
-<!-- SERVICIOS INDUSTRIALES -->
-<section id="servicios" class="py-24 px-6 text-center">
-<h2 class="text-3xl md:text-4xl font-bold text-white mb-12">Soluciones Industriales</h2>
+<!-- SERVICIOS -->
+<section id="servicios" class="py-24 bg-card">
+<div class="container mx-auto px-6 text-center">
+<h2 class="text-4xl text-white font-bold mb-12">Nuestras Especialidades</h2>
 
-<div class="grid md:grid-cols-4 gap-8 max-w-7xl mx-auto">
-<div class="glass p-8 rounded-2xl hover:scale-105 transition">
-<h3 class="text-primary font-bold mb-4">Subestaciones</h3>
-<p class="text-gray-400 text-sm">Diseño e instalación de sistemas de media y alta tensión.</p>
+<div class="grid md:grid-cols-4 gap-8">
+<div class="p-6 bg-black/40 rounded-xl">
+<h3 class="text-white font-bold mb-3">Proyectos Eléctricos</h3>
+<p class="text-slate-400 text-sm">Infraestructura de alta potencia.</p>
 </div>
 
-<div class="glass p-8 rounded-2xl hover:scale-105 transition">
-<h3 class="text-primary font-bold mb-4">Automatización PLC</h3>
-<p class="text-gray-400 text-sm">Control industrial con integración SCADA.</p>
+<div class="p-6 bg-black/40 rounded-xl">
+<h3 class="text-white font-bold mb-3">Domótica</h3>
+<p class="text-slate-400 text-sm">Control inteligente de energía.</p>
 </div>
 
-<div class="glass p-8 rounded-2xl hover:scale-105 transition">
-<h3 class="text-primary font-bold mb-4">Sistemas UPS</h3>
-<p class="text-gray-400 text-sm">Respaldo energético para hospitales y data centers.</p>
+<div class="p-6 bg-black/40 rounded-xl">
+<h3 class="text-white font-bold mb-3">Seguridad Electrónica</h3>
+<p class="text-slate-400 text-sm">CCTV y biometría avanzada.</p>
 </div>
 
-<div class="glass p-8 rounded-2xl hover:scale-105 transition">
-<h3 class="text-primary font-bold mb-4">Seguridad Electrónica</h3>
-<p class="text-gray-400 text-sm">CCTV analítico y control de accesos biométrico.</p>
+<div class="p-6 bg-black/40 rounded-xl">
+<h3 class="text-white font-bold mb-3">Equipamiento Médico</h3>
+<p class="text-slate-400 text-sm">Soporte hospitalario especializado.</p>
+</div>
 </div>
 </div>
 </section>
 
-<!-- SECTOR INDUSTRIAL -->
-<section class="py-24 bg-black text-center px-6">
-<h2 class="text-3xl md:text-4xl font-bold text-white mb-10">
-Sectores que Atendemos
-</h2>
+<!-- POR QUE ELEGIRNOS -->
+<section class="py-24 bg-black text-center">
+<h2 class="text-4xl text-white font-bold mb-12">¿Por qué elegir IPE3?</h2>
 
-<div class="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto text-gray-400">
-<div>🏭 Industria</div>
-<div>🏥 Hospitales</div>
-<div>🏢 Edificios Corporativos</div>
-<div>⚡ Data Centers</div>
+<div class="grid md:grid-cols-3 gap-10 container mx-auto px-6">
+<div>
+<h3 class="text-primary text-xl font-bold mb-3">Certificación</h3>
+<p class="text-slate-400">Cumplimos normas IEC y NEC.</p>
+</div>
+
+<div>
+<h3 class="text-primary text-xl font-bold mb-3">Ingeniería Especializada</h3>
+<p class="text-slate-400">Equipo altamente capacitado.</p>
+</div>
+
+<div>
+<h3 class="text-primary text-xl font-bold mb-3">Soporte Continuo</h3>
+<p class="text-slate-400">Mantenimiento y acompañamiento.</p>
+</div>
 </div>
 </section>
 
 <!-- PROYECTOS -->
-<section id="proyectos" class="py-24 px-6 text-center">
-<h2 class="text-3xl md:text-4xl font-bold text-white mb-12">
-Casos de Éxito
-</h2>
+<section id="proyectos" class="py-24 bg-card text-center">
+<h2 class="text-4xl text-white font-bold mb-12">Proyectos Destacados</h2>
+<div class="grid md:grid-cols-3 gap-8 container mx-auto px-6">
 
-<div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-<div class="glass p-10 rounded-2xl">Planta Industrial Automatizada</div>
-<div class="glass p-10 rounded-2xl">Sistema UPS Hospitalario</div>
-<div class="glass p-10 rounded-2xl">Smart Building Corporativo</div>
+<div class="bg-black/40 rounded-xl p-10">Planta Industrial</div>
+<div class="bg-black/40 rounded-xl p-10">Respaldo Crítico</div>
+<div class="bg-black/40 rounded-xl p-10">Smart Building</div>
+
 </div>
 </section>
 
-<!-- CTA FINAL -->
-<section class="py-24 bg-gradient-to-r from-primary to-accent text-black text-center px-6">
-<h2 class="text-3xl md:text-4xl font-bold mb-6">
-¿Listo para potenciar tu infraestructura eléctrica?
-</h2>
-<a href="tel:+593984016027" class="bg-black text-white px-8 py-4 rounded-xl font-bold hover:bg-gray-800 transition">
-Contactar Ahora
-</a>
-</section>
-
 <!-- FOOTER -->
-<footer id="contacto" class="py-16 text-center bg-black border-t border-white/10 px-6">
-<p class="text-gray-400 mb-3">Quito, Ecuador</p>
+<footer id="contacto" class="bg-black py-16 text-center">
+<h3 class="text-white text-2xl font-bold mb-6">Contacto</h3>
 
-<p>
+<p class="text-slate-400 mb-3">Quito, Ecuador</p>
+
+<p class="mb-3">
 <a href="tel:+593984016027" class="text-primary hover:underline">
 +593 98 401 6027
 </a>
 </p>
 
-<p class="mt-2">
+<p>
 <a href="mailto:ipe3ecuador@gmail.com" class="text-primary hover:underline">
 ipe3ecuador@gmail.com
 </a>
 </p>
 
-<p class="text-gray-600 text-xs mt-10">
+<p class="text-slate-600 text-xs mt-10">
 © 2026 IPE3 Engineering by CORPORACIÓN 360
 </p>
 </footer>
 
-<!-- ANIMACIÓN -->
+<!-- REVEAL SCRIPT -->
 <script>
 const observer=new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
 if(entry.isIntersecting){
-entry.target.classList.add("show")
+entry.target.classList.add("active")
 }
 })
-},{threshold:0.2});
+},{threshold:0.15});
 
-document.querySelectorAll(".fade-up").forEach(el=>observer.observe(el));
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 </script>
 
 </body>
