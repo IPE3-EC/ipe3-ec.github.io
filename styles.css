@@ -1,116 +1,42 @@
-/* Tipografía general */
-body { 
-    font-family: 'Space Grotesk', sans-serif; 
-}
-
-/* Fondos y patrones */
-.dark-gradient-bg { 
-    background: radial-gradient(circle at top right, #1a2333, #0a0c10 70%);
-}
-
-.circuit-pattern { 
-    background-image: radial-gradient(#00d2ff 0.5px, transparent 0.5px);
-    background-size: 32px 32px;
-    opacity: 0.08;
-}
-
-.constellation-bg { 
-    background: radial-gradient(circle at 50% 50%, #111827, #030712);
-    position: relative;
-    overflow: hidden;
-}
-
-/* Estrellas y líneas de constelación */
-.star { 
-    position: absolute;
-    background: white;
-    border-radius: 50%;
-    opacity: 0.5;
-}
-
-.constellation-line { 
-    position: absolute;
-    background: rgba(0, 210, 255, 0.1);
-    height: 1px;
-    transform-origin: left center;
-}
-
-/* Paneles de vidrio / glass effect */
-.glass-panel { 
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Efecto marquee / desplazamiento horizontal */
-.marquee-container { 
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-}
 /* --------------------------- */
-/* Animaciones para footer      */
+/* FOOTER CIELO ESTRELLADO PRO */
 /* --------------------------- */
 
-@keyframes twinkle {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.8; }
-}
-
-@keyframes move-line {
-  0% { transform: translateX(0%) rotate(var(--rotate)); }
-  50% { transform: translateX(2%) rotate(var(--rotate)); }
-  100% { transform: translateX(0%) rotate(var(--rotate)); }
-}
-
-.star { animation: twinkle 3s infinite ease-in-out; }
-.star.delay-200 { animation-delay: 0.2s; }
-.star.delay-400 { animation-delay: 0.4s; }
-.star.delay-600 { animation-delay: 0.6s; }
-.star.delay-800 { animation-delay: 0.8s; }
-.star.delay-1000 { animation-delay: 1s; }
-.star.delay-1200 { animation-delay: 1.2s; }
-.star.delay-1400 { animation-delay: 1.4s; }
-
-.constellation-line { animation: move-line 10s infinite ease-in-out; }
-.constellation-line.delay-300 { animation-delay: 0.3s; }
-.constellation-line.delay-600 { animation-delay: 0.6s; }
-.constellation-line.delay-900 { animation-delay: 0.9s; }
-
-/* Estrellas parpadeantes */
 .star {
   position: absolute;
   background: white;
   border-radius: 50%;
-  opacity: 0.5;
-  animation: twinkle 3s infinite alternate;
+  opacity: 0.6;
+  animation: twinkle 3s infinite ease-in-out alternate,
+             float 18s infinite ease-in-out;
 }
 
+/* Parpadeo */
 @keyframes twinkle {
-  0% { opacity: 0.2; transform: scale(0.5); }
+  0% { opacity: 0.2; transform: scale(0.6); }
   50% { opacity: 1; transform: scale(1); }
-  100% { opacity: 0.3; transform: scale(0.7); }
+  100% { opacity: 0.3; transform: scale(0.8); }
 }
 
-/* Movimiento lento de estrellas */
+/* Movimiento lento natural */
 @keyframes float {
   0% { transform: translate(0px, 0px); }
-  50% { transform: translate(5px, -3px); }
+  50% { transform: translate(8px, -6px); }
   100% { transform: translate(0px, 0px); }
 }
 
-.star:nth-child(odd) { animation: twinkle 2s infinite alternate, float 15s ease-in-out infinite; }
-.star:nth-child(even) { animation: twinkle 3s infinite alternate, float 12s ease-in-out infinite; }
-
-/* Líneas de constelación suaves */
+/* Líneas de constelación */
 .constellation-line {
   position: absolute;
-  background: rgba(0, 210, 255, 0.15);
+  background: rgba(0, 210, 255, 0.18);
   height: 1px;
   transform-origin: left center;
-  animation: line-fade 4s infinite alternate;
+  animation: lineGlow 5s infinite ease-in-out alternate;
 }
 
-@keyframes line-fade {
+/* Brillo suave */
+@keyframes lineGlow {
   0% { opacity: 0.05; }
-  50% { opacity: 0.2; }
-  100% { opacity: 0.05; }
+  50% { opacity: 0.25; }
+  100% { opacity: 0.08; }
 }
