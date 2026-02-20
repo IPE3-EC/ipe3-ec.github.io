@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IPE3 Engineering | Ingeniería Eléctrica y Automatización</title>
+<title>IPE3 Engineering | Innovación Eléctrica y Automatización</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 
@@ -17,7 +17,7 @@ extend: {
 colors: {
 primary: "#00d2ff",
 accent: "#0072ff",
-darkbg: "#0a0c10"
+darkbg: "#07090d"
 }
 }
 }
@@ -26,22 +26,30 @@ darkbg: "#0a0c10"
 
 <style>
 body { font-family: 'Space Grotesk', sans-serif; }
+
+/* Partículas */
+canvas {
+position: fixed;
+top: 0;
+left: 0;
+z-index: -1;
+}
 </style>
 </head>
 
 <body class="bg-darkbg text-white scroll-smooth">
 
-<!-- ================= HEADER ================= -->
+<canvas id="particles"></canvas>
 
-<header class="fixed top-0 w-full z-50 bg-darkbg/90 backdrop-blur border-b border-white/10">
+<!-- HEADER -->
+<header id="navbar" class="fixed top-0 w-full z-50 transition duration-300">
 <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
 
 <div class="flex items-center gap-4">
-<img src="ipe3-logo.png" alt="IPE3 Logo" class="h-14 w-auto object-contain">
-
-<div class="leading-tight">
+<img src="ipe3-logo.png" class="h-14 w-auto object-contain">
+<div>
 <h1 class="font-bold text-lg">IPE3 Engineering</h1>
-<p class="text-xs tracking-widest text-gray-400 uppercase">by Corporación 360</p>
+<p class="text-xs uppercase tracking-widest text-gray-400">by Corporación 360</p>
 </div>
 </div>
 
@@ -58,94 +66,85 @@ Cotizar
 </nav>
 </header>
 
-<!-- ================= HERO ================= -->
-
-<section class="h-screen flex items-center justify-center text-center px-6 bg-gradient-to-br from-black to-gray-900 pt-24">
-
+<!-- HERO -->
+<section class="h-screen flex items-center justify-center text-center px-6 pt-24">
 <div class="max-w-4xl">
-<h2 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-Ingeniería Eléctrica de
+
+<h2 class="text-5xl md:text-6xl font-bold leading-tight mb-6">
+Potenciamos la Industria con
 <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-Alta Precisión
+Ingeniería Inteligente
 </span>
 </h2>
 
 <p class="text-gray-400 text-lg mb-10">
-Especialistas en automatización industrial, mantenimiento eléctrico,
-sistemas de seguridad y soluciones tecnológicas en Ecuador.
+Soluciones eléctricas, automatización industrial y seguridad tecnológica
+con estándares internacionales.
 </p>
 
-<a href="#servicios" class="bg-primary text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-white transition shadow-xl">
-Nuestros Servicios
+<a href="#servicios" class="bg-primary text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-white transition shadow-xl shadow-primary/40">
+Descubrir Más
 </a>
-</div>
 
+</div>
 </section>
 
-<!-- ================= SERVICIOS ================= -->
-
-<section id="servicios" class="py-24 bg-black">
+<!-- SERVICIOS -->
+<section id="servicios" class="py-24">
 <div class="container mx-auto px-6">
 
 <h3 class="text-4xl font-bold text-center mb-16">Nuestros Servicios</h3>
 
 <div class="grid md:grid-cols-3 gap-10">
 
-<div class="bg-darkbg p-8 rounded-2xl border border-white/10 hover:border-primary transition">
+<div class="bg-white/5 backdrop-blur-lg p-8 rounded-2xl border border-white/10 hover:scale-105 hover:border-primary transition duration-500">
 <h4 class="text-xl font-semibold mb-4">Instalaciones Eléctricas</h4>
-<p class="text-gray-400 text-sm">
-Diseño e implementación de sistemas eléctricos industriales y comerciales.
-</p>
+<p class="text-gray-400 text-sm">Diseño, montaje y mantenimiento industrial.</p>
 </div>
 
-<div class="bg-darkbg p-8 rounded-2xl border border-white/10 hover:border-primary transition">
-<h4 class="text-xl font-semibold mb-4">Automatización Industrial</h4>
-<p class="text-gray-400 text-sm">
-Controladores PLC, tableros inteligentes y monitoreo digital.
-</p>
+<div class="bg-white/5 backdrop-blur-lg p-8 rounded-2xl border border-white/10 hover:scale-105 hover:border-primary transition duration-500">
+<h4 class="text-xl font-semibold mb-4">Automatización PLC</h4>
+<p class="text-gray-400 text-sm">Sistemas inteligentes de control y monitoreo.</p>
 </div>
 
-<div class="bg-darkbg p-8 rounded-2xl border border-white/10 hover:border-primary transition">
+<div class="bg-white/5 backdrop-blur-lg p-8 rounded-2xl border border-white/10 hover:scale-105 hover:border-primary transition duration-500">
 <h4 class="text-xl font-semibold mb-4">Seguridad Electrónica</h4>
-<p class="text-gray-400 text-sm">
-CCTV, alarmas y sistemas de control de acceso empresarial.
-</p>
+<p class="text-gray-400 text-sm">CCTV, alarmas y control de acceso.</p>
 </div>
 
 </div>
 </div>
 </section>
 
-<!-- ================= PROYECTOS ================= -->
-
-<section id="proyectos" class="py-24 bg-darkbg">
+<!-- PROYECTOS -->
+<section id="proyectos" class="py-24 bg-black/40 backdrop-blur-lg">
 <div class="container mx-auto px-6">
 
 <h3 class="text-4xl font-bold text-center mb-16">Proyectos Destacados</h3>
 
 <div class="grid md:grid-cols-3 gap-10">
 
-<div class="bg-black rounded-2xl overflow-hidden border border-white/10">
+<div class="bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:scale-105 transition duration-500">
 <div class="h-48 bg-gradient-to-br from-primary to-accent"></div>
 <div class="p-6">
-<h4 class="font-semibold mb-2">Automatización Planta Industrial</h4>
-<p class="text-gray-400 text-sm">Sistema completo de control eléctrico.</p>
+<h4 class="font-semibold mb-2">Automatización Industrial</h4>
+<p class="text-gray-400 text-sm">Optimización completa de procesos.</p>
 </div>
 </div>
 
-<div class="bg-black rounded-2xl overflow-hidden border border-white/10">
+<div class="bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:scale-105 transition duration-500">
 <div class="h-48 bg-gradient-to-br from-primary to-accent"></div>
 <div class="p-6">
-<h4 class="font-semibold mb-2">Red CCTV Corporativa</h4>
-<p class="text-gray-400 text-sm">Instalación de 120 cámaras IP.</p>
+<h4 class="font-semibold mb-2">Redes Inteligentes</h4>
+<p class="text-gray-400 text-sm">Infraestructura eléctrica avanzada.</p>
 </div>
 </div>
 
-<div class="bg-black rounded-2xl overflow-hidden border border-white/10">
+<div class="bg-white/5 rounded-2xl overflow-hidden border border-white/10 hover:scale-105 transition duration-500">
 <div class="h-48 bg-gradient-to-br from-primary to-accent"></div>
 <div class="p-6">
-<h4 class="font-semibold mb-2">Tableros Eléctricos Inteligentes</h4>
-<p class="text-gray-400 text-sm">Diseño modular de alto rendimiento.</p>
+<h4 class="font-semibold mb-2">Seguridad Empresarial</h4>
+<p class="text-gray-400 text-sm">Sistemas integrados de vigilancia.</p>
 </div>
 </div>
 
@@ -153,60 +152,69 @@ CCTV, alarmas y sistemas de control de acceso empresarial.
 </div>
 </section>
 
-<!-- ================= CTA ================= -->
+<!-- FOOTER -->
+<footer id="contacto" class="py-16 border-t border-white/10">
+<div class="container mx-auto px-6 text-center">
 
-<section class="py-24 bg-gradient-to-r from-primary to-accent text-black text-center">
-<h3 class="text-4xl font-bold mb-6">¿Listo para tu próximo proyecto?</h3>
-<a href="#contacto" class="bg-black text-white px-8 py-4 rounded-xl font-bold hover:bg-gray-900 transition">
-Contáctanos
-</a>
-</section>
+<img src="ipe3-logo.png" class="h-16 mx-auto mb-6">
 
-<!-- ================= FOOTER ================= -->
-
-<footer id="contacto" class="bg-black py-16 border-t border-white/10">
-<div class="container mx-auto px-6 grid md:grid-cols-2 gap-10">
-
-<div>
-<div class="flex items-center gap-4 mb-6">
-<img src="ipe3-logo.png" class="h-16 w-auto object-contain">
-<div>
-<h4 class="font-bold">IPE3 Engineering</h4>
-<p class="text-xs uppercase tracking-widest text-gray-400">
-by Corporación 360
-</p>
-</div>
-</div>
-
-<p class="text-gray-400 text-sm">
+<p class="text-gray-400 text-sm mb-4">
 Cusubamba y Tendales – Quito  
 Tel: 0984016027  
 ipe3ecuador@gmail.com
 </p>
-</div>
 
-<div>
-<h4 class="font-semibold mb-4">Enlaces</h4>
-<ul class="space-y-2 text-gray-400 text-sm">
-<li><a href="#servicios" class="hover:text-primary">Servicios</a></li>
-<li><a href="#proyectos" class="hover:text-primary">Proyectos</a></li>
-<li><a href="#contacto" class="hover:text-primary">Contacto</a></li>
-</ul>
-</div>
+<p class="text-gray-500 text-xs">
+© 2016 - 2026 IPE3 Engineering by Corporación 360
+</p>
 
-</div>
-
-<div class="text-center text-xs text-gray-500 mt-10">
-© 2016 - 2026 IPE3 Engineering. Todos los derechos reservados.
 </div>
 </footer>
 
-<!-- ================= WHATSAPP ================= -->
-
+<!-- WhatsApp -->
 <a href="https://wa.me/593984016027" target="_blank"
 class="fixed bottom-6 right-6 bg-green-500 w-14 h-14 flex items-center justify-center rounded-full shadow-lg hover:scale-110 transition">
 <span class="text-white text-2xl">💬</span>
 </a>
+
+<!-- Scripts -->
+<script>
+window.addEventListener("scroll", function(){
+const nav = document.getElementById("navbar");
+nav.classList.toggle("bg-black/80", window.scrollY > 50);
+});
+</script>
+
+<script>
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+for(let i=0;i<80;i++){
+particles.push({
+x: Math.random()*canvas.width,
+y: Math.random()*canvas.height,
+r: Math.random()*2,
+d: Math.random()*1
+});
+}
+
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle="rgba(0,210,255,0.5)";
+particles.forEach(p=>{
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2,true);
+ctx.fill();
+p.y+=p.d;
+if(p.y>canvas.height){p.y=0;}
+});
+requestAnimationFrame(draw);
+}
+draw();
+</script>
 
 </body>
 </html>
