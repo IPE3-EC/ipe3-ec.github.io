@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html class="dark" lang="es"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>IPE3®  Engineering by CORPORACIÓN 360 | Ingeniería Eléctrica y Electrónica</title>
+<title>IPE3 Engineering | Dynamic Motion Concept</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
@@ -13,15 +14,14 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#00d2ff",
-                        "accent-blue": "#0072ff",
-                        "deep-charcoal": "#0a0c10",
-                        "slate-dark": "#1a1f2e",
-                        "safety-yellow": "#facc15",
-                        "whatsapp": "#25D366",
+                        "primary": "#0df2df",
+                        "safety-yellow": "#f2df0d",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0a0a0a",
+                        "surface-dark": "#102221",
                     },
                     fontFamily: {
-                        "display": ["Space Grotesk"]
+                        "display": ["Space Grotesk", "sans-serif"]
                     },
                     borderRadius: {
                         "DEFAULT": "0.25rem",
@@ -29,354 +29,286 @@
                         "xl": "0.75rem",
                         "full": "9999px"
                     },
-                    animation: {
-                        'marquee': 'marquee 25s linear infinite',
-                        'ken-burns': 'kenburns 20s ease infinite alternate',
-                        'pulse-soft': 'pulse-soft 2s infinite',
-                    },
-                    keyframes: {
-                        marquee: {
-                            '0%': { transform: 'translateX(0%)' },
-                            '100%': { transform: 'translateX(-50%)' },
-                        },
-                        kenburns: {
-                            '0%': { transform: 'scale(1) translate(0, 0)' },
-                            '100%': { transform: 'scale(1.1) translate(-2%, -2%)' },
-                        },
-                        'pulse-soft': {
-                            '0%': { boxShadow: '0 0 0 0 rgba(37, 211, 102, 0.4)' },
-                            '70%': { boxShadow: '0 0 0 15px rgba(37, 211, 102, 0)' },
-                            '100%': { boxShadow: '0 0 0 0 rgba(37, 211, 102, 0)' },
-                        }
-                    }
                 },
             },
         }
     </script>
-<style type="text/tailwindcss">
-        body { font-family: 'Space Grotesk', sans-serif; }
-        .dark-gradient-bg {
-            background: radial-gradient(circle at top right, #1a2333, #0a0c10 70%);
+<style>
+        .glass-nav {
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(13, 242, 223, 0.2);
         }
-        .circuit-pattern {
-            background-image: radial-gradient(var(--tw-colors-primary) 0.5px, transparent 0.5px);
-            background-size: 32px 32px;
-            opacity: 0.08;
+        .hero-gradient {
+            background: linear-gradient(180deg, rgba(10, 10, 10, 0) 0%, rgba(10, 10, 10, 0.9) 100%);
+        }
+        .mask-fade-edges {
+            mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+        }
+        .pulse-ring {
+            box-shadow: 0 0 0 0 rgba(13, 242, 223, 0.7);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(13, 242, 223, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(13, 242, 223, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(13, 242, 223, 0); }
+        }
+        .floating-node {
+            animation: float 4s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
         }
         .constellation-bg {
-            background: radial-gradient(circle at 50% 50%, #111827, #030712);
-            position: relative;
-            overflow: hidden;
-        }
-        .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            opacity: 0.5;
-        }
-        .constellation-line {
-            position: absolute;
-            background: rgba(0, 210, 255, 0.1);
-            height: 1px;
-            transform-origin: left center;
-        }
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .marquee-container {
-            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            background-image: radial-gradient(circle at 2px 2px, rgba(13, 242, 223, 0.15) 1px, transparent 0);
+            background-size: 40px 40px;
         }
     </style>
 </head>
-<body class="bg-deep-charcoal text-slate-200 selection:bg-primary/30">
-<header class="fixed top-0 w-full z-50 bg-deep-charcoal/80 backdrop-blur-lg border-b border-white/5">
-<nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display selection:bg-primary/30 overflow-x-hidden">
+<!-- Top Navigation -->
+<nav class="fixed top-0 left-0 right-0 z-50 glass-nav">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
 <div class="flex items-center gap-3">
-<div class="w-10 h-10 bg-gradient-to-br from-primary to-accent-blue flex items-center justify-center rounded-lg shadow-lg shadow-primary/20 shrink-0">
-<span class="text-deep-charcoal font-black text-xl">I3</span>
+<div class="size-10 bg-primary/20 rounded-lg flex items-center justify-center border border-primary/40 text-primary">
+<span class="material-symbols-outlined text-2xl">settings_input_component</span>
 </div>
-<div class="flex flex-col">
-<span class="text-xl font-bold tracking-tight text-white leading-tight">IPE3® <span class="text-primary font-light">Engineering</span></span>
-<span class="text-[10px] uppercase tracking-widest text-slate-400 font-bold leading-none">by CORPORACIÓN 360</span>
+<div>
+<h1 class="text-xl font-bold tracking-tight text-white">IPE3 <span class="text-primary">Engineering</span></h1>
+<p class="text-[10px] uppercase tracking-widest text-primary/60 font-medium">by CORPORACIÓN 360</p>
 </div>
 </div>
-<div class="hidden md:flex items-center space-x-8">
-<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#">Inicio</a>
-<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#servicios">Servicios</a>
-<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#proyectos">Proyectos</a>
-<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#nosotros">Nosotros</a>
-<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#contacto">Contacto</a>
-</div>
-<a class="hidden lg:block bg-primary text-deep-charcoal px-6 py-2 rounded-lg font-bold hover:bg-white hover:scale-105 transition-all shadow-lg shadow-primary/10" href="#contacto">
-            Solicitar Cotización
-        </a>
-</nav>
-</header>
-<section class="relative h-screen flex items-center overflow-hidden">
-<div class="absolute inset-0 z-0 overflow-hidden">
-<img alt="High-tech Control Center" class="w-full h-full object-cover scale-105 animate-ken-burns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8KtHLz4DO3g6p-zgz0gkhtrNljW8mkFrt1VNEGFPqyoFM9kURKHKeNasaLPVB3Nogsr2O1OP4FSxtZpr8B2ozgF1if27JGVnA0D9wEVvb02vAZIYG5W5yKTunnbGHuuMqBBcV-SGlLQGshT5Pa46--9Yxgs-QOX31mq5QcPtKqrAStp9Nn0Wd1yovBEAPAslY_t2wwo03BLcT0EF-VLLzB5eLtAITV3xddNenq5sjHR1DemmYZggPw5T7dWcoryCF9hDu3FhfmU4"/>
-<div class="absolute inset-0 bg-gradient-to-r from-deep-charcoal via-deep-charcoal/80 to-transparent"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-deep-charcoal via-transparent to-transparent opacity-60"></div>
-<div class="absolute inset-0 bg-deep-charcoal/20"></div>
-</div>
-<div class="container mx-auto px-6 relative z-10">
-<div class="max-w-3xl">
-<span class="inline-block px-4 py-1.5 bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-widest uppercase rounded-full mb-6">Expertos en Quito, Ecuador</span>
-<h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-                Ingeniería Eléctrica con <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent-blue">Precisión Digital</span>
-</h1>
-<p class="text-xl text-slate-400 mb-10 max-w-2xl leading-relaxed">
-                Soluciones integrales de automatización, seguridad y mantenimiento industrial. Respaldados por <span class="text-white font-semibold">IPE3® Engineering by CORPORACIÓN 360</span>.
-            </p>
-<div class="flex flex-col sm:flex-row gap-4">
-<button class="bg-primary text-deep-charcoal px-8 py-4 rounded-xl font-bold text-lg hover:bg-white transition-all shadow-xl shadow-primary/20 group flex items-center justify-center gap-2">
-                    Explorar Proyectos
-                    <span class="material-icons text-xl group-hover:translate-x-1 transition-transform">arrow_forward</span>
-</button>
-<button class="bg-white/5 backdrop-blur-md border border-white/10 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all">
-                    Nuestros Servicios
+<div class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Domótica</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Seguridad</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Proyectos</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Nosotros</a>
+<button class="bg-primary text-background-dark px-6 py-2.5 rounded-lg font-bold text-sm hover:brightness-110 transition-all shadow-[0_0_20px_rgba(13,242,223,0.3)]">
+                    Cotizar Ahora
                 </button>
 </div>
-        <!-- MÉTRICAS -->
-<div class="flex flex-wrap gap-10 mt-12 text-sm text-slate-400 reveal">
-  <div>
-    <span class="text-primary text-3xl font-bold">+150</span><br/>
-    Proyectos Ejecutados
-  </div>
-  <div>
-    <span class="text-primary text-3xl font-bold">10+</span><br/>
-    Años de Experiencia
-  </div>
-  <div>
-    <span class="text-primary text-3xl font-bold">24/7</span><br/>
-    Soporte Técnico
-  </div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+<!-- Background with Long Exposure Light Trails -->
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-background-dark/60 z-10 hero-gradient"></div>
+<img alt="Smart building in Quito at night with long exposure cyan light trails" class="w-full h-full object-cover opacity-50" data-alt="Smart building in Quito at night with long exposure cyan light trails" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXy7XBJysHcw5duDVuEUoU2dqwe6LhgvzCTnfgsGpgT5VayeyGPVAm88gJWQ4DdKmZ_SmPSi-b55I-J322M-hxPWJXNdS7C8pV0Pb92Ud3HFHNmDphpfrhh9-rsKFjRNTwYvyDTBtzxSwiuJpe17yz1ZJK-VrYWrIwrqJLFMbiqY_JeFL9WzI9VrgItYjr4EyECPrAvFQFFcP0TRR41dsuqpwAYoyMP5HOatYfd-rMe0Mx6-8t7nV6HzM3wWEwAzdKqaGiIj9CX3g"/>
+</div>
+<!-- Floating Circuit Nodes -->
+<div class="absolute inset-0 z-10 pointer-events-none overflow-hidden">
+<div class="floating-node absolute top-1/4 left-[15%] flex flex-col items-center">
+<div class="size-12 rounded-full border border-primary/50 bg-primary/10 backdrop-blur-md flex items-center justify-center shadow-[0_0_15px_rgba(13,242,223,0.4)]">
+<span class="material-symbols-outlined text-primary">smart_toy</span>
+</div>
+<div class="w-px h-16 bg-gradient-to-b from-primary/50 to-transparent"></div>
+</div>
+<div class="floating-node absolute bottom-1/3 right-[10%] flex flex-col items-center" style="animation-delay: -1s;">
+<div class="size-14 rounded-full border border-safety-yellow/50 bg-safety-yellow/10 backdrop-blur-md flex items-center justify-center shadow-[0_0_15px_rgba(242,223,13,0.4)]">
+<span class="material-symbols-outlined text-safety-yellow">security</span>
+</div>
+<div class="w-px h-24 bg-gradient-to-b from-safety-yellow/50 to-transparent"></div>
+</div>
+<div class="floating-node absolute top-1/3 right-1/4 flex flex-col items-center" style="animation-delay: -2.5s;">
+<div class="size-10 rounded-full border border-primary/30 bg-primary/5 backdrop-blur-md flex items-center justify-center">
+<span class="material-symbols-outlined text-primary/70 text-sm">hub</span>
 </div>
 </div>
 </div>
-<div class="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-50 animate-bounce">
-<span class="material-icons text-primary text-3xl">keyboard_double_arrow_down</span>
+<div class="relative z-20 max-w-7xl mx-auto px-6 w-full">
+<div class="max-w-3xl">
+<div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 px-3 py-1 rounded-full mb-6">
+<span class="size-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-xs font-bold text-primary uppercase tracking-widest">Ingeniería Avanzada en Quito</span>
 </div>
-</section>
-<section class="py-12 bg-deep-charcoal border-y border-white/5 overflow-hidden">
-<div class="container mx-auto px-6 mb-8 text-center">
-<p class="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500">Equipamiento Industrial &amp; Tecnológico de Clase Mundial</p>
-</div>
-<div class="marquee-container relative">
-<div class="flex gap-16 animate-marquee whitespace-nowrap items-center">
-<div class="flex gap-16 items-center shrink-0">
-<img alt="Brand" class="h-8 md:h-10 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRE9JcQsif3wBn5yuxWEuo8MXnKSbu4k45Sd6LWoehYOq-vmhUKASOBq_fo_cz8JiakbSgDnN44ecCS-TsODaaSI_0YTR7GLCpc2UhTp6aMcogXtiVWmqbDOBSheGwO00A30RZivmnk_Akju2kBSXTsocrgpRqOhwZHaxpbMatW4QpvgtVC_gK6UQeMPX36ADdtBpqmYrME-WTChH3q04ueanZkFlB7DTYCWc9nL0xJT3u4iiA7ZBK_4fU6rv09r_B0GB0WK2Tsa8"/>
-<img alt="Brand" class="h-10 md:h-12 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFQkq4PDJG-FOnF4cVWVbDpjoGLeOvqv4CZdXVZMkrrUHX_BtygGoFAvOiWqHn2FQ4khIN0nb8ZU11kEur8BpYLMp-bNeDNf5U27-fkSyh-1RM3mBmbK8AY1ywcSNg4H2fl4m0c374WVFJ0NUZsqx7A3Xj9ptZfSgXpPIwBqlm8Ciw4iWMCmCjS8AC8dfkV_adScdarNMWPniSDklhtCoC0R2qGNGwE-k_od8vpUxRRV3TSOKZwiZucN0GCvlduQIRp23DaQS2A9c"/>
-<img alt="Brand" class="h-10 md:h-12 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQOs5GlbQ-wm-MnuTqY-DXk48nPbBR-DiE9-k6u03xx96zitGEnkfpItsNRzrlVJ491qmwJgFv9He9CSjL7KYpvgZh4uE6lrorsMkSuV9Gm6U3_2ebJobKYYkm0YlNr3FhhcNf0CZejdsCEHFxWgNbmgaX_I-WfzMevLLhCfL7MA0HxoTnh2N7LQY0QqTMiQ20ZdNNBwbs9SdZ4wFZQWKYcL5HJc6bsZ0hHrhqo_mtvpeP6yXGCy-WfJulyczbibs1IMn9ST5a6hY"/>
-<img alt="Brand" class="h-8 md:h-10 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCP5450lBJ960lVW5QCmQlOcjD3VW3wMIfo-JNB4e2TI4gL1ruqHvyur7YIU_4htrEtPkRMo0xqK9ufDE0hkOa67_WkMN6JVKJ6VwLZ_iSaW3ldoNVVxjbjS3OmbGDBiFRuEe5Kfzphz6FgGSpgcLWyhe3TjZ-E8OKJU3Zs9IweoZXwaGqX4Ry6KmiDADiDZJQQDtRJkkFsGKgXhBPhz5HOelRDn8bZ7Id7m0l1inMN_ubjboYUq3-APqC4FxIzsh6uPksE16M_WrQ"/>
-<div class="text-2xl font-bold text-white/20 px-8">DAHUA</div>
-<div class="text-2xl font-bold text-white/20 px-8">SIEMENS</div>
-<div class="text-2xl font-bold text-white/20 px-8">HIKVISION</div>
-</div>
-<div class="flex gap-16 items-center shrink-0">
-<img alt="Brand" class="h-8 md:h-10 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRE9JcQsif3wBn5yuxWEuo8MXnKSbu4k45Sd6LWoehYOq-vmhUKASOBq_fo_cz8JiakbSgDnN44ecCS-TsODaaSI_0YTR7GLCpc2UhTp6aMcogXtiVWmqbDOBSheGwO00A30RZivmnk_Akju2kBSXTsocrgpRqOhwZHaxpbMatW4QpvgtVC_gK6UQeMPX36ADdtBpqmYrME-WTChH3q04ueanZkFlB7DTYCWc9nL0xJT3u4iiA7ZBK_4fU6rv09r_B0GB0WK2Tsa8"/>
-<img alt="Brand" class="h-10 md:h-12 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFQkq4PDJG-FOnF4cVWVbDpjoGLeOvqv4CZdXVZMkrrUHX_BtygGoFAvOiWqHn2FQ4khIN0nb8ZU11kEur8BpYLMp-bNeDNf5U27-fkSyh-1RM3mBmbK8AY1ywcSNg4H2fl4m0c374WVFJ0NUZsqx7A3Xj9ptZfSgXpPIwBqlm8Ciw4iWMCmCjS8AC8dfkV_adScdarNMWPniSDklhtCoC0R2qGNGwE-k_od8vpUxRRV3TSOKZwiZucN0GCvlduQIRp23DaQS2A9c"/>
-<img alt="Brand" class="h-10 md:h-12 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQOs5GlbQ-wm-MnuTqY-DXk48nPbBR-DiE9-k6u03xx96zitGEnkfpItsNRzrlVJ491qmwJgFv9He9CSjL7KYpvgZh4uE6lrorsMkSuV9Gm6U3_2ebJobKYYkm0YlNr3FhhcNf0CZejdsCEHFxWgNbmgaX_I-WfzMevLLhCfL7MA0HxoTnh2N7LQY0QqTMiQ20ZdNNBwbs9SdZ4wFZQWKYcL5HJc6bsZ0hHrhqo_mtvpeP6yXGCy-WfJulyczbibs1IMn9ST5a6hY"/>
-<img alt="Brand" class="h-8 md:h-10 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCP5450lBJ960lVW5QCmQlOcjD3VW3wMIfo-JNB4e2TI4gL1ruqHvyur7YIU_4htrEtPkRMo0xqK9ufDE0hkOa67_WkMN6JVKJ6VwLZ_iSaW3ldoNVVxjbjS3OmbGDBiFRuEe5Kfzphz6FgGSpgcLWyhe3TjZ-E8OKJU3Zs9IweoZXwaGqX4Ry6KmiDADiDZJQQDtRJkkFsGKgXhBPhz5HOelRDn8bZ7Id7m0l1inMN_ubjboYUq3-APqC4FxIzsh6uPksE16M_WrQ"/>
-<div class="text-2xl font-bold text-white/20 px-8">DAHUA</div>
-<div class="text-2xl font-bold text-white/20 px-8">SIEMENS</div>
-<div class="text-2xl font-bold text-white/20 px-8">HIKVISION</div>
-</div>
-</div>
-</div>
-</section>
-<section class="py-24 relative overflow-hidden dark-gradient-bg" id="servicios">
-<div class="circuit-pattern absolute inset-0 pointer-events-none"></div>
-<div class="container mx-auto px-6 relative z-10">
-<div class="text-center mb-16">
-<h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Nuestras Especialidades</h2>
-<div class="w-20 h-1.5 bg-gradient-to-r from-primary to-accent-blue mx-auto rounded-full"></div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-<div class="group glass-panel p-8 rounded-2xl hover:bg-white/5 transition-all duration-500 hover:-translate-y-2 border-primary/10 hover:border-primary/40">
-<div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-<span class="material-icons text-primary text-3xl">bolt</span>
-</div>
-<h3 class="text-xl font-bold mb-3 text-white">Proyectos Eléctricos</h3>
-<p class="text-slate-400 text-sm leading-relaxed">Diseño y ejecución de infraestructuras de alta potencia cumpliendo normativas internacionales.</p>
-</div>
-<div class="group glass-panel p-8 rounded-2xl hover:bg-white/5 transition-all duration-500 hover:-translate-y-2 border-primary/10 hover:border-primary/40">
-<div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary text-3xl">home_max_dots</span>
-</div>
-<h3 class="text-xl font-bold mb-3 text-white">Domótica Avanzada</h3>
-<p class="text-slate-400 text-sm leading-relaxed">Integración de sistemas inteligentes para el control total de iluminación y eficiencia energética.</p>
-</div>
-<div class="group glass-panel p-8 rounded-2xl hover:bg-white/5 transition-all duration-500 hover:-translate-y-2 border-primary/10 hover:border-primary/40">
-<div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-<span class="material-icons text-primary text-3xl">videocam</span>
-</div>
-<h3 class="text-xl font-bold mb-3 text-white">Seguridad Electrónica</h3>
-<p class="text-slate-400 text-sm leading-relaxed">CCTV analítico, control de accesos biométricos y sistemas de detección de incendios.</p>
-</div>
-<div class="group glass-panel p-8 rounded-2xl hover:bg-white/5 transition-all duration-500 hover:-translate-y-2 border-primary/10 hover:border-primary/40">
-<div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-<span class="material-icons text-primary text-3xl">medical_services</span>
-</div>
-<h3 class="text-xl font-bold mb-3 text-white">Mantenimiento Médico</h3>
-<p class="text-slate-400 text-sm leading-relaxed">Soporte técnico certificado para equipamiento hospitalario de alta complejidad.</p>
+<h1 class="text-5xl md:text-7xl font-bold leading-[1.1] mb-8 text-white">
+                    Innovación en <span class="text-primary italic">Movimiento:</span>
+<span class="block">Domótica &amp; Seguridad</span>
+</h1>
+<p class="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl">
+                    Sistemas inteligentes interconectados para el futuro de la arquitectura. Diseñamos espacios que responden a tus necesidades con tecnología de vanguardia.
+                </p>
+<div class="flex flex-wrap gap-4">
+<button class="px-8 py-4 bg-primary text-background-dark font-bold rounded-xl hover:scale-105 transition-transform flex items-center gap-2">
+                        Explorar Servicios <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-xl hover:bg-white/10 transition-colors">
+                        Ver Proyectos
+                    </button>
 </div>
 </div>
 </div>
 </section>
-<section class="py-24 bg-deep-charcoal" id="proyectos">
-<div class="container mx-auto px-6">
-<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+<!-- Brand Motion Slider -->
+<section class="py-12 bg-background-dark border-y border-white/5">
+<div class="max-w-7xl mx-auto px-6">
+<p class="text-center text-xs font-bold uppercase tracking-[0.2em] text-slate-500 mb-8">Partners &amp; Marcas Aliadas</p>
+<div class="relative overflow-hidden mask-fade-edges py-4">
+<div class="flex items-center gap-16 whitespace-nowrap">
+<!-- Brand logos repeat -->
+<div class="flex items-center gap-16 animate-marquee">
+<div class="h-12 w-32 bg-white/5 rounded flex items-center justify-center group grayscale hover:grayscale-0 transition-all border border-transparent hover:border-primary/30">
+<span class="text-sm font-bold text-white/40 group-hover:text-primary transition-colors">HIKVISION</span>
+</div>
+<div class="h-12 w-32 bg-white/5 rounded flex items-center justify-center group grayscale hover:grayscale-0 transition-all border border-transparent hover:border-primary/30">
+<span class="text-sm font-bold text-white/40 group-hover:text-primary transition-colors">SONOFF</span>
+</div>
+<div class="h-12 w-32 bg-white/5 rounded flex items-center justify-center group grayscale hover:grayscale-0 transition-all border border-transparent hover:border-primary/30">
+<span class="text-sm font-bold text-white/40 group-hover:text-primary transition-colors">CRESTRON</span>
+</div>
+<div class="h-12 w-32 bg-white/5 rounded flex items-center justify-center group grayscale hover:grayscale-0 transition-all border border-transparent hover:border-primary/30">
+<span class="text-sm font-bold text-white/40 group-hover:text-primary transition-colors">LUTRON</span>
+</div>
+<div class="h-12 w-32 bg-white/5 rounded flex items-center justify-center group grayscale hover:grayscale-0 transition-all border border-transparent hover:border-primary/30">
+<span class="text-sm font-bold text-white/40 group-hover:text-primary transition-colors">UBIQUITI</span>
+</div>
+<div class="h-12 w-32 bg-white/5 rounded flex items-center justify-center group grayscale hover:grayscale-0 transition-all border border-transparent hover:border-primary/30">
+<span class="text-sm font-bold text-white/40 group-hover:text-primary transition-colors">DAHUA</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-24 relative">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
 <div>
-<h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Proyectos Destacados</h2>
-<p class="text-slate-400">Implementaciones de vanguardia desarrolladas por <span class="text-white font-medium">CORPORACIÓN 360</span>.</p>
+<h2 class="text-primary text-sm font-bold uppercase tracking-widest mb-4">Nuestras Especialidades</h2>
+<h3 class="text-4xl font-bold text-white">Ingeniería para la era digital</h3>
 </div>
-<a class="text-primary font-bold flex items-center gap-2 hover:translate-x-2 transition-all group" href="#">
-                Ver Portafolio Completo <span class="material-icons group-hover:translate-x-1 transition-transform">arrow_forward</span>
+<div class="hidden md:block">
+<button class="text-primary font-bold flex items-center gap-2 group">
+                        Ver catálogo completo <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_right_alt</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Card 1 -->
+<div class="group relative aspect-[16/9] rounded-2xl overflow-hidden border border-white/10 hover:border-primary/50 transition-all">
+<img alt="Domótica inteligente interior luxury living room" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Modern smart home living room with cyan ambient lighting and voice interface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNzA9wh9QUcY66IalrYC5KG6CJLzgOMUl1XTF_bFBxaYMCW4PhjzlRGgIIBxex7YVeN1lUOe36YnmgPvb9YL9uIqCmMT-iZBlnUfsjHii87v32KMya_a1aGT3cjeXmFPeJL9A00hWA4YxpX6k4nUcNV4YTeCbl8EqN96tIJ5kdwq7mRpMz09mfmhR8qvOmkBWOXKAxopSLj0VOdv0ahBrIwjznjYrBKKnt5bmKTUr4_57FDQnMYS6RSJb4LeBidEzIpOoPO1DXzOI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<span class="material-symbols-outlined text-primary mb-4 text-4xl">home_iot_device</span>
+<h4 class="text-2xl font-bold text-white mb-2">Domótica Inteligente</h4>
+<p class="text-slate-300 max-w-sm mb-4">Automatización de iluminación, clima y entretenimiento con control centralizado.</p>
+<button class="bg-primary/20 backdrop-blur-md text-primary border border-primary/30 px-6 py-2 rounded-lg text-sm font-bold hover:bg-primary hover:text-background-dark transition-all">
+                            Saber más
+                        </button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group relative aspect-[16/9] rounded-2xl overflow-hidden border border-white/10 hover:border-safety-yellow/50 transition-all">
+<img alt="Electronic security system control room" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="CCTV monitor wall displaying security feeds with high tech overlays" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAahuWpMV6zwfKpvKg-q8rlCOQwUubV6Y66U6s8pcPbj0ww-Xx0aE2a0CeoxPiZhMIFSdmEEQ76RrIrMuXQJeJQxopgrY2SMRDAKxSBFUU-X15LNBAFcSgkwFzYz0xd8EF5kAqoyLAjr33RjcWndUwgg1hHfDXR5WLeOlac9UpLVRkAYsTP7sErU0LkaiikZXiF4qwy8bZwE-_672BpwL7H-XZj0VeyfS9pxhhacS__6IyU1wxj1q4_KPqVwanIO-o2eFSGC5U5yF8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<span class="material-symbols-outlined text-safety-yellow mb-4 text-4xl">verified_user</span>
+<h4 class="text-2xl font-bold text-white mb-2">Seguridad Electrónica</h4>
+<p class="text-slate-300 max-w-sm mb-4">CCTV, alarmas monitoreadas y control de acceso biométrico de alta precisión.</p>
+<button class="bg-safety-yellow/20 backdrop-blur-md text-safety-yellow border border-safety-yellow/30 px-6 py-2 rounded-lg text-sm font-bold hover:bg-safety-yellow hover:text-background-dark transition-all">
+                            Saber más
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer / Constellation Section -->
+<footer class="relative bg-background-dark pt-24 pb-12 overflow-hidden border-t border-white/5 constellation-bg">
+<!-- Glowing Constellation Lines Overlay (SVG) -->
+<div class="absolute inset-0 opacity-20 pointer-events-none z-0">
+<svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+<line stroke="#0df2df" stroke-width="0.5" x1="10%" x2="30%" y1="20%" y2="50%"></line>
+<line stroke="#0df2df" stroke-width="0.5" x1="30%" x2="50%" y1="50%" y2="30%"></line>
+<line stroke="#0df2df" stroke-width="0.5" x1="50%" x2="80%" y1="30%" y2="60%"></line>
+<line stroke="#0df2df" stroke-width="0.5" x1="80%" x2="90%" y1="60%" y2="20%"></line>
+<circle cx="10%" cy="20%" fill="#0df2df" r="2"></circle>
+<circle cx="30%" cy="50%" fill="#0df2df" r="3"></circle>
+<circle cx="50%" cy="30%" fill="#0df2df" r="2"></circle>
+<circle cx="80%" cy="60%" fill="#0df2df" r="4"></circle>
+</svg>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-3 mb-6">
+<div class="size-8 bg-primary/20 rounded flex items-center justify-center border border-primary/40 text-primary">
+<span class="material-symbols-outlined text-xl">settings_input_component</span>
+</div>
+<h2 class="text-lg font-bold text-white">IPE3 Engineering</h2>
+</div>
+<p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Líderes en ingeniería de domótica y seguridad electrónica en Quito. Innovación constante respaldada por CORPORACIÓN 360.
+                    </p>
+<div class="flex gap-4">
+<a class="size-10 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-primary hover:bg-white/10 transition-all border border-white/10" href="#">
+<span class="material-symbols-outlined text-xl">public</span>
+</a>
+<a class="size-10 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-primary hover:bg-white/10 transition-all border border-white/10" href="#">
+<span class="material-symbols-outlined text-xl">camera</span>
 </a>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-<div class="group relative rounded-2xl overflow-hidden aspect-[4/5] bg-slate-900 border border-white/5">
-<img alt="Project" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqghzJKzvrwFyC_GbA-FCfimBmhFPJ_SzYDAwo13aRqrXVdZJ07YchG3xlwBt0s5X1EsPPxdFN3M94hIn9KAg2s5gqftYts0Y7qpjEWl_mF3l7yuYrhnSYZvJg-Cg7HTcsPziL5tuKN4qRC1as8TdvyBM1fvUDueZqLjyOXilf8aP_5Sr-gTIFcwsAuLKmyd-WQJuJnGaxOG9Jr8g-LBRhgHS9_K0MVdAcoHOSZBcRLs7M4V1YU4LZv3OfG00IAacZWmBorsbsI0Q"/>
-<div class="absolute inset-0 bg-gradient-to-t from-deep-charcoal via-deep-charcoal/20 to-transparent"></div>
-<div class="absolute bottom-0 left-0 p-8">
-<div class="flex items-center gap-2 text-primary mb-3">
-<span class="material-icons text-sm">location_on</span>
-<span class="text-xs font-bold uppercase tracking-widest">Quito </span>
-</div>
-<h4 class="text-2xl font-bold text-white mb-2">Edificio Corporativo X</h4>
-<p class="text-slate-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">Automatización completa y gestión de energía inteligente.</p>
-</div>
-</div>
-<div class="group relative rounded-2xl overflow-hidden aspect-[4/5] bg-slate-900 border border-white/5">
-<img alt="Project" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFvvoUOVkw4UvPPKuj-eOKgfFJSonV1Qx4CatH9xt9yi5GaA7fIVGbJ03ekRArWDPvQHsZxTTcuq2gawD_jZW-msxmu6Bxvy01gD12LHJHrytGo3a5gPLhWg2BoYsunaDvvamltfvpVFRPNqWg72j4T1nHIHBHuf1goaAu03LQbUakCxxqdxFiRC9tr_n8OrYsXFqdEBGe8Od66JpLMEJUGg-W5_jRmNR0iif2J22gSrIADhx21mIB0mNiaUp9fgp5YaXHKB6B8KU"/>
-<div class="absolute inset-0 bg-gradient-to-t from-deep-charcoal via-deep-charcoal/20 to-transparent"></div>
-<div class="absolute bottom-0 left-0 p-8">
-<div class="flex items-center gap-2 text-primary mb-3">
-<span class="material-icons text-sm">location_on</span>
-<span class="text-xs font-bold uppercase tracking-widest">Cumbayá</span>
-</div>
-<h4 class="text-2xl font-bold text-white mb-2">Planta Industrial Alfa</h4>
-<p class="text-slate-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">Mantenimiento preventivo y redes de alta tensión.</p>
-</div>
-</div>
-<div class="group relative rounded-2xl overflow-hidden aspect-[4/5] bg-slate-900 border border-white/5">
-<img alt="Project" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArIeD68UUe3GZnyQaSEtmd_Qcb3WvE4K4_q8lSsVgpGQeLgPaDD12YONsg4XPG_Ct0p697jjcnqwSVns_jzU2iYI8coHf9_6XoICKwF12Ji_-qYhe8K4iLjdABp1FJvYhnYGaJkBn_Q0GIaGBZOQ5EfsMtJiq87f5i4lJuvbCYgJX0rz8GQ7CHV0ugtcK74ylt8W8ncOZaUkQ8xXIXFv8pnCWCX4BexWluPjSnB2aF-5M9ZU42uheNmGyKbpRLlyx5JPyNNUb_g6Y"/>
-<div class="absolute inset-0 bg-gradient-to-t from-deep-charcoal via-deep-charcoal/20 to-transparent"></div>
-<div class="absolute bottom-0 left-0 p-8">
-<div class="flex items-center gap-2 text-primary mb-3">
-<span class="material-icons text-sm">location_on</span>
-<span class="text-xs font-bold uppercase tracking-widest">Quito </span>
-</div>
-<h4 class="text-2xl font-bold text-white mb-2">Logística Integral</h4>
-<p class="text-slate-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">Sistema de seguridad electrónica y control perimetral.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<footer class="constellation-bg text-slate-400 py-20 relative border-t border-white/5" id="contacto">
-<div class="absolute inset-0 pointer-events-none overflow-hidden opacity-30">
-<div class="star w-1 h-1 top-[10%] left-[15%]"></div>
-<div class="star w-0.5 h-0.5 top-[25%] left-[45%]"></div>
-<div class="star w-1 h-1 top-[60%] left-[30%]"></div>
-<div class="star w-0.5 h-0.5 top-[40%] left-[80%]"></div>
-<div class="star w-1 h-1 top-[80%] left-[10%]"></div>
-<div class="star w-1 h-1 top-[15%] left-[75%]"></div>
-<div class="star w-0.5 h-0.5 top-[70%] left-[65%]"></div>
-<div class="star w-1 h-1 top-[50%] left-[90%]"></div>
-<div class="constellation-line w-[400px] rotate-[25deg] top-[15%] left-[15%]"></div>
-<div class="constellation-line w-[300px] rotate-[-45deg] top-[40%] left-[45%]"></div>
-<div class="constellation-line w-[500px] rotate-[105deg] top-[20%] left-[70%]"></div>
-<div class="constellation-line w-[200px] rotate-[10deg] top-[75%] left-[35%]"></div>
-</div>
-<div class="container mx-auto px-6 relative z-10">
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-<div>
-<div class="flex items-center gap-3 mb-8">
-<div class="w-10 h-10 bg-primary flex items-center justify-center rounded-lg">
-<span class="text-deep-charcoal font-bold text-lg">I3</span>
-</div>
-<div class="flex flex-col">
-<span class="text-xl font-bold tracking-tight text-white leading-tight">IPE3® <span class="text-primary font-light">Engineering</span></span>
-<span class="text-[9px] uppercase tracking-wider text-slate-400 font-bold leading-none">by CORPORACIÓN 360</span>
-</div>
-</div>
-<p class="text-sm leading-relaxed mb-8 text-slate-400">
-                    Líderes en ingeniería eléctrica y electrónica en el Ecuador. Desarrollamos soluciones de alta tecnología con precisión milimétrica y seguridad garantizada.
-                </p>
-<div class="flex gap-4">
-<a class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-primary hover:text-deep-charcoal transition-all border border-white/10" href="#"><span class="material-icons text-sm">facebook</span></a>
-<a class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-primary hover:text-deep-charcoal transition-all border border-white/10" href="#"><span class="material-icons text-sm">camera_alt</span></a>
-<a class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-primary hover:text-deep-charcoal transition-all border border-white/10" href="#"><span class="material-icons text-sm">alternate_email</span></a>
-</div>
 </div>
 <div>
-<h4 class="text-white font-bold mb-8 uppercase tracking-widest text-xs">Empresa</h4>
-<ul class="space-y-4 text-sm">
-<li><a class="hover:text-primary transition-colors" href="#">Inicio</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Especialidades</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Portafolio Proyectos</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Nuestra Historia</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Oportunidades</a></li>
+<h4 class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Navegación</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-400 text-sm hover:text-primary transition-colors" href="#">Proyectos</a></li>
+<li><a class="text-slate-400 text-sm hover:text-primary transition-colors" href="#">Servicios Residenciales</a></li>
+<li><a class="text-slate-400 text-sm hover:text-primary transition-colors" href="#">Soluciones Corporativas</a></li>
+<li><a class="text-slate-400 text-sm hover:text-primary transition-colors" href="#">Soporte Técnico</a></li>
 </ul>
 </div>
 <div>
-<h4 class="text-white font-bold mb-8 uppercase tracking-widest text-xs">Soluciones</h4>
-<ul class="space-y-4 text-sm">
-<li><a class="hover:text-primary transition-colors" href="#">Automatización Industrial</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Cableado Inteligente</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Seguridad Contra Incendios</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Sistemas UPS &amp; Energía</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Mantenimiento Predictivo</a></li>
+<h4 class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Legal</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-400 text-sm hover:text-primary transition-colors" href="#">Términos de Servicio</a></li>
+<li><a class="text-slate-400 text-sm hover:text-primary transition-colors" href="#">Política de Privacidad</a></li>
+<li><a class="text-slate-400 text-sm hover:text-primary transition-colors" href="#">Garantías de Equipo</a></li>
 </ul>
 </div>
-<div class="bg-white/5 p-6 rounded-2xl border border-white/10">
-<h4 class="text-white font-bold mb-8 uppercase tracking-widest text-xs">Contacto Directo</h4>
-<ul class="space-y-6 text-sm">
-<li class="flex gap-4">
-<span class="material-icons text-primary text-xl">location_on</span>
-<div class="flex flex-col">
-<span class="text-white font-medium">Ubicación</span>
-<span class="text-slate-400">Cusubamba y Tendales, Quito, Ecuador</span>
-</div>
+<div>
+<h4 class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Contacto</h4>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl">location_on</span>
+<span class="text-slate-400 text-sm">Av. Amazonas y República, Edif. Century Plaza, Quito, Ecuador</span>
 </li>
-<li class="flex gap-4">
-<span class="material-icons text-primary text-xl">phone</span>
-<div class="flex flex-col">
-<span class="text-white font-medium">Llámanos</span>
-<span class="text-slate-400">0984016027</span>
-</div>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl">phone_iphone</span>
+<span class="text-slate-400 text-sm">+593 9 8765 4321</span>
 </li>
-<li class="flex gap-4">
-<span class="material-icons text-primary text-xl">email</span>
-<div class="flex flex-col">
-<span class="text-white font-medium">Escríbenos</span>
-<span class="text-slate-400">IPE3®ecuador@gmail.com</span>
-</div>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-xl">mail</span>
+<span class="text-slate-400 text-sm">info@ipe3engineering.com</span>
 </li>
 </ul>
 </div>
 </div>
-<div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-widest font-bold text-slate-500">
-<p>© 2016 IPE3® Engineering by CORPORACIÓN 360</p>
-<div class="flex gap-8">
-<a class="hover:text-primary transition-colors" href="#">Privacidad</a>
-<a class="hover:text-primary transition-colors" href="#">Términos</a>
-<a class="hover:text-primary transition-colors" href="#">Sitemap</a>
+<div class="border-t border-white/10 pt-12 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-slate-500 text-xs">© 2024 IPE3 Engineering by CORPORACIÓN 360. Todos los derechos reservados.</p>
+<div class="flex items-center gap-2">
+<span class="text-xs text-slate-500">Sede Central:</span>
+<span class="text-xs font-bold text-white px-2 py-1 bg-white/5 rounded border border-white/10">QUITO, ECUADOR</span>
 </div>
 </div>
 </div>
 </footer>
-<a aria-label="Contact on WhatsApp" class="fixed bottom-8 right-8 z-[100] w-16 h-16 bg-whatsapp text-white rounded-full flex items-center justify-center shadow-2xl animate-pulse-soft hover:scale-110 transition-transform duration-300 group" href="https://wa.me/593984016027" target="_blank">
-<svg class="w-8 h-8 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
+<!-- Pulsing WhatsApp Button -->
+<a class="fixed bottom-8 right-8 z-[100] group" href="#">
+<div class="relative flex items-center justify-center">
+<div class="absolute inset-0 rounded-full pulse-ring bg-primary/20"></div>
+<div class="relative bg-[#25D366] text-white size-16 rounded-full flex items-center justify-center shadow-2xl transition-transform group-hover:scale-110">
+<svg class="size-8 fill-white" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.1 0-65.6-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.2-3.2-5.6-.3-8.6 2.4-11.3 2.5-2.6 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.5 5.5-9.2 1.9-3.7 1-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.6 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path>
 </svg>
-<div class="absolute right-full mr-4 bg-whatsapp text-white text-xs font-bold py-2 px-4 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-        ¿Cómo podemos ayudarte?
-    </div>
+</div>
+<div class="absolute right-full mr-4 bg-background-dark border border-white/10 text-white text-xs font-bold py-2 px-4 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                ¿Necesitas soporte técnico?
+            </div>
+</div>
 </a>
-
 </body></html>
