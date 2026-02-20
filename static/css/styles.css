@@ -1,121 +1,69 @@
-/* ============================= */
-/* FUENTE GENERAL */
-/* ============================= */
-body {
-  font-family: 'Space Grotesk', sans-serif;
+/* ===== GLOBAL RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* ============================= */
-/* FONDO HERO OVERLAY */
-/* ============================= */
-.hero-overlay {
-  background: linear-gradient(
-    90deg,
-    rgba(10, 12, 16, 0.95) 0%,
-    rgba(10, 12, 16, 0.85) 50%,
-    rgba(10, 12, 16, 0.2) 100%
-  );
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
 }
 
-/* ============================= */
-/* EFECTO GLASS (VIDRIO) */
-/* ============================= */
-.glass {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.4s ease;
-}
-
-.glass:hover {
-  background: rgba(255, 255, 255, 0.08);
-  transform: translateY(-6px);
-}
-
-/* ============================= */
-/* EFECTO GRADIENTE PREMIUM */
-/* ============================= */
-.gradient-text {
-  background: linear-gradient(90deg, #00d2ff, #0072ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* ============================= */
-/* BOTONES */
-/* ============================= */
-.btn-primary {
-  background: linear-gradient(90deg, #00d2ff, #0072ff);
-  color: #000;
-  font-weight: 700;
-  transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-  background: #ffffff;
-  transform: scale(1.05);
-}
-
-.btn-outline {
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
-}
-
-.btn-outline:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-/* ============================= */
-/* ANIMACIÓN SUAVE FADE IN */
-/* ============================= */
-.fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeUp 1s ease forwards;
-}
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ============================= */
-/* MARCAS (LOGOS) */
-/* ============================= */
-.brand-logo {
-  filter: grayscale(100%);
-  opacity: 0.5;
-  transition: all 0.3s ease;
-}
-
-.brand-logo:hover {
-  filter: grayscale(0%);
-  opacity: 1;
-}
-
-/* ============================= */
-/* FOOTER EFECTO CONSTELACIÓN */
-/* ============================= */
-.constellation-bg {
-  background: radial-gradient(circle at center, #111827, #030712);
-  position: relative;
-  overflow: hidden;
-}
-
-/* ============================= */
-/* SCROLL PERSONALIZADO */
-/* ============================= */
+/* Scrollbar personalizada */
 ::-webkit-scrollbar {
-  width: 8px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0c10;
+    background: #0a0c10;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(#00d2ff, #0072ff);
-  border-radius: 10px;
+    background: #00d2ff;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0072ff;
+}
+
+/* ===== HERO ANIMATION ===== */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.floating {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* ===== GLASS EFFECT ENHANCEMENT ===== */
+.glass-panel {
+    transition: all 0.4s ease;
+}
+
+.glass-panel:hover {
+    box-shadow: 0 0 30px rgba(0, 210, 255, 0.2);
+}
+
+/* ===== IMAGE HOVER EFFECT ===== */
+.group:hover img {
+    filter: brightness(1.1);
+}
+
+/* ===== BUTTON EFFECT ===== */
+button:hover {
+    transform: translateY(-2px);
+}
+
+/* ===== CONSTELLATION ANIMATION ===== */
+.star {
+    animation: blink 3s infinite alternate;
+}
+
+@keyframes blink {
+    from { opacity: 0.2; }
+    to { opacity: 0.8; }
 }
