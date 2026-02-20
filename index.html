@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-
 <html class="dark" lang="es"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>IPE3 Engineering Premium Store</title>
+<title>IPE3 Engineering by CORPORACIÓN 360 | Ingeniería Eléctrica y Electrónica</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
@@ -14,14 +13,14 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#0d6cf2",
-                        "background-light": "#f5f7f8",
-                        "background-dark": "#05070a",
-                        "neutral-dark": "#101823",
-                        "accent-blue": "#0d6cf2",
+                        "primary": "#00d2ff",
+                        "accent-blue": "#0072ff",
+                        "deep-charcoal": "#0a0c10",
+                        "slate-dark": "#1a1f2e",
+                        "safety-yellow": "#facc15",
                     },
                     fontFamily: {
-                        "display": ["Space Grotesk", "sans-serif"]
+                        "display": ["Space Grotesk"]
                     },
                     borderRadius: {
                         "DEFAULT": "0.25rem",
@@ -29,21 +28,31 @@
                         "xl": "0.75rem",
                         "full": "9999px"
                     },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        }
+                    }
                 },
             },
         }
     </script>
-<style>
-        body {
-            font-family: 'Space Grotesk', sans-serif;
+<style type="text/tailwindcss">
+        body { font-family: 'Space Grotesk', sans-serif; }
+        .dark-gradient-bg {
+            background: radial-gradient(circle at top right, #1a2333, #0a0c10 70%);
         }
-        .glass-nav {
-            background: rgba(5, 7, 10, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+        .circuit-pattern {
+            background-image: radial-gradient(var(--tw-colors-primary) 0.5px, transparent 0.5px);
+            background-size: 32px 32px;
+            opacity: 0.08;
         }
         .constellation-bg {
-            background: radial-gradient(circle at center, #111827 0%, #05070a 100%);
+            background: radial-gradient(circle at 50% 50%, #111827, #030712);
             position: relative;
             overflow: hidden;
         }
@@ -51,244 +60,279 @@
             position: absolute;
             background: white;
             border-radius: 50%;
-            opacity: 0.3;
+            opacity: 0.5;
         }
-        .line-canvas {
+        .constellation-line {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            opacity: 0.15;
+            background: rgba(0, 210, 255, 0.1);
+            height: 1px;
+            transform-origin: left center;
         }
-        .hero-gradient {
-            background: radial-gradient(circle at 50% 50%, rgba(13, 108, 242, 0.15) 0%, transparent 70%);
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .marquee-container {
             mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
         }
     </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased font-display">
-<!-- Header / Navigation -->
-<nav class="fixed top-0 w-full z-50 border-b border-white/5 glass-nav">
-<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<body class="bg-deep-charcoal text-slate-200 selection:bg-primary/30">
+<header class="fixed top-0 w-full z-50 bg-deep-charcoal/80 backdrop-blur-lg border-b border-white/5">
+<nav class="container mx-auto px-6 py-4 flex items-center justify-between">
 <div class="flex items-center gap-3">
-<div class="w-8 h-8 bg-primary rounded flex items-center justify-center text-white">
-<span class="material-symbols-outlined text-xl">settings_input_component</span>
+<div class="w-10 h-10 bg-gradient-to-br from-primary to-accent-blue flex items-center justify-center rounded-lg shadow-lg shadow-primary/20 shrink-0">
+<span class="text-deep-charcoal font-black text-xl">I3</span>
 </div>
-<div>
-<h1 class="text-sm font-bold tracking-tight uppercase leading-none">IPE3 Engineering</h1>
-<p class="text-[10px] text-slate-400 font-medium tracking-widest uppercase">By Corporación 360</p>
-</div>
-</div>
-<div class="hidden md:flex items-center gap-10">
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Servicios</a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Proyectos</a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Tienda</a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Contacto</a>
-</div>
-<div class="flex items-center gap-6">
-<button class="p-2 hover:bg-white/5 rounded-full transition-colors">
-<span class="material-symbols-outlined text-2xl">search</span>
-</button>
-<button class="p-2 hover:bg-white/5 rounded-full transition-colors relative">
-<span class="material-symbols-outlined text-2xl">shopping_bag</span>
-<span class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
-</button>
-<button class="hidden lg:flex items-center justify-center bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-lg text-sm font-bold transition-all transform active:scale-95">
-                    Consultar Proyecto
-                </button>
+<div class="flex flex-col">
+<span class="text-xl font-bold tracking-tight text-white leading-tight">IPE3 <span class="text-primary font-light">Engineering</span></span>
+<span class="text-[10px] uppercase tracking-widest text-slate-400 font-bold leading-none">by CORPORACIÓN 360</span>
 </div>
 </div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#">Inicio</a>
+<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#servicios">Servicios</a>
+<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#proyectos">Proyectos</a>
+<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#nosotros">Nosotros</a>
+<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#contacto">Contacto</a>
+</div>
+<a class="hidden lg:block bg-primary text-deep-charcoal px-6 py-2 rounded-lg font-bold hover:bg-white hover:scale-105 transition-all shadow-lg shadow-primary/10" href="#contacto">
+                Solicitar Cotización
+            </a>
 </nav>
-<!-- Hero Section -->
-<section class="relative min-h-screen flex flex-col items-center justify-center pt-20 hero-gradient overflow-hidden">
-<div class="absolute inset-0 z-0 opacity-20">
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 blur-[120px] rounded-full"></div>
+</header>
+<section class="relative h-screen flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Control Room" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8KtHLz4DO3g6p-zgz0gkhtrNljW8mkFrt1VNEGFPqyoFM9kURKHKeNasaLPVB3Nogsr2O1OP4FSxtZpr8B2ozgF1if27JGVnA0D9wEVvb02vAZIYG5W5yKTunnbGHuuMqBBcV-SGlLQGshT5Pa46--9Yxgs-QOX31mq5QcPtKqrAStp9Nn0Wd1yovBEAPAslY_t2wwo03BLcT0EF-VLLzB5eLtAITV3xddNenq5sjHR1DemmYZggPw5T7dWcoryCF9hDu3FhfmU4"/>
+<div class="absolute inset-0 bg-gradient-to-r from-deep-charcoal via-deep-charcoal/80 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-deep-charcoal to-transparent"></div>
 </div>
-<div class="container mx-auto px-6 relative z-10 text-center">
-<span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-widest uppercase mb-8">
-                Tecnología de Vanguardia
-            </span>
-<h1 class="text-6xl md:text-8xl font-bold tracking-tighter mb-8 leading-[0.9]">
-                Innovación en <br/>
-<span class="text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-500">Ingeniería</span>
+<div class="container mx-auto px-6 relative z-10">
+<div class="max-w-3xl">
+<span class="inline-block px-4 py-1.5 bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-widest uppercase rounded-full mb-6">Expertos en Quito, Ecuador</span>
+<h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                    Ingeniería Eléctrica con <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent-blue">Precisión Digital</span>
 </h1>
-<p class="max-w-2xl mx-auto text-slate-400 text-lg md:text-xl font-light leading-relaxed mb-12">
-                Diseñamos infraestructuras inteligentes con los más altos estándares de automatización y control industrial para el mañana.
-            </p>
-<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-<button class="w-full sm:w-auto px-10 py-4 bg-primary text-white font-bold rounded-xl hover:shadow-[0_0_30px_rgba(13,108,242,0.4)] transition-all">
-                    Explorar Catálogo
-                </button>
-<button class="w-full sm:w-auto px-10 py-4 bg-white/5 hover:bg-white/10 text-white font-bold border border-white/10 rounded-xl transition-all">
-                    Nuestros Servicios
-                </button>
+<p class="text-xl text-slate-400 mb-10 max-w-2xl">
+                    Soluciones integrales de automatización, seguridad y mantenimiento industrial. Respaldados por IPE3 Engineering by CORPORACIÓN 360.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-primary text-deep-charcoal px-8 py-4 rounded-xl font-bold text-lg hover:bg-white transition-all shadow-xl shadow-primary/20">
+                        Explorar Proyectos
+                    </button>
+<button class="bg-white/5 backdrop-blur-md border border-white/10 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all">
+                        Nuestros Servicios
+                    </button>
 </div>
 </div>
-<!-- Featured Product Image (Mockup style) -->
-<div class="mt-20 w-full max-w-5xl px-6">
-<div class="relative group rounded-2xl overflow-hidden border border-white/10 bg-neutral-dark/50 backdrop-blur">
-<img alt="Innovación Tecnológica" class="w-full h-[500px] object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="High-tech industrial motherboard and electronic components" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-3nSmPRBCRw1qgNM9_chROuT5jXZ0pYmR2dndEytf0dRfMwH0CcBCjoiiwje9DgTXPeuWWpj-kYj_6sHLh40yHpK6XOoAufDymZ63RhvU8PGJRdgi5O_BsL94ma8rTBYA8LEw22SWZ77dRT9-b4GQTRWTle2RESkZ6bYWGaieVMuzMs6gmMahmwngjPdNa2msSUrcYCxDbB4LiIpZCfelPwljks4WiI30U2m0BCKDmqIryVC-nudIV_nRnvbgvvKrGWRK9mCxbQ8"/>
-<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent"></div>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-50">
+<span class="material-icons text-primary text-3xl">keyboard_double_arrow_down</span>
+</div>
+</section>
+<section class="py-12 bg-deep-charcoal border-y border-white/5 overflow-hidden">
+<div class="container mx-auto px-6 mb-8">
+<p class="text-center text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500">Equipamiento Industrial &amp; Tecnológico de Clase Mundial</p>
+</div>
+<div class="marquee-container relative">
+<div class="flex gap-16 animate-marquee whitespace-nowrap items-center">
+<div class="flex gap-16 items-center shrink-0">
+<img alt="Brand" class="h-8 md:h-10 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRE9JcQsif3wBn5yuxWEuo8MXnKSbu4k45Sd6LWoehYOq-vmhUKASOBq_fo_cz8JiakbSgDnN44ecCS-TsODaaSI_0YTR7GLCpc2UhTp6aMcogXtiVWmqbDOBSheGwO00A30RZivmnk_Akju2kBSXTsocrgpRqOhwZHaxpbMatW4QpvgtVC_gK6UQeMPX36ADdtBpqmYrME-WTChH3q04ueanZkFlB7DTYCWc9nL0xJT3u4iiA7ZBK_4fU6rv09r_B0GB0WK2Tsa8"/>
+<img alt="Brand" class="h-10 md:h-12 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFQkq4PDJG-FOnF4cVWVbDpjoGLeOvqv4CZdXVZMkrrUHX_BtygGoFAvOiWqHn2FQ4khIN0nb8ZU11kEur8BpYLMp-bNeDNf5U27-fkSyh-1RM3mBmbK8AY1ywcSNg4H2fl4m0c374WVFJ0NUZsqx7A3Xj9ptZfSgXpPIwBqlm8Ciw4iWMCmCjS8AC8dfkV_adScdarNMWPniSDklhtCoC0R2qGNGwE-k_od8vpUxRRV3TSOKZwiZucN0GCvlduQIRp23DaQS2A9c"/>
+<img alt="Brand" class="h-10 md:h-12 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQOs5GlbQ-wm-MnuTqY-DXk48nPbBR-DiE9-k6u03xx96zitGEnkfpItsNRzrlVJ491qmwJgFv9He9CSjL7KYpvgZh4uE6lrorsMkSuV9Gm6U3_2ebJobKYYkm0YlNr3FhhcNf0CZejdsCEHFxWgNbmgaX_I-WfzMevLLhCfL7MA0HxoTnh2N7LQY0QqTMiQ20ZdNNBwbs9SdZ4wFZQWKYcL5HJc6bsZ0hHrhqo_mtvpeP6yXGCy-WfJulyczbibs1IMn9ST5a6hY"/>
+<img alt="Brand" class="h-8 md:h-10 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCP5450lBJ960lVW5QCmQlOcjD3VW3wMIfo-JNB4e2TI4gL1ruqHvyur7YIU_4htrEtPkRMo0xqK9ufDE0hkOa67_WkMN6JVKJ6VwLZ_iSaW3ldoNVVxjbjS3OmbGDBiFRuEe5Kfzphz6FgGSpgcLWyhe3TjZ-E8OKJU3Zs9IweoZXwaGqX4Ry6KmiDADiDZJQQDtRJkkFsGKgXhBPhz5HOelRDn8bZ7Id7m0l1inMN_ubjboYUq3-APqC4FxIzsh6uPksE16M_WrQ"/>
+<img alt="Brand" class="h-6 md:h-8 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvGIgSFoP80CwOp4P7fon0t79mKm8mho-KqoYQESACOrxYmts8CVtcsKp9e985Ilh-gZZ5agJSHMAQtBTXSlnC3JdxFDwVD7r_8ZMWSNwkkUD3r9Lafvo4Hc-S_Mv_T4d4yL9WUyAwG3HWxjR5Dh1lQZ0uOAXm2qWOINL8tBHti-I25wgpfE8l14b0qPsTn5zqCYhhZ058GBNHnhBIbAWjzyZ1xIT-SI5dvZUxN39qNPzxHhc5ySf7rf_XP3OWuTOJLrrcP1gjvUU"/>
+<div class="text-2xl font-bold text-white/20 px-8">SCHNEIDER</div>
+<div class="text-2xl font-bold text-white/20 px-8">SIEMENS</div>
+<div class="text-2xl font-bold text-white/20 px-8">HIKVISION</div>
+</div>
+<div class="flex gap-16 items-center shrink-0">
+<img alt="Brand" class="h-8 md:h-10 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRE9JcQsif3wBn5yuxWEuo8MXnKSbu4k45Sd6LWoehYOq-vmhUKASOBq_fo_cz8JiakbSgDnN44ecCS-TsODaaSI_0YTR7GLCpc2UhTp6aMcogXtiVWmqbDOBSheGwO00A30RZivmnk_Akju2kBSXTsocrgpRqOhwZHaxpbMatW4QpvgtVC_gK6UQeMPX36ADdtBpqmYrME-WTChH3q04ueanZkFlB7DTYCWc9nL0xJT3u4iiA7ZBK_4fU6rv09r_B0GB0WK2Tsa8"/>
+<img alt="Brand" class="h-10 md:h-12 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFQkq4PDJG-FOnF4cVWVbDpjoGLeOvqv4CZdXVZMkrrUHX_BtygGoFAvOiWqHn2FQ4khIN0nb8ZU11kEur8BpYLMp-bNeDNf5U27-fkSyh-1RM3mBmbK8AY1ywcSNg4H2fl4m0c374WVFJ0NUZsqx7A3Xj9ptZfSgXpPIwBqlm8Ciw4iWMCmCjS8AC8dfkV_adScdarNMWPniSDklhtCoC0R2qGNGwE-k_od8vpUxRRV3TSOKZwiZucN0GCvlduQIRp23DaQS2A9c"/>
+<img alt="Brand" class="h-10 md:h-12 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQOs5GlbQ-wm-MnuTqY-DXk48nPbBR-DiE9-k6u03xx96zitGEnkfpItsNRzrlVJ491qmwJgFv9He9CSjL7KYpvgZh4uE6lrorsMkSuV9Gm6U3_2ebJobKYYkm0YlNr3FhhcNf0CZejdsCEHFxWgNbmgaX_I-WfzMevLLhCfL7MA0HxoTnh2N7LQY0QqTMiQ20ZdNNBwbs9SdZ4wFZQWKYcL5HJc6bsZ0hHrhqo_mtvpeP6yXGCy-WfJulyczbibs1IMn9ST5a6hY"/>
+<img alt="Brand" class="h-8 md:h-10 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCP5450lBJ960lVW5QCmQlOcjD3VW3wMIfo-JNB4e2TI4gL1ruqHvyur7YIU_4htrEtPkRMo0xqK9ufDE0hkOa67_WkMN6JVKJ6VwLZ_iSaW3ldoNVVxjbjS3OmbGDBiFRuEe5Kfzphz6FgGSpgcLWyhe3TjZ-E8OKJU3Zs9IweoZXwaGqX4Ry6KmiDADiDZJQQDtRJkkFsGKgXhBPhz5HOelRDn8bZ7Id7m0l1inMN_ubjboYUq3-APqC4FxIzsh6uPksE16M_WrQ"/>
+<img alt="Brand" class="h-6 md:h-8 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvGIgSFoP80CwOp4P7fon0t79mKm8mho-KqoYQESACOrxYmts8CVtcsKp9e985Ilh-gZZ5agJSHMAQtBTXSlnC3JdxFDwVD7r_8ZMWSNwkkUD3r9Lafvo4Hc-S_Mv_T4d4yL9WUyAwG3HWxjR5Dh1lQZ0uOAXm2qWOINL8tBHti-I25wgpfE8l14b0qPsTn5zqCYhhZ058GBNHnhBIbAWjzyZ1xIT-SI5dvZUxN39qNPzxHhc5ySf7rf_XP3OWuTOJLrrcP1gjvUU"/>
+<div class="text-2xl font-bold text-white/20 px-8">SCHNEIDER</div>
+<div class="text-2xl font-bold text-white/20 px-8">SIEMENS</div>
+<div class="text-2xl font-bold text-white/20 px-8">HIKVISION</div>
+</div>
 </div>
 </div>
 </section>
-<!-- Partners Marquee -->
-<div class="w-full py-16 bg-neutral-dark/30 border-y border-white/5 overflow-hidden">
-<div class="marquee-container flex whitespace-nowrap gap-16 items-center">
-<div class="flex shrink-0 gap-16 items-center min-w-full justify-around opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-<span class="text-2xl font-bold tracking-tighter text-slate-300">SCHNEIDER ELECTRIC</span>
-<span class="text-2xl font-bold tracking-tighter text-slate-300">SIEMENS</span>
-<span class="text-2xl font-bold tracking-tighter text-slate-300">ABB</span>
-<span class="text-2xl font-bold tracking-tighter text-slate-300">ROCKWELL</span>
-<span class="text-2xl font-bold tracking-tighter text-slate-300">MITSUBISHI</span>
-<span class="text-2xl font-bold tracking-tighter text-slate-300">OMRON</span>
+<section class="py-24 relative overflow-hidden dark-gradient-bg" id="servicios">
+<div class="circuit-pattern absolute inset-0 pointer-events-none"></div>
+<div class="container mx-auto px-6 relative z-10">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Nuestras Especialidades</h2>
+<div class="w-20 h-1.5 bg-gradient-to-r from-primary to-accent-blue mx-auto rounded-full"></div>
 </div>
-<!-- Duplicate for infinite effect -->
-<div class="flex shrink-0 gap-16 items-center min-w-full justify-around opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-<span class="text-2xl font-bold tracking-tighter text-slate-300">SCHNEIDER ELECTRIC</span>
-<span class="text-2xl font-bold tracking-tighter text-slate-300">SIEMENS</span>
-<span class="text-2xl font-bold tracking-tighter text-slate-300">ABB</span>
-<span class="text-2xl font-bold tracking-tighter text-slate-300">ROCKWELL</span>
-<span class="text-2xl font-bold tracking-tighter text-slate-300">MITSUBISHI</span>
-<span class="text-2xl font-bold tracking-tighter text-slate-300">OMRON</span>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="group glass-panel p-8 rounded-2xl hover:bg-white/5 transition-all duration-500 hover:-translate-y-2 border-primary/10 hover:border-primary/40">
+<div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-icons text-primary text-3xl">bolt</span>
+</div>
+<h3 class="text-xl font-bold mb-3 text-white">Proyectos Eléctricos</h3>
+<p class="text-slate-400 text-sm leading-relaxed">Diseño y ejecución de infraestructuras de alta potencia cumpliendo normativas internacionales.</p>
+</div>
+<div class="group glass-panel p-8 rounded-2xl hover:bg-white/5 transition-all duration-500 hover:-translate-y-2 border-primary/10 hover:border-primary/40">
+<div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl">home_max_dots</span>
+</div>
+<h3 class="text-xl font-bold mb-3 text-white">Domótica Avanzada</h3>
+<p class="text-slate-400 text-sm leading-relaxed">Integración de sistemas inteligentes para el control total de iluminación y eficiencia energética.</p>
+</div>
+<div class="group glass-panel p-8 rounded-2xl hover:bg-white/5 transition-all duration-500 hover:-translate-y-2 border-primary/10 hover:border-primary/40">
+<div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-icons text-primary text-3xl">videocam</span>
+</div>
+<h3 class="text-xl font-bold mb-3 text-white">Seguridad Electrónica</h3>
+<p class="text-slate-400 text-sm leading-relaxed">CCTV analítico, control de accesos biométricos y sistemas de detección de incendios.</p>
+</div>
+<div class="group glass-panel p-8 rounded-2xl hover:bg-white/5 transition-all duration-500 hover:-translate-y-2 border-primary/10 hover:border-primary/40">
+<div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-icons text-primary text-3xl">medical_services</span>
+</div>
+<h3 class="text-xl font-bold mb-3 text-white">Mantenimiento Médico</h3>
+<p class="text-slate-400 text-sm leading-relaxed">Soporte técnico certificado para equipamiento hospitalario de alta complejidad.</p>
 </div>
 </div>
 </div>
-<!-- Featured Products/Services Grid -->
-<section class="py-32 px-6">
-<div class="max-w-7xl mx-auto">
-<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+</section>
+<section class="py-24 bg-deep-charcoal" id="proyectos">
+<div class="container mx-auto px-6">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
 <div>
-<h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-4">Soluciones Destacadas</h2>
-<p class="text-slate-400 text-lg">Ingeniería aplicada a productos de alto rendimiento.</p>
+<h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Proyectos Destacados</h2>
+<p class="text-slate-400">Implementaciones de vanguardia desarrolladas por CORPORACIÓN 360.</p>
 </div>
-<button class="flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all group">
-                    Ver todos los servicios 
-                    <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
-</button>
+<a class="text-primary font-bold flex items-center gap-2 hover:translate-x-2 transition-all group" href="#">
+                    Ver Portafolio Completo <span class="material-icons group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<!-- Card 1 -->
-<div class="group relative bg-neutral-dark border border-white/5 rounded-2xl p-4 transition-all hover:border-primary/50">
-<div class="aspect-square rounded-xl overflow-hidden mb-6 relative">
-<img alt="Controladores" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Modern PLC industrial logical controller" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4lv6nVEhnVRza8FKIxsTCmUisx127axx9UeefdXdLnIMv9gmXXNWEeN5K0fXO3Agv5rCBsz6OcOnc-9eBpw5vI0nk_uY_BrxiVrf0Zj8wVHFmdOMhRiPZ1rDw_Sxtp9tY9x_PWyDi1x1wPwUtbSl_r7QdTOwxS1geR0CJ0p0M1i2FWg7txRZrMaTYYEzUDzgz2MIrB2B0L59sGaL11qihEbI7TJaA4SSL7i_UyucX74mCN5uiRvLI6Ojw77ziQ9lSvz-JpKamSwk"/>
-<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="group relative rounded-2xl overflow-hidden aspect-[4/5] bg-slate-900 border border-white/5">
+<img alt="Project" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqghzJKzvrwFyC_GbA-FCfimBmhFPJ_SzYDAwo13aRqrXVdZJ07YchG3xlwBt0s5X1EsPPxdFN3M94hIn9KAg2s5gqftYts0Y7qpjEWl_mF3l7yuYrhnSYZvJg-Cg7HTcsPziL5tuKN4qRC1as8TdvyBM1fvUDueZqLjyOXilf8aP_5Sr-gTIFcwsAuLKmyd-WQJuJnGaxOG9Jr8g-LBRhgHS9_K0MVdAcoHOSZBcRLs7M4V1YU4LZv3OfG00IAacZWmBorsbsI0Q"/>
+<div class="absolute inset-0 bg-gradient-to-t from-deep-charcoal via-deep-charcoal/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<div class="flex items-center gap-2 text-primary mb-3">
+<span class="material-icons text-sm">location_on</span>
+<span class="text-xs font-bold uppercase tracking-widest">Quito Norte</span>
 </div>
-<div class="px-2 pb-4">
-<h3 class="text-xl font-bold mb-2">Controladores Lógicos</h3>
-<p class="text-slate-400 text-sm mb-6 leading-relaxed">Sistemas de automatización programable para optimización de procesos industriales.</p>
-<button class="w-full py-3 bg-white/5 group-hover:bg-primary text-white font-bold rounded-lg transition-all text-sm uppercase tracking-widest">
-                            Ver Detalle
-                        </button>
+<h4 class="text-2xl font-bold text-white mb-2">Edificio Corporativo X</h4>
+<p class="text-slate-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">Automatización completa y gestión de energía inteligente.</p>
 </div>
 </div>
-<!-- Card 2 -->
-<div class="group relative bg-neutral-dark border border-white/5 rounded-2xl p-4 transition-all hover:border-primary/50">
-<div class="aspect-square rounded-xl overflow-hidden mb-6 relative">
-<img alt="Interfaces" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="HMI Touch screen interface for industrial control" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-sdNDOQxw02AhBpzXM__GCSua9_qxjj5jedrs7nwDK3y7kXUbVe5rXd1ITM43YKO28WpJkn1m_WpQBsr0QRadpbMgStVaRWJ6kK32Hvx2EWs6on5YsYql2CbzbwzoIOSHI_VVEdwnHF4onTzBp0Oyr3l_pzLFkwTMjekJtKCEMHHCQ-jEUP284S2TWSmSyPceC5xkjeJnn9XrAX9Bo5Nmj9I-pmi4EWx9vLiptmq-35dgmJfrKM06tBbqJ3cUHJjni7mQ5j_vcbY"/>
-<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="group relative rounded-2xl overflow-hidden aspect-[4/5] bg-slate-900 border border-white/5">
+<img alt="Project" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFvvoUOVkw4UvPPKuj-eOKgfFJSonV1Qx4CatH9xt9yi5GaA7fIVGbJ03ekRArWDPvQHsZxTTcuq2gawD_jZW-msxmu6Bxvy01gD12LHJHrytGo3a5gPLhWg2BoYsunaDvvamltfvpVFRPNqWg72j4T1nHIHBHuf1goaAu03LQbUakCxxqdxFiRC9tr_n8OrYsXFqdEBGe8Od66JpLMEJUGg-W5_jRmNR0iif2J22gSrIADhx21mIB0mNiaUp9fgp5YaXHKB6B8KU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-deep-charcoal via-deep-charcoal/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<div class="flex items-center gap-2 text-primary mb-3">
+<span class="material-icons text-sm">location_on</span>
+<span class="text-xs font-bold uppercase tracking-widest">Cumbayá</span>
 </div>
-<div class="px-2 pb-4">
-<h3 class="text-xl font-bold mb-2">Interfaces HMI</h3>
-<p class="text-slate-400 text-sm mb-6 leading-relaxed">Visualización avanzada y control táctil intuitivo para operarios y supervisores.</p>
-<button class="w-full py-3 bg-white/5 group-hover:bg-primary text-white font-bold rounded-lg transition-all text-sm uppercase tracking-widest">
-                            Ver Detalle
-                        </button>
+<h4 class="text-2xl font-bold text-white mb-2">Planta Industrial Alfa</h4>
+<p class="text-slate-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">Mantenimiento preventivo y redes de alta tensión.</p>
 </div>
 </div>
-<!-- Card 3 -->
-<div class="group relative bg-neutral-dark border border-white/5 rounded-2xl p-4 transition-all hover:border-primary/50">
-<div class="aspect-square rounded-xl overflow-hidden mb-6 relative">
-<img alt="Energía" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Energy management system with circuit breakers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhtBZxuIKGwCwT4h5kpwrrYOEQiBG5q5nLctC98bJU8RsyJjyqM2vx-UfLHbhhvh3HcvxPyGIo0tl82z-o8IhmuU8ItJvKbWyxbnNVlmwkA16htyuG30niY__iyzgUf1lacGjdDAI9ClnN6p3VQtD9gNAHrHZtoOLwOV9FO6MXd_Dm9i6Ff8PBXJyshMfuRrDeIA0Z3_u8NHO5YmO8pk72tJ0Mvm6U_dtMiWlVxDIE7cA-2K2soOctkGdjeUZKHaxXZDK3F_6txNc"/>
-<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="group relative rounded-2xl overflow-hidden aspect-[4/5] bg-slate-900 border border-white/5">
+<img alt="Project" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArIeD68UUe3GZnyQaSEtmd_Qcb3WvE4K4_q8lSsVgpGQeLgPaDD12YONsg4XPG_Ct0p697jjcnqwSVns_jzU2iYI8coHf9_6XoICKwF12Ji_-qYhe8K4iLjdABp1FJvYhnYGaJkBn_Q0GIaGBZOQ5EfsMtJiq87f5i4lJuvbCYgJX0rz8GQ7CHV0ugtcK74ylt8W8ncOZaUkQ8xXIXFv8pnCWCX4BexWluPjSnB2aF-5M9ZU42uheNmGyKbpRLlyx5JPyNNUb_g6Y"/>
+<div class="absolute inset-0 bg-gradient-to-t from-deep-charcoal via-deep-charcoal/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<div class="flex items-center gap-2 text-primary mb-3">
+<span class="material-icons text-sm">location_on</span>
+<span class="text-xs font-bold uppercase tracking-widest">Quito Sur</span>
 </div>
-<div class="px-2 pb-4">
-<h3 class="text-xl font-bold mb-2">Sistemas de Energía</h3>
-<p class="text-slate-400 text-sm mb-6 leading-relaxed">Gestión inteligente de potencia y eficiencia energética para plantas industriales.</p>
-<button class="w-full py-3 bg-white/5 group-hover:bg-primary text-white font-bold rounded-lg transition-all text-sm uppercase tracking-widest">
-                            Ver Detalle
-                        </button>
+<h4 class="text-2xl font-bold text-white mb-2">Logística Integral</h4>
+<p class="text-slate-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">Sistema de seguridad electrónica y control perimetral.</p>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- Footer with Constellation Effect -->
-<footer class="constellation-bg pt-32 pb-16 relative">
-<!-- SVG lines for static constellation feel -->
-<svg class="line-canvas" xmlns="http://www.w3.org/2000/svg">
-<line stroke="white" stroke-width="0.5" x1="10%" x2="30%" y1="20%" y2="40%"></line>
-<line stroke="white" stroke-width="0.5" x1="30%" x2="25%" y1="40%" y2="70%"></line>
-<line stroke="white" stroke-width="0.5" x1="70%" x2="85%" y1="10%" y2="35%"></line>
-<line stroke="white" stroke-width="0.5" x1="85%" x2="75%" y1="35%" y2="60%"></line>
-<line stroke="white" stroke-width="0.5" x1="45%" x2="55%" y1="15%" y2="25%"></line>
-</svg>
-<!-- Dynamic stars (simplified) -->
-<div class="star w-1 h-1 top-[15%] left-[25%]"></div>
-<div class="star w-0.5 h-0.5 top-[45%] left-[65%]"></div>
-<div class="star w-1.5 h-1.5 top-[75%] left-[15%]"></div>
-<div class="star w-1 h-1 top-[25%] left-[85%]"></div>
-<div class="star w-0.5 h-0.5 top-[60%] left-[40%]"></div>
-<div class="max-w-7xl mx-auto px-6 relative z-10">
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
-<div class="col-span-1 lg:col-span-2">
-<div class="flex items-center gap-3 mb-6">
-<div class="w-10 h-10 bg-primary rounded flex items-center justify-center text-white">
-<span class="material-symbols-outlined text-2xl">settings_input_component</span>
+<footer class="constellation-bg text-slate-400 py-20 relative" id="contacto">
+<div class="absolute inset-0 pointer-events-none overflow-hidden opacity-30">
+<div class="star w-1 h-1 top-[10%] left-[15%]"></div>
+<div class="star w-0.5 h-0.5 top-[25%] left-[45%]"></div>
+<div class="star w-1 h-1 top-[60%] left-[30%]"></div>
+<div class="star w-0.5 h-0.5 top-[40%] left-[80%]"></div>
+<div class="star w-1 h-1 top-[80%] left-[10%]"></div>
+<div class="star w-1 h-1 top-[15%] left-[75%]"></div>
+<div class="star w-0.5 h-0.5 top-[70%] left-[65%]"></div>
+<div class="star w-1 h-1 top-[50%] left-[90%]"></div>
+<div class="constellation-line w-[400px] rotate-[25deg] top-[15%] left-[15%]"></div>
+<div class="constellation-line w-[300px] rotate-[-45deg] top-[40%] left-[45%]"></div>
+<div class="constellation-line w-[500px] rotate-[105deg] top-[20%] left-[70%]"></div>
+<div class="constellation-line w-[200px] rotate-[10deg] top-[75%] left-[35%]"></div>
 </div>
-<h2 class="text-xl font-bold uppercase tracking-tight">IPE3 Engineering</h2>
+<div class="container mx-auto px-6 relative z-10">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+<div>
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 bg-primary flex items-center justify-center rounded-lg">
+<span class="text-deep-charcoal font-bold text-lg">I3</span>
 </div>
-<p class="text-slate-400 max-w-sm mb-8 leading-relaxed">
-                        Líderes en integración de sistemas y soluciones de ingeniería para la industria moderna. Parte del grupo CORPORACIÓN 360.
+<div class="flex flex-col">
+<span class="text-xl font-bold tracking-tight text-white leading-tight">IPE3 <span class="text-primary font-light">Engineering</span></span>
+<span class="text-[9px] uppercase tracking-wider text-slate-400 font-bold leading-none">by CORPORACIÓN 360</span>
+</div>
+</div>
+<p class="text-sm leading-relaxed mb-8 text-slate-400">
+                        Líderes en ingeniería eléctrica y electrónica en el Ecuador. Desarrollamos soluciones de alta tecnología con precisión milimétrica y seguridad garantizada.
                     </p>
 <div class="flex gap-4">
-<a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-all" href="#">
-<span class="material-symbols-outlined text-lg">share</span>
-</a>
-<a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-all" href="#">
-<span class="material-symbols-outlined text-lg">public</span>
-</a>
+<a class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-primary hover:text-deep-charcoal transition-all border border-white/10" href="#"><span class="material-icons text-sm">facebook</span></a>
+<a class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-primary hover:text-deep-charcoal transition-all border border-white/10" href="#"><span class="material-icons text-sm">camera_alt</span></a>
+<a class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-primary hover:text-deep-charcoal transition-all border border-white/10" href="#"><span class="material-icons text-sm">alternate_email</span></a>
 </div>
 </div>
 <div>
-<h4 class="text-white font-bold mb-6 uppercase tracking-widest text-xs">Contacto</h4>
-<ul class="space-y-4">
-<li class="flex items-start gap-3 group">
-<span class="material-symbols-outlined text-primary text-xl">location_on</span>
-<span class="text-slate-400 group-hover:text-white transition-colors">Cusubamba y Tendales,<br/>Quito, Ecuador</span>
-</li>
-<li class="flex items-center gap-3 group">
-<span class="material-symbols-outlined text-primary text-xl">call</span>
-<span class="text-slate-400 group-hover:text-white transition-colors">0984016027</span>
-</li>
-<li class="flex items-center gap-3 group">
-<span class="material-symbols-outlined text-primary text-xl">mail</span>
-<span class="text-slate-400 group-hover:text-white transition-colors">info@ipe3engineering.com</span>
-</li>
+<h4 class="text-white font-bold mb-8 uppercase tracking-widest text-xs">Empresa</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Inicio</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Especialidades</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Portafolio Proyectos</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Nuestra Historia</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Oportunidades</a></li>
 </ul>
 </div>
 <div>
-<h4 class="text-white font-bold mb-6 uppercase tracking-widest text-xs">Empresa</h4>
-<ul class="space-y-4 text-slate-400">
-<li><a class="hover:text-primary transition-colors" href="#">Sobre Nosotros</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Nuestros Clientes</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Blog de Tecnología</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Términos y Condiciones</a></li>
+<h4 class="text-white font-bold mb-8 uppercase tracking-widest text-xs">Soluciones</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Automatización Industrial</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Cableado Inteligente</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Seguridad Contra Incendios</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Sistemas UPS &amp; Energía</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Mantenimiento Predictivo</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-8 uppercase tracking-widest text-xs">Contacto</h4>
+<ul class="space-y-6 text-sm">
+<li class="flex gap-4">
+<span class="material-icons text-primary text-xl">location_on</span>
+<span class="text-slate-300">Dirección: Cusubamba y Tendales, Quito, Ecuador</span>
+</li>
+<li class="flex gap-4">
+<span class="material-icons text-primary text-xl">phone</span>
+<span class="text-slate-300">Teléfono: 0984016027</span>
+</li>
+<li class="flex gap-4">
+<span class="material-icons text-primary text-xl">email</span>
+<span class="text-slate-300 font-bold">Correo: ipe3ecuador@gmail.com</span>
+</li>
 </ul>
 </div>
 </div>
-<div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-<p class="text-slate-500 text-sm">© 2024 IPE3 Engineering by CORPORACIÓN 360. Todos los derechos reservados.</p>
+<div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-widest font-bold text-slate-500">
+<p>© 2016 IPE3 Engineering by CORPORACIÓN 360</p>
 <div class="flex gap-8">
-<img class="opacity-30 hover:opacity-100 transition-opacity" data-alt="Visa payment logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmDIq34XYX6igKgJBveV3TNyez78OS7BDJgb8Hmux0mPuCQfCZK6n-eFKELbuD6hRodB_sRMve8_6porMnkJtPD-EPhKYvhNS6T8k_5zIUxEpJ5ZqiJSJU8PY4V31TfOlrYTX0MvDok_ILYc8UDB4IPdQ1pCH3BbFYUjHMEetibHwu9nb0saYVoFKQk5x8Iu3VTJUv7iHhICi6G7-H0bvQHXNHxyoYTTKbjvsQ_PeG_Oq5M_CWcw-hq7-T9ZbA2gdiwODmCuW0Sz4"/>
-<img class="opacity-30 hover:opacity-100 transition-opacity" data-alt="Mastercard payment logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCig19SGetlZ2uZyqgglZ73k8ehT0iWbxuRy2FxxCgsvde6YOQvtI8mXgcd82Rxl6WBmvS2_tkzSTgnRVErGlstJfUlAY7fOwc1skX3x9dh6iTy09ZNkTBEy4q7g-tOR0IAQTctgcp-3fCcc3z9JF3zyqvi2GRxVp52KP2BWD2OMbp4_izi7wnuY4-rAgI3HSUbNkRpnJj-lt6VYN6DbZxkrET0lc6fhKweJFo72IaJGaZdMLZUbm6zCZozivEkjQ6iotV7x-Ww3Uk"/>
-<img class="opacity-30 hover:opacity-100 transition-opacity" data-alt="American Express payment logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzSjPYA8RrT82lSd8M1MK5CTZpI90qt7iStEVyuXFff2IxgwkzgRY3Up6uZjNcBP4ZATBDuhyoWk5z7ddFsg6S1yQWIiwa3HNty985CR5al4relWOv6yg-ScpZp_uKdFGcrEd4Z0ANbyI_b9SEf5stHF-mzQEmoXFElvtSqB_7NX-RdCb9aqddxSagVZZdh6vO4V3nfBfx7sDeZcZOfVXPwC4ni1aRSzxyFzzzrtDaGX7XGCoqWGWYtVnhifHoBgdDk9Rqmpro1f8"/>
+<a class="hover:text-primary transition-colors" href="#">Privacidad</a>
+<a class="hover:text-primary transition-colors" href="#">Términos</a>
+<a class="hover:text-primary transition-colors" href="#">Sitemap</a>
 </div>
 </div>
 </div>
 </footer>
+
 </body></html>
