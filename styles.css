@@ -46,3 +46,31 @@ body {
 .marquee-container { 
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
+/* --------------------------- */
+/* Animaciones para footer      */
+/* --------------------------- */
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes move-line {
+  0% { transform: translateX(0%) rotate(var(--rotate)); }
+  50% { transform: translateX(2%) rotate(var(--rotate)); }
+  100% { transform: translateX(0%) rotate(var(--rotate)); }
+}
+
+.star { animation: twinkle 3s infinite ease-in-out; }
+.star.delay-200 { animation-delay: 0.2s; }
+.star.delay-400 { animation-delay: 0.4s; }
+.star.delay-600 { animation-delay: 0.6s; }
+.star.delay-800 { animation-delay: 0.8s; }
+.star.delay-1000 { animation-delay: 1s; }
+.star.delay-1200 { animation-delay: 1.2s; }
+.star.delay-1400 { animation-delay: 1.4s; }
+
+.constellation-line { animation: move-line 10s infinite ease-in-out; }
+.constellation-line.delay-300 { animation-delay: 0.3s; }
+.constellation-line.delay-600 { animation-delay: 0.6s; }
+.constellation-line.delay-900 { animation-delay: 0.9s; }
