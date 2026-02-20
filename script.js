@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    // ===== ESTRELLAS TECNOLOGÍA AVANZADA =====
+ // ===== ESTRELLAS FOOTER - RED NEURONAL PRO =====
 const canvas = document.getElementById("stars-canvas");
 if (!canvas) return;
 
@@ -67,7 +67,8 @@ const ctx = canvas.getContext("2d");
 
 let stars = [];
 let mouse = { x: null, y: null };
-const STAR_COUNT = 55; // menos carga
+
+const STAR_COUNT = 55; // más optimizado
 const CONNECT_DISTANCE = 140;
 const MOUSE_RADIUS = 160;
 
@@ -110,14 +111,13 @@ function drawStars() {
         if (star.x < 0 || star.x > canvas.width) star.vx *= -1;
         if (star.y < 0 || star.y > canvas.height) star.vy *= -1;
 
-        // brillo sutil
+        // nodo sutil
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
         ctx.fillStyle = "rgba(0, 210, 255, 0.6)";
         ctx.fill();
     });
 
-    // conexiones entre estrellas
     for (let i = 0; i < stars.length; i++) {
         for (let j = i + 1; j < stars.length; j++) {
             let dx = stars[i].x - stars[j].x;
