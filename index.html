@@ -3,19 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IPE3 Engineering</title>
+<title>IPE3 Engineering | Ingeniería Eléctrica de Precisión</title>
 
 <link rel="icon" href="static/icons/favicon.ico">
 
 <script src="https://cdn.tailwindcss.com"></script>
 
 <link rel="stylesheet" href="static/css/styles.css">
+
+<style>
+/* ===== ULTRA PRO EFFECTS ===== */
+
+.glass {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.card-hover {
+    transition: all 0.4s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 212, 255, 0.15);
+    border-color: rgba(0, 212, 255, 0.5);
+}
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s ease;
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
 </head>
 
-<body class="bg-[#0b111a] text-white font-sans">
+<body class="bg-[#0b111a] text-white font-sans overflow-x-hidden">
 
 <!-- ================= NAVBAR ================= -->
-<header class="fixed w-full z-50 bg-[#0b111a]/90 backdrop-blur border-b border-white/10">
+<header id="navbar" class="fixed w-full z-50 transition-all duration-500 glass">
     <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
         
         <div class="flex items-center gap-3">
@@ -29,14 +60,13 @@
         </div>
 
         <nav class="hidden md:flex gap-8 text-sm">
-            <a href="#" class="hover:text-cyan-400">Inicio</a>
-            <a href="#especialidades" class="hover:text-cyan-400">Servicios</a>
-            <a href="#proyectos" class="hover:text-cyan-400">Proyectos</a>
-            <a href="#" class="hover:text-cyan-400">Nosotros</a>
-            <a href="#contacto" class="hover:text-cyan-400">Contacto</a>
+            <a href="#" class="hover:text-cyan-400 transition">Inicio</a>
+            <a href="#especialidades" class="hover:text-cyan-400 transition">Servicios</a>
+            <a href="#proyectos" class="hover:text-cyan-400 transition">Proyectos</a>
+            <a href="#contacto" class="hover:text-cyan-400 transition">Contacto</a>
         </nav>
 
-        <a href="#contacto" class="bg-cyan-500 hover:bg-cyan-400 text-black px-4 py-2 rounded-md text-sm font-semibold transition">
+        <a href="#contacto" class="bg-cyan-500 hover:bg-cyan-400 text-black px-5 py-2 rounded-md text-sm font-semibold transition shadow-lg shadow-cyan-500/20">
             Solicitar Cotización
         </a>
     </div>
@@ -46,10 +76,10 @@
 <section class="relative h-screen flex items-center bg-cover bg-center"
 style="background-image:url('static/img/hero-bg.jpg');">
 
-<div class="absolute inset-0 bg-gradient-to-r from-[#0b111a] via-[#0b111a]/90 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-[#0b111a] via-[#0b111a]/95 to-transparent"></div>
 
-<div class="relative max-w-7xl mx-auto px-6">
-    <span class="bg-cyan-500/20 text-cyan-400 px-4 py-1 text-xs rounded-full">
+<div class="relative max-w-7xl mx-auto px-6 fade-up">
+    <span class="bg-cyan-500/20 text-cyan-400 px-4 py-1 text-xs rounded-full tracking-widest">
         EXPERTOS EN QUITO, ECUADOR
     </span>
 
@@ -64,7 +94,7 @@ style="background-image:url('static/img/hero-bg.jpg');">
     </p>
 
     <div class="mt-8 flex gap-4">
-        <a href="#proyectos" class="bg-cyan-500 hover:bg-cyan-400 text-black px-6 py-3 rounded-lg font-semibold transition">
+        <a href="#proyectos" class="bg-cyan-500 hover:bg-cyan-400 text-black px-6 py-3 rounded-lg font-semibold transition shadow-xl shadow-cyan-500/30">
             Explorar Proyectos
         </a>
 
@@ -76,31 +106,31 @@ style="background-image:url('static/img/hero-bg.jpg');">
 </section>
 
 <!-- ================= ESPECIALIDADES ================= -->
-<section id="especialidades" class="py-24 bg-gradient-to-b from-[#0b111a] to-[#111827]">
+<section id="especialidades" class="py-28 bg-gradient-to-b from-[#0b111a] to-[#111827]">
 
 <div class="max-w-7xl mx-auto px-6 text-center">
-<h3 class="text-3xl font-semibold mb-16">Nuestras Especialidades</h3>
+<h3 class="text-3xl font-semibold mb-16 fade-up">Nuestras Especialidades</h3>
 
 <div class="grid md:grid-cols-4 gap-8">
 
-<a href="proyectos-electricos.html" class="p-8 rounded-xl bg-white/5 border border-white/10 hover:border-cyan-400 transition">
-<h4 class="font-semibold mb-4">Proyectos Eléctricos</h4>
+<a href="proyectos-electricos.html" class="p-8 rounded-xl glass card-hover fade-up">
+<h4 class="font-semibold mb-4 text-cyan-400">Proyectos Eléctricos</h4>
 <p class="text-sm text-gray-400">Infraestructura eléctrica industrial certificada.</p>
 </a>
 
-<a href="domotica.html" class="p-8 rounded-xl bg-white/5 border border-white/10 hover:border-cyan-400 transition">
-<h4 class="font-semibold mb-4">Domótica Avanzada</h4>
+<a href="domotica.html" class="p-8 rounded-xl glass card-hover fade-up">
+<h4 class="font-semibold mb-4 text-cyan-400">Domótica Avanzada</h4>
 <p class="text-sm text-gray-400">Automatización inteligente y eficiencia energética.</p>
 </a>
 
-<a href="seguridad-electronica.html" class="p-8 rounded-xl bg-white/5 border border-white/10 hover:border-cyan-400 transition">
-<h4 class="font-semibold mb-4">Seguridad Electrónica</h4>
-<p class="text-sm text-gray-400">CCTV, control de acceso y sistemas contra incendios.</p>
+<a href="seguridad-electronica.html" class="p-8 rounded-xl glass card-hover fade-up">
+<h4 class="font-semibold mb-4 text-cyan-400">Seguridad Electrónica</h4>
+<p class="text-sm text-gray-400">CCTV y control de acceso profesional.</p>
 </a>
 
-<a href="mantenimiento-medico.html" class="p-8 rounded-xl bg-white/5 border border-white/10 hover:border-cyan-400 transition">
-<h4 class="font-semibold mb-4">Mantenimiento Médico</h4>
-<p class="text-sm text-gray-400">Soporte técnico hospitalario especializado.</p>
+<a href="mantenimiento-medico.html" class="p-8 rounded-xl glass card-hover fade-up">
+<h4 class="font-semibold mb-4 text-cyan-400">Mantenimiento Médico</h4>
+<p class="text-sm text-gray-400">Soporte hospitalario especializado.</p>
 </a>
 
 </div>
@@ -108,28 +138,28 @@ style="background-image:url('static/img/hero-bg.jpg');">
 </section>
 
 <!-- ================= PROYECTOS ================= -->
-<section id="proyectos" class="py-24 bg-[#0b111a]">
+<section id="proyectos" class="py-28 bg-[#0b111a]">
 
 <div class="max-w-7xl mx-auto px-6">
-<h3 class="text-3xl font-semibold mb-12">Proyectos Destacados</h3>
+<h3 class="text-3xl font-semibold mb-16 fade-up">Proyectos Destacados</h3>
 
 <div class="grid md:grid-cols-3 gap-8">
 
-<div class="rounded-xl overflow-hidden bg-white/5 border border-white/10 hover:scale-105 transition">
+<div class="rounded-xl overflow-hidden glass card-hover fade-up">
 <img src="static/uploads/projects/proyecto1.jpg" class="w-full h-64 object-cover">
 <div class="p-6">
 <h4 class="font-semibold">Edificio Corporativo X</h4>
 </div>
 </div>
 
-<div class="rounded-xl overflow-hidden bg-white/5 border border-white/10 hover:scale-105 transition">
+<div class="rounded-xl overflow-hidden glass card-hover fade-up">
 <img src="static/uploads/projects/proyecto1.jpg" class="w-full h-64 object-cover">
 <div class="p-6">
 <h4 class="font-semibold">Planta Industrial Alfa</h4>
 </div>
 </div>
 
-<div class="rounded-xl overflow-hidden bg-white/5 border border-white/10 hover:scale-105 transition">
+<div class="rounded-xl overflow-hidden glass card-hover fade-up">
 <img src="static/uploads/projects/proyecto1.jpg" class="w-full h-64 object-cover">
 <div class="p-6">
 <h4 class="font-semibold">Logística Integral</h4>
@@ -141,9 +171,9 @@ style="background-image:url('static/img/hero-bg.jpg');">
 </section>
 
 <!-- ================= FOOTER ================= -->
-<footer id="contacto" class="bg-[#111827] py-16 border-t border-white/10">
+<footer id="contacto" class="bg-[#111827] py-20 border-t border-white/10">
 
-<div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8 text-sm text-gray-400">
+<div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12 text-sm text-gray-400">
 
 <div>
 <h4 class="text-white font-semibold mb-4">IPE3 Engineering</h4>
@@ -158,21 +188,44 @@ style="background-image:url('static/img/hero-bg.jpg');">
 </div>
 
 <div>
-<h4 class="text-white font-semibold mb-4">Servicios</h4>
+<h4 class="text-white font-semibold mb-4">Soluciones</h4>
 <p>Automatización Industrial</p>
-<p>Cableado Inteligente</p>
+<p>Seguridad Electrónica</p>
 <p>Mantenimiento Predictivo</p>
 </div>
 
 </div>
 
-<div class="text-center text-xs text-gray-600 mt-12">
+<div class="text-center text-xs text-gray-600 mt-16">
 © 2025 IPE3 Engineering by CORPORACIÓN 360
 </div>
 
 </footer>
 
-<script src="static/js/script.js"></script>
+<script>
+// ===== SCROLL NAVBAR EFFECT =====
+window.addEventListener("scroll", function() {
+    const nav = document.getElementById("navbar");
+    if (window.scrollY > 50) {
+        nav.style.background = "rgba(11,17,26,0.95)";
+    } else {
+        nav.style.background = "rgba(255,255,255,0.05)";
+    }
+});
+
+// ===== FADE IN ON SCROLL =====
+const faders = document.querySelectorAll(".fade-up");
+
+const appearOnScroll = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+        }
+    });
+}, { threshold: 0.2 });
+
+faders.forEach(el => appearOnScroll.observe(el));
+</script>
 
 </body>
 </html>
