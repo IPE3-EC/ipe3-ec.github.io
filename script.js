@@ -43,9 +43,11 @@ tailwind.config = {
         }
     }
 };
+// ================================
+// ANIMACIÓN SCROLL
+// ================================
 document.addEventListener("DOMContentLoaded", function () {
 
-    // ===== ANIMACIÓN SCROLL =====
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -58,107 +60,111 @@ document.addEventListener("DOMContentLoaded", function () {
         observer.observe(el);
     });
 
+    // ================================
+    // ESTRELLAS FOOTER (Red tecnológica)
+    // ================================
+    const canvas = document.getElementById("stars-canvas");
+    if (!canvas) return;
 
- // ===== ESTRELLAS FOOTER - RED NEURONAL PRO =====
-const canvas = document.getElementById("stars-canvas");
-if (!canvas) return;
+    const ctx = canvas.getContext("2d");
 
-const ctx = canvas.getContext("2d");
+    let stars = [];
+    const STAR_COUNT = 70;
+    const CONNECT_DISTANCE = 130;
 
-let stars = [];
-let mouse = { x: null, y: null };
+    let mouse = {
+        x: null,
+        y: null,
+        radius: 150
+    };
 
-const STAR_COUNT = 55; // más optimizado
-const CONNECT_DISTANCE = 140;
-const MOUSE_RADIUS = 160;
-
-function resizeCanvas() {
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
-}
-
-function createStars() {
-    stars = [];
-    for (let i = 0; i < STAR_COUNT; i++) {
-        stars.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            vx: (Math.random() - 0.5) * 0.4,
-            vy: (Math.random() - 0.5) * 0.4,
-            radius: Math.random() * 1.2 + 0.4
-        });
+    function resizeCanvas() {
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
     }
-}
 
-canvas.addEventListener("mousemove", (e) => {
-    const rect = canvas.getBoundingClientRect();
-    mouse.x = e.clientX - rect.left;
-    mouse.y = e.clientY - rect.top;
-});
+    function createStars() {
+        stars = [];
+        for (let i = 0; i < STAR_COUNT; i++) {
+            stars.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                vx: (Math.random() - 0.5) * 0.4,
+                vy: (Math.random() - 0.5) * 0.4,
+                radius: Math.random() * 1.2 + 0.5
+            });
+        }
+    }
 
-canvas.addEventListener("mouseleave", () => {
-    mouse.x = null;
-    mouse.y = null;
-});
+    function drawStars() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-function drawStars() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+        stars.forEach(star => {
 
-    stars.forEach(star => {
-        star.x += star.vx;
-        star.y += star.vy;
+            star.x += star.vx;
+            star.y += star.vy;
 
-        if (star.x < 0 || star.x > canvas.width) star.vx *= -1;
-        if (star.y < 0 || star.y > canvas.height) star.vy *= -1;
+            if (star.x < 0 || star.x > canvas.width) star.vx *= -1;
+            if (star.y < 0 || star.y > canvas.height) star.vy *= -1;
 
-        // nodo sutil
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(0, 210, 255, 0.6)";
-        ctx.fill();
+            // Reacción al mouse
+            if (mouse.x && mouse.y) {
+                let dx = star.x - mouse.x;
+                let dy = star.y - mouse.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < mouse.radius) {
+                    star.x += dx * 0.01;
+                    star.y += dy * 0.01;
+                }
+            }
+
+            ctx.beginPath();
+            ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+            ctx.fillStyle = "rgba(0, 210, 255, 0.7)";
+            ctx.fill();
+        });
+
+        // Conexiones tipo red neuronal
+        for (let i = 0; i < stars.length; i++) {
+            for (let j = i + 1; j < stars.length; j++) {
+
+                let dx = stars[i].x - stars[j].x;
+                let dy = stars[i].y - stars[j].y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < CONNECT_DISTANCE) {
+                    ctx.beginPath();
+                    ctx.moveTo(stars[i].x, stars[i].y);
+                    ctx.lineTo(stars[j].x, stars[j].y);
+                    ctx.strokeStyle = `rgba(0, 210, 255, ${0.5 - distance / CONNECT_DISTANCE})`;
+                    ctx.lineWidth = 0.6;
+                    ctx.stroke();
+                }
+            }
+        }
+
+        requestAnimationFrame(drawStars);
+    }
+
+    // Mouse tracking
+    canvas.addEventListener("mousemove", function (e) {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
     });
 
-    for (let i = 0; i < stars.length; i++) {
-        for (let j = i + 1; j < stars.length; j++) {
-            let dx = stars[i].x - stars[j].x;
-            let dy = stars[i].y - stars[j].y;
-            let distance = Math.sqrt(dx * dx + dy * dy);
+    canvas.addEventListener("mouseleave", function () {
+        mouse.x = null;
+        mouse.y = null;
+    });
 
-            if (distance < CONNECT_DISTANCE) {
-                ctx.beginPath();
-                ctx.moveTo(stars[i].x, stars[i].y);
-                ctx.lineTo(stars[j].x, stars[j].y);
-                ctx.strokeStyle = `rgba(0, 210, 255, ${0.15 - distance / 900})`;
-                ctx.lineWidth = 0.6;
-                ctx.stroke();
-            }
-        }
+    window.addEventListener("resize", function () {
+        resizeCanvas();
+        createStars();
+    });
 
-        // conexión con el mouse
-        if (mouse.x !== null) {
-            let dx = stars[i].x - mouse.x;
-            let dy = stars[i].y - mouse.y;
-            let distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < MOUSE_RADIUS) {
-                ctx.beginPath();
-                ctx.moveTo(stars[i].x, stars[i].y);
-                ctx.lineTo(mouse.x, mouse.y);
-                ctx.strokeStyle = `rgba(0, 210, 255, ${0.3 - distance / 500})`;
-                ctx.lineWidth = 0.8;
-                ctx.stroke();
-            }
-        }
-    }
-
-    requestAnimationFrame(drawStars);
-}
-
-window.addEventListener("resize", () => {
     resizeCanvas();
     createStars();
+    drawStars();
 });
-
-resizeCanvas();
-createStars();
-drawStars();
