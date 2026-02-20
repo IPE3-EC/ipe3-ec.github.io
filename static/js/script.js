@@ -1,54 +1,29 @@
-// ===== SCROLL HEADER EFFECT =====
-window.addEventListener("scroll", function () {
-    const header = document.querySelector("header");
-
-    if (window.scrollY > 50) {
-        header.classList.add("shadow-2xl");
-    } else {
-        header.classList.remove("shadow-2xl");
-    }
-});
-
-// ===== SMOOTH SCROLL FOR BUTTONS =====
-document.querySelectorAll("a[href^='#']").forEach(anchor => {
-    anchor.addEventListener("click", function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute("href"));
-        if (target) {
-            target.scrollIntoView({
-                behavior: "smooth"
-            });
-        }
-    });
-});
-
-// ===== HERO BUTTONS ACTION =====
-document.querySelectorAll("button").forEach(btn => {
-    btn.addEventListener("mouseenter", () => {
-        btn.style.boxShadow = "0 0 25px rgba(0,210,255,0.4)";
-    });
-
-    btn.addEventListener("mouseleave", () => {
-        btn.style.boxShadow = "none";
-    });
-});
-// ================================
-// FOOTER PARTICULAS ULTRA PRO
-// ================================
+// =======================================
+// FOOTER ULTRA PRO MAX 2026
+// =======================================
 
 const canvas = document.getElementById("starsCanvas");
 const ctx = canvas.getContext("2d");
 
 let particles = [];
-const numberOfParticles = 100;
+let mouse = { x: null, y: null, radius: 150 };
 
+const numberOfParticles = 120;
+
+// Ajustar tamaño
 function resizeCanvas() {
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
 }
-
 window.addEventListener("resize", resizeCanvas);
 resizeCanvas();
+
+// Detectar mouse
+window.addEventListener("mousemove", function (event) {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = event.clientX - rect.left;
+    mouse.y = event.clientY - rect.top;
+});
 
 class Particle {
     constructor() {
@@ -63,12 +38,25 @@ class Particle {
         this.x += this.speedX;
         this.y += this.speedY;
 
-        if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
-        if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
+        // Rebote bordes
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+
+        // Reacción al mouse
+        let dx = this.x - mouse.x;
+        let dy = this.y - mouse.y;
+        let distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < mouse.radius) {
+            this.x += dx / 10;
+            this.y += dy / 10;
+        }
     }
 
     draw() {
-        ctx.fillStyle = "rgba(0, 212, 255, 0.8)";
+        ctx.fillStyle = "rgba(0, 212, 255, 0.9)";
+        ctx.shadowColor = "#00d4ff";
+        ctx.shadowBlur = 10;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
@@ -87,10 +75,11 @@ function connectParticles() {
         for (let b = a; b < particles.length; b++) {
             let dx = particles[a].x - particles[b].x;
             let dy = particles[a].y - particles[b].y;
-            let distance = dx * dx + dy * dy;
+            let distance = Math.sqrt(dx * dx + dy * dy);
 
-            if (distance < 10000) {
-                ctx.strokeStyle = "rgba(0, 212, 255, 0.1)";
+            if (distance < 120) {
+                let opacity = 1 - distance / 120;
+                ctx.strokeStyle = `rgba(0, 212, 255, ${opacity})`;
                 ctx.lineWidth = 1;
                 ctx.beginPath();
                 ctx.moveTo(particles[a].x, particles[a].y);
@@ -104,10 +93,10 @@ function connectParticles() {
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    for (let i = 0; i < particles.length; i++) {
-        particles[i].update();
-        particles[i].draw();
-    }
+    particles.forEach(p => {
+        p.update();
+        p.draw();
+    });
 
     connectParticles();
     requestAnimationFrame(animate);
