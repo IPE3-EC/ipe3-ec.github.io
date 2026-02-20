@@ -1,4 +1,4 @@
-// Configuración de Tailwind extendida
+// Tailwind Config
 tailwind.config = {
     darkMode: "class",
     theme: {
@@ -9,162 +9,25 @@ tailwind.config = {
                 "deep-charcoal": "#0a0c10",
                 "slate-dark": "#1a1f2e",
                 "safety-yellow": "#facc15",
-                "whatsapp": "#25D366"
             },
             fontFamily: {
                 "display": ["Space Grotesk"]
             },
             borderRadius: {
-                DEFAULT: "0.25rem",
-                lg: "0.5rem",
-                xl: "0.75rem",
-                full: "9999px"
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
             },
             animation: {
-                marquee: "marquee 25s linear infinite",
-                "ken-burns": "kenburns 20s ease infinite alternate",
-                "pulse-soft": "pulse-soft 2s infinite"
+                'marquee': 'marquee 25s linear infinite',
             },
             keyframes: {
                 marquee: {
-                    "0%": { transform: "translateX(0%)" },
-                    "100%": { transform: "translateX(-50%)" }
-                },
-                kenburns: {
-                    "0%": { transform: "scale(1) translate(0, 0)" },
-                    "100%": { transform: "scale(1.1) translate(-2%, -2%)" }
-                },
-                "pulse-soft": {
-                    "0%": { boxShadow: "0 0 0 0 rgba(37, 211, 102, 0.4)" },
-                    "70%": { boxShadow: "0 0 0 15px rgba(37, 211, 102, 0)" },
-                    "100%": { boxShadow: "0 0 0 0 rgba(37, 211, 102, 0)" }
+                    '0%': { transform: 'translateX(0%)' },
+                    '100%': { transform: 'translateX(-50%)' },
                 }
             }
-        }
-    }
-};
-// ================================
-// ANIMACIÓN SCROLL
-// ================================
-document.addEventListener("DOMContentLoaded", function () {
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-show');
-            }
-        });
-    }, { threshold: 0.15 });
-
-    document.querySelectorAll('.animate-on-scroll').forEach(el => {
-        observer.observe(el);
-    });
-
-    // ================================
-    // ESTRELLAS FOOTER (Red tecnológica)
-    // ================================
-    const canvas = document.getElementById("stars-canvas");
-    if (!canvas) return;
-
-    const ctx = canvas.getContext("2d");
-
-    let stars = [];
-    const STAR_COUNT = 70;
-    const CONNECT_DISTANCE = 130;
-
-    let mouse = {
-        x: null,
-        y: null,
-        radius: 150
-    };
-
-    function resizeCanvas() {
-        canvas.width = canvas.offsetWidth;
-        canvas.height = canvas.offsetHeight;
-    }
-
-    function createStars() {
-        stars = [];
-        for (let i = 0; i < STAR_COUNT; i++) {
-            stars.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                vx: (Math.random() - 0.5) * 0.4,
-                vy: (Math.random() - 0.5) * 0.4,
-                radius: Math.random() * 1.2 + 0.5
-            });
-        }
-    }
-
-    function drawStars() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        stars.forEach(star => {
-
-            star.x += star.vx;
-            star.y += star.vy;
-
-            if (star.x < 0 || star.x > canvas.width) star.vx *= -1;
-            if (star.y < 0 || star.y > canvas.height) star.vy *= -1;
-
-            // Reacción al mouse
-            if (mouse.x && mouse.y) {
-                let dx = star.x - mouse.x;
-                let dy = star.y - mouse.y;
-                let distance = Math.sqrt(dx * dx + dy * dy);
-
-                if (distance < mouse.radius) {
-                    star.x += dx * 0.01;
-                    star.y += dy * 0.01;
-                }
-            }
-
-            ctx.beginPath();
-            ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-            ctx.fillStyle = "rgba(0, 210, 255, 0.7)";
-            ctx.fill();
-        });
-
-        // Conexiones tipo red neuronal
-        for (let i = 0; i < stars.length; i++) {
-            for (let j = i + 1; j < stars.length; j++) {
-
-                let dx = stars[i].x - stars[j].x;
-                let dy = stars[i].y - stars[j].y;
-                let distance = Math.sqrt(dx * dx + dy * dy);
-
-                if (distance < CONNECT_DISTANCE) {
-                    ctx.beginPath();
-                    ctx.moveTo(stars[i].x, stars[i].y);
-                    ctx.lineTo(stars[j].x, stars[j].y);
-                    ctx.strokeStyle = `rgba(0, 210, 255, ${0.5 - distance / CONNECT_DISTANCE})`;
-                    ctx.lineWidth = 0.6;
-                    ctx.stroke();
-                }
-            }
-        }
-
-        requestAnimationFrame(drawStars);
-    }
-
-    // Mouse tracking
-    canvas.addEventListener("mousemove", function (e) {
-        const rect = canvas.getBoundingClientRect();
-        mouse.x = e.clientX - rect.left;
-        mouse.y = e.clientY - rect.top;
-    });
-
-    canvas.addEventListener("mouseleave", function () {
-        mouse.x = null;
-        mouse.y = null;
-    });
-
-    window.addEventListener("resize", function () {
-        resizeCanvas();
-        createStars();
-    });
-
-    resizeCanvas();
-    createStars();
-    drawStars();
-});
+        },
+    },
+}
