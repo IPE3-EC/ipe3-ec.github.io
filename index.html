@@ -8,7 +8,7 @@
 <!-- Tailwind CDN -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
-<!-- Tailwind Config Externo -->
+<!-- Tailwind Config -->
 <script src="script.js"></script>
 
 <!-- Google Fonts -->
@@ -16,13 +16,84 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 
-<!-- CSS Externo -->
+<!-- CSS Personalizado -->
 <link rel="stylesheet" href="styles.css"/>
 
 </head>
+
 <body class="bg-deep-charcoal text-slate-200 selection:bg-primary/30">
 
-<!-- TODO tu contenido HTML va aquí sin cambios -->
+<!-- HEADER -->
+<header class="fixed top-0 w-full z-50 bg-deep-charcoal/80 backdrop-blur-lg border-b border-white/5">
+<nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-gradient-to-br from-primary to-accent-blue flex items-center justify-center rounded-lg shadow-lg shadow-primary/20 shrink-0">
+<span class="text-deep-charcoal font-black text-xl">I3</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xl font-bold tracking-tight text-white leading-tight">
+IPE3 <span class="text-primary font-light">Engineering</span>
+</span>
+<span class="text-[10px] uppercase tracking-widest text-slate-400 font-bold leading-none">
+by CORPORACIÓN 360
+</span>
+</div>
+</div>
+
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#">Inicio</a>
+<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#servicios">Servicios</a>
+<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#proyectos">Proyectos</a>
+<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#contacto">Contacto</a>
+</div>
+
+</nav>
+</header>
+
+<!-- HERO -->
+<section class="relative h-screen flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover"
+src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8KtHLz4DO3g6p-zgz0gkhtrNljW8mkFrt1VNEGFPqyoFM9kURKHKeNasaLPVB3Nogsr2O1OP4FSxtZpr8B2ozgF1if27JGVnA0D9wEVvb02vAZIYG5W5yKTunnbGHuuMqBBcV-SGlLQGshT5Pa46--9Yxgs-QOX31mq5QcPtKqrAStp9Nn0Wd1yovBEAPAslY_t2wwo03BLcT0EF-VLLzB5eLtAITV3xddNenq5sjHR1DemmYZggPw5T7dWcoryCF9hDu3FhfmU4"/>
+<div class="absolute inset-0 bg-gradient-to-r from-deep-charcoal via-deep-charcoal/80 to-transparent"></div>
+</div>
+
+<div class="container mx-auto px-6 relative z-10">
+<div class="max-w-3xl">
+<h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+Ingeniería Eléctrica con
+<span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent-blue">
+Precisión Digital
+</span>
+</h1>
+
+<p class="text-xl text-slate-400 mb-10 max-w-2xl">
+Soluciones integrales de automatización, seguridad y mantenimiento industrial.
+</p>
+</div>
+</div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="py-24 dark-gradient-bg" id="servicios">
+<div class="container mx-auto px-6 text-center mb-16">
+<h2 class="text-4xl font-bold text-white mb-4">Nuestras Especialidades</h2>
+<div class="w-20 h-1 bg-gradient-to-r from-primary to-accent-blue mx-auto rounded-full"></div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="constellation-bg text-slate-400 py-16 relative" id="contacto">
+<div class="container mx-auto px-6 text-center">
+<p class="text-slate-300">Cusubamba y Tendales, Quito, Ecuador</p>
+<p class="text-slate-300">Tel: 0984016027</p>
+<p class="text-primary font-bold">ipe3ecuador@gmail.com</p>
+<div class="mt-6 text-xs uppercase tracking-widest text-slate-500">
+© 2016 IPE3 Engineering by CORPORACIÓN 360
+</div>
+</div>
+</footer>
 
 </body>
 </html>
