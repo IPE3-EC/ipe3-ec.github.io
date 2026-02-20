@@ -1,20 +1,37 @@
+/* Tipografía general */
 body { font-family: 'Space Grotesk', sans-serif; }
 
-.animate-ken-burns {
-    animation: kenburns 20s ease infinite alternate;
+/* Fondos y patrones */
+.dark-gradient-bg {
+    background: radial-gradient(circle at top right, #1a2333, #0a0c10 70%);
 }
-
-@keyframes kenburns {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.1); }
+.circuit-pattern {
+    background-image: radial-gradient(#00d2ff 0.5px, transparent 0.5px);
+    background-size: 32px 32px;
+    opacity: 0.08;
 }
-
-.animate-pulse-soft {
-    animation: pulse-soft 2s infinite;
+.constellation-bg {
+    background: radial-gradient(circle at 50% 50%, #111827, #030712);
+    position: relative;
+    overflow: hidden;
 }
-
-@keyframes pulse-soft {
-    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
-    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+.constellation-line {
+    position: absolute;
+    background: rgba(0, 210, 255, 0.1);
+    height: 1px;
+    transform-origin: left center;
+}
+.glass-panel {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.marquee-container {
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
