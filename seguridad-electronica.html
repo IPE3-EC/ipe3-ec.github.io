@@ -1,1 +1,357 @@
+<!DOCTYPE html>
 
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Seguridad Electrónica Especializada | IPE3 Engineering</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d6cf2",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0a0f16",
+                        "surface-dark": "#161f2c",
+                        "accent-blue": "#00d4ff"
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .constellation-bg {
+            background: radial-gradient(circle at center, #161f2c 0%, #0a0f16 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+        .line-glow {
+            box-shadow: 0 0 15px rgba(13, 108, 242, 0.5);
+        }
+        .glass-card {
+            background: rgba(22, 31, 44, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .camera-ring {
+            box-shadow: 0 0 30px rgba(13, 108, 242, 0.4);
+            border: 2px solid rgba(13, 108, 242, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full border-b border-white/5 bg-background-dark/80 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="text-primary size-8">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"></path>
+</svg>
+</div>
+<div>
+<h1 class="text-xl font-bold tracking-tight text-white leading-none">IPE3 Engineering</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-primary font-bold">Corporación 360</p>
+</div>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Servicios</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Especificaciones</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Proyectos</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Contacto</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-lg text-sm font-bold transition-all transform hover:scale-105">
+                    Solicitar Cotización
+                </button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-[85vh] flex items-center overflow-hidden bg-background-dark">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-r from-background-dark via-background-dark/80 to-transparent z-10"></div>
+<img alt="Seguridad Industrial" class="w-full h-full object-cover opacity-60 scale-105" data-alt="Modern 4K industrial security camera close-up with glowing ring" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7uWf-_OIwG3McVG6FuYZ2qvVatcheEbl0-lGtmrupWHclRCIHamldehI8dHcP52h-2_92_dfpnRu5ll5x8MQj7zUZ2wRjPwt3fIARcqZnBw4wmwHKuKNLlboAJsCS8x3oW5FAySInFHAw9XjFiusIXLAbixMPKNuY72Li8SbXOe3L8sFdD8GNI4N_z-hJEMmf2GA6RQt635VAefwznMMI3T86ZFVPrFH6oxtGTR7VQ0SGCnwHILw4LiIxBQbNLE4ecK9lelC8Shk"/>
+</div>
+<div class="max-w-7xl mx-auto px-6 relative z-20 grid lg:grid-cols-2 gap-12 items-center">
+<div class="space-y-8">
+<div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 px-4 py-2 rounded-full">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="text-xs font-bold tracking-widest uppercase text-primary">Tecnología de Grado Militar</span>
+</div>
+<h1 class="text-5xl lg:text-7xl font-bold leading-[1.1] text-white tracking-tight">
+                        Seguridad Electrónica de <span class="text-primary">Grado Industrial</span>
+</h1>
+<p class="text-lg text-slate-400 max-w-xl leading-relaxed">
+                        Protección inteligente 24/7 con tecnología 4K HDR y analítica de video avanzada para infraestructura crítica, minería y centros logísticos.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-primary text-white px-8 py-4 rounded-xl font-bold flex items-center gap-3 group">
+                            Ver Soluciones
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="border border-white/10 hover:bg-white/5 text-white px-8 py-4 rounded-xl font-bold transition-colors">
+                            Descargar Brochure
+                        </button>
+</div>
+</div>
+<div class="hidden lg:flex justify-center relative">
+<div class="camera-ring size-80 rounded-full flex items-center justify-center relative overflow-hidden bg-surface-dark/50 backdrop-blur-sm">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent"></div>
+<span class="material-symbols-outlined text-primary text-9xl">videocam</span>
+</div>
+<!-- Technical Callout -->
+<div class="absolute -bottom-4 -right-4 glass-card p-6 rounded-2xl max-w-[240px] border-l-4 border-l-primary">
+<p class="text-primary font-bold text-xs uppercase tracking-tighter mb-1">IA en Tiempo Real</p>
+<p class="text-sm font-medium text-white italic">"Detección de intrusos con 99.8% de precisión mediante redes neuronales."</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Grid -->
+<section class="py-24 bg-background-dark relative">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16 space-y-4">
+<h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Categorías de Servicios Especializados</h2>
+<p class="text-slate-400 max-w-2xl mx-auto">Soluciones integrales de ingeniería aplicadas a la protección de activos y personal.</p>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- CCTV -->
+<div class="glass-card p-8 rounded-2xl hover:border-primary/50 transition-all group">
+<div class="size-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">visibility</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">CCTV &amp; Videovigilancia</h3>
+<p class="text-slate-400 text-sm leading-relaxed mb-6">Sistemas IP de ultra alta definición con almacenamiento redundante NVR y analítica perimetral.</p>
+<div class="w-full h-40 rounded-lg overflow-hidden grayscale group-hover:grayscale-0 transition-all">
+<img alt="CCTV" class="w-full h-full object-cover" data-alt="Security monitoring control room with multiple screens" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxyFXKjCa3BuuzK1m22uVpixrC_lvXvRVGN-5kYaNc1APNmlPPvIRX6jgyQivnKq-sZ_r6zUOdNCll4oSqL59UoTPO5kMIcakkdLXOkfftoLYyESK6mhTta8wiETF-dKuEKZFQyo6_6-Zn00pFalmpeWj9Hj5kkL6ycpZcXWYlVZDqF42wfws87UWqYwjWBlboQODImx8zUcxQmmkC92XW_V-D-r9CllXnAOXwlZg6CpUfVfiAq6LVO6LqlDrhU-nAWdavVKRnY-4"/>
+</div>
+</div>
+<!-- Control de Accesos -->
+<div class="glass-card p-8 rounded-2xl hover:border-primary/50 transition-all group">
+<div class="size-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">fingerprint</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">Control de Accesos</h3>
+<p class="text-slate-400 text-sm leading-relaxed mb-6">Tecnología biométrica, reconocimiento facial y RFID para gestión de personal y activos.</p>
+<div class="w-full h-40 rounded-lg overflow-hidden grayscale group-hover:grayscale-0 transition-all">
+<img alt="Access Control" class="w-full h-full object-cover" data-alt="Digital biometric door access control system" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8qtOzqyFCkC8eQ7GwlDqtJEPL8TDvZXvpw-CrznZoQMNv5Wf8L4q-axfzlLa3IIaIRvcRnE1AY4rz515J8gon71s9jFbGhHcU40T5eHZycpqFI0i1Huksd9os7bNbu7epbb09CeqZFwezEh9eYyMsKhzXjOVsJFxjFy-66tK1_kjrNSwnR0W8RIYc87Tplto6mAaWOYjdmGgkj6dAzo1aUe7pmxQgzPnEUd0sg8n22we47UTDVTQZamxjJciAHXDkVs868obvlS8"/>
+</div>
+</div>
+<!-- Control de Rondas -->
+<div class="glass-card p-8 rounded-2xl hover:border-primary/50 transition-all group">
+<div class="size-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">verified_user</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">Control de Rondas</h3>
+<p class="text-slate-400 text-sm leading-relaxed mb-6">Monitoreo electrónico en tiempo real de guardias de seguridad con reportabilidad automática.</p>
+<div class="w-full h-40 rounded-lg overflow-hidden grayscale group-hover:grayscale-0 transition-all">
+<img alt="Guard Patrol" class="w-full h-full object-cover" data-alt="Security guard using a handheld digital patrolling device" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLlqXTNqtN_XMN8e4gfhXPyCPUX4J5H3CS9R5RoLV_ZbL4uYCAzEzIABL4SyPvlly90NfqMf-V6dgI-VoQgDdrJlQDS2x1zEPJzomDiKi9hbLCuszixVWFjbCaoqdirpP8hEnbA2S_s0MmggtP6pXt7WWlCYlMgzvDam8o8ZzIRVehsVoolgKYTiEzfwDNS09TtZf5lzti8BO1ua0q-0tRbWmcvMd2HiOMvMFFs3R1mR2Z8db7NTI8ZCp6PWT1ymgkKw67Kka8jEA"/>
+</div>
+</div>
+<!-- Alarmas -->
+<div class="glass-card p-8 rounded-2xl hover:border-primary/50 transition-all group">
+<div class="size-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">notifications_active</span>
+</div>
+<h3 class="text-xl font-bold text-white mb-3">Alarmas Inteligentes</h3>
+<p class="text-slate-400 text-sm leading-relaxed mb-6">Detección de intrusión temprana con sensores de movimiento PIR de doble tecnología.</p>
+<div class="w-full h-40 rounded-lg overflow-hidden grayscale group-hover:grayscale-0 transition-all">
+<img alt="Smart Alarms" class="w-full h-full object-cover" data-alt="Smart alarm system control panel on a wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdnG2jMXMmjZB5wWnT55Y52D26aRCHt8e5NJYhyU-l1w_pxzqCi5N40ja-N5OXRcc0SCFTBh29MHTKm3nCpS-iWQEqUhUISSL9GrfSFftvq3xbl00ISBJuX0_VcTOBRhnpfW6C_lkiRgxcGACG8mFrgk2vzIM_CjP-jmlzb-pKNN_Ymu8o4SdATz1chQ1-8YDktJ6yKJ-Iu7lxFwkhZmEC08-AkyZsWGnqUdCKs3LSfwICptmyGoZ3NB48w_VTNsf_iyoHfeHXo_8"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Spec Comparison -->
+<section class="py-24 bg-surface-dark/30 border-y border-white/5">
+<div class="max-w-5xl mx-auto px-6">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+<div>
+<h2 class="text-3xl font-bold text-white mb-2">Comparativa Técnica de Hardware</h2>
+<p class="text-slate-400">¿Por qué elegir nuestra ingeniería de grado industrial?</p>
+</div>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-primary/20 text-primary text-xs font-bold rounded">STANDARD 1080P</span>
+<span class="px-3 py-1 bg-accent-blue/20 text-accent-blue text-xs font-bold rounded">IPE3 ELITE 4K</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-white/10">
+<th class="py-4 px-6 text-sm font-bold text-slate-400 uppercase tracking-widest">Especificación</th>
+<th class="py-4 px-6 text-sm font-bold text-slate-500">Sistemas Convencionales</th>
+<th class="py-4 px-6 text-sm font-bold text-primary">Solución IPE3 Engineering</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<tr>
+<td class="py-6 px-6 font-medium text-white">Resolución de Imagen</td>
+<td class="py-6 px-6 text-slate-500">Full HD (2MP)</td>
+<td class="py-6 px-6 text-white font-bold">Ultra HD 4K (8MP) + HDR</td>
+</tr>
+<tr>
+<td class="py-6 px-6 font-medium text-white">Visión Nocturna</td>
+<td class="py-6 px-6 text-slate-500">IR Básico (20m)</td>
+<td class="py-6 px-6 text-white font-bold">ColorVu™ (Color 24/7 hasta 60m)</td>
+</tr>
+<tr>
+<td class="py-6 px-6 font-medium text-white">Detección Inteligente</td>
+<td class="py-6 px-6 text-slate-500">Solo Movimiento</td>
+<td class="py-6 px-6 text-white font-bold italic">Acusense™ (Filtrado Humano/Vehículo)</td>
+</tr>
+<tr>
+<td class="py-6 px-6 font-medium text-white">Resistencia Climatológica</td>
+<td class="py-6 px-6 text-slate-500">IP66 Plástico</td>
+<td class="py-6 px-6 text-white font-bold">IP67 / IK10 Antivandálica Metal</td>
+</tr>
+<tr>
+<td class="py-6 px-6 font-medium text-white">Conectividad</td>
+<td class="py-6 px-6 text-slate-500">Analógica / Coaxial</td>
+<td class="py-6 px-6 text-white font-bold">Fibra Óptica / IP / PoE+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-20">
+<div class="max-w-7xl mx-auto px-6">
+<div class="bg-gradient-to-r from-primary to-blue-700 rounded-3xl p-10 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-10">
+<div class="absolute top-0 right-0 w-1/3 h-full opacity-10">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M0 100 L100 0 L100 100 Z" fill="white"></path>
+</svg>
+</div>
+<div class="relative z-10 max-w-xl">
+<h2 class="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">¿Listo para elevar la seguridad de su infraestructura?</h2>
+<p class="text-white/80 text-lg">Nuestros ingenieros realizarán un levantamiento técnico sin costo para su proyecto.</p>
+</div>
+<div class="relative z-10 flex flex-col gap-4 w-full md:w-auto">
+<button class="bg-white text-primary px-10 py-4 rounded-xl font-bold text-lg hover:bg-slate-100 transition-colors shadow-xl">
+                            Agendar Levantamiento
+                        </button>
+<p class="text-white/60 text-xs text-center">Respuesta en menos de 24 horas hábiles.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer with Constellation Theme -->
+<footer class="constellation-bg pt-24 pb-12 border-t border-white/5">
+<!-- Decoration: Simulated Constellation Points -->
+<div class="absolute inset-0 pointer-events-none opacity-20">
+<div class="star w-1 h-1 top-20 left-[15%]"></div>
+<div class="star w-1.5 h-1.5 top-40 left-[25%]"></div>
+<div class="star w-1 h-1 top-60 left-[40%]"></div>
+<div class="star w-2 h-2 top-30 left-[70%]"></div>
+<div class="star w-1 h-1 top-80 left-[85%]"></div>
+<div class="star w-1.5 h-1.5 top-10 left-[90%]"></div>
+</div>
+<div class="max-w-7xl mx-auto px-6 relative z-10">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+<div class="space-y-6">
+<div class="flex items-center gap-3">
+<div class="text-primary size-8">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-white text-lg font-bold">IPE3 Engineering</h2>
+</div>
+<p class="text-slate-400 text-sm leading-relaxed">
+                        Líderes en integración de sistemas electrónicos de seguridad y soluciones de ingeniería para la gran industria. Parte de Corporación 360.
+                    </p>
+<div class="flex gap-4">
+<a class="size-10 rounded-lg bg-surface-dark flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-white text-xl">share</span>
+</a>
+<a class="size-10 rounded-lg bg-surface-dark flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-white text-xl">camera</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Soluciones</h4>
+<ul class="space-y-4 text-sm text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">Sistemas CCTV IP</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Detección Perimetral</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Control de Accesos Biométricos</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Detección de Incendio</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Redes y Conectividad</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Contacto</h4>
+<ul class="space-y-4 text-sm text-slate-400">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">location_on</span>
+<span>Avenida Central 1234, Parque Industrial<br/>Ciudad de México, CP 01234</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm">mail</span>
+<span>ingenieria@ipe3.com.mx</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm">call</span>
+<span>+52 (55) 1234-5678</span>
+</li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Novedades</h4>
+<p class="text-xs text-slate-400 mb-4">Suscríbete para recibir especificaciones técnicas actualizadas.</p>
+<div class="flex flex-col gap-2">
+<input class="bg-surface-dark border-white/10 rounded-lg py-3 px-4 text-sm focus:ring-primary focus:border-primary" placeholder="Correo corporativo" type="email"/>
+<button class="bg-primary text-white py-3 rounded-lg text-sm font-bold">Suscribirme</button>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+<p>© 2024 IPE3 Engineering by CORPORACIÓN 360. Todos los derechos reservados.</p>
+<div class="flex gap-6">
+<a class="hover:text-white" href="#">Aviso de Privacidad</a>
+<a class="hover:text-white" href="#">Términos de Servicio</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Floating WhatsApp Button -->
+<a class="fixed bottom-8 right-8 z-50 size-16 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-transform group" href="https://wa.me/525512345678" target="_blank">
+<svg class="size-8" fill="currentColor" viewbox="0 0 24 24">
+<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
+</svg>
+<span class="absolute right-full mr-4 bg-white text-slate-900 px-4 py-2 rounded-lg text-sm font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
+            Hablar con un Experto
+        </span>
+</a>
+</body></html>
