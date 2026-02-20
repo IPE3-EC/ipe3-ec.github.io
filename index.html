@@ -1,51 +1,53 @@
 <!DOCTYPE html>
-<html lang="es" class="dark">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IPE3 Engineering | Electrical & Automation Solutions</title>
+
+<title>IPE3 Engineering | Electrical, Automation & Industrial Solutions</title>
+<meta name="description" content="IPE3 Engineering ofrece soluciones profesionales en automatización industrial, instalaciones eléctricas y seguridad electrónica en Ecuador.">
 
 <script src="https://cdn.tailwindcss.com"></script>
-
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-body { font-family: 'Space Grotesk', sans-serif; }
-.reveal { opacity:0; transform:translateY(40px); transition: all 1s ease; }
+body { font-family: 'Space Grotesk', sans-serif; background:#000; overflow-x:hidden;}
+.reveal { opacity:0; transform:translateY(60px); transition: all 1s ease; }
 .reveal.active { opacity:1; transform:translateY(0); }
-.glow { box-shadow: 0 0 40px rgba(0,210,255,0.3); }
+.glow { box-shadow: 0 0 50px rgba(0,210,255,0.4); }
+canvas { position:fixed; top:0; left:0; z-index:-1; }
 </style>
 </head>
 
-<body class="bg-black text-white">
+<body class="text-white">
 
-<!-- ================= NAV ================= -->
+<canvas id="bg"></canvas>
 
-<header class="fixed w-full z-50 bg-black/80 backdrop-blur border-b border-white/10">
+<!-- NAV -->
+<header class="fixed w-full z-50 bg-black/70 backdrop-blur border-b border-white/10">
 <div class="container mx-auto px-6 py-4 flex justify-between items-center">
 
 <div class="flex items-center gap-3">
 <img src="ipe3-logo.png" class="h-12">
-<span class="font-bold text-xl">IPE3</span>
+<span class="font-bold text-xl tracking-wider">IPE3</span>
 </div>
 
 <div class="flex items-center gap-6">
-<button onclick="toggleLang()" class="text-sm border px-3 py-1 rounded">ES / EN</button>
-<a href="#contact" class="bg-cyan-400 text-black px-5 py-2 rounded font-bold">Cotizar</a>
+<button onclick="toggleLang()" class="text-sm border px-3 py-1 rounded hover:bg-white hover:text-black transition">ES / EN</button>
+<a href="#contact" class="bg-cyan-400 text-black px-6 py-2 rounded font-bold glow">Cotizar</a>
 </div>
 
 </div>
 </header>
 
-<!-- ================= HERO ================= -->
-
-<section class="h-screen flex items-center justify-center text-center bg-gradient-to-br from-black via-gray-900 to-black">
-<div class="max-w-4xl px-6 reveal">
-<h1 class="text-5xl md:text-6xl font-bold mb-6" id="hero-title">
+<!-- HERO -->
+<section class="h-screen flex items-center justify-center text-center px-6">
+<div class="max-w-4xl reveal">
+<h1 id="hero-title" class="text-5xl md:text-6xl font-bold mb-6">
 Ingeniería Eléctrica de Precisión Digital
 </h1>
-<p class="text-gray-400 text-lg mb-8" id="hero-text">
-Soluciones industriales en automatización, energía y seguridad electrónica.
+<p id="hero-text" class="text-gray-400 text-lg mb-8">
+Soluciones avanzadas en automatización industrial, energía y seguridad electrónica.
 </p>
 <a href="#services" class="bg-cyan-400 text-black px-8 py-4 rounded-xl font-bold glow">
 Explorar Servicios
@@ -53,40 +55,47 @@ Explorar Servicios
 </div>
 </section>
 
-<!-- ================= SERVICES ================= -->
+<!-- SERVICES -->
+<section id="services" class="py-24 bg-gray-950 text-center">
+<h2 class="text-4xl font-bold mb-16 reveal">Servicios</h2>
 
-<section id="services" class="py-24 bg-gray-950">
-<div class="container mx-auto px-6 text-center">
+<div class="grid md:grid-cols-3 gap-10 px-6 max-w-6xl mx-auto">
 
-<h2 class="text-4xl font-bold mb-16 reveal">Nuestros Servicios</h2>
-
-<div class="grid md:grid-cols-3 gap-10">
-
-<div class="bg-black p-8 rounded-xl border border-white/10 reveal">
+<div class="p-8 bg-black border border-white/10 rounded-xl reveal hover:scale-105 transition">
 <h3 class="text-xl font-bold mb-4">Automatización Industrial</h3>
-<p class="text-gray-400">Sistemas PLC, control y monitoreo inteligente.</p>
+<p class="text-gray-400">PLC, SCADA, control inteligente y optimización de procesos.</p>
 </div>
 
-<div class="bg-black p-8 rounded-xl border border-white/10 reveal">
+<div class="p-8 bg-black border border-white/10 rounded-xl reveal hover:scale-105 transition">
 <h3 class="text-xl font-bold mb-4">Instalaciones Eléctricas</h3>
-<p class="text-gray-400">Diseño, montaje y mantenimiento certificado.</p>
+<p class="text-gray-400">Diseño, ejecución y mantenimiento certificado.</p>
 </div>
 
-<div class="bg-black p-8 rounded-xl border border-white/10 reveal">
+<div class="p-8 bg-black border border-white/10 rounded-xl reveal hover:scale-105 transition">
 <h3 class="text-xl font-bold mb-4">Seguridad Electrónica</h3>
-<p class="text-gray-400">CCTV, control de acceso y redes industriales.</p>
+<p class="text-gray-400">CCTV, control de acceso y redes industriales seguras.</p>
 </div>
 
-</div>
 </div>
 </section>
 
-<!-- ================= CLIENTES ================= -->
-
+<!-- PROYECTOS -->
 <section class="py-24 bg-black text-center">
-<h2 class="text-4xl font-bold mb-16 reveal">Clientes</h2>
+<h2 class="text-4xl font-bold mb-16 reveal">Proyectos</h2>
 
-<div class="flex flex-wrap justify-center gap-12 items-center opacity-70 reveal">
+<div class="grid md:grid-cols-3 gap-8 px-6 max-w-6xl mx-auto">
+
+<img src="https://dummyimage.com/500x300/111/00d2ff&text=Proyecto+1" class="rounded-xl reveal hover:scale-105 transition">
+<img src="https://dummyimage.com/500x300/111/00d2ff&text=Proyecto+2" class="rounded-xl reveal hover:scale-105 transition">
+<img src="https://dummyimage.com/500x300/111/00d2ff&text=Proyecto+3" class="rounded-xl reveal hover:scale-105 transition">
+
+</div>
+</section>
+
+<!-- CLIENTES -->
+<section class="py-24 bg-gray-950 text-center">
+<h2 class="text-4xl font-bold mb-16 reveal">Clientes</h2>
+<div class="flex flex-wrap justify-center gap-12 opacity-70 reveal">
 <img src="https://dummyimage.com/120x60/fff/000&text=Cliente+1">
 <img src="https://dummyimage.com/120x60/fff/000&text=Cliente+2">
 <img src="https://dummyimage.com/120x60/fff/000&text=Cliente+3">
@@ -94,20 +103,18 @@ Explorar Servicios
 </div>
 </section>
 
-<!-- ================= CONTACT FORM ================= -->
-
-<section id="contact" class="py-24 bg-gray-950">
+<!-- CONTACT -->
+<section id="contact" class="py-24 bg-black">
 <div class="max-w-2xl mx-auto px-6">
-
 <h2 class="text-4xl font-bold mb-12 text-center reveal">Solicitar Cotización</h2>
 
 <form action="https://formsubmit.co/ipe3ecuador@gmail.com" method="POST" class="space-y-6 reveal">
 
-<input type="text" name="name" placeholder="Nombre" required class="w-full p-4 bg-black border border-white/20 rounded">
+<input type="text" name="name" placeholder="Nombre" required class="w-full p-4 bg-gray-900 border border-white/20 rounded">
 
-<input type="email" name="email" placeholder="Email" required class="w-full p-4 bg-black border border-white/20 rounded">
+<input type="email" name="email" placeholder="Email" required class="w-full p-4 bg-gray-900 border border-white/20 rounded">
 
-<textarea name="message" placeholder="Describe tu proyecto..." required class="w-full p-4 bg-black border border-white/20 rounded h-32"></textarea>
+<textarea name="message" placeholder="Describe tu proyecto..." required class="w-full p-4 bg-gray-900 border border-white/20 rounded h-32"></textarea>
 
 <button type="submit" class="w-full bg-cyan-400 text-black py-4 rounded font-bold glow">
 Enviar Solicitud
@@ -117,40 +124,71 @@ Enviar Solicitud
 </div>
 </section>
 
-<!-- ================= FOOTER ================= -->
-
-<footer class="bg-black border-t border-white/10 py-10 text-center text-gray-500 text-sm">
+<!-- FOOTER -->
+<footer class="border-t border-white/10 py-10 text-center text-gray-500 text-sm">
 © 2026 IPE3 Engineering by CORPORACIÓN 360
 </footer>
 
-<!-- ================= SCRIPTS ================= -->
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/593984016027" target="_blank"
+class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 flex items-center justify-center rounded-full shadow-lg hover:scale-110 transition text-2xl">
+💬
+</a>
 
 <script>
+// BILINGUAL
 function toggleLang(){
 let title = document.getElementById("hero-title");
 let text = document.getElementById("hero-text");
 
 if(title.innerText.includes("Ingeniería")){
 title.innerText = "Digital Precision Electrical Engineering";
-text.innerText = "Industrial solutions in automation, power systems and electronic security.";
-} else {
+text.innerText = "Advanced industrial solutions in automation, power systems and electronic security.";
+}else{
 title.innerText = "Ingeniería Eléctrica de Precisión Digital";
-text.innerText = "Soluciones industriales en automatización, energía y seguridad electrónica.";
+text.innerText = "Soluciones avanzadas en automatización industrial, energía y seguridad electrónica.";
 }
 }
 
-// Scroll animation
+// SCROLL REVEAL
 window.addEventListener("scroll", function(){
-let reveals = document.querySelectorAll(".reveal");
-for(let i=0; i<reveals.length; i++){
-let windowHeight = window.innerHeight;
-let elementTop = reveals[i].getBoundingClientRect().top;
-let elementVisible = 100;
-if(elementTop < windowHeight - elementVisible){
-reveals[i].classList.add("active");
-}
+document.querySelectorAll(".reveal").forEach(el=>{
+if(el.getBoundingClientRect().top < window.innerHeight - 100){
+el.classList.add("active");
 }
 });
+});
+
+// PARTICLE BACKGROUND
+const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+for(let i=0;i<80;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+dx:(Math.random()-0.5),
+dy:(Math.random()-0.5)
+});
+}
+
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle="rgba(0,210,255,0.5)";
+particles.forEach(p=>{
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fill();
+p.x+=p.dx;
+p.y+=p.dy;
+});
+requestAnimationFrame(animate);
+}
+animate();
 </script>
 
 </body>
