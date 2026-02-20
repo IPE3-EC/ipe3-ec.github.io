@@ -68,13 +68,3 @@ body { font-family: 'Space Grotesk', sans-serif; }
   animation: fadeSlide 1s ease-out 0.8s forwards;
 }
 
-/* KEN BURNS CON MOVIMIENTO LATERAL */
-@keyframes kenburns-lr {
-  0% { transform: scale(1.05) translateX(0); }
-  50% { transform: scale(1.1) translateX(20px); }
-  100% { transform: scale(1.05) translateX(0); }
-}
-
-.animate-ken-burns-lr {
-  animation: kenburns-lr 20s ease-in-out infinite alternate;
-}
