@@ -2,145 +2,209 @@
 <html class="dark" lang="es">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>IPE3 Engineering by CORPORACIÓN 360 | Ingeniería Eléctrica y Electrónica</title>
 
-<!-- Tailwind CSS CDN -->
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="./static/icons/favicon.ico">
+
+<!-- Tailwind CDN -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
-<!-- Fuentes -->
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 
-<!-- CSS Local -->
-<link rel="stylesheet" href="styles.css"/>
+<!-- CSS -->
+<link rel="stylesheet" href="./styles.css">
 
-<!-- Favicon -->
-<link rel="icon" href="static/icons/favicon.ico" type="image/x-icon"/>
-
-<!-- JS Tailwind -->
-<script src="script.js" defer></script>
+<!-- Tailwind Config -->
+<script>
+tailwind.config = {
+darkMode: "class",
+theme: {
+extend: {
+colors: {
+primary: "#00d2ff",
+"accent-blue": "#0072ff",
+"deep-charcoal": "#0a0c10",
+"slate-dark": "#1a1f2e"
+},
+fontFamily: { display: ["Space Grotesk"] },
+animation: {
+'ken-burns': 'kenburns 20s ease infinite alternate'
+},
+keyframes: {
+kenburns: {
+'0%': { transform: 'scale(1)' },
+'100%': { transform: 'scale(1.1)' }
+}
+}
+}
+}
+}
+</script>
 </head>
-<body class="bg-deep-charcoal text-slate-200 selection:bg-primary/30">
+
+<body class="bg-deep-charcoal text-slate-200 font-display selection:bg-primary/30">
 
 <!-- HEADER -->
 <header class="fixed top-0 w-full z-50 bg-deep-charcoal/80 backdrop-blur-lg border-b border-white/5">
 <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
 <div class="flex items-center gap-3">
-<div class="w-10 h-10 bg-gradient-to-br from-primary to-accent-blue flex items-center justify-center rounded-lg shadow-lg shadow-primary/20 shrink-0">
-<img src="static/img/ipe3-logo.png" alt="Logo IPE3" class="w-8 h-8"/>
-</div>
+<img src="./static/img/ipe3-logo.png"
+     class="w-16 h-16 object-contain logo-animate"
+     alt="IPE3 Logo">
 <div class="flex flex-col">
-<span class="text-xl font-bold tracking-tight text-white leading-tight">IPE3 <span class="text-primary font-light">Engineering</span></span>
-<span class="text-[10px] uppercase tracking-widest text-slate-400 font-bold leading-none">by CORPORACIÓN 360</span>
+<span class="text-xl font-bold text-white">IPE3 <span class="text-primary font-light">Engineering</span></span>
+<span class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">by CORPORACIÓN 360</span>
 </div>
 </div>
 <div class="hidden md:flex items-center space-x-8">
-<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#">Inicio</a>
-<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#servicios">Servicios</a>
-<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#proyectos">Proyectos</a>
-<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#nosotros">Nosotros</a>
-<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#contacto">Contacto</a>
+
+    <a href="#" class="hover:text-primary transition">Inicio</a>
+    <a href="#servicios" class="hover:text-primary transition">Servicios</a>
+    <a href="#proyectos" class="hover:text-primary transition">Proyectos</a>
+    <a href="#nosotros" class="hover:text-primary transition">Nosotros</a>
+    <a href="#contacto" class="hover:text-primary transition">Contacto</a>
+
+    <!-- BOTÓN -->
+    <a href="#contacto"
+       class="ml-4 bg-primary text-deep-charcoal px-6 py-2.5 
+              rounded-lg font-semibold text-sm
+              hover:scale-105 hover:shadow-lg hover:shadow-primary/30
+              transition-all duration-300">
+
+        Solicitar Cotización
+    </a>
+
 </div>
-<a class="hidden lg:block bg-primary text-deep-charcoal px-6 py-2 rounded-lg font-bold hover:bg-white hover:scale-105 transition-all shadow-lg shadow-primary/10" href="#contacto">
-Solicitar Cotización
-</a>
 </nav>
 </header>
 
 <!-- HERO -->
 <section class="relative h-screen flex items-center overflow-hidden">
-<div class="absolute inset-0 z-0">
-<img alt="Control Room" class="w-full h-full object-cover" src="static/img/hero-bg.jpg"/>
+<div class="absolute inset-0">
+<img src="./static/img/hero-bg.jpg" class="w-full h-full object-cover scale-105 animate-ken-burns" alt="Hero">
 <div class="absolute inset-0 bg-gradient-to-r from-deep-charcoal via-deep-charcoal/80 to-transparent"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-deep-charcoal to-transparent"></div>
 </div>
+
 <div class="container mx-auto px-6 relative z-10">
 <div class="max-w-3xl">
-<span class="inline-block px-4 py-1.5 bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-widest uppercase rounded-full mb-6">Expertos en Quito, Ecuador</span>
+<span class="inline-block px-4 py-1.5 bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-widest uppercase rounded-full mb-6">
+Expertos en Quito, Ecuador
+</span>
 <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-Ingeniería Eléctrica con <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent-blue">Precisión Digital</span>
+Ingeniería Eléctrica con
+<span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent-blue">
+Precisión Digital
+</span>
 </h1>
 <p class="text-xl text-slate-400 mb-10 max-w-2xl">
-Soluciones integrales de automatización, seguridad y mantenimiento industrial. Respaldados por IPE3 Engineering by CORPORACIÓN 360.
+Soluciones integrales de automatización, seguridad y mantenimiento industrial.
 </p>
-<div class="flex flex-col sm:flex-row gap-4">
-<button class="bg-primary text-deep-charcoal px-8 py-4 rounded-xl font-bold text-lg hover:bg-white transition-all shadow-xl shadow-primary/20">
-Explorar Proyectos
-</button>
-<button class="bg-white/5 backdrop-blur-md border border-white/10 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all">
-Nuestros Servicios
-</button>
-</div>
-</div>
-</div>
-<div class="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-50">
-<span class="material-icons text-primary text-3xl">keyboard_double_arrow_down</span>
-</div>
-</section>
+     <!-- BOTONES HERO -->
+<div class="flex flex-col sm:flex-row gap-6 mt-2">
 
-<!-- MARQUEE LOGOS -->
-<section class="py-12 bg-deep-charcoal border-y border-white/5 overflow-hidden">
-<div class="container mx-auto px-6 mb-8">
-<p class="text-center text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500">Equipamiento Industrial & Tecnológico de Clase Mundial</p>
-</div>
-<div class="marquee-container relative">
-<div class="flex gap-16 animate-marquee whitespace-nowrap items-center">
-<!-- Logos, repetir según tu HTML original -->
-<div class="flex gap-16 items-center shrink-0">
-<img alt="SCHNEIDER" class="h-8 md:h-10 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300" src="static/img/logos/schneider.png"/>
-<img alt="SIEMENS" class="h-10 md:h-12 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300" src="static/img/logos/siemens.png"/>
-<img alt="HIKVISION" class="h-10 md:h-12 opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300" src="static/img/logos/hikvision.png"/>
+    <!-- Explorar Proyectos -->
+    <a href="#proyectos"
+       class="bg-primary text-deep-charcoal px-8 py-4 rounded-xl font-semibold text-lg 
+              hover:scale-105 hover:shadow-lg hover:shadow-primary/30 
+              transition-all duration-300 text-center">
+
+        Explorar Proyectos
+    </a>
+
+    <!-- Nuestros Servicios -->
+    <a href="#servicios"
+       class="px-8 py-4 rounded-xl font-semibold text-lg 
+              bg-white/5 border border-white/10 text-white
+              hover:bg-white/10 hover:scale-105 
+              transition-all duration-300 text-center">
+
+        Nuestros Servicios
+    </a>
+
 </div>
 </div>
 </div>
 </section>
 
-<!-- SECCIONES DE SERVICIOS -->
-<section class="py-24 relative overflow-hidden dark-gradient-bg" id="servicios">
-<div class="circuit-pattern absolute inset-0 pointer-events-none"></div>
-<div class="container mx-auto px-6 relative z-10">
+<!-- SERVICIOS -->
+<section id="servicios" class="py-24 relative dark-gradient-bg">
+<div class="container mx-auto px-6">
 <div class="text-center mb-16">
-<h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Nuestras Especialidades</h2>
-<div class="w-20 h-1.5 bg-gradient-to-r from-primary to-accent-blue mx-auto rounded-full"></div>
+<h2 class="text-4xl font-bold text-white">Nuestras Especialidades</h2>
+<div class="w-20 h-1.5 bg-gradient-to-r from-primary to-accent-blue mx-auto mt-4 rounded-full"></div>
 </div>
+
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-<!-- Cada servicio -->
-<div class="group glass-panel p-8 rounded-2xl hover:bg-white/5 transition-all duration-500 hover:-translate-y-2 border-primary/10 hover:border-primary/40">
-<div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+
+<div class="group glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-all duration-500">
+<div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
 <span class="material-icons text-primary text-3xl">bolt</span>
 </div>
 <h3 class="text-xl font-bold mb-3 text-white">Proyectos Eléctricos</h3>
-<p class="text-slate-400 text-sm leading-relaxed">Diseño y ejecución de infraestructuras de alta potencia cumpliendo normativas internacionales.</p>
+<p class="text-slate-400 text-sm">Infraestructura eléctrica certificada.</p>
 </div>
-<!-- Agrega los demás servicios tal cual tu HTML original -->
+
+<div class="group glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-all duration-500">
+<div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">home_max_dots</span>
+</div>
+<h3 class="text-xl font-bold mb-3 text-white">Domótica Avanzada</h3>
+<p class="text-slate-400 text-sm">Integración inteligente de espacios.</p>
+</div>
+
+<div class="group glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-all duration-500">
+<div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+<span class="material-icons text-primary text-3xl">videocam</span>
+</div>
+<h3 class="text-xl font-bold mb-3 text-white">Seguridad Electrónica</h3>
+<p class="text-slate-400 text-sm">CCTV y control de accesos.</p>
+</div>
+
+<div class="group glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-all duration-500">
+<div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+<span class="material-icons text-primary text-3xl">medical_services</span>
+</div>
+<h3 class="text-xl font-bold mb-3 text-white">Mantenimiento Médico</h3>
+<p class="text-slate-400 text-sm">Soporte hospitalario especializado.</p>
+</div>
+
 </div>
 </div>
 </section>
 
-<!-- SECCIÓN DE PROYECTOS -->
-<section class="py-24 bg-deep-charcoal" id="proyectos">
+<!-- PROYECTOS -->
+<section id="proyectos" class="py-24 bg-deep-charcoal">
 <div class="container mx-auto px-6">
-<!-- Aquí van todos los proyectos exactamente como en tu HTML original -->
+<h2 class="text-4xl font-bold text-white text-center mb-16">Proyectos Destacados</h2>
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+<div class="group relative rounded-2xl overflow-hidden aspect-[4/5] border border-white/5">
+<img src="./static/img/proyecto1.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="">
+</div>
+
+<div class="group relative rounded-2xl overflow-hidden aspect-[4/5] border border-white/5">
+<img src="./static/img/proyecto2.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="">
+</div>
+
+<div class="group relative rounded-2xl overflow-hidden aspect-[4/5] border border-white/5">
+<img src="./static/img/proyecto3.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="">
+</div>
+
+</div>
 </div>
 </section>
-
-<!-- FOOTER -->
-<footer class="constellation-bg text-slate-400 py-20 relative" id="contacto">
-<div class="absolute inset-0 pointer-events-none overflow-hidden opacity-30">
-<!-- estrellas y líneas -->
-</div>
-<div class="container mx-auto px-6 relative z-10">
-<!-- Footer contenido tal cual tu HTML original -->
-</div>
 
 <!-- FOOTER -->
 <footer class="relative bg-deep-charcoal text-slate-400 py-20 border-t border-white/10" id="contacto">
-<!-- Canvas estrellas -->
-<canvas id="stars-canvas"
-        class="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
 
+
+</div>
     <div class="container mx-auto px-6 relative z-10">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
 
