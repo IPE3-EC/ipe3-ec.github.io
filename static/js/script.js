@@ -104,3 +104,7 @@ function animate() {
 
 init();
 animate();
+document.getElementById("logoLink").addEventListener("click", function (e) {
+    e.preventDefault();
+    window.location.href = "index.html";
+});
