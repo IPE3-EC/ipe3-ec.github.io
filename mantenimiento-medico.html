@@ -3,250 +3,352 @@
 <html class="dark" lang="es"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Mantenimiento de Equipos Oftalmológicos | IE PROYECTOS</title>
+<title>IPE3 Medical Equipment Maintenance Service</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
-        tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              colors: {
-                "primary": "#0db9f2",
-                "background-light": "#f5f8f8",
-                "background-dark": "#101e22",
-              },
-              fontFamily: {
-                "display": ["Space Grotesk"]
-              },
-              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#0df2df",
+              "background-light": "#f5f8f8",
+              "background-dark": "#102221",
             },
+            fontFamily: {
+              "display": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
           },
-        }
+        },
+      }
     </script>
 <style>
-        body {
-            font-family: 'Space Grotesk', sans-serif;
-            -webkit-tap-highlight-color: transparent;
+        body { font-family: 'Space Grotesk', sans-serif; }
+        .constellation-bg {
+            background-image: radial-gradient(circle at 2px 2px, rgba(13, 242, 223, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
         }
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;
+        .surgical-glow {
+            box-shadow: 0 0 15px rgba(13, 242, 223, 0.15);
         }
-        .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+        .hero-gradient {
+            background: linear-gradient(to right, rgba(16, 34, 33, 0.95) 0%, rgba(16, 34, 33, 0.4) 100%);
         }
     </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  </head>
-<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
-<!-- Header -->
-<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
-<nav class="max-w-screen-xl mx-auto px-4 h-16 flex items-center justify-between">
-<div class="flex items-center gap-2">
-<div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
-<span class="text-white font-bold text-xs">IE</span>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 selection:bg-primary selection:text-background-dark">
+<!-- Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-primary/10 bg-background-dark/80 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 flex h-20 items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<svg class="w-8 h-8" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"></path>
+</svg>
 </div>
-<span class="font-bold tracking-tight text-lg">PROYECTOS</span>
+<div>
+<h1 class="text-xl font-bold tracking-tight text-slate-100">IPE3 <span class="text-primary font-light">Engineering</span></h1>
+<p class="text-[10px] uppercase tracking-widest text-primary/60 leading-none">by CORPORACIÓN 360</p>
 </div>
-<button class="p-2 text-primary">
-<span class="material-icons-round">menu</span>
-</button>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#">Servicios</a>
+<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#">Equipos</a>
+<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#">Certificaciones</a>
+<a class="text-sm font-medium text-slate-300 hover:text-primary transition-colors" href="#">Quito HQ</a>
 </nav>
-</header>
-<main class="pb-24">
-<!-- Hero Section -->
-<section class="relative h-[450px] flex items-center overflow-hidden">
-<div class="absolute inset-0 z-0">
-<img alt="Técnico de oftalmología" class="w-full h-full object-cover" data-alt="Professional technician repairing an ophthalmological slit lamp" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjZ_Zo6gLtrpzr40IlYLh4T2nDJBQA_OwUuAlmA908VX5rs0u4_RvjiGde7yGofxfd63n-S4YIcGfNZuNC2seAI3i60wkuBYl_2dF8wDO_hlJxGjGfVosUOBPD19CP1tERLbsuJL5sU_9_DwW2Q3WN3tSrfqh_yKD6GzpeHmyvmOzgNHphK9pxnMZ77deTlWs1-GSTPOXZjY7FM5B00QndkDci1kF9_p-2uWFWfB7xNFYEyppKsI5qiLXyF4mzdZA6ssyIBfxHBYU"/>
-<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/60 to-transparent"></div>
-</div>
-<div class="relative z-10 px-6 max-w-lg">
-<span class="inline-block px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-semibold mb-4 border border-primary/30">
-                    SERVICIO TÉCNICO ECUADOR
-                </span>
-<h1 class="text-4xl font-bold leading-tight mb-4">
-                    Mantenimiento Especializado de Equipos <span class="text-primary">Oftalmológicos</span>
-</h1>
-<p class="text-slate-300 text-lg">
-                    Garantizamos la precisión y vida útil de sus equipos de diagnóstico y cirugía ocular.
-                </p>
-</div>
-</section>
-<!-- Service List -->
-<section class="px-6 py-12">
-<h2 class="text-2xl font-bold mb-8 flex items-center gap-2">
-<span class="w-1 h-8 bg-primary rounded-full"></span>
-                Equipos Soportados
-            </h2>
-<div class="grid grid-cols-1 gap-4">
-<!-- Card 1 -->
-<div class="bg-primary/5 border border-primary/10 rounded-xl p-5 flex items-start gap-4">
-<div class="bg-primary/10 p-3 rounded-lg">
-<span class="material-icons-round text-primary">visibility</span>
-</div>
-<div>
-<h3 class="font-bold text-lg">Autorrefractores</h3>
-<p class="text-sm text-slate-400 mt-1">Ajuste de sensores ópticos y limpieza profunda de sistemas de precisión.</p>
-<div class="mt-3 flex gap-2">
-<span class="text-[10px] px-2 py-0.5 rounded bg-primary/20 text-primary border border-primary/30">PREVENTIVO</span>
-<span class="text-[10px] px-2 py-0.5 rounded bg-primary/20 text-primary border border-primary/30">CORRECTIVO</span>
-</div>
-</div>
-</div>
-<!-- Card 2 -->
-<div class="bg-primary/5 border border-primary/10 rounded-xl p-5 flex items-start gap-4">
-<div class="bg-primary/10 p-3 rounded-lg">
-<span class="material-icons-round text-primary">biotech</span>
-</div>
-<div>
-<h3 class="font-bold text-lg">Lámparas de Hendidura</h3>
-<p class="text-sm text-slate-400 mt-1">Calibración de iluminación LED/Halógena y lubricación de ejes mecánicos.</p>
-<div class="mt-3 flex gap-2">
-<span class="text-[10px] px-2 py-0.5 rounded bg-primary/20 text-primary border border-primary/30">PREVENTIVO</span>
-</div>
-</div>
-</div>
-<!-- Card 3 -->
-<div class="bg-primary/5 border border-primary/10 rounded-xl p-5 flex items-start gap-4">
-<div class="bg-primary/10 p-3 rounded-lg">
-<span class="material-icons-round text-primary">center_focus_strong</span>
-</div>
-<div>
-<h3 class="font-bold text-lg">Microscopios Quirúrgicos</h3>
-<p class="text-sm text-slate-400 mt-1">Mantenimiento de sistemas de zoom, enfoque y fuentes de luz transmitida.</p>
-<div class="mt-3 flex gap-2">
-<span class="text-[10px] px-2 py-0.5 rounded bg-primary/20 text-primary border border-primary/30">CORRECTIVO</span>
-</div>
-</div>
-</div>
-<!-- Card 4 -->
-<div class="bg-primary/5 border border-primary/10 rounded-xl p-5 flex items-start gap-4">
-<div class="bg-primary/10 p-3 rounded-lg">
-<span class="material-icons-round text-primary">waves</span>
-</div>
-<div>
-<h3 class="font-bold text-lg">Facoemulsificadores</h3>
-<p class="text-sm text-slate-400 mt-1">Revisión de sistemas de fluidos, bombas y calibración de ultrasonido.</p>
-<div class="mt-3 flex gap-2">
-<span class="text-[10px] px-2 py-0.5 rounded bg-primary/20 text-primary border border-primary/30">PREVENTIVO</span>
-<span class="text-[10px] px-2 py-0.5 rounded bg-primary/20 text-primary border border-primary/30">CORRECTIVO</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Process Section -->
-<section class="bg-primary/5 py-12 px-6">
-<h2 class="text-2xl font-bold mb-8 text-center">Nuestro Proceso</h2>
-<div class="relative">
-<!-- Line background -->
-<div class="absolute left-6 top-0 bottom-0 w-0.5 bg-primary/20"></div>
-<div class="space-y-8 relative">
-<div class="flex items-start gap-6">
-<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center shrink-0 z-10 shadow-lg shadow-primary/20">
-<span class="text-white font-bold">1</span>
-</div>
-<div>
-<h4 class="font-bold text-lg">Inspección</h4>
-<p class="text-sm text-slate-400">Evaluación física y operativa inicial del equipo en sitio o taller.</p>
-</div>
-</div>
-<div class="flex items-start gap-6">
-<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center shrink-0 z-10 shadow-lg shadow-primary/20">
-<span class="text-white font-bold">2</span>
-</div>
-<div>
-<h4 class="font-bold text-lg">Diagnóstico</h4>
-<p class="text-sm text-slate-400">Identificación técnica de fallas y reporte de repuestos necesarios.</p>
-</div>
-</div>
-<div class="flex items-start gap-6">
-<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center shrink-0 z-10 shadow-lg shadow-primary/20">
-<span class="text-white font-bold">3</span>
-</div>
-<div>
-<h4 class="font-bold text-lg">Calibración</h4>
-<p class="text-sm text-slate-400">Ajuste bajo estándares de fábrica y reparación especializada.</p>
-</div>
-</div>
-<div class="flex items-start gap-6">
-<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center shrink-0 z-10 shadow-lg shadow-primary/20">
-<span class="text-white font-bold">4</span>
-</div>
-<div>
-<h4 class="font-bold text-lg">Certificación</h4>
-<p class="text-sm text-slate-400">Entrega de protocolo de servicio y garantía de funcionamiento.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Trust Elements -->
-<section class="py-12 px-6">
-<div class="grid grid-cols-3 gap-4 text-center">
-<div class="flex flex-col items-center">
-<div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
-<span class="material-icons-round text-primary text-3xl">verified</span>
-</div>
-<span class="text-[10px] font-bold uppercase tracking-wider">Repuestos Originales</span>
-</div>
-<div class="flex flex-col items-center">
-<div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
-<span class="material-icons-round text-primary text-3xl">engineering</span>
-</div>
-<span class="text-[10px] font-bold uppercase tracking-wider">Técnicos Certificados</span>
-</div>
-<div class="flex flex-col items-center">
-<div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
-<span class="material-icons-round text-primary text-3xl">timer</span>
-</div>
-<span class="text-[10px] font-bold uppercase tracking-wider">Respuesta Rápida</span>
-</div>
-</div>
-</section>
-<!-- CTA Section -->
-<section class="px-6 mb-8">
-<div class="bg-gradient-to-br from-primary to-primary/80 rounded-2xl p-8 text-center text-white shadow-xl shadow-primary/20">
-<h3 class="text-2xl font-bold mb-2">¿Necesita asistencia técnica?</h3>
-<p class="mb-6 text-white/80">Atendemos clínicas y hospitales en todo el Ecuador de forma inmediata.</p>
-<button class="w-full bg-white text-primary font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-slate-50 transition-colors">
-<span class="material-icons-round">message</span>
-                    SOLICITAR MANTENIMIENTO
+<div class="flex items-center gap-4">
+<button class="hidden lg:flex items-center gap-2 bg-primary/10 border border-primary/30 text-primary px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary hover:text-background-dark transition-all">
+<span class="material-symbols-outlined text-sm">emergency</span>
+                    Soporte 24/7
                 </button>
+<button class="bg-primary text-background-dark px-6 py-2 rounded-lg text-sm font-bold hover:brightness-110 transition-all">
+                    Solicitar Soporte
+                </button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-[650px] w-full flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="Technical professional inspecting modern MRI imaging medical equipment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChBuqYuwqtSbuxAnqVY1FdtfIjlkUhF_-aecHzB_mQiASMkHfaiYU_SrYMmBzicKYD1YIs05d0-ZOtX72qlE7EkrKKKV2-kX4x81jkP5zBeSkkkzlx1k_aqKT46pHJM6OLlJmRDIk71AquUnIgwhjJaYE2UWkISNgWNaEYD2bLlDmxGsxeAai3h2YkaGE9NEQZMHTCh07AjhTTkDYfxqC41kBo3YkU6j0O69K8Bpn-O7cmhINz0K34S3o4MGSiiKBOFqQH8h3PseQ"/>
+<div class="absolute inset-0 hero-gradient"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full">
+<div class="max-w-2xl space-y-6">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 border border-primary/30 text-primary text-xs font-bold tracking-widest uppercase">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+                        Ingeniería Médica de Alta Precisión
+                    </div>
+<h1 class="text-5xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight">
+                        Mantenimiento Técnico de <span class="text-primary">Equipos Médicos</span>
+</h1>
+<p class="text-lg text-slate-300 leading-relaxed max-w-xl">
+                        Especialistas en sistemas eléctricos y electrónicos de alta complejidad en Quito. Garantizamos la operatividad crítica de su infraestructura hospitalaria.
+                    </p>
+<div class="flex items-center gap-4 pt-4">
+<button class="bg-primary text-background-dark px-8 py-4 rounded-xl text-base font-bold flex items-center gap-3 hover:scale-105 transition-transform">
+                            Agendar Mantenimiento
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="bg-white/5 backdrop-blur-sm border border-white/10 text-white px-8 py-4 rounded-xl text-base font-medium hover:bg-white/10 transition-all">
+                            Ver Certificaciones
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Services -->
+<section class="py-24 bg-background-dark constellation-bg">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div class="space-y-4">
+<h2 class="text-primary font-bold uppercase tracking-[0.2em] text-sm">Especialidades Técnicas</h2>
+<h3 class="text-3xl lg:text-4xl font-bold text-slate-100">Servicios de Soporte de Ingeniería</h3>
+</div>
+<p class="text-slate-400 max-w-md text-right md:text-left">
+                        Protocolos estandarizados bajo normativas internacionales para asegurar la máxima vida útil de sus activos médicos.
+                    </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Service 1 -->
+<div class="group p-8 rounded-xl bg-slate-800/20 border border-slate-800 hover:border-primary/50 transition-all surgical-glow relative overflow-hidden">
+<div class="absolute -right-8 -top-8 w-24 h-24 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors"></div>
+<div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-8 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">calendar_today</span>
+</div>
+<h4 class="text-xl font-bold text-white mb-4">Mantenimiento Preventivo</h4>
+<p class="text-slate-400 leading-relaxed mb-6">
+                            Revisiones programadas y limpieza técnica profunda para prevenir fallas catastróficas y garantizar el funcionamiento óptimo.
+                        </p>
+<ul class="space-y-3 text-sm text-slate-300">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base">check_circle</span> Limpieza electrónica</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base">check_circle</span> Lubricación de partes</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base">check_circle</span> Ajustes de parámetros</li>
+</ul>
+</div>
+<!-- Service 2 -->
+<div class="group p-8 rounded-xl bg-slate-800/20 border border-slate-800 hover:border-primary/50 transition-all surgical-glow relative overflow-hidden">
+<div class="absolute -right-8 -top-8 w-24 h-24 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors"></div>
+<div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-8 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">build_circle</span>
+</div>
+<h4 class="text-xl font-bold text-white mb-4">Mantenimiento Correctivo</h4>
+<p class="text-slate-400 leading-relaxed mb-6">
+                            Intervenciones técnicas de alta precisión para restaurar la operatividad ante fallos inesperados. Repuestos originales.
+                        </p>
+<ul class="space-y-3 text-sm text-slate-300">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base">check_circle</span> Diagnóstico avanzado</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base">check_circle</span> Cambio de componentes</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base">check_circle</span> Reparación de circuitos</li>
+</ul>
+</div>
+<!-- Service 3 -->
+<div class="group p-8 rounded-xl bg-slate-800/20 border border-slate-800 hover:border-primary/50 transition-all surgical-glow relative overflow-hidden">
+<div class="absolute -right-8 -top-8 w-24 h-24 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors"></div>
+<div class="w-14 h-14 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-8 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">verified</span>
+</div>
+<h4 class="text-xl font-bold text-white mb-4">Calibración y Certificación</h4>
+<p class="text-slate-400 leading-relaxed mb-6">
+                            Ajustes técnicos bajo estándares internacionales y emisión de certificados de operatividad para cumplimiento regulatorio.
+                        </p>
+<ul class="space-y-3 text-sm text-slate-300">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base">check_circle</span> Pruebas de seguridad eléctrica</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base">check_circle</span> Calibración de sensores</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-base">check_circle</span> Certificación técnica</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Equipment Grid -->
+<section class="py-24 bg-slate-900/40">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="mb-16">
+<h2 class="text-3xl font-bold text-white mb-4">Equipos que Cubrimos</h2>
+<div class="h-1 w-24 bg-primary"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Category: Imagenología -->
+<div class="space-y-6">
+<div class="flex items-center gap-4 text-primary">
+<span class="material-symbols-outlined">biotech</span>
+<h5 class="text-lg font-bold tracking-wide uppercase text-slate-100">Imagenología</h5>
+</div>
+<div class="bg-background-dark p-6 rounded-xl border border-slate-800 space-y-4">
+<div class="flex justify-between items-center text-slate-400 group cursor-default">
+<span class="group-hover:text-primary transition-colors">Resonancia Magnética (MRI)</span>
+<span class="text-xs text-primary/40">Soporte Vital</span>
+</div>
+<div class="w-full h-px bg-slate-800"></div>
+<div class="flex justify-between items-center text-slate-400 group cursor-default">
+<span class="group-hover:text-primary transition-colors">Rayos X &amp; Tomografía (CT)</span>
+<span class="text-xs text-primary/40">Soporte Vital</span>
+</div>
+<div class="w-full h-px bg-slate-800"></div>
+<div class="flex justify-between items-center text-slate-400 group cursor-default">
+<span class="group-hover:text-primary transition-colors">Ecógrafos (Ultrasounds)</span>
+<span class="text-xs text-primary/40">Diagnóstico</span>
+</div>
+</div>
+</div>
+<!-- Category: Laboratorio -->
+<div class="space-y-6">
+<div class="flex items-center gap-4 text-primary">
+<span class="material-symbols-outlined">science</span>
+<h5 class="text-lg font-bold tracking-wide uppercase text-slate-100">Laboratorio Clínico</h5>
+</div>
+<div class="bg-background-dark p-6 rounded-xl border border-slate-800 space-y-4">
+<div class="flex justify-between items-center text-slate-400 group cursor-default">
+<span class="group-hover:text-primary transition-colors">Centrífugas &amp; Incubadoras</span>
+<span class="text-xs text-primary/40">General</span>
+</div>
+<div class="w-full h-px bg-slate-800"></div>
+<div class="flex justify-between items-center text-slate-400 group cursor-default">
+<span class="group-hover:text-primary transition-colors">Analizadores de Química</span>
+<span class="text-xs text-primary/40">Alta Precisión</span>
+</div>
+<div class="w-full h-px bg-slate-800"></div>
+<div class="flex justify-between items-center text-slate-400 group cursor-default">
+<span class="group-hover:text-primary transition-colors">Microscopios Electrónicos</span>
+<span class="text-xs text-primary/40">Óptica</span>
+</div>
+</div>
+</div>
+<!-- Category: Soporte de Vida -->
+<div class="space-y-6">
+<div class="flex items-center gap-4 text-primary">
+<span class="material-symbols-outlined">monitor_heart</span>
+<h5 class="text-lg font-bold tracking-wide uppercase text-slate-100">Soporte de Vida</h5>
+</div>
+<div class="bg-background-dark p-6 rounded-xl border border-slate-800 space-y-4">
+<div class="flex justify-between items-center text-slate-400 group cursor-default">
+<span class="group-hover:text-primary transition-colors">Ventiladores Mecánicos</span>
+<span class="text-xs text-primary/40">Crítico</span>
+</div>
+<div class="w-full h-px bg-slate-800"></div>
+<div class="flex justify-between items-center text-slate-400 group cursor-default">
+<span class="group-hover:text-primary transition-colors">Desfibriladores (DEA)</span>
+<span class="text-xs text-primary/40">Emergencia</span>
+</div>
+<div class="w-full h-px bg-slate-800"></div>
+<div class="flex justify-between items-center text-slate-400 group cursor-default">
+<span class="group-hover:text-primary transition-colors">Monitores de Signos Vitales</span>
+<span class="text-xs text-primary/40">Monitoreo</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Emergency Support CTA -->
+<section class="py-24 relative overflow-hidden bg-primary/5">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+<div class="bg-background-dark border border-primary/20 rounded-2xl p-12 flex flex-col md:flex-row items-center gap-12 surgical-glow">
+<div class="flex-1 space-y-6">
+<div class="inline-flex items-center gap-3 bg-red-500/10 text-red-500 px-4 py-2 rounded-lg border border-red-500/20 text-xs font-black tracking-tighter uppercase">
+<span class="material-symbols-outlined animate-pulse">emergency</span>
+                            Atención de Emergencias 24/7
+                        </div>
+<h2 class="text-4xl font-bold text-white">¿Falla Crítica en su Equipo?</h2>
+<p class="text-slate-400 text-lg">
+                            Contamos con un equipo de ingenieros de guardia listos para movilizarse en Quito y sus alrededores en menos de 60 minutos.
+                        </p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="bg-primary text-background-dark px-10 py-5 rounded-xl text-lg font-black flex items-center justify-center gap-3 hover:brightness-110 transition-all" href="tel:0984016027">
+<span class="material-symbols-outlined">call</span>
+                            Llamar Ahora
+                        </a>
+<button class="bg-white/5 border border-white/10 text-white px-10 py-5 rounded-xl text-lg font-bold hover:bg-white/10 transition-all">
+                            Solicitar Presupuesto
+                        </button>
+</div>
+</div>
 </div>
 </section>
 </main>
-<!-- Bottom Navigation / Floating Contact (iOS Style) -->
-<div class="fixed bottom-0 left-0 right-0 p-4 bg-background-dark/80 backdrop-blur-xl border-t border-primary/10 z-50">
-<div class="max-w-md mx-auto flex items-center justify-around">
-<button class="flex flex-col items-center gap-1 text-primary">
-<span class="material-icons-round">home</span>
-<span class="text-[10px]">Inicio</span>
-</button>
-<button class="flex flex-col items-center gap-1 text-slate-500">
-<span class="material-icons-round">medical_services</span>
-<span class="text-[10px]">Servicios</span>
-</button>
-<div class="relative -top-8">
-<button class="w-14 h-14 bg-primary rounded-full shadow-lg shadow-primary/40 flex items-center justify-center text-white">
-<span class="material-icons-round text-3xl">add</span>
-</button>
+<!-- Footer -->
+<footer class="bg-background-dark pt-24 pb-12 relative overflow-hidden">
+<div class="absolute inset-0 constellation-bg opacity-30"></div>
+<div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
+<div class="col-span-1 md:col-span-2 space-y-8">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<svg class="w-10 h-10" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"></path>
+</svg>
 </div>
-<button class="flex flex-col items-center gap-1 text-slate-500">
-<span class="material-icons-round">info</span>
-<span class="text-[10px]">Nosotros</span>
-</button>
-<button class="flex flex-col items-center gap-1 text-slate-500">
-<span class="material-icons-round">contact_support</span>
-<span class="text-[10px]">Contacto</span>
-</button>
+<h2 class="text-2xl font-bold text-white">IPE3 Engineering</h2>
+</div>
+<p class="text-slate-400 max-w-sm leading-relaxed">
+                        Líderes en ingeniería clínica y mantenimiento especializado de tecnología médica en Ecuador. Miembros de CORPORACIÓN 360.
+                    </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-primary transition-colors border border-slate-700" href="#">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
+</a>
+<a class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:text-primary transition-colors border border-slate-700" href="#">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</a>
 </div>
 </div>
+<div class="col-span-1 space-y-6">
+<h5 class="text-white font-bold uppercase tracking-wider text-sm">Ubicación HQ</h5>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<p class="text-slate-400 text-sm leading-relaxed">
+                            Cusubamba y Tendales,<br/>
+                            Quito, Ecuador
+                        </p>
+</div>
+<div class="w-full h-32 rounded-lg bg-slate-800/50 border border-slate-700 overflow-hidden">
+<img class="w-full h-full object-cover grayscale opacity-50" data-alt="Stylized map of Quito location" data-location="Quito" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdlCqNCaoptb-hgse7IWhN2LfuqZMq8B_1dXatOd99kjC5yHs-RUlxYi27iIlxRX0Vdg2JCvQU67sa3vnUlqxUH3Wlmp6G3Bht4GWWBaUAxHmSyVocxG3EggA3CvGOJQNzxucryYVvXldd7Y35GckTXkbv-ze-n4_8ITrbVzpPhPw7aY4jrvlW8l90c6juGljTsvjQHqDzFuAg4TcSOE0VbQ7Q32S5HkeYftlIe04AsXSURyl_tQ9EayEM_34zR84HtLA_oUvOLU4"/>
+</div>
+</div>
+<div class="col-span-1 space-y-6">
+<h5 class="text-white font-bold uppercase tracking-wider text-sm">Contacto Directo</h5>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">call</span>
+<p class="text-slate-100 font-bold">0984016027</p>
+</div>
+<div class="flex items-center gap-4 text-slate-400">
+<span class="material-symbols-outlined text-primary">mail</span>
+<p class="text-sm">soporte@ipe3.com.ec</p>
+</div>
+<div class="pt-4">
+<button class="w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 rounded-lg border border-slate-700 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm text-primary">article</span>
+                            Ver Portafolio
+                        </button>
+</div>
+</div>
+</div>
+<div class="pt-12 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-slate-500 text-sm">© 2024 IPE3 Engineering by CORPORACIÓN 360. Todos los derechos reservados.</p>
+<div class="flex gap-8">
+<a class="text-xs text-slate-500 hover:text-primary transition-colors" href="#">Términos de Servicio</a>
+<a class="text-xs text-slate-500 hover:text-primary transition-colors" href="#">Política de Privacidad</a>
+<a class="text-xs text-slate-500 hover:text-primary transition-colors" href="#">Portal de Cliente</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Floating WhatsApp Button -->
+<a class="fixed bottom-8 right-8 z-[100] w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-2xl hover:scale-110 active:scale-95 transition-all group" href="https://wa.me/593984016027">
+<svg class="w-8 h-8" fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.301-.15-1.781-.878-2.053-.977-.271-.1-.471-.15-.67.15-.197.3-.765.977-.937 1.177-.171.2-.343.225-.644.075-.299-.15-1.265-.465-2.403-1.485-.888-.795-1.484-1.777-1.659-2.077-.174-.3-.018-.465.133-.615.132-.135.3-.345.45-.52.15-.175.2-.3.3-.5.1-.2.05-.375-.025-.525-.075-.15-.67-1.625-.92-2.22-.243-.585-.487-.503-.67-.512-.172-.008-.37-.01-.568-.01-.198 0-.52.075-.79.375-.27.3-1.03 1.01-1.03 2.458 0 1.447 1.054 2.845 1.201 3.045.148.2 2.074 3.166 5.025 4.442.702.302 1.252.484 1.677.618.704.224 1.344.193 1.85.118.563-.083 1.782-.727 2.035-1.43.254-.702.254-1.303.178-1.43-.076-.128-.278-.203-.578-.353zM12 21.435c-1.748 0-3.417-.459-4.881-1.333l-4.626 1.214 1.235-4.51c-.961-1.608-1.469-3.456-1.469-5.361 0-5.748 4.676-10.424 10.424-10.424 2.785 0 5.405 1.084 7.373 3.053s3.053 4.588 3.053 7.371c0 5.75-4.677 10.424-10.424 10.424zm8.504-17.772c-2.276-2.274-5.298-3.527-8.504-3.527-6.621 0-12.004 5.383-12.004 12.004 0 2.112.553 4.175 1.601 5.992l-1.701 6.213 6.353-1.667c1.746.953 3.716 1.455 5.727 1.455 6.622 0 12.004-5.383 12.004-12.004 0-3.206-1.25-6.228-3.526-8.504z"></path></svg>
+<div class="absolute right-full mr-4 bg-background-dark text-white px-4 py-2 rounded-lg text-sm font-bold border border-primary/20 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-xl">
+            ¿Necesita ayuda inmediata?
+        </div>
+</a>
 </body></html>
