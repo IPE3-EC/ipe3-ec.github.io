@@ -1,294 +1,157 @@
 <!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPE3 Engineering | Electrical & Automation Solutions</title>
 
-<html class="dark" lang="es"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>IPE3 Engineering | Premium Industrial Solutions</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#00e5ff",
-                        "background-light": "#f5f8f8",
-                        "background-dark": "#050c0d",
-                        "navy-deep": "#0a1618",
-                        "glass": "rgba(15, 34, 36, 0.7)",
-                    },
-                    fontFamily: {
-                        "display": ["Space Grotesk", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                },
-            },
-        }
-    </script>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .animate-marquee {
-            display: flex;
-            width: 200%;
-            animation: marquee 20s linear infinite;
-        }
-        .glass-morphism {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(0, 229, 255, 0.1);
-        }
-        .glow-border:hover {
-            border-color: rgba(0, 229, 255, 0.5);
-            box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
-        }
-        .pulse-ring {
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.1); }
-        }
-        body {
-            scrollbar-width: thin;
-            scrollbar-color: #00e5ff #050c0d;
-        }
-    </style>
+body { font-family: 'Space Grotesk', sans-serif; }
+.reveal { opacity:0; transform:translateY(40px); transition: all 1s ease; }
+.reveal.active { opacity:1; transform:translateY(0); }
+.glow { box-shadow: 0 0 40px rgba(0,210,255,0.3); }
+</style>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 selection:bg-primary/30">
-<!-- Sticky Navigation -->
-<header class="fixed top-0 w-full z-50 glass-morphism border-b border-primary/10">
-<div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-<div class="flex flex-col">
+
+<body class="bg-black text-white">
+
+<!-- ================= NAV ================= -->
+
+<header class="fixed w-full z-50 bg-black/80 backdrop-blur border-b border-white/10">
+<div class="container mx-auto px-6 py-4 flex justify-between items-center">
+
 <div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary text-3xl">precision_manufacturing</span>
-<h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white uppercase">IPE3 Engineering</h1>
+<img src="ipe3-logo.png" class="h-12">
+<span class="font-bold text-xl">IPE3</span>
 </div>
-<span class="text-[10px] tracking-[0.2em] text-primary/70 font-semibold ml-10 uppercase">by CORPORACIÓN 360</span>
+
+<div class="flex items-center gap-6">
+<button onclick="toggleLang()" class="text-sm border px-3 py-1 rounded">ES / EN</button>
+<a href="#contact" class="bg-cyan-400 text-black px-5 py-2 rounded font-bold">Cotizar</a>
 </div>
-<nav class="hidden md:flex items-center gap-10">
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#servicios">Servicios</a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#marcas">Marcas</a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#proyectos">Proyectos</a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#contacto">Contacto</a>
-</nav>
-<button class="bg-primary text-background-dark px-6 py-2.5 rounded-lg font-bold text-sm hover:brightness-110 transition-all shadow-[0_0_20px_rgba(0,229,255,0.3)]">
-                Cotizar ahora
-            </button>
+
 </div>
 </header>
-<!-- Hero Section -->
-<section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
-<!-- Tech Background Overlay -->
-<div class="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent"></div>
-<div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBO_rw7XaVF8VxlSDuCFOZuE0O5B5tHCLFAhKUvAZacq6cvq01l62zGLbso5MU1WwvAJ9H1c6AeYmcmj3itXpuP9qTXMHpjd8z3uSuxLA-aoSWNa76rcp5DyL0MGsb4qlsuCEuUHhT_z5VW1PDbbnKY3LSCgUW67oFGyTAYCnbkqiNV-I_OSda77gCtJ5mPEy-rGv8--DfO3Oo0aX3X9cNGAaplv30rqchsCcq3ZD99jXIhTsCOuYhmFFMogE0PytMBDP9W5ik1A_g');"></div>
-<div class="relative z-10 max-w-5xl px-6 text-center">
-<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-bold tracking-widest uppercase mb-8">
-<span class="relative flex h-2 w-2">
-<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-</span>
-                Quito, Ecuador
-            </div>
-<h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60 tracking-tighter">
-                Ingeniería de Vanguardia <br/>
-<span class="text-primary italic">Futuro Industrial</span>
+
+<!-- ================= HERO ================= -->
+
+<section class="h-screen flex items-center justify-center text-center bg-gradient-to-br from-black via-gray-900 to-black">
+<div class="max-w-4xl px-6 reveal">
+<h1 class="text-5xl md:text-6xl font-bold mb-6" id="hero-title">
+Ingeniería Eléctrica de Precisión Digital
 </h1>
-<p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-                Soluciones técnicas integrales con precisión quirúrgica. Elevamos la eficiencia de su planta con tecnología de última generación.
-            </p>
-<div class="flex flex-col sm:flex-row gap-4 justify-center">
-<a class="px-8 py-4 bg-primary text-background-dark rounded-xl font-bold text-lg hover:scale-105 transition-transform flex items-center justify-center gap-2" href="#servicios">
-                    Explorar Servicios
-                    <span class="material-symbols-outlined">arrow_forward</span>
+<p class="text-gray-400 text-lg mb-8" id="hero-text">
+Soluciones industriales en automatización, energía y seguridad electrónica.
+</p>
+<a href="#services" class="bg-cyan-400 text-black px-8 py-4 rounded-xl font-bold glow">
+Explorar Servicios
 </a>
-<a class="px-8 py-4 glass-morphism text-white rounded-xl font-bold text-lg hover:bg-white/5 transition-colors" href="#contacto">
-                    Contáctanos
-                </a>
-</div>
-</div>
-<!-- Scroll Indicator -->
-<div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-<span class="material-symbols-outlined text-primary/50 text-3xl">keyboard_double_arrow_down</span>
 </div>
 </section>
-<!-- Services Section -->
-<section class="py-24 px-6 relative" id="servicios">
-<div class="max-w-7xl mx-auto">
-<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-<div>
-<h2 class="text-primary font-bold tracking-[0.3em] uppercase text-sm mb-4">Core Expertise</h2>
-<h3 class="text-4xl md:text-5xl font-bold text-white tracking-tighter">Servicios Especializados</h3>
+
+<!-- ================= SERVICES ================= -->
+
+<section id="services" class="py-24 bg-gray-950">
+<div class="container mx-auto px-6 text-center">
+
+<h2 class="text-4xl font-bold mb-16 reveal">Nuestros Servicios</h2>
+
+<div class="grid md:grid-cols-3 gap-10">
+
+<div class="bg-black p-8 rounded-xl border border-white/10 reveal">
+<h3 class="text-xl font-bold mb-4">Automatización Industrial</h3>
+<p class="text-gray-400">Sistemas PLC, control y monitoreo inteligente.</p>
 </div>
-<p class="text-slate-400 max-w-md">Transformamos desafíos industriales en ventajas competitivas mediante el uso estratégico de la tecnología.</p>
+
+<div class="bg-black p-8 rounded-xl border border-white/10 reveal">
+<h3 class="text-xl font-bold mb-4">Instalaciones Eléctricas</h3>
+<p class="text-gray-400">Diseño, montaje y mantenimiento certificado.</p>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<!-- Card 1 -->
-<div class="group glass-morphism rounded-2xl p-8 glow-border transition-all duration-500 hover:-translate-y-2">
-<div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
-<span class="material-symbols-outlined text-primary group-hover:text-background-dark text-3xl">bolt</span>
+
+<div class="bg-black p-8 rounded-xl border border-white/10 reveal">
+<h3 class="text-xl font-bold mb-4">Seguridad Electrónica</h3>
+<p class="text-gray-400">CCTV, control de acceso y redes industriales.</p>
 </div>
-<h4 class="text-xl font-bold mb-4 text-white">Ingeniería Eléctrica</h4>
-<p class="text-slate-400 leading-relaxed mb-6">Diseño y mantenimiento de redes de alta potencia con enfoque en eficiencia energética y normativas internacionales.</p>
-<ul class="space-y-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-<li class="flex items-center gap-2 text-xs text-primary font-semibold uppercase tracking-wider">
-<span class="material-symbols-outlined text-sm">check_circle</span>
-                            Subestaciones
-                        </li>
-<li class="flex items-center gap-2 text-xs text-primary font-semibold uppercase tracking-wider">
-<span class="material-symbols-outlined text-sm">check_circle</span>
-                            Tableros de Control
-                        </li>
-</ul>
-</div>
-<!-- Card 2 -->
-<div class="group glass-morphism rounded-2xl p-8 glow-border transition-all duration-500 hover:-translate-y-2">
-<div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
-<span class="material-symbols-outlined text-primary group-hover:text-background-dark text-3xl">settings_input_component</span>
-</div>
-<h4 class="text-xl font-bold mb-4 text-white">Automatización</h4>
-<p class="text-slate-400 leading-relaxed mb-6">Optimización de procesos mediante control lógico (PLC), SCADA y robótica avanzada para la industria 4.0.</p>
-<ul class="space-y-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-<li class="flex items-center gap-2 text-xs text-primary font-semibold uppercase tracking-wider">
-<span class="material-symbols-outlined text-sm">check_circle</span>
-                            Integración PLC
-                        </li>
-<li class="flex items-center gap-2 text-xs text-primary font-semibold uppercase tracking-wider">
-<span class="material-symbols-outlined text-sm">check_circle</span>
-                            Monitoreo Real-time
-                        </li>
-</ul>
-</div>
-<!-- Card 3 -->
-<div class="group glass-morphism rounded-2xl p-8 glow-border transition-all duration-500 hover:-translate-y-2">
-<div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
-<span class="material-symbols-outlined text-primary group-hover:text-background-dark text-3xl">shield_with_heart</span>
-</div>
-<h4 class="text-xl font-bold mb-4 text-white">Sistemas de Seguridad</h4>
-<p class="text-slate-400 leading-relaxed mb-6">Soluciones integrales de vigilancia, control de acceso y detección de incendios de última generación.</p>
-<ul class="space-y-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-<li class="flex items-center gap-2 text-xs text-primary font-semibold uppercase tracking-wider">
-<span class="material-symbols-outlined text-sm">check_circle</span>
-                            CCTV Inteligente
-                        </li>
-<li class="flex items-center gap-2 text-xs text-primary font-semibold uppercase tracking-wider">
-<span class="material-symbols-outlined text-sm">check_circle</span>
-                            Control Biométrico
-                        </li>
-</ul>
-</div>
+
 </div>
 </div>
 </section>
-<!-- Brands Marquee Section -->
-<section class="py-20 bg-navy-deep border-y border-white/5 overflow-hidden" id="marcas">
-<div class="mb-12 text-center">
-<h3 class="text-xs font-bold tracking-[0.5em] text-primary/60 uppercase">Partners Globales</h3>
-</div>
-<div class="relative flex overflow-x-hidden group">
-<div class="animate-marquee whitespace-nowrap flex items-center gap-24">
-<span class="text-4xl md:text-6xl font-black text-white/10 hover:text-white transition-colors cursor-default uppercase">Schneider Electric</span>
-<span class="text-4xl md:text-6xl font-black text-white/10 hover:text-white transition-colors cursor-default uppercase">Siemens</span>
-<span class="text-4xl md:text-6xl font-black text-white/10 hover:text-white transition-colors cursor-default uppercase">Hikvision</span>
-<span class="text-4xl md:text-6xl font-black text-white/10 hover:text-white transition-colors cursor-default uppercase">ABB</span>
-<span class="text-4xl md:text-6xl font-black text-white/10 hover:text-white transition-colors cursor-default uppercase">Rockwell Automation</span>
-<!-- Duplicate for seamless scroll -->
-<span class="text-4xl md:text-6xl font-black text-white/10 hover:text-white transition-colors cursor-default uppercase">Schneider Electric</span>
-<span class="text-4xl md:text-6xl font-black text-white/10 hover:text-white transition-colors cursor-default uppercase">Siemens</span>
-<span class="text-4xl md:text-6xl font-black text-white/10 hover:text-white transition-colors cursor-default uppercase">Hikvision</span>
-<span class="text-4xl md:text-6xl font-black text-white/10 hover:text-white transition-colors cursor-default uppercase">ABB</span>
-<span class="text-4xl md:text-6xl font-black text-white/10 hover:text-white transition-colors cursor-default uppercase">Rockwell Automation</span>
-</div>
+
+<!-- ================= CLIENTES ================= -->
+
+<section class="py-24 bg-black text-center">
+<h2 class="text-4xl font-bold mb-16 reveal">Clientes</h2>
+
+<div class="flex flex-wrap justify-center gap-12 items-center opacity-70 reveal">
+<img src="https://dummyimage.com/120x60/fff/000&text=Cliente+1">
+<img src="https://dummyimage.com/120x60/fff/000&text=Cliente+2">
+<img src="https://dummyimage.com/120x60/fff/000&text=Cliente+3">
+<img src="https://dummyimage.com/120x60/fff/000&text=Cliente+4">
 </div>
 </section>
-<!-- Constellation Footer Section -->
-<footer class="relative bg-background-dark pt-24 pb-12 px-6 overflow-hidden" id="contacto">
-<!-- Minimal Grid Pattern instead of JS Canvas for pure CSS/HTML delivery -->
-<div class="absolute inset-0 z-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, #00e5ff 1px, transparent 0); background-size: 40px 40px;"></div>
-<div class="max-w-7xl mx-auto relative z-10">
-<div class="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-16">
-<!-- Brand Info -->
-<div class="col-span-1 lg:col-span-1">
-<div class="flex items-center gap-3 mb-6">
-<span class="material-symbols-outlined text-primary text-4xl">precision_manufacturing</span>
-<h2 class="text-2xl font-bold tracking-tight text-white uppercase leading-none">IPE3<br/><span class="text-sm font-normal text-slate-400">Engineering</span></h2>
-</div>
-<p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        Líderes en soluciones técnicas de ingeniería industrial en Ecuador. Innovación, calidad y compromiso en cada proyecto.
-                    </p>
-<p class="text-[10px] tracking-[0.2em] text-primary/70 font-bold uppercase">by CORPORACIÓN 360</p>
-</div>
-<!-- Contact Details -->
-<div class="flex flex-col gap-6">
-<h4 class="text-white font-bold uppercase tracking-widest text-xs">Ubicación</h4>
-<div class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary">location_on</span>
-<p class="text-slate-400 text-sm">Cusubamba y Tendales,<br/>Quito, Ecuador</p>
-</div>
-<div class="w-full h-32 rounded-lg bg-navy-deep border border-white/5 overflow-hidden">
-<img alt="Mapa de ubicación en Quito" class="w-full h-full object-cover opacity-50" data-alt="Mapa minimalista de Quito destacando la ubicación de IPE3" data-location="Quito, Ecuador" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC37-LR9ff3HbpM3lV7ur67Z71mgn_aBCj-QLLsEYwOAgH3zQdF1mJOqJt2sjuE7SZ0g7DCCRjuILpoIlh4Z0q6LNOBqDQxHhC0jY5C6gz8p9ZFA85clvJuj391BqWZ1gC7wznJQl0o5FNSUx2bEui6MXUclgRe3t7IV-IgSyRPONAmH985F0mgbV-dHze_O7ENlJqsCtDfbkSZg0EWmZvjRKA_n87FDCiudJ9mcOUXYY4siV_oS3t9we1lPxKyACaR0kEEBFvebxU"/>
-</div>
-</div>
-<!-- Contact Links -->
-<div class="flex flex-col gap-6">
-<h4 class="text-white font-bold uppercase tracking-widest text-xs">Contacto</h4>
-<div class="flex items-center gap-4 group cursor-pointer">
-<div class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center group-hover:bg-primary transition-colors">
-<span class="material-symbols-outlined text-primary group-hover:text-background-dark text-xl">phone</span>
-</div>
-<a class="text-slate-400 group-hover:text-white transition-colors font-medium" href="tel:0984016027">0984016027</a>
-</div>
-<div class="flex items-center gap-4 group cursor-pointer">
-<div class="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center group-hover:bg-primary transition-colors">
-<span class="material-symbols-outlined text-primary group-hover:text-background-dark text-xl">mail</span>
-</div>
-<a class="text-slate-400 group-hover:text-white transition-colors font-medium text-sm" href="mailto:ipe3ecuador@gmail.com">ipe3ecuador@gmail.com</a>
-</div>
-</div>
-<!-- Quick Form/Newsletter -->
-<div class="flex flex-col gap-6">
-<h4 class="text-white font-bold uppercase tracking-widest text-xs">Suscríbete</h4>
-<p class="text-xs text-slate-500">Recibe noticias técnicas y actualizaciones de proyectos.</p>
-<div class="flex gap-2">
-<input class="bg-navy-deep border border-white/10 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-primary w-full text-white" placeholder="Email" type="email"/>
-<button class="bg-primary p-2 rounded-lg text-background-dark">
-<span class="material-symbols-outlined">send</span>
+
+<!-- ================= CONTACT FORM ================= -->
+
+<section id="contact" class="py-24 bg-gray-950">
+<div class="max-w-2xl mx-auto px-6">
+
+<h2 class="text-4xl font-bold mb-12 text-center reveal">Solicitar Cotización</h2>
+
+<form action="https://formsubmit.co/ipe3ecuador@gmail.com" method="POST" class="space-y-6 reveal">
+
+<input type="text" name="name" placeholder="Nombre" required class="w-full p-4 bg-black border border-white/20 rounded">
+
+<input type="email" name="email" placeholder="Email" required class="w-full p-4 bg-black border border-white/20 rounded">
+
+<textarea name="message" placeholder="Describe tu proyecto..." required class="w-full p-4 bg-black border border-white/20 rounded h-32"></textarea>
+
+<button type="submit" class="w-full bg-cyan-400 text-black py-4 rounded font-bold glow">
+Enviar Solicitud
 </button>
+
+</form>
 </div>
-</div>
-</div>
-<!-- Bottom Copyright -->
-<div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-<p class="text-slate-600 text-[10px] uppercase tracking-widest">© 2024 IPE3 Engineering. Todos los derechos reservados.</p>
-<div class="flex gap-6">
-<a class="text-slate-600 hover:text-primary transition-colors text-[10px] uppercase tracking-widest" href="#">Términos</a>
-<a class="text-slate-600 hover:text-primary transition-colors text-[10px] uppercase tracking-widest" href="#">Privacidad</a>
-</div>
-</div>
-</div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="bg-black border-t border-white/10 py-10 text-center text-gray-500 text-sm">
+© 2026 IPE3 Engineering by CORPORACIÓN 360
 </footer>
-<!-- Floating WhatsApp Button -->
-<a class="fixed bottom-8 right-8 z-[60] group" href="https://wa.me/593984016027" target="_blank">
-<div class="absolute inset-0 bg-[#25D366] rounded-full pulse-ring opacity-50"></div>
-<div class="relative bg-[#25D366] w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
-<svg class="w-8 h-8 text-white" fill="currentColor" viewbox="0 0 24 24">
-<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.633 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
-</svg>
-<!-- Tooltip -->
-<span class="absolute right-full mr-4 bg-white text-black text-xs font-bold py-2 px-4 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                ¿Necesitas ayuda técnica?
-            </span>
-</div>
-</a>
-</body></html>
+
+<!-- ================= SCRIPTS ================= -->
+
+<script>
+function toggleLang(){
+let title = document.getElementById("hero-title");
+let text = document.getElementById("hero-text");
+
+if(title.innerText.includes("Ingeniería")){
+title.innerText = "Digital Precision Electrical Engineering";
+text.innerText = "Industrial solutions in automation, power systems and electronic security.";
+} else {
+title.innerText = "Ingeniería Eléctrica de Precisión Digital";
+text.innerText = "Soluciones industriales en automatización, energía y seguridad electrónica.";
+}
+}
+
+// Scroll animation
+window.addEventListener("scroll", function(){
+let reveals = document.querySelectorAll(".reveal");
+for(let i=0; i<reveals.length; i++){
+let windowHeight = window.innerHeight;
+let elementTop = reveals[i].getBoundingClientRect().top;
+let elementVisible = 100;
+if(elementTop < windowHeight - elementVisible){
+reveals[i].classList.add("active");
+}
+}
+});
+</script>
+
+</body>
+</html>
