@@ -64,3 +64,13 @@
     transform: translateY(0px) scale(1);
   }
 }
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(.4,0,.2,1);
+}
+
+.animate-show {
+    opacity: 1;
+    transform: translateY(0);
+}
