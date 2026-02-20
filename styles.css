@@ -40,3 +40,27 @@
   50% { opacity: 0.25; }
   100% { opacity: 0.08; }
 }
+/* ========================= */
+/* ANIMACIÓN LOGO PREMIUM */
+/* ========================= */
+
+.logo-animate {
+  animation: logoFadeIn 1.2s ease-out forwards;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.logo-animate:hover {
+  transform: scale(1.08) rotate(2deg);
+  filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.6));
+}
+
+@keyframes logoFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
