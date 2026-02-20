@@ -1,102 +1,130 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <title>IPE3 Engineering | Ingeniería Eléctrica y Electrónica</title>
-    <meta name="description" content="IPE3 Engineering by CORPORACIÓN 360. Ingeniería eléctrica, automatización industrial y mantenimiento médico en Quito, Ecuador.">
-<meta name="keywords" content="Ingeniería eléctrica Quito, automatización industrial Ecuador, mantenimiento médico Quito, CORPORACIÓN 360">
-<meta name="author" content="IPE3 Engineering by CORPORACIÓN 360">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="static/icons/favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IPE3 Engineering by CORPORACIÓN 360</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="styles.css">
+  <!-- SEO -->
+  <meta name="description" content="Ingeniería eléctrica, automatización industrial y mantenimiento médico en Quito, Ecuador.">
+  <meta name="keywords" content="Ingeniería eléctrica Quito, Automatización industrial Ecuador, Mantenimiento médico Quito">
+  <meta name="author" content="IPE3 Engineering by CORPORACIÓN 360">
 
-    <!-- Favicon -->
-    <link rel="icon" href="static/icons/favicon.ico">
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="static/css/styles.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="static/icons/favicon.png">
 </head>
 
-<body>
+<body class="bg-slate-950 text-white font-sans">
 
-    <!-- ================= NAVBAR ================= -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <img src="static/img/ipe3-logo.png" alt="IPE3 Logo">
-            </div>
-
-            <ul class="nav-links">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="SERVICES.HTML">Servicios</a></li>
-                <li><a href="instalaciones-electricas.html">Instalaciones Eléctricas</a></li>
-                <li><a href="mantenimiento-medico.html">Mantenimiento Médico</a></li>
-            </ul>
-        </nav>
-    </header>
-
-
-    <!-- ================= HERO ================= -->
-  <section class="hero">
-    <h1>Ingeniería Eléctrica con Precisión Digital</h1>
-    <p>Soluciones integrales en instalaciones eléctricas, mantenimiento médico y automatización industrial.</p>
-    <a href="SERVICES.HTML" class="btn">Explorar Servicios</a>
-</section>
-
-
-    <!-- ================= SOBRE NOSOTROS ================= -->
-    <section>
-        <h2>Quiénes Somos</h2>
-        <p>
-            IPE3 Engineering es una empresa especializada en ingeniería eléctrica y electrónica,
-            brindando soluciones seguras, eficientes y de alto nivel técnico para el sector industrial,
-            comercial y médico.
-        </p>
-    </section>
-
-
-    <!-- ================= SERVICIOS DESTACADOS ================= -->
-  <section>
-    <h2>Servicios Destacados</h2>
-
-    <div class="cards">
-        <div class="card">
-            <h3>Instalaciones Eléctricas</h3>
-            <p>Sistemas eléctricos seguros para hogares, industrias y comercios.</p>
-        </div>
-
-        <div class="card">
-            <h3>Mantenimiento Médico</h3>
-            <p>Soporte técnico especializado en equipos hospitalarios.</p>
-        </div>
-
-        <div class="card">
-            <h3>Automatización</h3>
-            <p>Soluciones inteligentes para optimizar procesos eléctricos.</p>
-        </div>
+<!-- NAVBAR -->
+<header class="fixed w-full z-50 bg-slate-950/80 backdrop-blur border-b border-slate-800">
+  <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <div class="text-xl font-bold tracking-widest">
+      IPE3 <span class="text-cyan-400">Engineering</span>
     </div>
+    <nav class="hidden md:flex gap-8 text-sm uppercase tracking-wider">
+      <a href="#servicios" class="hover:text-cyan-400 transition">Servicios</a>
+      <a href="#proyectos" class="hover:text-cyan-400 transition">Proyectos</a>
+      <a href="#contacto" class="hover:text-cyan-400 transition">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero h-screen flex items-center justify-center text-center relative">
+  <div class="container mx-auto px-6 relative z-10">
+    <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+      Ingeniería Eléctrica con <span class="text-cyan-400">Precisión Digital</span>
+    </h1>
+    <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
+      Soluciones integrales en automatización industrial, instalaciones eléctricas y mantenimiento especializado.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#proyectos" class="btn-primary">Explorar Proyectos</a>
+      <a href="#servicios" class="btn-secondary">Nuestros Servicios</a>
+    </div>
+  </div>
 </section>
 
-    <!-- ================= CONTACTO ================= -->
-    <section>
-        <h2>Contáctanos</h2>
-        <p>
-            Estamos listos para ayudarte con tus proyectos eléctricos y electrónicos.
+<!-- SERVICIOS -->
+<section id="servicios" class="py-24 bg-slate-900">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-4xl font-bold mb-16">Nuestros Servicios</h2>
+
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <div class="card">
+        <h3 class="text-xl font-semibold mb-4 text-cyan-400">Instalaciones Eléctricas</h3>
+        <p class="text-slate-400">
+          Diseño e implementación de sistemas eléctricos industriales con estándares de seguridad y eficiencia.
         </p>
-        <br>
-        <a href="SERVICES.HTML" class="btn">Ver Servicios</a>
-    </section>
+      </div>
 
+      <div class="card">
+        <h3 class="text-xl font-semibold mb-4 text-cyan-400">Automatización Industrial</h3>
+        <p class="text-slate-400">
+          Integración de sistemas de control, PLC y optimización de procesos productivos.
+        </p>
+      </div>
 
-    <!-- ================= FOOTER ================= -->
-    <footer>
-    <p><strong>IPE3 Engineering</strong></p>
-    <p>Ingeniería Eléctrica y Electrónica Profesional</p>
-    <p>© 2026 Todos los derechos reservados</p>
+      <div class="card">
+        <h3 class="text-xl font-semibold mb-4 text-cyan-400">Mantenimiento Médico</h3>
+        <p class="text-slate-400">
+          Servicio técnico especializado en equipos médicos con máxima precisión.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROYECTOS -->
+<section id="proyectos" class="py-24 bg-slate-950">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-4xl font-bold mb-16">Proyectos Destacados</h2>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="project-card">
+        <img src="static/img/proyecto1.jpg" class="rounded-xl mb-4" alt="Proyecto 1">
+        <h4 class="text-lg font-semibold">Sistema de Control Industrial</h4>
+      </div>
+
+      <div class="project-card">
+        <img src="static/img/proyecto2.jpg" class="rounded-xl mb-4" alt="Proyecto 2">
+        <h4 class="text-lg font-semibold">Instalación Eléctrica Hospitalaria</h4>
+      </div>
+
+      <div class="project-card">
+        <img src="static/img/proyecto3.jpg" class="rounded-xl mb-4" alt="Proyecto 3">
+        <h4 class="text-lg font-semibold">Automatización de Planta</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="py-24 bg-slate-900 text-center">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-6">Contacto</h2>
+    <p class="text-slate-400 mb-6">Quito, Ecuador</p>
+    <p class="text-slate-400">Correo: kilometro0ec@gmail.com</p>
+    <p class="text-slate-400">Teléfono: +593 98 411 6019</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-6 text-center bg-slate-950 border-t border-slate-800 text-slate-500 text-sm">
+  © 2026 IPE3 Engineering by CORPORACIÓN 360. Todos los derechos reservados.
 </footer>
 
-
-    <!-- JS -->
-    <script src="script.js"></script>
+<!-- Script -->
+<script src="static/js/script.js"></script>
 
 </body>
 </html>
