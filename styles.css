@@ -1,162 +1,45 @@
-/* ===== RESET ===== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* ================= GLOBAL ================= */
 body {
+    background-color: #0f172a;
     font-family: 'Segoe UI', sans-serif;
-    background: #050b18;
-    color: white;
+    scroll-behavior: smooth;
 }
 
-/* ===== NAVBAR ===== */
-.navbar {
-    position: fixed;
-    width: 100%;
-    padding: 20px 60px;
-    background: rgba(5, 11, 24, 0.85);
-    backdrop-filter: blur(12px);
-    z-index: 1000;
+/* Glass effect */
+.glass {
+    backdrop-filter: blur(14px);
+    background: rgba(255, 255, 255, 0.05);
 }
 
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* Fade animation */
+.fade-in {
+    animation: fadeIn 1.2s ease-in-out;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
 }
 
-.logo img {
-    height: 40px;
+/* Hover glow premium */
+.hover-glow {
+    transition: all 0.3s ease;
 }
 
-nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #cbd5e1;
-    transition: 0.3s;
+.hover-glow:hover {
+    box-shadow: 0 0 25px rgba(0, 255, 200, 0.4);
+    transform: translateY(-4px);
 }
 
-nav a:hover {
-    color: #00d4ff;
-}
-
-.btn-nav {
-    background: #00d4ff;
-    color: black;
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* ===== HERO ===== */
-.hero {
-    height: 100vh;
-    background: url("static/img/hero-bg.jpg") center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    padding: 0 80px;
-    position: relative;
-}
-
-.hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to right, #050b18 45%, rgba(5,11,24,0.6));
-}
-
-.hero-content {
-    position: relative;
-    max-width: 650px;
-    z-index: 2;
-}
-
-.badge {
-    background: rgba(0, 212, 255, 0.15);
-    color: #00d4ff;
-    padding: 6px 15px;
-    border-radius: 20px;
-    font-size: 12px;
-    letter-spacing: 1px;
-}
-
-.hero h1 {
-    font-size: 60px;
-    margin: 20px 0;
-    line-height: 1.1;
-}
-
-.highlight {
-    color: #00d4ff;
-}
-
-.hero p {
-    color: #cbd5e1;
-    margin-bottom: 30px;
-}
-
-.hero-buttons a {
-    margin-right: 15px;
-}
-
-.btn-primary {
-    background: #00d4ff;
-    color: black;
-    padding: 12px 25px;
-    border-radius: 8px;
-    text-decoration: none;
-}
-
-.btn-secondary {
-    background: rgba(255,255,255,0.1);
-    color: white;
-    padding: 12px 25px;
-    border-radius: 8px;
-    text-decoration: none;
-}
-
-/* ===== ESPECIALIDADES ===== */
-.especialidades {
-    padding: 100px 80px;
-    background: linear-gradient(to bottom, #050b18, #0a1628);
-}
-
-.especialidades h2 {
-    text-align: center;
-    margin-bottom: 50px;
-    font-size: 32px;
-}
-
-.cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
-}
-
-.card {
-    background: rgba(255,255,255,0.05);
-    padding: 30px;
-    border-radius: 15px;
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    background: rgba(0,212,255,0.08);
-}
-
-/* ===== FOOTER ===== */
-.footer {
-    background: #030712;
-    padding: 40px;
-    text-align: center;
-    color: #94a3b8;
+/* Navbar scroll effect */
+.nav-scrolled {
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(16px);
+    transition: all 0.3s ease;
 }
