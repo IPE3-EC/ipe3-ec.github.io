@@ -164,69 +164,106 @@ Soluciones integrales de automatización, seguridad y mantenimiento industrial.
 </div>
 </section>
 
-<!-- FOOTER CON CONSTELACIONES -->
-<footer class="constellation-bg text-slate-400 py-20 relative" id="contacto">
+<!-- FOOTER -->
+<footer class="relative bg-deep-charcoal text-slate-400 py-20 border-t border-white/10" id="contacto">
 
-  <!-- Fondo estrellas -->
-  <div class="absolute inset-0 pointer-events-none overflow-hidden opacity-40">
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
 
-    <!-- Estrellas -->
-    <div class="star w-1 h-1 top-[10%] left-[15%]"></div>
-    <div class="star w-1.5 h-1.5 top-[30%] left-[70%]"></div>
-    <div class="star w-1 h-1 top-[60%] left-[30%]"></div>
-    <div class="star w-1.5 h-1.5 top-[80%] left-[10%]"></div>
-    <div class="star w-1 h-1 top-[50%] left-[90%]"></div>
-    <div class="star w-1 h-1 top-[25%] left-[45%]"></div>
-    <div class="star w-1.5 h-1.5 top-[75%] left-[60%]"></div>
+            <!-- Logo y descripción -->
+            <div>
+                <div class="flex items-center gap-3 mb-8">
+                    <img src="./static/img/ipe3-logo.png"
+                         class="w-20 logo-animate"
+                         alt="IPE3 Logo">
+                    <div class="flex flex-col">
+                        <span class="text-xl font-bold tracking-tight text-white leading-tight">
+                            IPE3 <span class="text-primary font-light">Engineering</span>
+                        </span>
+                        <span class="text-[9px] uppercase tracking-wider text-slate-400 font-bold leading-none">
+                            by CORPORACIÓN 360
+                        </span>
+                    </div>
+                </div>
 
-  </div>
+                <p class="text-sm leading-relaxed mb-8 text-slate-400">
+                    Líderes en ingeniería eléctrica y electrónica en el Ecuador.
+                    Desarrollamos soluciones de alta tecnología con precisión milimétrica y seguridad garantizada.
+                </p>
 
-  <!-- CONTENIDO -->
-  <div class="container mx-auto px-6 relative z-10">
+                <div class="flex gap-4">
+                    <a class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-primary hover:text-deep-charcoal transition-all border border-white/10" href="#">
+                        <span class="material-icons text-sm">facebook</span>
+                    </a>
+                    <a class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-primary hover:text-deep-charcoal transition-all border border-white/10" href="#">
+                        <span class="material-icons text-sm">camera_alt</span>
+                    </a>
+                    <a class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-primary hover:text-deep-charcoal transition-all border border-white/10" href="#">
+                        <span class="material-icons text-sm">alternate_email</span>
+                    </a>
+                </div>
+            </div>
 
-    <div class="grid md:grid-cols-3 gap-12">
+            <!-- Empresa -->
+            <div>
+                <h4 class="text-white font-bold mb-8 uppercase tracking-widest text-xs">Empresa</h4>
+                <ul class="space-y-4 text-sm">
+                    <li><a class="hover:text-primary transition-colors" href="#">Inicio</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Especialidades</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Portafolio Proyectos</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Nuestra Historia</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Oportunidades</a></li>
+                </ul>
+            </div>
 
-      <!-- Columna 1: Logo + descripción -->
-      <div>
-        <img src="./static/img/ipe3-logo.png"
-             class="w-28 mb-6 logo-animate"
-             alt="IPE3 Logo">
+            <!-- Soluciones -->
+            <div>
+                <h4 class="text-white font-bold mb-8 uppercase tracking-widest text-xs">Soluciones</h4>
+                <ul class="space-y-4 text-sm">
+                    <li><a class="hover:text-primary transition-colors" href="#">Automatización Industrial</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Cableado Inteligente</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Seguridad Contra Incendios</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Sistemas UPS & Energía</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="#">Mantenimiento Predictivo</a></li>
+                </ul>
+            </div>
 
-        <p class="text-sm leading-relaxed text-slate-400">
-          Instituto Público de Educación especializado en innovación,
-          tecnología y formación integral.
-        </p>
-      </div>
+            <!-- Contacto -->
+            <div>
+                <h4 class="text-white font-bold mb-8 uppercase tracking-widest text-xs">Contacto</h4>
+                <ul class="space-y-6 text-sm">
+                    <li class="flex gap-4">
+                        <span class="material-icons text-primary text-xl">location_on</span>
+                        <span class="text-slate-300">
+                            Dirección: Cusubamba y Tendales, Quito, Ecuador
+                        </span>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="material-icons text-primary text-xl">phone</span>
+                        <span class="text-slate-300">Teléfono: 0984016027</span>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="material-icons text-primary text-xl">email</span>
+                        <span class="text-slate-300 font-bold">
+                            Correo: ipe3ecuador@gmail.com
+                        </span>
+                    </li>
+                </ul>
+            </div>
 
-      <!-- Columna 2: Enlaces -->
-      <div>
-        <h3 class="text-white font-semibold mb-4">Enlaces rápidos</h3>
-        <ul class="space-y-2 text-sm">
-          <li><a href="#inicio" class="hover:text-primary transition">Inicio</a></li>
-          <li><a href="#oferta" class="hover:text-primary transition">Oferta Académica</a></li>
-          <li><a href="#nosotros" class="hover:text-primary transition">Nosotros</a></li>
-          <li><a href="#contacto" class="hover:text-primary transition">Contacto</a></li>
-        </ul>
-      </div>
+        </div>
 
-      <!-- Columna 3: Contacto -->
-      <div>
-        <h3 class="text-white font-semibold mb-4">Contacto</h3>
-        <ul class="space-y-2 text-sm">
-          <li>📍 Ecuador</li>
-          <li>📧 info@ipe3.edu.ec</li>
-          <li>📞 +593 000 000 000</li>
-        </ul>
-      </div>
+        <!-- Créditos -->
+        <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-widest font-bold text-slate-500">
+            <p>© 2016 IPE3 Engineering by CORPORACIÓN 360</p>
+            <div class="flex gap-8">
+                <a class="hover:text-primary transition-colors" href="#">Privacidad</a>
+                <a class="hover:text-primary transition-colors" href="#">Términos</a>
+                <a class="hover:text-primary transition-colors" href="#">Sitemap</a>
+            </div>
+        </div>
 
     </div>
-
-    <!-- Línea inferior -->
-    <div class="border-t border-slate-700 mt-16 pt-6 text-center text-xs text-slate-500">
-      © 2026 IPE3 - Instituto Público de Educación. Todos los derechos reservados.
-    </div>
-
-  </div>
 
 </footer>
 <!-- JS Propio -->
