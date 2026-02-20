@@ -43,15 +43,93 @@ tailwind.config = {
         }
     }
 };
-// Animación al hacer scroll
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate-show');
-        }
-    });
-}, { threshold: 0.15 });
+document.addEventListener("DOMContentLoaded", function () {
 
-document.querySelectorAll('.animate-on-scroll').forEach(el => {
-    observer.observe(el);
+    // ===== ANIMACIÓN SCROLL =====
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-show');
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        observer.observe(el);
+    });
+
+
+    // ===== ESTRELLAS FOOTER =====
+    const canvas = document.getElementById("stars-canvas");
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+
+    let stars = [];
+    const STAR_COUNT = 80;
+    const CONNECT_DISTANCE = 120;
+
+    function resizeCanvas() {
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+    }
+
+    function createStars() {
+        stars = [];
+        for (let i = 0; i < STAR_COUNT; i++) {
+            stars.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5,
+                radius: Math.random() * 1.5 + 0.5
+            });
+        }
+    }
+
+    function drawStars() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        stars.forEach(star => {
+            star.x += star.vx;
+            star.y += star.vy;
+
+            if (star.x < 0 || star.x > canvas.width) star.vx *= -1;
+            if (star.y < 0 || star.y > canvas.height) star.vy *= -1;
+
+            ctx.beginPath();
+            ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+            ctx.fillStyle = "rgba(0, 210, 255, 0.8)";
+            ctx.fill();
+        });
+
+        for (let i = 0; i < stars.length; i++) {
+            for (let j = i + 1; j < stars.length; j++) {
+                let dx = stars[i].x - stars[j].x;
+                let dy = stars[i].y - stars[j].y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < CONNECT_DISTANCE) {
+                    ctx.beginPath();
+                    ctx.moveTo(stars[i].x, stars[i].y);
+                    ctx.lineTo(stars[j].x, stars[j].y);
+                    ctx.strokeStyle = `rgba(0, 210, 255, ${1 - distance / CONNECT_DISTANCE})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.stroke();
+                }
+            }
+        }
+
+        requestAnimationFrame(drawStars);
+    }
+
+    window.addEventListener("resize", () => {
+        resizeCanvas();
+        createStars();
+    });
+
+    resizeCanvas();
+    createStars();
+    drawStars();
+
 });
