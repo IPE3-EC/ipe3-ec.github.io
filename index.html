@@ -51,16 +51,36 @@ kenburns: {
 
 <!-- HEADER -->
 <header class="fixed top-0 w-full z-50 bg-deep-charcoal/80 backdrop-blur-lg border-b border-white/5">
+
 <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
-<div class="flex items-center gap-3">
-<img src="./static/img/ipe3-logo.png"
-     class="w-16 h-16 object-contain logo-animate"
-     alt="IPE3 Logo">
-<div class="flex flex-col">
-<span class="text-xl font-bold text-white">IPE3 <span class="text-primary font-light">Engineering</span></span>
-<span class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">by CORPORACIÓN 360</span>
-</div>
-</div>
+
+<a href="/" class="flex items-center gap-3 group transition-all duration-500 hover:scale-105">
+
+    <!-- CÍRCULO CON DEGRADADO -->
+    <div class="relative p-[2px] rounded-full bg-gradient-to-br from-cyan-500 via-blue-600 to-indigo-700 logo-glow transition-all duration-500 group-hover:shadow-[0_0_25px_rgba(0,200,255,0.6)]">
+
+        <div class="rounded-full bg-deep-charcoal p-2">
+            <img src="./static/img/ipe3-logo.png"
+                 class="w-14 h-14 object-contain transition-transform duration-500 group-hover:rotate-6"
+                 alt="IPE3 Logo">
+        </div>
+
+    </div>
+
+    <!-- TEXTO -->
+    <div class="flex flex-col">
+        <span class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            IPE3 <span class="font-light">Engineering</span>
+        </span>
+        <span class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">
+            by CORPORACIÓN 360
+        </span>
+    </div>
+
+</a>
+
+</nav>
+</header>
 <div class="hidden md:flex items-center space-x-8">
 
     <a href="#" class="hover:text-primary transition">Inicio</a>
