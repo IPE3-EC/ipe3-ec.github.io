@@ -1,76 +1,43 @@
-/* --------------------------- */
-/* FOOTER CIELO ESTRELLADO PRO */
-/* --------------------------- */
+/* Fuentes */
+body { font-family: 'Space Grotesk', sans-serif; }
 
+/* Fondos y patrones */
+.dark-gradient-bg {
+    background: radial-gradient(circle at top right, #1a2333, #0a0c10 70%);
+}
+.circuit-pattern {
+    background-image: radial-gradient(var(--tw-colors-primary) 0.5px, transparent 0.5px);
+    background-size: 32px 32px;
+    opacity: 0.08;
+}
+.constellation-bg {
+    background: radial-gradient(circle at 50% 50%, #111827, #030712);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Estrellas y líneas de constelación */
 .star {
-  position: absolute;
-  background: white;
-  border-radius: 50%;
-  opacity: 0.6;
-  animation: twinkle 3s infinite ease-in-out alternate,
-             float 18s infinite ease-in-out;
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.5;
 }
-
-/* Parpadeo */
-@keyframes twinkle {
-  0% { opacity: 0.2; transform: scale(0.6); }
-  50% { opacity: 1; transform: scale(1); }
-  100% { opacity: 0.3; transform: scale(0.8); }
-}
-
-/* Movimiento lento natural */
-@keyframes float {
-  0% { transform: translate(0px, 0px); }
-  50% { transform: translate(8px, -6px); }
-  100% { transform: translate(0px, 0px); }
-}
-
-/* Líneas de constelación */
 .constellation-line {
-  position: absolute;
-  background: rgba(0, 210, 255, 0.18);
-  height: 1px;
-  transform-origin: left center;
-  animation: lineGlow 5s infinite ease-in-out alternate;
+    position: absolute;
+    background: rgba(0, 210, 255, 0.1);
+    height: 1px;
+    transform-origin: left center;
 }
 
-/* Brillo suave */
-@keyframes lineGlow {
-  0% { opacity: 0.05; }
-  50% { opacity: 0.25; }
-  100% { opacity: 0.08; }
-}
-/* ========================= */
-/* ANIMACIÓN LOGO PREMIUM */
-/* ========================= */
-
-.logo-animate {
-  animation: logoFadeIn 1.2s ease-out forwards;
-  transition: transform 0.4s ease, filter 0.4s ease;
+/* Paneles de vidrio */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.logo-animate:hover {
-  transform: scale(1.08) rotate(2deg);
-  filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.6));
-}
-
-@keyframes logoFadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px) scale(0.9);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0px) scale(1);
-  }
-}
-.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s cubic-bezier(.4,0,.2,1);
-}
-
-.animate-show {
-    opacity: 1;
-    transform: translateY(0);
+/* Marquee (logos) */
+.marquee-container {
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
