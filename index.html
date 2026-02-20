@@ -4,13 +4,10 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>IPE3 Engineering by CORPORACIÓN 360 | Ingeniería Eléctrica y Electrónica</title>
-
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class", // Permite activar el modo oscuro mediante una clase
@@ -47,10 +44,8 @@
             },
         }
     </script>
-
     <style type="text/tailwindcss">
         body { font-family: 'Space Grotesk', sans-serif; }
-
         /* Fondo con degradado radial para dar profundidad al sitio */
         .dark-gradient-bg {
             background: radial-gradient(circle at top right, #1a2333, #0a0c10 70%);
@@ -62,14 +57,12 @@
             background-size: 32px 32px;
             opacity: 0.08;
         }
-
         /* Fondo del footer: Simula un cielo estrellado con gradiente profundo */
         .constellation-bg {
             background: radial-gradient(circle at 50% 50%, #111827, #030712);
             position: relative;
             overflow: hidden;
         }
-
         /* Estilo para las estrellas individuales del footer */
         .star {
             position: absolute;
@@ -77,7 +70,6 @@
             border-radius: 50%;
             opacity: 0.5;
         }
-
         /* Estilo para las líneas que conectan las estrellas (efecto constelación) */
         .constellation-line {
             position: absolute;
@@ -85,23 +77,19 @@
             height: 1px;
             transform-origin: left center;
         }
-
         /* Efecto Glassmorphism: Fondo semi-transparente desenfocado */
         .glass-panel {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
         /* Máscara de degradado para que la marquesina de logos se desvanezca en los bordes */
         .marquee-container {
             mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
         }
     </style>
 </head>
-
 <body class="bg-deep-charcoal text-slate-200 selection:bg-primary/30">
-
 <header class="fixed top-0 w-full z-50 bg-deep-charcoal/80 backdrop-blur-lg border-b border-white/5">
     <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
         <div class="flex items-center gap-3">
@@ -125,7 +113,6 @@
         </a>
     </nav>
 </header>
-
 <section class="relative h-screen flex items-center overflow-hidden">
     <div class="absolute inset-0 z-0">
         <img alt="Control Room" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8KtHLz4DO3g6p-zgz0gkhtrNljW8mkFrt1VNEGFPqyoFM9kURKHKeNasaLPVB3Nogsr2O1OP4FSxtZpr8B2ozgF1if27JGVnA0D9wEVvb02vAZIYG5W5yKTunnbGHuuMqBBcV-SGlLQGshT5Pa46--9Yxgs-QOX31mq5QcPtKqrAStp9Nn0Wd1yovBEAPAslY_t2wwo03BLcT0EF-VLLzB5eLtAITV3xddNenq5sjHR1DemmYZggPw5T7dWcoryCF9hDu3FhfmU4"/>
@@ -274,7 +261,6 @@
         </div>
     </div>
 </section>
-
 <footer class="constellation-bg text-slate-400 py-20 relative" id="contacto">
     <div class="absolute inset-0 pointer-events-none overflow-hidden opacity-30">
         <div class="star w-1 h-1 top-[10%] left-[15%]"></div>
@@ -359,5 +345,4 @@
         </div>
     </div>
 </footer>
-
 </body></html>
