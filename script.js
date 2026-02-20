@@ -31,3 +31,12 @@ tailwind.config = {
         },
     },
 }
+// Redirigir al hacer clic en cada especialidad
+document.querySelectorAll('.glass-panel[data-link]').forEach(card => {
+    card.addEventListener('click', () => {
+        const link = card.getAttribute('data-link');
+        if (link) {
+            window.location.href = link;
+        }
+    });
+});
