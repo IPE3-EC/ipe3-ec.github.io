@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Directorio de Servicios IPE3 | Corporación 360</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d6cf2",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101722",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .glass-card {
+            background: rgba(34, 50, 73, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .constellation-bg {
+            background-color: #0a0e14;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(13, 108, 242, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(13, 108, 242, 0.1) 0%, transparent 40%),
+                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='2' cy='2' r='1' fill='%23ffffff15'/%3E%3Ccircle cx='50' cy='50' r='1' fill='%23ffffff10'/%3E%3Ccircle cx='80' cy='20' r='1' fill='%23ffffff15'/%3E%3Cline x1='2' y1='2' x2='50' y2='50' stroke='%23ffffff05' stroke-width='0.5'/%3E%3Cline x1='50' y1='50' x2='80' y2='20' stroke='%23ffffff05' stroke-width='0.5'/%3E%3C/svg%3E");
+        }
+        .hero-mesh {
+            background: radial-gradient(circle at top right, rgba(13, 108, 242, 0.2), transparent 50%),
+                        radial-gradient(circle at bottom left, rgba(13, 108, 242, 0.1), transparent 50%);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 selection:bg-primary selection:text-white">
+<!-- Navigation -->
+<nav class="sticky top-0 z-50 glass-card border-b border-white/10 px-6 lg:px-20 py-4">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="text-primary">
+<span class="material-symbols-outlined text-4xl">settings_input_component</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xl font-bold tracking-tight text-white">IPE3 Engineering</span>
+<span class="text-[10px] uppercase tracking-[0.2em] text-primary font-bold">Corporación 360</span>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Servicios</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Proyectos</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Nosotros</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Contacto</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden lg:flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-lg text-sm transition-all border border-white/5">
+<span class="material-symbols-outlined text-lg">search</span>
+<span>Buscar</span>
+</button>
+<button class="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-lg text-sm font-bold transition-all shadow-lg shadow-primary/20">
+                    Cotizar Ahora
+                </button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative overflow-hidden pt-20 pb-32 hero-mesh">
+<div class="max-w-7xl mx-auto px-6 lg:px-20 text-center relative z-10">
+<span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-6 border border-primary/20">
+                Directorio de Ingeniería Especializada
+            </span>
+<h1 class="text-5xl lg:text-7xl font-bold tracking-tighter text-white mb-8">
+                Nuestras Unidades <br/> <span class="text-primary italic">de Negocio</span>
+</h1>
+<p class="max-w-2xl mx-auto text-slate-400 text-lg leading-relaxed mb-10">
+                Soluciones integrales de vanguardia en ingeniería eléctrica, electrónica y automatización industrial en Quito. Diseñamos el futuro de la eficiencia.
+            </p>
+<div class="flex flex-wrap justify-center gap-4">
+<button class="bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform flex items-center gap-2">
+                    Explorar Servicios <span class="material-symbols-outlined">arrow_downward</span>
+</button>
+<button class="glass-card text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-colors">
+                    Nuestra Trayectoria
+                </button>
+</div>
+</div>
+<!-- Abstract Background Elements -->
+<div class="absolute top-1/2 left-0 w-64 h-64 bg-primary/20 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-0 right-0 w-96 h-96 bg-primary/10 blur-[150px] rounded-full"></div>
+</header>
+<main class="max-w-7xl mx-auto px-6 lg:px-20 py-20 space-y-32">
+<!-- 1. Ingeniería Eléctrica -->
+<section class="grid lg:grid-cols-2 gap-16 items-center">
+<div class="order-2 lg:order-1 space-y-8">
+<div class="space-y-4">
+<div class="w-12 h-1 bg-primary"></div>
+<h2 class="text-4xl font-bold text-white tracking-tight">Ingeniería Eléctrica</h2>
+<p class="text-slate-400 leading-relaxed text-lg">
+                        Potencia industrial y sistemas de cableado estructurado diseñados para la máxima eficiencia y cumplimiento normativo internacional.
+                    </p>
+</div>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+<div>
+<p class="font-bold text-white">Potencia Industrial</p>
+<p class="text-sm text-slate-400">Diseño y ejecución de sistemas trifásicos y subestaciones.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+<div>
+<p class="font-bold text-white">Cableado Estructurado</p>
+<p class="text-sm text-slate-400">Infraestructura de red de alta velocidad y fibra óptica.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+<div>
+<p class="font-bold text-white">Tableros de Distribución</p>
+<p class="text-sm text-slate-400">Ensamblaje y certificación de tableros industriales.</p>
+</div>
+</li>
+</ul>
+<button class="group flex items-center gap-3 text-primary font-bold text-lg hover:gap-5 transition-all">
+                    Ver Detalles <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="order-1 lg:order-2">
+<div class="aspect-square rounded-2xl overflow-hidden glass-card p-2 border-white/5 relative group">
+<div class="w-full h-full rounded-xl bg-slate-800 bg-center bg-cover transition-transform duration-700 group-hover:scale-110" data-alt="Technical close-up of industrial electrical wiring and high-voltage circuit breakers" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA5S6WSETc5x9HFGCa4YQDANSl5QijNtN_d85qf7_BYg8nnELzzCCwSC_enI1gG5xmLQw8w6W-ReZKO6YShCd8GrsF0GEw05kCLmRiUlcvEUxOnpVlCp__C_txC1cVFVDajdTYWk-Kwu9mM336klvhg0lj2qLfEpXz4XboN8YM9L29xMUrYkMKXlc2TDxB1Sw4vPrhgD1PrpB490-4joRXoYWQwI2JqZfMLtq3jX1jbmpMRrOiLCh0YjNeSjDaJ4l1rmEybFls469I');"></div>
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+</div>
+</div>
+</section>
+<!-- 2. Seguridad Electrónica -->
+<section class="grid lg:grid-cols-2 gap-16 items-center">
+<div class="order-1">
+<div class="aspect-square rounded-2xl overflow-hidden glass-card p-2 border-white/5 relative group">
+<div class="w-full h-full rounded-xl bg-slate-800 bg-center bg-cover transition-transform duration-700 group-hover:scale-110" data-alt="Modern CCTV camera and digital surveillance interface with neon blue highlights" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBNKRuAbpjCMNizha4TfdogTOZPF1Appv8SfSG4LoX66UeeWFOVsbryMxTLe6BcDArkpp6oTyuqiJ1tyPbtj1g5xTc4M8tJLUMbUZzSDb55FeH_J7iqjOgqEvMl4YCRVL9n5NpcT7JSrzLJrrzWZQ72cd7T1vCEsk52e18W-e5etn2b9EYCUTlv5_JCngOvGVNG7khwB-oQLEy6tWEacghLGKnxP2TJNH91T4QgNY2GEd14aRiQs20joCq-0GNpr6835fTWLpb9MK4');"></div>
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+</div>
+</div>
+<div class="order-2 space-y-8">
+<div class="space-y-4">
+<div class="w-12 h-1 bg-primary"></div>
+<h2 class="text-4xl font-bold text-white tracking-tight">Seguridad Electrónica</h2>
+<p class="text-slate-400 leading-relaxed text-lg">
+                        Protección inteligente para activos críticos mediante sistemas de vigilancia y control de acceso de última generación.
+                    </p>
+</div>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">verified_user</span>
+<div>
+<p class="font-bold text-white">Sistemas CCTV IP</p>
+<p class="text-sm text-slate-400">Monitoreo 4K con analítica de video e inteligencia artificial.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">fingerprint</span>
+<div>
+<p class="font-bold text-white">Control de Acceso</p>
+<p class="text-sm text-slate-400">Biometría, reconocimiento facial y gestión de visitantes.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">notification_important</span>
+<div>
+<p class="font-bold text-white">Detección de Incendio</p>
+<p class="text-sm text-slate-400">Sistemas direccionables certificados NFPA.</p>
+</div>
+</li>
+</ul>
+<button class="group flex items-center gap-3 text-primary font-bold text-lg hover:gap-5 transition-all">
+                    Ver Detalles <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- 3. Domótica & Automatización -->
+<section class="grid lg:grid-cols-2 gap-16 items-center">
+<div class="order-2 lg:order-1 space-y-8">
+<div class="space-y-4">
+<div class="w-12 h-1 bg-primary"></div>
+<h2 class="text-4xl font-bold text-white tracking-tight">Domótica &amp; Automatización</h2>
+<p class="text-slate-400 leading-relaxed text-lg">
+                        Convertimos espacios en entornos inteligentes y auto-gestionables para el máximo confort y ahorro energético.
+                    </p>
+</div>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">home_iot_device</span>
+<div>
+<p class="font-bold text-white">Smart Home &amp; Office</p>
+<p class="text-sm text-slate-400">Control centralizado de iluminación, clima y persianas.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">precision_manufacturing</span>
+<div>
+<p class="font-bold text-white">Automatización Industrial</p>
+<p class="text-sm text-slate-400">Integración de PLC y sistemas SCADA para procesos.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">energy_savings_leaf</span>
+<div>
+<p class="font-bold text-white">Gestión Energética</p>
+<p class="text-sm text-slate-400">Optimización de consumo mediante sensores inteligentes.</p>
+</div>
+</li>
+</ul>
+<button class="group flex items-center gap-3 text-primary font-bold text-lg hover:gap-5 transition-all">
+                    Ver Detalles <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="order-1 lg:order-2">
+<div class="aspect-square rounded-2xl overflow-hidden glass-card p-2 border-white/5 relative group">
+<div class="w-full h-full rounded-xl bg-slate-800 bg-center bg-cover transition-transform duration-700 group-hover:scale-110" data-alt="Futuristic smart home control panel with glowing blue interface symbols" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDtTmn6GuJ2QfPlQObMZc5yFYIQpKrrT87X2PgWUovLuxVJLtjFpOSyv5x_Fvo01LNg3n4RPPJ7VVFZ2FMROkGiKEuf7gzpdnj55PubaGnB8RTCiTirKNs5vNxurkI4DUm0KLN12pXvfcnSK1CaDtj3z5tJZQPPu23vFJpC43GkOk752zu9MP80M8jQO4q82Ym5hdTtT3BdDq_j14LNkmeWFZfJISFq9gvszROvzRGNz4UdxiT6aVzGCQV1-0UnLJap04oPNUsqd04');"></div>
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+</div>
+</div>
+</section>
+<!-- 4. Mantenimiento Médico -->
+<section class="grid lg:grid-cols-2 gap-16 items-center">
+<div class="order-1">
+<div class="aspect-square rounded-2xl overflow-hidden glass-card p-2 border-white/5 relative group">
+<div class="w-full h-full rounded-xl bg-slate-800 bg-center bg-cover transition-transform duration-700 group-hover:scale-110" data-alt="High-tech specialized medical diagnostic equipment in a sterile laboratory setting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCXGUx8c0olkHcbDGEpsSsky-xKemPgJ33wQ18nFLb9G46p5OEUzITIFP6tbntFW9IhDPXueg649gPyBCCdDJhonAQBwl_hl-5Nq_ohWDHLMBLo6E3S6_20EfQWUXBjPo82DCGkkzXYOkHzLGvq5vsXvfUDVN1mjQsbnZ42IvUbgBYtR-zIZF3uS9UPv_NoferkUov_Y1ILhVx3jETytkbVFPWCg0tJKNSGLiZVkOvdCydBQyMxS6gWIw1SHhyGdWp4ht7IIweP-s8');"></div>
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+</div>
+</div>
+<div class="order-2 space-y-8">
+<div class="space-y-4">
+<div class="w-12 h-1 bg-primary"></div>
+<h2 class="text-4xl font-bold text-white tracking-tight">Mantenimiento Médico</h2>
+<p class="text-slate-400 leading-relaxed text-lg">
+                        Servicio técnico especializado para equipamiento hospitalario de alta complejidad, garantizando precisión y seguridad.
+                    </p>
+</div>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">medical_services</span>
+<div>
+<p class="font-bold text-white">Calibración Preventiva</p>
+<p class="text-sm text-slate-400">Protocolos estrictos para equipos de diagnóstico y soporte vital.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">settings_backup_restore</span>
+<div>
+<p class="font-bold text-white">Soporte Técnico 24/7</p>
+<p class="text-sm text-slate-400">Respuesta inmediata para áreas críticas hospitalarias.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1">science</span>
+<div>
+<p class="font-bold text-white">Certificación Biomédica</p>
+<p class="text-sm text-slate-400">Cumplimiento con estándares internacionales de salud.</p>
+</div>
+</li>
+</ul>
+<button class="group flex items-center gap-3 text-primary font-bold text-lg hover:gap-5 transition-all">
+                    Ver Detalles <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer: Space Constellation Section -->
+<footer class="constellation-bg py-20 border-t border-white/5 relative overflow-hidden">
+<div class="max-w-7xl mx-auto px-6 lg:px-20 grid md:grid-cols-4 gap-12 relative z-10">
+<div class="col-span-1 md:col-span-2 space-y-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl">settings_input_component</span>
+<h2 class="text-2xl font-bold text-white tracking-tighter">IPE3 Engineering</h2>
+</div>
+<p class="text-slate-400 max-w-sm">
+                    Líderes en integración tecnológica para la industria y el sector residencial en el Ecuador. Parte del ecosistema de Corporación 360.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-lg glass-card flex items-center justify-center hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="w-10 h-10 rounded-lg glass-card flex items-center justify-center hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">public</span>
+</a>
+</div>
+</div>
+<div class="space-y-6">
+<h4 class="text-white font-bold text-lg uppercase tracking-wider">Contacto</h4>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 text-slate-400">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<span>Cusubamba y Tendales, Quito</span>
+</li>
+<li class="flex items-center gap-3 text-slate-400">
+<span class="material-symbols-outlined text-primary">call</span>
+<span>0984016027</span>
+</li>
+<li class="flex items-center gap-3 text-slate-400">
+<span class="material-symbols-outlined text-primary">mail</span>
+<span>info@ipe3.com.ec</span>
+</li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="text-white font-bold text-lg uppercase tracking-wider">Ubicación</h4>
+<div class="rounded-xl overflow-hidden glass-card h-40 border-white/5 grayscale hover:grayscale-0 transition-all cursor-pointer">
+<div class="w-full h-full bg-slate-800 flex items-center justify-center text-slate-500" data-location="Quito, Ecuador" style="">
+<span class="material-symbols-outlined text-4xl mb-2">map</span>
+<span class="text-xs uppercase font-bold">Ver Mapa en Quito</span>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-6 lg:px-20 mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
+<p class="text-sm text-slate-500">© 2024 IPE3 Engineering by CORPORACIÓN 360. Todos los derechos reservados.</p>
+<div class="flex gap-8 text-sm text-slate-500">
+<a class="hover:text-primary transition-colors" href="#">Políticas de Privacidad</a>
+<a class="hover:text-primary transition-colors" href="#">Términos de Servicio</a>
+</div>
+</div>
+</footer>
+</body></html>
