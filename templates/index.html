@@ -1,198 +1,129 @@
 <!DOCTYPE html>
 <html lang="es" class="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IPE3 Engineering by CORPORACIÓN 360 | Ingeniería Eléctrica y Electrónica</title>
+    <!-- ====== INICIO HEAD ====== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPE3 Ingeniería Eléctrica y Electrónica</title>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='icons/favicon.ico') }}">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
 
-  <!-- Configuración Tailwind -->
-  <script>
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            primary: "#00d2ff",
-            accent: "#0072ff",
-            deep: "#0a0c10"
-          },
-          fontFamily: {
-            display: ["Space Grotesk"]
-          }
+    <style>
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: radial-gradient(circle at top, #0f172a, #020617);
         }
-      }
-    }
-  </script>
 
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        .glass-panel {
+            backdrop-filter: blur(14px);
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
 
-  <style>
-    html { scroll-behavior: smooth; }
-  </style>
+        .glow {
+            box-shadow: 0 0 25px rgba(59,130,246,0.5);
+        }
+    </style>
+    <!-- ====== FIN HEAD ====== -->
 </head>
 
-<body class="bg-deep text-slate-200 font-display">
+<body class="text-white">
 
-<!-- ================= HEADER ================= -->
-<header class="fixed top-0 w-full z-50 bg-deep/80 backdrop-blur-lg border-b border-white/5">
-  <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
-
-    <div class="flex items-center gap-3">
-      <div class="w-10 h-10 bg-gradient-to-br from-primary to-accent flex items-center justify-center rounded-lg">
-        <span class="text-black font-black text-xl">I3</span>
-      </div>
-      <div>
-        <h1 class="text-xl font-bold text-white">IPE3 <span class="text-primary font-light">Engineering</span></h1>
-        <p class="text-[10px] text-slate-400 uppercase tracking-widest">by CORPORACIÓN 360</p>
-      </div>
+<!-- ====== INICIO HEADER ====== -->
+<header class="fixed w-full z-50 glass-panel">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-blue-400">IPE3</h1>
+        <nav class="space-x-6 hidden md:block">
+            <a href="#inicio" class="hover:text-blue-400 transition">Inicio</a>
+            <a href="#servicios" class="hover:text-blue-400 transition">Servicios</a>
+            <a href="#contacto" class="hover:text-blue-400 transition">Contacto</a>
+        </nav>
     </div>
-
-    <div class="hidden md:flex space-x-8 text-sm font-medium">
-      <a href="#" class="hover:text-primary transition">Inicio</a>
-      <a href="#servicios" class="hover:text-primary transition">Servicios</a>
-      <a href="#proyectos" class="hover:text-primary transition">Proyectos</a>
-      <a href="#contacto" class="hover:text-primary transition">Contacto</a>
-    </div>
-
-    <a href="#contacto" class="hidden lg:block bg-primary text-black px-6 py-2 rounded-lg font-bold hover:bg-white transition">
-      Solicitar Cotización
-    </a>
-
-  </nav>
 </header>
+<!-- ====== FIN HEADER ====== -->
 
-<!-- ================= HERO ================= -->
-<section class="relative h-screen flex items-center overflow-hidden">
+<!-- ====== INICIO BODY CONTENT ====== -->
+<main id="inicio" class="pt-32">
 
-  <div class="absolute inset-0">
-    <img src="{{ url_for('static', filename='img/hero-bg.jpg') }}" class="w-full h-full object-cover" alt="Hero">
-    <div class="absolute inset-0 bg-gradient-to-r from-deep via-deep/80 to-transparent"></div>
-  </div>
+    <!-- HERO -->
+    <section class="text-center py-24 px-6">
+        <h2 class="text-5xl md:text-7xl font-extrabold text-blue-400 glow mb-6">
+            Ingeniería Eléctrica y Electrónica Ecuador
+        </h2>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+            Soluciones inteligentes en energía, automatización y seguridad tecnológica.
+        </p>
+    </section>
 
-  <div class="container mx-auto px-6 relative z-10">
-    <div class="max-w-3xl">
+    <!-- SERVICIOS -->
+    <section id="servicios" class="py-20 px-6 max-w-7xl mx-auto">
+        <h3 class="text-4xl font-bold text-center mb-16 text-blue-400">Nuestros Servicios</h3>
 
-      <span class="bg-primary/10 text-primary px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
-        Expertos en Quito, Ecuador
-      </span>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
 
-      <h2 class="text-5xl md:text-6xl font-bold mt-6 text-white">
-        Ingeniería Eléctrica con
-        <span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-          Precisión Digital
-        </span>
-      </h2>
+            <!-- PROYECTOS ELÉCTRICOS -->
+            <a href="proyectos-electricos.html" class="glass-panel p-8 rounded-2xl hover:bg-white/5 transition-all duration-500 hover:-translate-y-2 border border-blue-500/20 hover:border-blue-400/40 block">
+                <h4 class="text-2xl font-bold mb-4 text-blue-300">Proyectos Eléctricos</h4>
+                <p class="text-gray-400">
+                    Diseño, instalación y certificación de sistemas eléctricos residenciales, comerciales e industriales.
+                </p>
+            </a>
 
-      <p class="text-slate-400 mt-6 text-lg">
-        Soluciones integrales de automatización, seguridad y mantenimiento industrial.
-      </p>
+            <!-- DOMÓTICA -->
+            <a href="domotica.html" class="glass-panel p-8 rounded-2xl hover:bg-white/5 transition-all duration-500 hover:-translate-y-2 border border-blue-500/20 hover:border-blue-400/40 block">
+                <h4 class="text-2xl font-bold mb-4 text-blue-300">Domótica Avanzada</h4>
+                <p class="text-gray-400">
+                    Automatización inteligente para hogares y empresas con control remoto y eficiencia energética.
+                </p>
+            </a>
 
-      <div class="mt-10 flex gap-4">
-        <a href="#proyectos" class="bg-primary text-black px-8 py-4 rounded-xl font-bold hover:bg-white transition">
-          Explorar Proyectos
-        </a>
-        <a href="#servicios" class="border border-white/20 px-8 py-4 rounded-xl hover:bg-white/10 transition">
-          Nuestros Servicios
-        </a>
-      </div>
+            <!-- SEGURIDAD -->
+            <a href="seguridad-electronica.html" class="glass-panel p-8 rounded-2xl hover:bg-white/5 transition-all duration-500 hover:-translate-y-2 border border-blue-500/20 hover:border-blue-400/40 block">
+                <h4 class="text-2xl font-bold mb-4 text-blue-300">Seguridad Electrónica</h4>
+                <p class="text-gray-400">
+                    Cámaras, alarmas, control de acceso y sistemas de monitoreo profesional.
+                </p>
+            </a>
 
-    </div>
-  </div>
+            <!-- MANTENIMIENTO MÉDICO -->
+            <a href="mantenimiento-medico.html" class="glass-panel p-8 rounded-2xl hover:bg-white/5 transition-all duration-500 hover:-translate-y-2 border border-blue-500/20 hover:border-blue-400/40 block">
+                <h4 class="text-2xl font-bold mb-4 text-blue-300">Mantenimiento Médico</h4>
+                <p class="text-gray-400">
+                    Servicio técnico especializado en equipos ópticos, oftalmológicos y biomédicos.
+                </p>
+            </a>
 
-</section>
-
-<!-- ================= SERVICIOS ================= -->
-<section id="servicios" class="py-24 bg-deep">
-
-  <div class="container mx-auto px-6 text-center">
-
-    <h3 class="text-4xl font-bold text-white mb-12">Nuestras Especialidades</h3>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-      <a href="{{ url_for('proyectos_electricos') }}" class="bg-white/5 p-8 rounded-2xl hover:bg-white/10 transition block">
-        <h4 class="text-xl font-bold text-white mb-3">Proyectos Eléctricos</h4>
-        <p class="text-slate-400 text-sm">Infraestructura de alta potencia y diseño industrial.</p>
-      </a>
-
-      <a href="{{ url_for('domotica') }}" class="bg-white/5 p-8 rounded-2xl hover:bg-white/10 transition block">
-        <h4 class="text-xl font-bold text-white mb-3">Domótica</h4>
-        <p class="text-slate-400 text-sm">Automatización inteligente y eficiencia energética.</p>
-      </a>
-
-      <a href="{{ url_for('seguridad_electronica') }}" class="bg-white/5 p-8 rounded-2xl hover:bg-white/10 transition block">
-        <h4 class="text-xl font-bold text-white mb-3">Seguridad Electrónica</h4>
-        <p class="text-slate-400 text-sm">CCTV, control de accesos y detección de incendios.</p>
-      </a>
-
-      <a href="{{ url_for('mantenimiento_medico') }}" class="bg-white/5 p-8 rounded-2xl hover:bg-white/10 transition block">
-        <h4 class="text-xl font-bold text-white mb-3">Mantenimiento Médico</h4>
-        <p class="text-slate-400 text-sm">Soporte técnico certificado hospitalario.</p>
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- ================= PROYECTOS ================= -->
-<section id="proyectos" class="py-24 bg-black">
-  <div class="container mx-auto px-6">
-    <h3 class="text-4xl font-bold text-white mb-12 text-center">
-      Proyectos Destacados
-    </h3>
-
-    <div class="grid md:grid-cols-3 gap-8">
-
-      <div class="rounded-2xl overflow-hidden bg-slate-900">
-        <img src="{{ url_for('static', filename='uploads/projects/proyecto1.jpg') }}" class="w-full h-60 object-cover">
-        <div class="p-6">
-          <h4 class="text-white font-bold text-xl">Edificio Corporativo</h4>
-          <p class="text-slate-400 text-sm mt-2">Automatización completa.</p>
         </div>
-      </div>
+    </section>
 
-    </div>
+    <!-- CONTACTO -->
+    <section id="contacto" class="py-20 text-center px-6">
+        <h3 class="text-4xl font-bold text-blue-400 mb-6">Contáctanos</h3>
+        <p class="text-gray-400 mb-6">
+            Estamos listos para desarrollar tu próximo proyecto.
+        </p>
+        <a href="https://wa.me/593984016027" target="_blank" class="bg-blue-500 hover:bg-blue-600 px-8 py-4 rounded-full font-bold transition glow">
+            WhatsApp 0984016027
+        </a>
+    </section>
 
-  </div>
-</section>
+</main>
+<!-- ====== FIN BODY CONTENT ====== -->
 
-<!-- ================= FOOTER ================= -->
-<footer id="contacto" class="bg-deep py-16 border-t border-white/10">
-
-  <div class="container mx-auto px-6 text-center">
-
-    <h4 class="text-white text-xl font-bold mb-4">
-      IPE3 Engineering by CORPORACIÓN 360
-    </h4>
-
-    <p class="text-slate-400 text-sm mb-6">
-      Cusubamba y Tendales, Quito – Ecuador
+<!-- ====== INICIO FOOTER ====== -->
+<footer class="glass-panel py-8 text-center border-t border-white/10">
+    <p class="text-gray-400">
+        © 2026 IPE3 Ingeniería Eléctrica y Electrónica Ecuador. Todos los derechos reservados.
     </p>
-
-    <p class="text-primary font-bold">
-      Teléfono: 0984016027
-    </p>
-
-    <p class="text-slate-500 text-xs mt-10 uppercase tracking-widest">
-      © 2016 - 2026 IPE3 Engineering
-    </p>
-
-  </div>
-
 </footer>
-
-<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<!-- ====== FIN FOOTER ====== -->
 
 </body>
 </html>
