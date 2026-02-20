@@ -6,7 +6,7 @@
   <title>IPE3 Engineering by CORPORACIÓN 360 | Ingeniería Eléctrica y Electrónica</title>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="static/icons/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='icons/favicon.ico') }}">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -14,7 +14,6 @@
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
-  <!-- Configuración Tailwind -->
   <script>
     tailwind.config = {
       darkMode: "class",
@@ -33,13 +32,7 @@
     }
   </script>
 
-  <!-- Estilos personalizados -->
-  <link rel="stylesheet" href="static/css/styles.css">
-
-  <style>
-    html { scroll-behavior: smooth; }
-  </style>
-
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 
 <body class="bg-deep text-slate-200 font-display">
@@ -48,24 +41,28 @@
 <header class="fixed top-0 w-full z-50 bg-deep/80 backdrop-blur-lg border-b border-white/5">
   <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
 
-    <div class="flex items-center gap-3">
+    <a href="{{ url_for('home') }}" class="flex items-center gap-3">
       <div class="w-10 h-10 bg-gradient-to-br from-primary to-accent flex items-center justify-center rounded-lg">
         <span class="text-black font-black text-xl">I3</span>
       </div>
       <div>
-        <h1 class="text-xl font-bold text-white">IPE3 <span class="text-primary font-light">Engineering</span></h1>
-        <p class="text-[10px] text-slate-400 uppercase tracking-widest">by CORPORACIÓN 360</p>
+        <h1 class="text-xl font-bold text-white">
+          IPE3 <span class="text-primary font-light">Engineering</span>
+        </h1>
+        <p class="text-[10px] text-slate-400 uppercase tracking-widest">
+          by CORPORACIÓN 360
+        </p>
       </div>
-    </div>
+    </a>
 
     <div class="hidden md:flex space-x-8 text-sm font-medium">
-      <a href="#" class="hover:text-primary transition">Inicio</a>
       <a href="#servicios" class="hover:text-primary transition">Servicios</a>
       <a href="#proyectos" class="hover:text-primary transition">Proyectos</a>
       <a href="#contacto" class="hover:text-primary transition">Contacto</a>
     </div>
 
-    <a href="#contacto" class="hidden lg:block bg-primary text-black px-6 py-2 rounded-lg font-bold hover:bg-white transition">
+    <a href="#contacto"
+       class="hidden lg:block bg-primary text-black px-6 py-2 rounded-lg font-bold hover:bg-white transition">
       Solicitar Cotización
     </a>
 
@@ -76,7 +73,8 @@
 <section class="relative h-screen flex items-center overflow-hidden">
 
   <div class="absolute inset-0">
-    <img src="static/img/hero-bg.jpg" class="w-full h-full object-cover" alt="Hero">
+    <img src="{{ url_for('static', filename='img/hero-bg.jpg') }}"
+         class="w-full h-full object-cover" alt="Hero">
     <div class="absolute inset-0 bg-gradient-to-r from-deep via-deep/80 to-transparent"></div>
   </div>
 
@@ -99,10 +97,12 @@
       </p>
 
       <div class="mt-10 flex gap-4">
-        <a href="#proyectos" class="bg-primary text-black px-8 py-4 rounded-xl font-bold hover:bg-white transition">
+        <a href="#proyectos"
+           class="bg-primary text-black px-8 py-4 rounded-xl font-bold hover:bg-white transition">
           Explorar Proyectos
         </a>
-        <a href="#servicios" class="border border-white/20 px-8 py-4 rounded-xl hover:bg-white/10 transition">
+        <a href="#servicios"
+           class="border border-white/20 px-8 py-4 rounded-xl hover:bg-white/10 transition">
           Nuestros Servicios
         </a>
       </div>
@@ -116,42 +116,42 @@
 <section id="servicios" class="py-24 bg-deep">
 
   <div class="container mx-auto px-6 text-center">
-
     <h3 class="text-4xl font-bold text-white mb-12">Nuestras Especialidades</h3>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-      <div class="bg-white/5 p-8 rounded-2xl hover:bg-white/10 transition">
+      <a href="{{ url_for('proyectos_electricos') }}"
+         class="block bg-white/5 p-8 rounded-2xl hover:bg-white/10 hover:scale-105 transition duration-300">
         <h4 class="text-xl font-bold text-white mb-3">Proyectos Eléctricos</h4>
         <p class="text-slate-400 text-sm">Infraestructura de alta potencia y diseño industrial.</p>
-      </div>
+      </a>
 
-      <div class="bg-white/5 p-8 rounded-2xl hover:bg-white/10 transition">
+      <a href="{{ url_for('domotica') }}"
+         class="block bg-white/5 p-8 rounded-2xl hover:bg-white/10 hover:scale-105 transition duration-300">
         <h4 class="text-xl font-bold text-white mb-3">Domótica</h4>
         <p class="text-slate-400 text-sm">Automatización inteligente y eficiencia energética.</p>
-      </div>
+      </a>
 
-      <div class="bg-white/5 p-8 rounded-2xl hover:bg-white/10 transition">
+      <a href="{{ url_for('seguridad_electronica') }}"
+         class="block bg-white/5 p-8 rounded-2xl hover:bg-white/10 hover:scale-105 transition duration-300">
         <h4 class="text-xl font-bold text-white mb-3">Seguridad Electrónica</h4>
         <p class="text-slate-400 text-sm">CCTV, control de accesos y detección de incendios.</p>
-      </div>
+      </a>
 
-      <div class="bg-white/5 p-8 rounded-2xl hover:bg-white/10 transition">
+      <a href="{{ url_for('mantenimiento_medico') }}"
+         class="block bg-white/5 p-8 rounded-2xl hover:bg-white/10 hover:scale-105 transition duration-300">
         <h4 class="text-xl font-bold text-white mb-3">Mantenimiento Médico</h4>
         <p class="text-slate-400 text-sm">Soporte técnico certificado hospitalario.</p>
-      </div>
+      </a>
 
     </div>
-
   </div>
 
 </section>
 
 <!-- ================= PROYECTOS ================= -->
 <section id="proyectos" class="py-24 bg-black">
-
   <div class="container mx-auto px-6">
-
     <h3 class="text-4xl font-bold text-white mb-12 text-center">
       Proyectos Destacados
     </h3>
@@ -159,7 +159,8 @@
     <div class="grid md:grid-cols-3 gap-8">
 
       <div class="rounded-2xl overflow-hidden bg-slate-900">
-        <img src="static/uploads/projects/proyecto1.jpg" class="w-full h-60 object-cover">
+        <img src="{{ url_for('static', filename='uploads/projects/proyecto1.jpg') }}"
+             class="w-full h-60 object-cover">
         <div class="p-6">
           <h4 class="text-white font-bold text-xl">Edificio Corporativo</h4>
           <p class="text-slate-400 text-sm mt-2">Automatización completa.</p>
@@ -167,14 +168,11 @@
       </div>
 
     </div>
-
   </div>
-
 </section>
 
 <!-- ================= FOOTER ================= -->
 <footer id="contacto" class="bg-deep py-16 border-t border-white/10">
-
   <div class="container mx-auto px-6 text-center">
 
     <h4 class="text-white text-xl font-bold mb-4">
@@ -194,11 +192,9 @@
     </p>
 
   </div>
-
 </footer>
 
-<!-- JS -->
-<script src="static/js/script.js"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
 </body>
 </html>
