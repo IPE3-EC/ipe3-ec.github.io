@@ -22,123 +22,166 @@
 <!-- Tailwind Config -->
 <script>
 tailwind.config = {
-  darkMode: "class",
-  theme: {
-    extend: {
-      colors: {
-        primary: "#00d2ff",
-        "accent-blue": "#0072ff",
-        "deep-charcoal": "#0a0c10"
-      },
-      fontFamily: {
-        display: ["Space Grotesk"]
-      }
-    }
-  }
+darkMode: "class",
+theme: {
+extend: {
+colors: {
+primary: "#00d2ff",
+"accent-blue": "#0072ff",
+"deep-charcoal": "#0a0c10",
+"slate-dark": "#1a1f2e"
+},
+fontFamily: { display: ["Space Grotesk"] },
+animation: {
+'ken-burns': 'kenburns 20s ease infinite alternate'
+},
+keyframes: {
+kenburns: {
+'0%': { transform: 'scale(1)' },
+'100%': { transform: 'scale(1.1)' }
+}
+}
+}
+}
 }
 </script>
-
 </head>
-<body class="bg-deep-charcoal text-slate-200 font-display">
+
+<body class="bg-deep-charcoal text-slate-200 font-display selection:bg-primary/30">
 
 <!-- HEADER -->
 <header class="fixed top-0 w-full z-50 bg-deep-charcoal/80 backdrop-blur-lg border-b border-white/5">
-  <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
-    
-    <div class="flex items-center gap-3">
-      <img src="./static/img/ipe3-logo.png" class="w-12 h-12 object-contain" alt="IPE3 Logo">
-      <div class="flex flex-col">
-        <span class="text-xl font-bold text-white">IPE3 <span class="text-primary font-light">Engineering</span></span>
-        <span class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">by CORPORACIÓN 360</span>
-      </div>
-    </div>
-
-    <div class="hidden md:flex space-x-8">
-      <a href="#" class="hover:text-primary transition">Inicio</a>
-      <a href="#servicios" class="hover:text-primary transition">Servicios</a>
-      <a href="#proyectos" class="hover:text-primary transition">Proyectos</a>
-      <a href="#contacto" class="hover:text-primary transition">Contacto</a>
-    </div>
-
-  </nav>
+<nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<img src="./static/img/ipe3-logo.png" class="w-12 h-12 object-contain" alt="IPE3 Logo">
+<div class="flex flex-col">
+<span class="text-xl font-bold text-white">IPE3 <span class="text-primary font-light">Engineering</span></span>
+<span class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">by CORPORACIÓN 360</span>
+</div>
+</div>
+<div class="hidden md:flex space-x-8">
+<a href="#" class="hover:text-primary transition">Inicio</a>
+<a href="#servicios" class="hover:text-primary transition">Servicios</a>
+<a href="#proyectos" class="hover:text-primary transition">Proyectos</a>
+<a href="#contacto" class="hover:text-primary transition">Contacto</a>
+</div>
+</nav>
 </header>
 
 <!-- HERO -->
 <section class="relative h-screen flex items-center overflow-hidden">
-  <div class="absolute inset-0">
-    <img src="./static/img/hero-bg.jpg" class="w-full h-full object-cover scale-105 animate-ken-burns" alt="Hero Background">
-    <div class="absolute inset-0 bg-gradient-to-r from-deep-charcoal via-deep-charcoal/80 to-transparent"></div>
-  </div>
+<div class="absolute inset-0">
+<img src="./static/img/hero-bg.jpg" class="w-full h-full object-cover scale-105 animate-ken-burns" alt="Hero">
+<div class="absolute inset-0 bg-gradient-to-r from-deep-charcoal via-deep-charcoal/80 to-transparent"></div>
+</div>
 
-  <div class="container mx-auto px-6 relative z-10">
-    <div class="max-w-3xl">
-      <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
-        Ingeniería Eléctrica con 
-        <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent-blue">
-          Precisión Digital
-        </span>
-      </h1>
-      <p class="text-lg text-slate-300 mb-8">
-        Automatización, seguridad electrónica y mantenimiento industrial de alto nivel.
-      </p>
-      <a href="#contacto" class="bg-primary text-deep-charcoal px-8 py-4 rounded-xl font-bold hover:bg-white transition shadow-lg">
-        Solicitar Cotización
-      </a>
-    </div>
-  </div>
+<div class="container mx-auto px-6 relative z-10">
+<div class="max-w-3xl">
+<span class="inline-block px-4 py-1.5 bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-widest uppercase rounded-full mb-6">
+Expertos en Quito, Ecuador
+</span>
+<h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+Ingeniería Eléctrica con
+<span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent-blue">
+Precisión Digital
+</span>
+</h1>
+<p class="text-xl text-slate-400 mb-10 max-w-2xl">
+Soluciones integrales de automatización, seguridad y mantenimiento industrial.
+</p>
+</div>
+</div>
 </section>
 
 <!-- SERVICIOS -->
-<section id="servicios" class="py-24 bg-black">
-  <div class="container mx-auto px-6 text-center">
-    <h2 class="text-4xl font-bold mb-12 text-white">Nuestras Especialidades</h2>
+<section id="servicios" class="py-24 relative dark-gradient-bg">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold text-white">Nuestras Especialidades</h2>
+<div class="w-20 h-1.5 bg-gradient-to-r from-primary to-accent-blue mx-auto mt-4 rounded-full"></div>
+</div>
 
-    <div class="grid md:grid-cols-3 gap-10">
-      <div class="bg-white/5 p-8 rounded-xl hover:-translate-y-2 transition">
-        <span class="material-icons text-primary text-4xl mb-4">bolt</span>
-        <h3 class="text-xl font-bold mb-2 text-white">Proyectos Eléctricos</h3>
-        <p class="text-slate-400 text-sm">Infraestructura eléctrica certificada.</p>
-      </div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-      <div class="bg-white/5 p-8 rounded-xl hover:-translate-y-2 transition">
-        <span class="material-icons text-primary text-4xl mb-4">videocam</span>
-        <h3 class="text-xl font-bold mb-2 text-white">Seguridad Electrónica</h3>
-        <p class="text-slate-400 text-sm">CCTV y control de accesos inteligentes.</p>
-      </div>
+<div class="group glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-all duration-500">
+<div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+<span class="material-icons text-primary text-3xl">bolt</span>
+</div>
+<h3 class="text-xl font-bold mb-3 text-white">Proyectos Eléctricos</h3>
+<p class="text-slate-400 text-sm">Infraestructura eléctrica certificada.</p>
+</div>
 
-      <div class="bg-white/5 p-8 rounded-xl hover:-translate-y-2 transition">
-        <span class="material-icons text-primary text-4xl mb-4">medical_services</span>
-        <h3 class="text-xl font-bold mb-2 text-white">Mantenimiento Médico</h3>
-        <p class="text-slate-400 text-sm">Soporte hospitalario certificado.</p>
-      </div>
-    </div>
-  </div>
+<div class="group glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-all duration-500">
+<div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">home_max_dots</span>
+</div>
+<h3 class="text-xl font-bold mb-3 text-white">Domótica Avanzada</h3>
+<p class="text-slate-400 text-sm">Integración inteligente de espacios.</p>
+</div>
+
+<div class="group glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-all duration-500">
+<div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+<span class="material-icons text-primary text-3xl">videocam</span>
+</div>
+<h3 class="text-xl font-bold mb-3 text-white">Seguridad Electrónica</h3>
+<p class="text-slate-400 text-sm">CCTV y control de accesos.</p>
+</div>
+
+<div class="group glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-all duration-500">
+<div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+<span class="material-icons text-primary text-3xl">medical_services</span>
+</div>
+<h3 class="text-xl font-bold mb-3 text-white">Mantenimiento Médico</h3>
+<p class="text-slate-400 text-sm">Soporte hospitalario especializado.</p>
+</div>
+
+</div>
+</div>
 </section>
 
 <!-- PROYECTOS -->
 <section id="proyectos" class="py-24 bg-deep-charcoal">
-  <div class="container mx-auto px-6">
-    <h2 class="text-4xl font-bold mb-12 text-white text-center">Proyectos Destacados</h2>
+<div class="container mx-auto px-6">
+<h2 class="text-4xl font-bold text-white text-center mb-16">Proyectos Destacados</h2>
 
-    <div class="grid md:grid-cols-3 gap-8">
-      <img src="./static/img/proyecto1.jpg" class="rounded-xl hover:scale-105 transition duration-500" alt="Proyecto 1">
-      <img src="./static/img/proyecto2.jpg" class="rounded-xl hover:scale-105 transition duration-500" alt="Proyecto 2">
-      <img src="./static/img/proyecto3.jpg" class="rounded-xl hover:scale-105 transition duration-500" alt="Proyecto 3">
-    </div>
-  </div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+<div class="group relative rounded-2xl overflow-hidden aspect-[4/5] border border-white/5">
+<img src="./static/img/proyecto1.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="">
+</div>
+
+<div class="group relative rounded-2xl overflow-hidden aspect-[4/5] border border-white/5">
+<img src="./static/img/proyecto2.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="">
+</div>
+
+<div class="group relative rounded-2xl overflow-hidden aspect-[4/5] border border-white/5">
+<img src="./static/img/proyecto3.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="">
+</div>
+
+</div>
+</div>
 </section>
 
-<!-- FOOTER -->
-<footer id="contacto" class="bg-black text-slate-400 py-16 text-center">
-  <img src="./static/img/ipe3-logo.png" class="w-14 mx-auto mb-6" alt="Logo Footer">
-  <p class="mb-4">Cusubamba y Tendales, Quito - Ecuador</p>
-  <p class="mb-4">Teléfono: 0984016027</p>
-  <p class="font-bold text-white">ipe3ecuador@gmail.com</p>
-  <p class="mt-8 text-xs text-slate-600">© 2016 IPE3 Engineering by CORPORACIÓN 360</p>
+<!-- FOOTER CON CONSTELACIONES -->
+<footer id="contacto" class="constellation-bg text-slate-400 py-20 relative">
+
+<div class="absolute inset-0 pointer-events-none overflow-hidden opacity-30">
+<div class="star w-1 h-1 top-[10%] left-[15%]"></div>
+<div class="star w-1 h-1 top-[50%] left-[70%]"></div>
+<div class="constellation-line w-[400px] rotate-[25deg] top-[20%] left-[20%]"></div>
+</div>
+
+<div class="container mx-auto px-6 relative z-10 text-center">
+<img src="./static/img/ipe3-logo.png" class="w-14 mx-auto mb-6" alt="">
+<p class="mb-4">Cusubamba y Tendales, Quito - Ecuador</p>
+<p class="mb-4">Teléfono: 0984016027</p>
+<p class="font-bold text-white">ipe3ecuador@gmail.com</p>
+<p class="mt-8 text-xs text-slate-600">© 2016 IPE3 Engineering by CORPORACIÓN 360</p>
+</div>
 </footer>
 
 <!-- JS -->
-<script src="./script.js"></script>
+<script src="./script.js" defer></script>
 
 </body>
 </html>
