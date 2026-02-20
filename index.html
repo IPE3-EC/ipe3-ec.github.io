@@ -1,58 +1,58 @@
 <!DOCTYPE html>
-<html class="dark" lang="es">
+<html lang="es" class="dark">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>IPE3 Engineering by CORPORACIÓN 360</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPE3 Engineering | Ingeniería Eléctrica y Automatización</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <script>
 tailwind.config = {
-  darkMode: "class",
-  theme: {
-    extend: {
-      colors: {
-        primary: "#00d2ff",
-        accent: "#0072ff",
-        darkbg: "#0a0c10"
-      }
-    }
-  }
+darkMode: "class",
+theme: {
+extend: {
+colors: {
+primary: "#00d2ff",
+accent: "#0072ff",
+darkbg: "#0a0c10"
+}
+}
+}
 }
 </script>
 
 <style>
 body { font-family: 'Space Grotesk', sans-serif; }
 </style>
-
 </head>
 
-<body class="bg-darkbg text-white">
+<body class="bg-darkbg text-white scroll-smooth">
 
 <!-- ================= HEADER ================= -->
 
 <header class="fixed top-0 w-full z-50 bg-darkbg/90 backdrop-blur border-b border-white/10">
-<nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+<nav class="container mx-auto px-6 py-4 flex justify-between items-center">
 
 <div class="flex items-center gap-4">
-
-<div class="w-14 h-14 flex items-center">
 <img src="ipe3-logo.png" alt="IPE3 Logo" class="h-14 w-auto object-contain">
+
+<div class="leading-tight">
+<h1 class="font-bold text-lg">IPE3 Engineering</h1>
+<p class="text-xs tracking-widest text-gray-400 uppercase">by Corporación 360</p>
+</div>
 </div>
 
-<div class="flex flex-col leading-tight">
-<span class="text-xl font-bold">IPE3 <span class="text-primary font-light">Engineering</span></span>
-<span class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">
-by CORPORACIÓN 360
-</span>
+<div class="hidden md:flex gap-8 text-sm">
+<a href="#servicios" class="hover:text-primary">Servicios</a>
+<a href="#proyectos" class="hover:text-primary">Proyectos</a>
+<a href="#contacto" class="hover:text-primary">Contacto</a>
 </div>
 
-</div>
-
-<a href="#contacto" class="bg-primary text-black px-6 py-2 rounded-lg font-bold hover:bg-white transition">
-Solicitar Cotización
+<a href="#contacto" class="bg-primary text-black px-5 py-2 rounded-lg font-semibold hover:bg-white transition">
+Cotizar
 </a>
 
 </nav>
@@ -60,61 +60,153 @@ Solicitar Cotización
 
 <!-- ================= HERO ================= -->
 
-<section class="h-screen flex items-center justify-center text-center pt-20 bg-gradient-to-br from-black to-gray-900">
-<div class="max-w-3xl px-6">
-<h1 class="text-5xl md:text-6xl font-bold mb-6">
-Ingeniería Eléctrica con
-<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-Precisión Digital
-</span>
-</h1>
+<section class="h-screen flex items-center justify-center text-center px-6 bg-gradient-to-br from-black to-gray-900 pt-24">
 
-<p class="text-gray-400 mb-8 text-lg">
-Soluciones integrales de automatización, seguridad y mantenimiento industrial en Quito, Ecuador.
+<div class="max-w-4xl">
+<h2 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+Ingeniería Eléctrica de
+<span class="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+Alta Precisión
+</span>
+</h2>
+
+<p class="text-gray-400 text-lg mb-10">
+Especialistas en automatización industrial, mantenimiento eléctrico,
+sistemas de seguridad y soluciones tecnológicas en Ecuador.
 </p>
 
-<a href="#contacto" class="bg-primary text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-white transition shadow-xl">
-Explorar Servicios
+<a href="#servicios" class="bg-primary text-black px-8 py-4 rounded-xl font-bold text-lg hover:bg-white transition shadow-xl">
+Nuestros Servicios
 </a>
 </div>
+
+</section>
+
+<!-- ================= SERVICIOS ================= -->
+
+<section id="servicios" class="py-24 bg-black">
+<div class="container mx-auto px-6">
+
+<h3 class="text-4xl font-bold text-center mb-16">Nuestros Servicios</h3>
+
+<div class="grid md:grid-cols-3 gap-10">
+
+<div class="bg-darkbg p-8 rounded-2xl border border-white/10 hover:border-primary transition">
+<h4 class="text-xl font-semibold mb-4">Instalaciones Eléctricas</h4>
+<p class="text-gray-400 text-sm">
+Diseño e implementación de sistemas eléctricos industriales y comerciales.
+</p>
+</div>
+
+<div class="bg-darkbg p-8 rounded-2xl border border-white/10 hover:border-primary transition">
+<h4 class="text-xl font-semibold mb-4">Automatización Industrial</h4>
+<p class="text-gray-400 text-sm">
+Controladores PLC, tableros inteligentes y monitoreo digital.
+</p>
+</div>
+
+<div class="bg-darkbg p-8 rounded-2xl border border-white/10 hover:border-primary transition">
+<h4 class="text-xl font-semibold mb-4">Seguridad Electrónica</h4>
+<p class="text-gray-400 text-sm">
+CCTV, alarmas y sistemas de control de acceso empresarial.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ================= PROYECTOS ================= -->
+
+<section id="proyectos" class="py-24 bg-darkbg">
+<div class="container mx-auto px-6">
+
+<h3 class="text-4xl font-bold text-center mb-16">Proyectos Destacados</h3>
+
+<div class="grid md:grid-cols-3 gap-10">
+
+<div class="bg-black rounded-2xl overflow-hidden border border-white/10">
+<div class="h-48 bg-gradient-to-br from-primary to-accent"></div>
+<div class="p-6">
+<h4 class="font-semibold mb-2">Automatización Planta Industrial</h4>
+<p class="text-gray-400 text-sm">Sistema completo de control eléctrico.</p>
+</div>
+</div>
+
+<div class="bg-black rounded-2xl overflow-hidden border border-white/10">
+<div class="h-48 bg-gradient-to-br from-primary to-accent"></div>
+<div class="p-6">
+<h4 class="font-semibold mb-2">Red CCTV Corporativa</h4>
+<p class="text-gray-400 text-sm">Instalación de 120 cámaras IP.</p>
+</div>
+</div>
+
+<div class="bg-black rounded-2xl overflow-hidden border border-white/10">
+<div class="h-48 bg-gradient-to-br from-primary to-accent"></div>
+<div class="p-6">
+<h4 class="font-semibold mb-2">Tableros Eléctricos Inteligentes</h4>
+<p class="text-gray-400 text-sm">Diseño modular de alto rendimiento.</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ================= CTA ================= -->
+
+<section class="py-24 bg-gradient-to-r from-primary to-accent text-black text-center">
+<h3 class="text-4xl font-bold mb-6">¿Listo para tu próximo proyecto?</h3>
+<a href="#contacto" class="bg-black text-white px-8 py-4 rounded-xl font-bold hover:bg-gray-900 transition">
+Contáctanos
+</a>
 </section>
 
 <!-- ================= FOOTER ================= -->
 
-<footer id="contacto" class="bg-black border-t border-white/10 py-16">
+<footer id="contacto" class="bg-black py-16 border-t border-white/10">
 <div class="container mx-auto px-6 grid md:grid-cols-2 gap-10">
 
 <div>
 <div class="flex items-center gap-4 mb-6">
-<div class="w-14 h-14">
-<img src="ipe3-logo.png" alt="IPE3 Logo" class="h-14 w-auto object-contain">
-</div>
+<img src="ipe3-logo.png" class="h-16 w-auto object-contain">
 <div>
-<span class="text-xl font-bold">IPE3 Engineering</span>
+<h4 class="font-bold">IPE3 Engineering</h4>
 <p class="text-xs uppercase tracking-widest text-gray-400">
-by CORPORACIÓN 360
+by Corporación 360
 </p>
 </div>
 </div>
 
 <p class="text-gray-400 text-sm">
-Líderes en ingeniería eléctrica y electrónica en Ecuador.
-Desarrollamos soluciones de alta tecnología con precisión y seguridad.
+Cusubamba y Tendales – Quito  
+Tel: 0984016027  
+ipe3ecuador@gmail.com
 </p>
 </div>
 
-<div class="space-y-4 text-sm">
-<p><strong>Ubicación:</strong> Cusubamba y Tendales, Quito</p>
-<p><strong>Teléfono:</strong> 0984016027</p>
-<p><strong>Email:</strong> ipe3ecuador@gmail.com</p>
+<div>
+<h4 class="font-semibold mb-4">Enlaces</h4>
+<ul class="space-y-2 text-gray-400 text-sm">
+<li><a href="#servicios" class="hover:text-primary">Servicios</a></li>
+<li><a href="#proyectos" class="hover:text-primary">Proyectos</a></li>
+<li><a href="#contacto" class="hover:text-primary">Contacto</a></li>
+</ul>
 </div>
 
 </div>
 
-<div class="text-center text-xs text-gray-500 mt-10 border-t border-white/10 pt-6">
-© 2016 IPE3 Engineering by CORPORACIÓN 360
+<div class="text-center text-xs text-gray-500 mt-10">
+© 2016 - 2026 IPE3 Engineering. Todos los derechos reservados.
 </div>
 </footer>
+
+<!-- ================= WHATSAPP ================= -->
+
+<a href="https://wa.me/593984016027" target="_blank"
+class="fixed bottom-6 right-6 bg-green-500 w-14 h-14 flex items-center justify-center rounded-full shadow-lg hover:scale-110 transition">
+<span class="text-white text-2xl">💬</span>
+</a>
 
 </body>
 </html>
