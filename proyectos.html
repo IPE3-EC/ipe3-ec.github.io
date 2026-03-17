@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Proyectos Destacados | IPE3 Engineering</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00CFEF",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#0a0a0a",
+                        "neutral-dark": "#1a1a1a",
+                        "accent-dark": "#002d35"
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<!-- Header / Navigation -->
+<header class="sticky top-0 z-50 w-full bg-background-dark/95 backdrop-blur-md border-b border-white/10 px-4 md:px-10 lg:px-20 py-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-8 bg-primary rounded flex items-center justify-center text-background-dark">
+<span class="material-symbols-outlined font-bold">bolt</span>
+</div>
+<h2 class="text-white text-xl font-black leading-tight tracking-tight uppercase">IPE3 <span class="text-primary">Engineering</span></h2>
+</div>
+<nav class="hidden md:flex flex-1 justify-center gap-8">
+<a class="text-white/70 hover:text-primary text-sm font-medium transition-colors" href="#">Inicio</a>
+<a class="text-white/70 hover:text-primary text-sm font-medium transition-colors" href="#">Servicios</a>
+<a class="text-white/70 hover:text-primary text-sm font-medium transition-colors" href="#">Nosotros</a>
+<a class="text-primary text-sm font-bold border-b-2 border-primary pb-1 transition-colors" href="#">Proyectos</a>
+<a class="text-white/70 hover:text-primary text-sm font-medium transition-colors" href="#">Contacto</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="bg-primary hover:bg-primary/90 text-background-dark text-xs font-black tracking-widest px-6 py-3 rounded-none transition-all uppercase">
+                COTIZAR
+            </button>
+<button class="md:hidden text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative min-h-[500px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-r from-background-dark via-background-dark/80 to-transparent z-10"></div>
+<img alt="Control Room" class="w-full h-full object-cover" data-alt="Industrial control room with multiple monitors and screens" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCW3V-wGkQIRyxVlumftWk92GIqwdJh1hwv19N4vKAJ_u9T5SV4aeQlADhqSjNlfZ6EuDhiAxOBFC2tY14m0Z6-TuA_7E4kPK8ts07q7rIs0nHbZ5vFK4UGKqm1LHEFxlcP3PQyTlsRhhh25Rat5QhsBdkSrhLaPyww0rnQ5jJqQGak9Qs0VrVLTVu1SHoUNV6ucibbDfHrcci34XFdmUxN2CXZsgERvYlSlf7h_6symBHjuEUX4Z71D4JNl7tyWer2ZVTlq1c5Ig"/>
+</div>
+<div class="relative z-20 container mx-auto px-6 lg:px-20 py-20 text-center lg:text-left">
+<div class="max-w-3xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-primary/10 border border-primary/30 text-primary text-xs font-bold uppercase tracking-wider mb-6">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+                    Portfolio de Ingeniería
+                </div>
+<h1 class="text-white text-5xl md:text-7xl font-black leading-tight mb-6">
+                    Nuestros <span class="text-primary">Proyectos</span>
+</h1>
+<p class="text-slate-300 text-lg md:text-xl leading-relaxed max-w-2xl mb-10">
+                    Excelencia técnica e implementaciones exitosas en ingeniería eléctrica y automatización industrial a gran escala.
+                </p>
+<div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+<button class="bg-primary text-background-dark font-bold px-8 py-4 rounded-none hover:bg-white transition-all uppercase flex items-center gap-2">
+                        VER CASOS DE ÉXITO
+                        <span class="material-symbols-outlined">arrow_downward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Project Filter -->
+<section class="bg-neutral-dark border-y border-white/5 py-8">
+<div class="container mx-auto px-6 lg:px-20 overflow-x-auto">
+<div class="flex items-center justify-start lg:justify-center gap-4 min-w-max">
+<button class="px-6 py-2 rounded-full bg-primary text-background-dark font-bold text-sm">Todos</button>
+<button class="px-6 py-2 rounded-full bg-white/5 text-white/70 hover:bg-white/10 hover:text-white transition-all font-medium text-sm border border-white/10">Industrial</button>
+<button class="px-6 py-2 rounded-full bg-white/5 text-white/70 hover:bg-white/10 hover:text-white transition-all font-medium text-sm border border-white/10">Hospitalario</button>
+<button class="px-6 py-2 rounded-full bg-white/5 text-white/70 hover:bg-white/10 hover:text-white transition-all font-medium text-sm border border-white/10">Residencial</button>
+<button class="px-6 py-2 rounded-full bg-white/5 text-white/70 hover:bg-white/10 hover:text-white transition-all font-medium text-sm border border-white/10">Automatización</button>
+</div>
+</div>
+</section>
+<!-- Project Grid -->
+<section class="py-20 bg-background-dark">
+<div class="container mx-auto px-6 lg:px-20">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<div>
+<h2 class="text-white text-3xl font-black uppercase tracking-tighter">Proyectos Destacados</h2>
+<div class="h-1 w-20 bg-primary mt-2"></div>
+</div>
+<p class="text-slate-400 max-w-md text-sm italic">Explora nuestras soluciones personalizadas para la industria moderna.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+<!-- Project Card 1 -->
+<div class="group relative overflow-hidden bg-neutral-dark aspect-[16/9]">
+<img alt="Mantenimiento Oftalmológico" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60" data-alt="Modern ophthalmic equipment in a clinical laboratory" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqQh3x9e2QqcZNP3BKSbkNTdLO6BEggdW8HNgdV0SeouVhiwvK2wefoMZgPy4kLsNIkJj4Z7Uvhf_fkfZX8kSxp-UUbOEbM4Vmta62Bzr_kn_LEYCoowbA-G7j8DSRcgY4wSz-qaiAA4dU9TFiEGEyGTzEleZjDTWYGykCQjnu3HtwKCcegWWeHaOCa1YrXeazDfy5Hi9UHyzEk4CevJz90sBDWwHdZ92-k2RcGup6w_LKL7mffAWvd_0x_aipnX-aJJAP2UNqpw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent"></div>
+<div class="absolute top-6 right-6">
+<span class="bg-primary/20 backdrop-blur-md border border-primary/50 text-primary px-3 py-1 text-[10px] font-bold uppercase tracking-widest">Hospitalario</span>
+</div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<h3 class="text-white text-2xl font-bold mb-4 group-hover:text-primary transition-colors">Mantenimiento de Equipos Oftalmológicos</h3>
+<p class="text-slate-300 text-sm mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Calibración y soporte técnico especializado para clínicas de alta complejidad.</p>
+<a class="inline-flex items-center gap-2 text-primary text-xs font-black uppercase tracking-widest hover:gap-4 transition-all" href="#">
+                            Ver Detalles
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Project Card 2 -->
+<div class="group relative overflow-hidden bg-neutral-dark aspect-[16/9]">
+<img alt="Calibración de Precisión" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60" data-alt="Engineer using precision measurement tools on electronic board" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEoAgoJv4VGLmJVuCUifYoj-gLnsjm02oH5UjRwoYjsHfLYyGzaHYttorGBZG40TUjdp6A8c_b605r40b35yfBR7OXV1fDNpGOPO64Bcd7gj32s1pSOvejKyyix9PmWQjxgmlIXtOTUjtlRXu7ZJPkymi2VBDC9qfNMgzFd5dQQ90QGNX_LLKxVhfeiR3W0sNtngheP6gdvCEA735RsptWcOK_Vf8oExJR6qwnLjUpVsKnJjwaqfPs9ylYCkZYeJ9sXpmDXxQagw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent"></div>
+<div class="absolute top-6 right-6">
+<span class="bg-primary/20 backdrop-blur-md border border-primary/50 text-primary px-3 py-1 text-[10px] font-bold uppercase tracking-widest">Industrial</span>
+</div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<h3 class="text-white text-2xl font-bold mb-4 group-hover:text-primary transition-colors">Calibración de Precisión</h3>
+<p class="text-slate-300 text-sm mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Certificación de instrumentos de medición para plantas farmacéuticas.</p>
+<a class="inline-flex items-center gap-2 text-primary text-xs font-black uppercase tracking-widest hover:gap-4 transition-all" href="#">
+                            Ver Detalles
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Project Card 3 -->
+<div class="group relative overflow-hidden bg-neutral-dark aspect-[16/9]">
+<img alt="Centros de Control" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60" data-alt="Server room with blue LED lighting and cable management" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqsVsc9XoyjIDW5aso0fcaEIQH9C75MqkMbf9VF2D9mW62TQ-qqSRT6qdhh45K8WU2pC-POIJrxi45SEd5y43iKotTCywvikseELd-OKQFCZmlIPWoL38LAhlGSJS8Pe2sjREmxYFhnWIJKdXrKOT9d18BiWL1iT3pGFxSUq8E5snvMpejVC2EKUS8w_l02h0TeTgzmPuFKdURtmAt_9g_9509mt4Wk26llZ54wZmmuX8p5NRi3x07nEwsZS8e05H5SCJSOt_Juw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent"></div>
+<div class="absolute top-6 right-6">
+<span class="bg-primary/20 backdrop-blur-md border border-primary/50 text-primary px-3 py-1 text-[10px] font-bold uppercase tracking-widest">Automatización</span>
+</div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<h3 class="text-white text-2xl font-bold mb-4 group-hover:text-primary transition-colors">Instalación de Centros de Control</h3>
+<p class="text-slate-300 text-sm mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Implementación de infraestructuras críticas para gestión de datos industriales.</p>
+<a class="inline-flex items-center gap-2 text-primary text-xs font-black uppercase tracking-widest hover:gap-4 transition-all" href="#">
+                            Ver Detalles
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Project Card 4 -->
+<div class="group relative overflow-hidden bg-neutral-dark aspect-[16/9]">
+<img alt="Línea de Producción" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60" data-alt="Robotic arm working on an automated production line" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDB-d6kwcWtGDb6nDY-qQP6gt9sIitEhyKcIFV1BTO8L3-VllfqSvHndUwyuOdeQvkPs1FGky8kz0AFL5T3L_RE5CFnCPPp0CZYFNoqt_rwMZDuFSshfOPTjqxpNknrjwYk5xD7nFUHga6e1FTY-deqo0b6E6_zpU3emQ4EaLgy2n67Gb5mwizzwrQTWbs74rZZa4iCgNRjGyhJ3YN5JPX6JqCqENyBekABJgVSeZ88ZbJWNpluRutKXbqGEx5AOZPt96SJJYqxyg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent"></div>
+<div class="absolute top-6 right-6">
+<span class="bg-primary/20 backdrop-blur-md border border-primary/50 text-primary px-3 py-1 text-[10px] font-bold uppercase tracking-widest">Automatización</span>
+</div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<h3 class="text-white text-2xl font-bold mb-4 group-hover:text-primary transition-colors">Automatización de Línea de Producción</h3>
+<p class="text-slate-300 text-sm mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Optimización de procesos mediante PLC y sistemas SCADA de última generación.</p>
+<a class="inline-flex items-center gap-2 text-primary text-xs font-black uppercase tracking-widest hover:gap-4 transition-all" href="#">
+                            Ver Detalles
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<div class="mt-16 text-center">
+<button class="bg-transparent border border-white/20 hover:border-primary hover:text-primary text-white font-bold px-10 py-4 transition-all uppercase text-sm">
+                    Cargar más proyectos
+                </button>
+</div>
+</div>
+</section>
+<!-- Statistics Section -->
+<section class="py-16 bg-accent-dark border-y border-primary/20">
+<div class="container mx-auto px-6 lg:px-20">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+<div class="space-y-2">
+<div class="text-4xl md:text-5xl font-black text-primary">15+</div>
+<div class="text-xs font-bold uppercase tracking-widest text-slate-400">Años de Experiencia</div>
+</div>
+<div class="space-y-2">
+<div class="text-4xl md:text-5xl font-black text-primary">500+</div>
+<div class="text-xs font-bold uppercase tracking-widest text-slate-400">Proyectos Completados</div>
+</div>
+<div class="space-y-2">
+<div class="text-4xl md:text-5xl font-black text-primary">98%</div>
+<div class="text-xs font-bold uppercase tracking-widest text-slate-400">Clientes Satisfechos</div>
+</div>
+<div class="space-y-2">
+<div class="text-4xl md:text-5xl font-black text-primary">24/7</div>
+<div class="text-xs font-bold uppercase tracking-widest text-slate-400">Soporte Técnico</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-24 relative overflow-hidden bg-background-dark">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full filter blur-[120px]"></div>
+<div class="absolute bottom-0 right-0 w-96 h-96 bg-primary rounded-full filter blur-[120px]"></div>
+</div>
+<div class="container mx-auto px-6 lg:px-20 relative z-10">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="text-white text-4xl md:text-6xl font-black mb-8 leading-tight uppercase">Inicia tu proyecto <br/> con nosotros</h2>
+<p class="text-slate-400 text-lg mb-12">Estamos listos para llevar tu infraestructura eléctrica al siguiente nivel con tecnología de vanguardia.</p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<button class="w-full sm:w-auto bg-primary text-background-dark font-black px-12 py-5 text-sm uppercase tracking-widest hover:bg-white transition-all">
+                        CONTACTAR AHORA
+                    </button>
+<button class="w-full sm:w-auto bg-transparent border border-white/30 text-white font-black px-12 py-5 text-sm uppercase tracking-widest hover:border-primary transition-all">
+                        VER SERVICIOS
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-neutral-dark border-t border-white/10 pt-20 pb-10">
+<div class="container mx-auto px-6 lg:px-20">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+<div>
+<div class="flex items-center gap-3 mb-6">
+<div class="size-6 bg-primary rounded flex items-center justify-center text-background-dark">
+<span class="material-symbols-outlined text-sm font-bold">bolt</span>
+</div>
+<h2 class="text-white text-lg font-black uppercase tracking-tight">IPE3 <span class="text-primary">Engineering</span></h2>
+</div>
+<p class="text-slate-400 text-sm leading-relaxed mb-6">Líderes en ingeniería eléctrica y automatización industrial. Innovación constante para la industria del futuro.</p>
+<div class="flex gap-4">
+<a class="size-10 rounded bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary transition-all" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="size-10 rounded bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary transition-all" href="#">
+<span class="material-symbols-outlined">hub</span>
+</a>
+</div>
+</div>
+<div>
+<h3 class="text-white font-bold mb-6 uppercase tracking-widest text-sm">Enlaces Rápidos</h3>
+<ul class="space-y-4 text-sm">
+<li><a class="text-slate-400 hover:text-primary transition-colors" href="#">Inicio</a></li>
+<li><a class="text-slate-400 hover:text-primary transition-colors" href="#">Servicios</a></li>
+<li><a class="text-slate-400 hover:text-primary transition-colors" href="#">Nosotros</a></li>
+<li><a class="text-slate-400 hover:text-primary transition-colors" href="#">Proyectos</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-white font-bold mb-6 uppercase tracking-widest text-sm">Contacto</h3>
+<ul class="space-y-4 text-sm">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg">location_on</span>
+<span class="text-slate-400">Parque Industrial Tecnológico II, Zapopan, Jalisco, México</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg">phone</span>
+<span class="text-slate-400">+52 (33) 1234 5678</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-lg">mail</span>
+<span class="text-slate-400">contacto@ipe3.com.mx</span>
+</li>
+</ul>
+</div>
+<div>
+<h3 class="text-white font-bold mb-6 uppercase tracking-widest text-sm">Suscríbete</h3>
+<p class="text-slate-400 text-sm mb-4">Recibe noticias sobre tecnología industrial.</p>
+<div class="flex">
+<input class="bg-white/5 border-white/10 text-white text-sm focus:ring-primary focus:border-primary w-full px-4 py-3 rounded-l" placeholder="Email" type="email"/>
+<button class="bg-primary text-background-dark px-4 py-3 rounded-r">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="border-t border-white/5 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-slate-500 text-xs">© 2024 IPE3 Engineering. Todos los derechos reservados.</p>
+<div class="flex gap-8 text-xs text-slate-500 uppercase tracking-widest">
+<a class="hover:text-white transition-colors" href="#">Aviso de Privacidad</a>
+<a class="hover:text-white transition-colors" href="#">Términos y Condiciones</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
